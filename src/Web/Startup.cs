@@ -17,6 +17,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Web.Exceptions;
 using Web.Logger;
 
 namespace Web
@@ -74,11 +75,15 @@ namespace Web
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            app.UseMiddleware<ExceptionInterceptor>();
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
