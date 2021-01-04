@@ -7,7 +7,7 @@ namespace Core.Entities
 {
     public class Dish
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public int CatalogId { get; set; }
         public Catalog Сatalog { get; set; }
         public string Name { get; set; }

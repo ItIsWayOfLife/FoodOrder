@@ -5,7 +5,7 @@ namespace Core.Entities
 {
     public class CartDishes
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         [Required]
         public int Count { get; set; }
         public int CartId { get; set; }

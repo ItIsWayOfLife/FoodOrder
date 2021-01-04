@@ -5,7 +5,7 @@ namespace Core.Entities
 {
     public class OrderDishes
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         [Required]
         public int Count { get; set; }
         public int OrderId { get; set; }

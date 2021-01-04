@@ -5,7 +5,7 @@ namespace Core.Entities
 {
     public class Order
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         [Required]
         public DateTime DateOrder { get; set; }
         public string ApplicationUserId { get; set; }

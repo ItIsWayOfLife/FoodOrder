@@ -5,7 +5,7 @@ namespace Core.Entities
 {
     public class Menu 
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public string Info { get; set; }
         public DateTime Date { get; set; }
         public int ProviderId { get; set; }
