@@ -6,6 +6,5 @@ namespace Core.Entities
     {
         public Guid Id { get; set; }
         public string ApplicationUserId { get; set; }
-
     }
 }
