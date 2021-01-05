@@ -18,7 +18,10 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Web.Exceptions;
+using Web.Helper;
+using Web.Interfaces;
 using Web.Logger;
+using Web.Services;
 
 namespace Web
 {
@@ -52,6 +55,10 @@ namespace Web
                   .AddEntityFrameworkStores<IdentityContext>();
 
             services.AddTransient<IUnitOfWork, EFUnitOfWork>();
+
+            services.AddTransient<IUserHelper, UserHelper>();
+
+            services.AddTransient<ILoggerService, LoggerService>();
 
             services.AddControllersWithViews();
         }
