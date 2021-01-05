@@ -1,0 +1,27 @@
+﻿@model Web.Models.Account.ProfileViewModel
+
+@{
+    ViewBag.Title = "Profile";
+}
+
+<div class="row mb-5">
+    <div class="col-12 shadow-lg p-0 bg-white" style="font-size: 1.2em;">
+        <div class="card">
+            <div class="card-header">
+                <h3>Profile</h3>
+            </div>
+            <div class="card-body">
+
+                <div class="container">
+                    <p><span class="profileInfo">First Name: </span>@Model.Firstname</p>
+                    <p><span class="profileInfo">Second Name:</span> @Model.Lastname</p>
+                    <p><span class="profileInfo">Millde Name: </span>@Model.Patronomic</p>
+                    <p><span class="profileInfo">Email: </span>@Model.Email</p>
+                    <a class="btn btn-sm btn-primary" asp-controller="Account" asp-action="Edit">Edit</a>
+                    <a class="btn btn-sm btn-primary" asp-controller="Account" asp-action="ChangePassword">Change Password</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -5979,8 +5979,8 @@
     },
     "Infrastructure/1.0.0": {
       "type": "project",
-      "path": "../../Infrastructure/Infrastructure.csproj",
-      "msbuildProject": "../../Infrastructure/Infrastructure.csproj"
+      "path": "../Infrastructure/Infrastructure.csproj",
+      "msbuildProject": "../Infrastructure/Infrastructure.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -6018,11 +6018,11 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\asus\\Desktop\\Work\\FoodOrder\\Infrastructure\\Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\asus\\Desktop\\Work\\FoodOrder\\Infrastructure\\Infrastructure.csproj"
-            },
             "C:\\Users\\asus\\Desktop\\Work\\FoodOrder\\src\\Core\\Core.csproj": {
               "projectPath": "C:\\Users\\asus\\Desktop\\Work\\FoodOrder\\src\\Core\\Core.csproj"
+            },
+            "C:\\Users\\asus\\Desktop\\Work\\FoodOrder\\src\\Infrastructure\\Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\asus\\Desktop\\Work\\FoodOrder\\src\\Infrastructure\\Infrastructure.csproj"
             }
           }
         }
