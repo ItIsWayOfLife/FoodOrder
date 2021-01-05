@@ -1,5 +1,6 @@
 using Core.Identity;
 using Core.Interfaces;
+using Core.Services;
 using Infrastructure.Entities;
 using Infrastructure.Identity;
 using Infrastructure.Repositories;
@@ -53,6 +54,8 @@ namespace Web
                       opts.Password.RequireDigit = false;
                   })
                   .AddEntityFrameworkStores<IdentityContext>();
+
+            services.AddTransient<IProviderService, ProviderService>();
 
             services.AddTransient<IUnitOfWork, EFUnitOfWork>();
 
