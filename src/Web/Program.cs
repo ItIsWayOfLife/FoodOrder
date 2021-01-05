@@ -27,7 +27,7 @@ namespace Web
                     await UserAndRoleInitializer.InitializeAsync(userManager, rolesManager);
 
                     var context = services.GetRequiredService<ApplicationContext>();
-                 //   EntitiesInitializer.Initialize(context);
+                    EntitiesInitializer.Initialize(context);
                 }
                 catch (Exception ex)
                 {
