@@ -1,0 +1,38 @@
+﻿@model Web.Models.Users.UserFilterListViewModel
+@{
+    ViewBag.Title = "Users";
+}
+
+<div class="row mb-5">
+
+    <div class="shadow-lg p-0 bg-white">
+        <div class="card">
+            <div class="card-header">
+                <h3>Users</h3>
+            </div>
+            <div class="card-body">
+
+                <div class="container">
+                    <form method="get">
+                        <a class="btn btn-sm btn-success" asp-action="Create">Add user</a>
+                        <label for="searchSelectionString">Search:</label>
+                        <select id="searchSelectionString" name="searchSelectionString" asp-items="Model.SearchSelection" asp-for="SearchSelectionString"></select>
+                        <label for="seacrhString">Value: </label>
+                        <input id="seacrhString" name="seacrhString" asp-for="SeacrhString" />
+                        <input style="margin-top: -5px;" class="btn btn-sm btn-primary" type="submit" value="Search" />
+                        <a style="margin-top: -5px;" class="btn btn-sm btn-danger" asp-action="Index">Refresh</a>
+                    </form>
+                    <table class="table wrText" style="margin-top: 10px;">
+                        <tr><th>Id</th><th>Email</th><th>Full name</th><th></th></tr>
+                        @{
+                            foreach (var user in Model.ListUsers.Users)
+                            {
+                                @await Html.PartialAsync("_UserList", user)
+                            }
+                        }
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

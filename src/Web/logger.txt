@@ -1,0 +1,63 @@
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/5/2021 5:54:52 AM]:[home/index]:[type:get]:[info:index]:[user:anonymous]
+[1/5/2021 5:55:34 AM]:[home/error/404]:[type:get]:[info:error 404]:[user:anonymous]
+[1/5/2021 5:55:45 AM]:[home/index]:[type:get]:[info:index]:[user:anonymous]
+[1/5/2021 5:55:46 AM]:[home/error/404]:[type:get]:[info:error 404]:[user:anonymous]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/5/2021 5:56:11 AM]:[home/index]:[type:get]:[info:index]:[user:anonymous]
+[1/5/2021 5:56:13 AM]:[account/login]:[type:get]:[info:login]:[user:anonymous]
+[1/5/2021 5:56:15 AM]:[account/login]:[type:post]:[info:login successful]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/5/2021 5:56:15 AM]:[users/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/5/2021 5:56:56 AM]:[home/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/5/2021 5:56:59 AM]:[users/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/5/2021 5:57:09 AM]:[users/edit]:[type:get]:[info:edit user 171b5ff8-a18b-4b0d-bdec-6b28650610ca]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/5/2021 5:57:21 AM]:[users/edit]:[type:post]:[info:edit user 171b5ff8-a18b-4b0d-bdec-6b28650610ca successful]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/5/2021 5:57:21 AM]:[users/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/5/2021 5:57:29 AM]:[users/create]:[type:get]:[info:create]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/5/2021 5:57:44 AM]:[users/create]:[type:post]:[info:create user c4b918f4-573f-4de1-b824-737576b785ab successful]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/5/2021 5:57:44 AM]:[users/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/5/2021 5:57:48 AM]:[users/edit]:[type:get]:[info:edit user c4b918f4-573f-4de1-b824-737576b785ab]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/5/2021 5:58:09 AM]:[users/edit]:[type:post]:[info:edit user c4b918f4-573f-4de1-b824-737576b785ab successful]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/5/2021 5:58:09 AM]:[users/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/5/2021 5:58:13 AM]:[users/edit]:[type:get]:[info:edit user c4b918f4-573f-4de1-b824-737576b785ab]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/5/2021 5:58:18 AM]:[users/edit]:[type:post]:[info:edit user c4b918f4-573f-4de1-b824-737576b785ab successful]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/5/2021 5:58:18 AM]:[users/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/5/2021 5:58:30 AM]:[users/edit]:[type:get]:[info:edit user c4b918f4-573f-4de1-b824-737576b785ab]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/5/2021 5:58:32 AM]:[users/edit]:[type:post]:[info:edit user c4b918f4-573f-4de1-b824-737576b785ab successful]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/5/2021 5:58:32 AM]:[users/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/5/2021 5:58:40 AM]:[users/changepassword/c4b918f4-573f-4de1-b824-737576b785ab]:[type:get]:[info:change password user c4b918f4-573f-4de1-b824-737576b785ab]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/5/2021 5:58:45 AM]:[users/changepassword]:[type:post]:[info:change password user c4b918f4-573f-4de1-b824-737576b785ab]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/5/2021 5:58:45 AM]:[users/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/5/2021 5:58:51 AM]:[roles/edit/c4b918f4-573f-4de1-b824-737576b785ab]:[type:get]:[info:edit roles user c4b918f4-573f-4de1-b824-737576b785ab]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/5/2021 5:58:53 AM]:[roles/edit]:[type:post]:[info:edit roles user c4b918f4-573f-4de1-b824-737576b785ab]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/5/2021 5:58:53 AM]:[users/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/5/2021 5:58:55 AM]:[users/edit]:[type:get]:[info:edit user c4b918f4-573f-4de1-b824-737576b785ab]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/5/2021 5:58:56 AM]:[users/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/5/2021 5:59:00 AM]:[users/delete/c4b918f4-573f-4de1-b824-737576b785ab]:[type:post]:[info:delete user c4b918f4-573f-4de1-b824-737576b785ab successful]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/5/2021 5:59:00 AM]:[users/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/5/2021 5:59:00 AM]:[account/logout]:[type:post]:[info:logout]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/5/2021 5:59:00 AM]:[home/index]:[type:get]:[info:index]:[user:anonymous]
+[1/5/2021 5:59:01 AM]:[account/login]:[type:get]:[info:login]:[user:anonymous]
+[1/5/2021 5:59:02 AM]:[account/login]:[type:post]:[warning:wrong login or password]:[user:anonymous]
+[1/5/2021 5:59:07 AM]:[account/login]:[type:post]:[warning:wrong login or password]:[user:anonymous]
+Invalid password for user.
+User 171b5ff8-a18b-4b0d-bdec-6b28650610ca failed to provide the correct password.
+[1/5/2021 5:59:14 AM]:[account/login]:[type:post]:[warning:wrong login or password]:[user:anonymous]
+[1/5/2021 5:59:16 AM]:[account/login]:[type:post]:[info:login successful]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/5/2021 5:59:16 AM]:[home/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/5/2021 5:59:18 AM]:[account/profile]:[type:get]:[info:profile]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/5/2021 5:59:20 AM]:[account/logout]:[type:post]:[info:logout]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/5/2021 5:59:20 AM]:[home/index]:[type:get]:[info:index]:[user:anonymous]
+[1/5/2021 5:59:21 AM]:[account/login]:[type:get]:[info:login]:[user:anonymous]
+[1/5/2021 5:59:24 AM]:[account/login]:[type:post]:[info:login successful]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/5/2021 5:59:24 AM]:[home/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/5/2021 5:59:26 AM]:[home/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/5/2021 5:59:27 AM]:[users/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/5/2021 5:59:44 AM]:[home/privacy]:[type:get]:[info:privacy]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
