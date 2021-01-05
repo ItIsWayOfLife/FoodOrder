@@ -1,3 +1,15 @@
 Application started. Press Ctrl+C to shut down.
 Hosting environment: Development
 Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
