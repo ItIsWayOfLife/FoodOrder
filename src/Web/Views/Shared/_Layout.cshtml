@@ -23,8 +23,16 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" asp-controller="Home" asp-action="Index">About</a>
+                        <a class="nav-link" asp-controller="Home" asp-action="About">About</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Home" asp-action="AboutDelivery">About delivery</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+
                 </ul>
                 <nav>
                     <ul class="navbar-nav mr-auto">
@@ -85,7 +93,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            <a asp-controller="Home" asp-action="Privacy"> &copy; 2021 - Food Order - Privacy</a>
+            <a class="linkPrivacy" asp-controller="Home" asp-action="Privacy"> &copy; 2021 - Food Order - Privacy</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

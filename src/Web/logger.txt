@@ -13,3 +13,63 @@ Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
 Application started. Press Ctrl+C to shut down.
 Hosting environment: Development
 Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/5/2021 4:45:12 AM]:[home/index]:[type:get]:[info:index]:[user:anonymous]
+[1/5/2021 4:45:13 AM]:[home/about]:[type:get]:[info:about]:[user:anonymous]
+[1/5/2021 4:45:19 AM]:[home/aboutdelivery]:[type:get]:[info:aboutdelivery]:[user:anonymous]
+[1/5/2021 4:45:20 AM]:[home/about]:[type:get]:[info:about]:[user:anonymous]
+[1/5/2021 4:45:24 AM]:[home/aboutdelivery]:[type:get]:[info:aboutdelivery]:[user:anonymous]
+[1/5/2021 4:45:25 AM]:[home/index]:[type:get]:[info:index]:[user:anonymous]
+[1/5/2021 4:45:26 AM]:[home/about]:[type:get]:[info:about]:[user:anonymous]
+[1/5/2021 4:45:30 AM]:[home/aboutdelivery]:[type:get]:[info:aboutdelivery]:[user:anonymous]
+[1/5/2021 4:45:34 AM]:[home/index]:[type:get]:[info:index]:[user:anonymous]
+[1/5/2021 4:45:36 AM]:[home/aboutdelivery]:[type:get]:[info:aboutdelivery]:[user:anonymous]
+[1/5/2021 4:45:37 AM]:[home/about]:[type:get]:[info:about]:[user:anonymous]
+[1/5/2021 4:45:37 AM]:[home/aboutdelivery]:[type:get]:[info:aboutdelivery]:[user:anonymous]
+[1/5/2021 4:45:38 AM]:[home/index]:[type:get]:[info:index]:[user:anonymous]
+[1/5/2021 4:45:39 AM]:[home/aboutdelivery]:[type:get]:[info:aboutdelivery]:[user:anonymous]
+[1/5/2021 4:45:40 AM]:[home/about]:[type:get]:[info:about]:[user:anonymous]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/5/2021 4:48:13 AM]:[home/index]:[type:get]:[info:index]:[user:anonymous]
+[1/5/2021 4:48:14 AM]:[home/about]:[type:get]:[info:about]:[user:anonymous]
+[1/5/2021 4:48:17 AM]:[home/aboutdelivery]:[type:get]:[info:aboutdelivery]:[user:anonymous]
+[1/5/2021 4:48:18 AM]:[home/about]:[type:get]:[info:about]:[user:anonymous]
+[1/5/2021 4:48:19 AM]:[home/aboutdelivery]:[type:get]:[info:aboutdelivery]:[user:anonymous]
+[1/5/2021 4:48:19 AM]:[home/about]:[type:get]:[info:about]:[user:anonymous]
+[1/5/2021 4:48:33 AM]:[home/aboutdelivery]:[type:get]:[info:aboutdelivery]:[user:anonymous]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/5/2021 4:52:56 AM]:[home/index]:[type:get]:[info:index]:[user:anonymous]
+[1/5/2021 4:52:59 AM]:[home/index]:[type:get]:[info:index]:[user:anonymous]
+[1/5/2021 4:53:01 AM]:[home/aboutdelivery]:[type:get]:[info:aboutdelivery]:[user:anonymous]
+[1/5/2021 4:53:02 AM]:[home/about]:[type:get]:[info:about]:[user:anonymous]
+[1/5/2021 4:53:05 AM]:[home/aboutdelivery]:[type:get]:[info:aboutdelivery]:[user:anonymous]
+[1/5/2021 4:53:08 AM]:[home/about]:[type:get]:[info:about]:[user:anonymous]
+[1/5/2021 4:53:09 AM]:[home/aboutdelivery]:[type:get]:[info:aboutdelivery]:[user:anonymous]
+[1/5/2021 4:53:10 AM]:[home/about]:[type:get]:[info:about]:[user:anonymous]
+[1/5/2021 4:53:11 AM]:[home/aboutdelivery]:[type:get]:[info:aboutdelivery]:[user:anonymous]
+[1/5/2021 4:53:12 AM]:[home/about]:[type:get]:[info:about]:[user:anonymous]
+[1/5/2021 4:53:13 AM]:[home/aboutdelivery]:[type:get]:[info:aboutdelivery]:[user:anonymous]
+[1/5/2021 4:53:14 AM]:[home/about]:[type:get]:[info:about]:[user:anonymous]
+[1/5/2021 4:53:18 AM]:[home/privacy]:[type:get]:[info:privacy]:[user:anonymous]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/5/2021 4:54:08 AM]:[home/index]:[type:get]:[info:index]:[user:anonymous]
+[1/5/2021 4:54:12 AM]:[home/about]:[type:get]:[info:about]:[user:anonymous]
+[1/5/2021 4:54:14 AM]:[home/aboutdelivery]:[type:get]:[info:aboutdelivery]:[user:anonymous]
+[1/5/2021 4:54:15 AM]:[home/index]:[type:get]:[info:index]:[user:anonymous]
+[1/5/2021 4:54:16 AM]:[home/aboutdelivery]:[type:get]:[info:aboutdelivery]:[user:anonymous]
+[1/5/2021 4:54:17 AM]:[home/index]:[type:get]:[info:index]:[user:anonymous]
+[1/5/2021 4:54:17 AM]:[home/aboutdelivery]:[type:get]:[info:aboutdelivery]:[user:anonymous]
+[1/5/2021 4:54:18 AM]:[home/about]:[type:get]:[info:about]:[user:anonymous]
+[1/5/2021 4:54:18 AM]:[home/index]:[type:get]:[info:index]:[user:anonymous]
+[1/5/2021 4:54:20 AM]:[home/index]:[type:get]:[info:index]:[user:anonymous]
+[1/5/2021 4:54:20 AM]:[home/index]:[type:get]:[info:index]:[user:anonymous]
+[1/5/2021 4:54:21 AM]:[home/about]:[type:get]:[info:about]:[user:anonymous]
+[1/5/2021 4:54:21 AM]:[home/index]:[type:get]:[info:index]:[user:anonymous]
