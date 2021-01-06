@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Collections.Generic;
 using System.Linq;
 using Web.Models.Catalog;
+using Web.Interfaces;
+using Core.Constants;
+using System.Security.Claims;
 
 namespace Web.Controllers
 {
@@ -15,12 +18,17 @@ namespace Web.Controllers
     {
         private readonly ICatalogService _сatalogService;
         private readonly IProviderService _providerService;
+        private readonly ILoggerService _loggerService;
+
+        private const string CONTROLLER_NAME = "catalog";
 
         public CatalogController(ICatalogService сatalogService,
-            IProviderService providerService)
+            IProviderService providerService,
+            ILoggerService loggerService)
         {
             _сatalogService = сatalogService;
             _providerService = providerService;
+            _loggerService = loggerService;
         }
 
         [AllowAnonymous]
@@ -58,6 +66,8 @@ namespace Web.Controllers
                 _ => catalogs.OrderBy(s => s.Name).ToList(),
             };
 
+            _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_INDEX + $"/{providerId}", LoggerConstants.TYPE_GET, $"index – get catalogs of providerId: {providerId}", GetCurrentUserId());
+
             return View(new CatalogdProviderIdViewModel()
             {
                 MenuId = menuId,
@@ -74,6 +84,8 @@ namespace Web.Controllers
         [HttpGet]
         public IActionResult Add(int providerId)
         {
+            _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_ADD + $"/{providerId}", LoggerConstants.TYPE_GET, $"add catalog providerId: {providerId}", GetCurrentUserId());
+
             return View(new AddCatalogViewModel() { ProviderId = providerId });
         }
 
@@ -91,6 +103,8 @@ namespace Web.Controllers
 
                 _сatalogService.AddСatalog(сatalogDTO);
 
+                _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_ADD , LoggerConstants.TYPE_POST, $"add catalog name: {model.Name} providerId: {model.ProviderId}", GetCurrentUserId());
+
                 return RedirectToAction("Index", new { model.ProviderId });
             }
             return View(model);
@@ -100,6 +114,8 @@ namespace Web.Controllers
         public ActionResult Delete(int? id, int providerId, string searchSelectionString, string name)
         {
             _сatalogService.DeleteСatalog(id);
+
+            _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_DELETE, LoggerConstants.TYPE_POST, $"delete catalog id: {id} providerId: {providerId}", GetCurrentUserId());
 
             return RedirectToAction("Index", new { providerId, searchSelectionString, name });
         }
@@ -116,6 +132,8 @@ namespace Web.Controllers
                 Name = сatalogDTO.Name,
                 ProviderId = сatalogDTO.ProviderId
             };
+
+            _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_EDIT +$"/{id}", LoggerConstants.TYPE_GET, $"edit catalog id: {id} providerId: {provider.ProviderId}", GetCurrentUserId());
 
             return View(provider);
         }
@@ -135,6 +153,8 @@ namespace Web.Controllers
 
                 _сatalogService.EditСatalog(сatalogDTO);
 
+                _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_EDIT, LoggerConstants.TYPE_POST, $"edit catalog id: {model.Id} providerId: {model.ProviderId}", GetCurrentUserId());
+
                 return RedirectToAction("Index", new { providerId = model.ProviderId });
             }
 
@@ -142,5 +162,17 @@ namespace Web.Controllers
         }
 
         #endregion
+
+        private string GetCurrentUserId()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                return User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            }
+            else
+            {
+                return null;
+            }
+        }
     }
 }
