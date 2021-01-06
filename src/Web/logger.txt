@@ -50,3 +50,366 @@ Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
 [1/6/2021 8:37:10 PM]:[account/login]:[type:get]:[info:login]:[user:anonymous]
 [1/6/2021 8:37:13 PM]:[book/index]:[type:get]:[info:index]:[user:anonymous]
 [1/6/2021 8:37:25 PM]:[home/error/404]:[type:get]:[info:error 404]:[user:anonymous]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/6/2021 9:37:47 PM]:[book/listfavoriteproviders]:[type:get]:[info:index]:[user:anonymous]
+[1/6/2021 9:37:50 PM]:[book/index]:[type:get]:[info:index]:[user:anonymous]
+The view 'Index' was not found. Searched locations: /Views/Catalog/Index.cshtml, /Views/Shared/Index.cshtml
+1/6/2021 9:37:52 PM: Something went wrong: System.InvalidOperationException: The view 'Index' was not found. The following locations were searched:
+/Views/Catalog/Index.cshtml
+/Views/Shared/Index.cshtml
+   at Microsoft.AspNetCore.Mvc.ViewEngines.ViewEngineResult.EnsureSuccessful(IEnumerable`1 originalLocations)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Web.Exceptions.ExceptionInterceptor.InvokeAsync(HttpContext context) in C:\Users\asus\Desktop\Work\FoodOrder\src\Web\Exceptions\ExceptionInterceptor.cs:line 24
+The view 'Index' was not found. Searched locations: /Views/Catalog/Index.cshtml, /Views/Shared/Index.cshtml
+An unhandled exception has occurred while executing the request.
+[1/6/2021 9:37:52 PM]:[home/error/]:[type:get]:[info:error ]:[user:anonymous]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/6/2021 9:40:08 PM]:[book/listfavoriteproviders]:[type:get]:[info:index]:[user:anonymous]
+[1/6/2021 9:40:10 PM]:[book/index]:[type:get]:[info:index]:[user:anonymous]
+[1/6/2021 9:40:11 PM]:[home/error/404]:[type:get]:[info:error 404]:[user:anonymous]
+[1/6/2021 9:40:13 PM]:[book/index]:[type:get]:[info:index]:[user:anonymous]
+[1/6/2021 9:40:24 PM]:[book/index]:[type:get]:[info:index]:[user:anonymous]
+[1/6/2021 9:40:26 PM]:[home/about]:[type:get]:[info:about]:[user:anonymous]
+[1/6/2021 9:40:26 PM]:[book/index]:[type:get]:[info:index]:[user:anonymous]
+[1/6/2021 9:40:27 PM]:[home/aboutdelivery]:[type:get]:[info:aboutdelivery]:[user:anonymous]
+[1/6/2021 9:40:28 PM]:[home/about]:[type:get]:[info:about]:[user:anonymous]
+[1/6/2021 9:40:29 PM]:[book/index]:[type:get]:[info:index]:[user:anonymous]
+[1/6/2021 9:40:35 PM]:[book/index]:[type:get]:[info:index]:[user:anonymous]
+[1/6/2021 9:40:36 PM]:[account/login]:[type:get]:[info:login]:[user:anonymous]
+[1/6/2021 9:40:37 PM]:[home/about]:[type:get]:[info:about]:[user:anonymous]
+[1/6/2021 9:40:38 PM]:[home/aboutdelivery]:[type:get]:[info:aboutdelivery]:[user:anonymous]
+[1/6/2021 9:40:39 PM]:[book/index]:[type:get]:[info:index]:[user:anonymous]
+[1/6/2021 9:40:43 PM]:[home/about]:[type:get]:[info:about]:[user:anonymous]
+[1/6/2021 9:40:44 PM]:[home/aboutdelivery]:[type:get]:[info:aboutdelivery]:[user:anonymous]
+[1/6/2021 9:40:45 PM]:[book/index]:[type:get]:[info:index]:[user:anonymous]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/6/2021 9:51:23 PM]:[book/listfavoriteproviders]:[type:get]:[info:index]:[user:anonymous]
+[1/6/2021 9:51:25 PM]:[book/index]:[type:get]:[info:index]:[user:anonymous]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/6/2021 9:55:17 PM]:[book/listfavoriteproviders]:[type:get]:[info:index]:[user:anonymous]
+[1/6/2021 9:55:19 PM]:[book/index]:[type:get]:[info:index]:[user:anonymous]
+[1/6/2021 9:55:19 PM]:[home/error/404]:[type:get]:[info:error 404]:[user:anonymous]
+[1/6/2021 9:55:21 PM]:[book/index]:[type:get]:[info:index]:[user:anonymous]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/6/2021 9:56:11 PM]:[book/listfavoriteproviders]:[type:get]:[info:index]:[user:anonymous]
+[1/6/2021 9:56:13 PM]:[book/index]:[type:get]:[info:index]:[user:anonymous]
+[1/6/2021 9:56:21 PM]:[account/login]:[type:get]:[info:login]:[user:anonymous]
+[1/6/2021 9:56:23 PM]:[account/login]:[type:post]:[info:login successful]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 9:56:23 PM]:[home/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 9:56:24 PM]:[book/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+The view 'Add' was not found. Searched locations: /Views/Catalog/Add.cshtml, /Views/Shared/Add.cshtml
+1/6/2021 9:56:33 PM: Something went wrong: System.InvalidOperationException: The view 'Add' was not found. The following locations were searched:
+/Views/Catalog/Add.cshtml
+/Views/Shared/Add.cshtml
+   at Microsoft.AspNetCore.Mvc.ViewEngines.ViewEngineResult.EnsureSuccessful(IEnumerable`1 originalLocations)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Web.Exceptions.ExceptionInterceptor.InvokeAsync(HttpContext context) in C:\Users\asus\Desktop\Work\FoodOrder\src\Web\Exceptions\ExceptionInterceptor.cs:line 24
+The view 'Add' was not found. Searched locations: /Views/Catalog/Add.cshtml, /Views/Shared/Add.cshtml
+An unhandled exception has occurred while executing the request.
+[1/6/2021 9:56:33 PM]:[home/error/]:[type:get]:[info:error ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/6/2021 9:57:21 PM]:[book/listfavoriteproviders]:[type:get]:[info:index]:[user:anonymous]
+[1/6/2021 9:57:38 PM]:[account/login]:[type:get]:[info:login]:[user:anonymous]
+[1/6/2021 9:57:39 PM]:[account/login]:[type:post]:[info:login successful]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 9:57:39 PM]:[home/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 9:57:41 PM]:[book/listfavoriteproviders]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/6/2021 10:02:02 PM]:[book/listfavoriteproviders]:[type:get]:[info:index]:[user:anonymous]
+[1/6/2021 10:06:16 PM]:[account/login]:[type:get]:[info:login]:[user:anonymous]
+[1/6/2021 10:06:16 PM]:[book/index]:[type:get]:[info:index]:[user:anonymous]
+[1/6/2021 10:06:19 PM]:[home/error/404]:[type:get]:[info:error 404]:[user:anonymous]
+[1/6/2021 10:06:20 PM]:[book/index]:[type:get]:[info:index]:[user:anonymous]
+[1/6/2021 10:06:31 PM]:[book/index]:[type:get]:[info:index]:[user:anonymous]
+[1/6/2021 10:06:34 PM]:[book/index]:[type:get]:[info:index]:[user:anonymous]
+[1/6/2021 10:06:41 PM]:[book/index]:[type:get]:[info:index]:[user:anonymous]
+[1/6/2021 10:06:46 PM]:[book/index]:[type:get]:[info:index]:[user:anonymous]
+[1/6/2021 10:06:49 PM]:[account/login]:[type:get]:[info:login]:[user:anonymous]
+[1/6/2021 10:06:50 PM]:[account/login]:[type:post]:[info:login successful]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 10:06:50 PM]:[home/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 10:06:52 PM]:[users/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 10:06:55 PM]:[book/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/6/2021 10:07:47 PM]:[book/listfavoriteproviders]:[type:get]:[info:index]:[user:anonymous]
+[1/6/2021 10:07:49 PM]:[book/index]:[type:get]:[info:index]:[user:anonymous]
+[1/6/2021 10:07:52 PM]:[account/login]:[type:get]:[info:login]:[user:anonymous]
+[1/6/2021 10:07:53 PM]:[account/login]:[type:post]:[info:login successful]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 10:07:53 PM]:[home/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 10:07:54 PM]:[book/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 10:08:17 PM]:[book/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/6/2021 10:09:12 PM]:[book/listfavoriteproviders]:[type:get]:[info:index]:[user:anonymous]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/6/2021 10:09:39 PM]:[book/listfavoriteproviders]:[type:get]:[info:index]:[user:anonymous]
+[1/6/2021 10:09:41 PM]:[account/login]:[type:get]:[info:login]:[user:anonymous]
+[1/6/2021 10:09:42 PM]:[book/index]:[type:get]:[info:index]:[user:anonymous]
+[1/6/2021 10:09:46 PM]:[book/index]:[type:get]:[info:index]:[user:anonymous]
+[1/6/2021 10:09:48 PM]:[home/error/404]:[type:get]:[info:error 404]:[user:anonymous]
+[1/6/2021 10:09:49 PM]:[account/login]:[type:get]:[info:login]:[user:anonymous]
+[1/6/2021 10:09:50 PM]:[account/register]:[type:get]:[info:registeration]:[user:anonymous]
+[1/6/2021 10:09:51 PM]:[book/index]:[type:get]:[info:index]:[user:anonymous]
+[1/6/2021 10:09:52 PM]:[account/login]:[type:get]:[info:login]:[user:anonymous]
+[1/6/2021 10:09:53 PM]:[book/index]:[type:get]:[info:index]:[user:anonymous]
+[1/6/2021 10:10:01 PM]:[book/index]:[type:get]:[info:index]:[user:anonymous]
+[1/6/2021 10:10:06 PM]:[account/login]:[type:get]:[info:login]:[user:anonymous]
+[1/6/2021 10:10:08 PM]:[account/login]:[type:post]:[info:login successful]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 10:10:08 PM]:[home/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 10:10:09 PM]:[users/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 10:10:10 PM]:[book/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/6/2021 10:12:13 PM]:[book/listfavoriteproviders]:[type:get]:[info:index]:[user:anonymous]
+[1/6/2021 10:12:16 PM]:[book/index]:[type:get]:[info:index]:[user:anonymous]
+[1/6/2021 10:12:18 PM]:[home/error/404]:[type:get]:[info:error 404]:[user:anonymous]
+[1/6/2021 10:12:23 PM]:[account/login]:[type:get]:[info:login]:[user:anonymous]
+[1/6/2021 10:12:24 PM]:[account/login]:[type:post]:[info:login successful]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 10:12:25 PM]:[home/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 10:12:26 PM]:[home/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 10:12:28 PM]:[home/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 10:12:30 PM]:[users/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 10:12:31 PM]:[book/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/6/2021 10:14:37 PM]:[book/listfavoriteproviders]:[type:get]:[info:index]:[user:anonymous]
+[1/6/2021 10:14:42 PM]:[account/login]:[type:get]:[info:login]:[user:anonymous]
+[1/6/2021 10:14:43 PM]:[account/login]:[type:post]:[info:login successful]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 10:14:43 PM]:[home/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 10:14:46 PM]:[book/listfavoriteproviders]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/6/2021 10:16:27 PM]:[book/listfavoriteproviders]:[type:get]:[info:index]:[user:anonymous]
+[1/6/2021 10:16:32 PM]:[account/login]:[type:get]:[info:login]:[user:anonymous]
+[1/6/2021 10:16:33 PM]:[account/login]:[type:post]:[info:login successful]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 10:16:33 PM]:[home/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 10:16:35 PM]:[book/listfavoriteproviders]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 10:17:16 PM]:[book/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/6/2021 10:18:37 PM]:[book/listfavoriteproviders]:[type:get]:[info:index]:[user:anonymous]
+[1/6/2021 10:18:46 PM]:[home/error/404]:[type:get]:[info:error 404]:[user:anonymous]
+[1/6/2021 10:18:47 PM]:[book/listfavoriteproviders]:[type:get]:[info:index]:[user:anonymous]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/6/2021 10:21:44 PM]:[book/listfavoriteproviders]:[type:get]:[info:index]:[user:anonymous]
+[1/6/2021 10:21:46 PM]:[book/index]:[type:get]:[info:index]:[user:anonymous]
+[1/6/2021 10:21:51 PM]:[book/index]:[type:get]:[info:index]:[user:anonymous]
+[1/6/2021 10:21:52 PM]:[account/login]:[type:get]:[info:login]:[user:anonymous]
+[1/6/2021 10:21:53 PM]:[account/login]:[type:post]:[info:login successful]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 10:21:54 PM]:[home/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 10:21:54 PM]:[book/listfavoriteproviders]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 10:21:55 PM]:[book/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 10:21:58 PM]:[book/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 10:22:01 PM]:[book/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 10:22:08 PM]:[book/delete]:[type:post/1]:[info:delete 1 provider]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 10:22:09 PM]:[book/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 10:22:14 PM]:[book/delete]:[type:post/26]:[info:delete 26 provider]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 10:22:14 PM]:[book/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 10:22:17 PM]:[book/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 10:22:24 PM]:[book/add]:[type:get]:[info:add]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 10:22:25 PM]:[book/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 10:22:41 PM]:[book/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/6/2021 10:23:31 PM]:[book/listfavoriteproviders]:[type:get]:[info:index]:[user:anonymous]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/6/2021 10:24:13 PM]:[book/listfavoriteproviders]:[type:get]:[info:index]:[user:anonymous]
+[1/6/2021 10:24:15 PM]:[book/index]:[type:get]:[info:index]:[user:anonymous]
+[1/6/2021 10:24:22 PM]:[account/login]:[type:get]:[info:login]:[user:anonymous]
+[1/6/2021 10:24:23 PM]:[account/login]:[type:post]:[info:login successful]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 10:24:23 PM]:[home/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 10:24:24 PM]:[book/listfavoriteproviders]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 10:24:25 PM]:[book/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/6/2021 10:25:14 PM]:[book/listfavoriteproviders]:[type:get]:[info:index]:[user:anonymous]
+[1/6/2021 10:25:16 PM]:[book/index]:[type:get]:[info:index]:[user:anonymous]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/6/2021 10:26:02 PM]:[book/listfavoriteproviders]:[type:get]:[info:index]:[user:anonymous]
+[1/6/2021 10:26:04 PM]:[book/index]:[type:get]:[info:index]:[user:anonymous]
+[1/6/2021 10:26:10 PM]:[book/index]:[type:get]:[info:index]:[user:anonymous]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/6/2021 10:26:51 PM]:[book/listfavoriteproviders]:[type:get]:[info:index]:[user:anonymous]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/6/2021 10:27:23 PM]:[book/listfavoriteproviders]:[type:get]:[info:index]:[user:anonymous]
+[1/6/2021 10:27:31 PM]:[account/login]:[type:get]:[info:login]:[user:anonymous]
+[1/6/2021 10:27:32 PM]:[account/login]:[type:post]:[info:login successful]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 10:27:32 PM]:[home/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 10:27:32 PM]:[book/listfavoriteproviders]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 10:28:02 PM]:[book/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/6/2021 10:28:35 PM]:[book/listfavoriteproviders]:[type:get]:[info:index]:[user:anonymous]
+[1/6/2021 10:28:40 PM]:[account/login]:[type:get]:[info:login]:[user:anonymous]
+[1/6/2021 10:28:41 PM]:[account/login]:[type:post]:[info:login successful]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 10:28:41 PM]:[home/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 10:28:41 PM]:[book/listfavoriteproviders]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/6/2021 10:29:10 PM]:[book/listfavoriteproviders]:[type:get]:[info:index]:[user:anonymous]
+[1/6/2021 10:29:17 PM]:[account/login]:[type:get]:[info:login]:[user:anonymous]
+[1/6/2021 10:29:19 PM]:[account/login]:[type:post]:[info:login successful]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 10:29:19 PM]:[home/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 10:29:19 PM]:[book/listfavoriteproviders]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/6/2021 10:29:40 PM]:[book/listfavoriteproviders]:[type:get]:[info:index]:[user:anonymous]
+[1/6/2021 10:29:48 PM]:[book/index]:[type:get]:[info:index]:[user:anonymous]
+[1/6/2021 10:29:51 PM]:[book/index]:[type:get]:[info:index]:[user:anonymous]
+[1/6/2021 10:29:54 PM]:[book/index]:[type:get]:[info:index]:[user:anonymous]
+[1/6/2021 10:29:59 PM]:[book/index]:[type:get]:[info:index]:[user:anonymous]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/6/2021 10:30:29 PM]:[book/listfavoriteproviders]:[type:get]:[info:index]:[user:anonymous]
+[1/6/2021 10:30:31 PM]:[book/index]:[type:get]:[info:index]:[user:anonymous]
+[1/6/2021 10:30:34 PM]:[book/index]:[type:get]:[info:index]:[user:anonymous]
+[1/6/2021 10:30:40 PM]:[book/index]:[type:get]:[info:index]:[user:anonymous]
+[1/6/2021 10:30:42 PM]:[book/index]:[type:get]:[info:index]:[user:anonymous]
+[1/6/2021 10:30:46 PM]:[book/index]:[type:get]:[info:index]:[user:anonymous]
+[1/6/2021 10:30:48 PM]:[book/index]:[type:get]:[info:index]:[user:anonymous]
+[1/6/2021 10:30:54 PM]:[account/login]:[type:get]:[info:login]:[user:anonymous]
+[1/6/2021 10:30:55 PM]:[account/login]:[type:post]:[info:login successful]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 10:30:55 PM]:[home/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 10:30:55 PM]:[book/listfavoriteproviders]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/6/2021 10:31:48 PM]:[book/listfavoriteproviders]:[type:get]:[info:index]:[user:anonymous]
+[1/6/2021 10:31:52 PM]:[account/login]:[type:get]:[info:login]:[user:anonymous]
+[1/6/2021 10:31:54 PM]:[account/login]:[type:post]:[info:login successful]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 10:31:54 PM]:[users/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 10:31:58 PM]:[book/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 10:32:00 PM]:[home/about]:[type:get]:[info:about]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 10:32:00 PM]:[home/aboutdelivery]:[type:get]:[info:aboutdelivery]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 10:32:01 PM]:[home/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 10:32:01 PM]:[book/listfavoriteproviders]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 10:32:01 PM]:[book/listfavoriteproviders]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 10:32:02 PM]:[users/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/6/2021 10:33:18 PM]:[book/listfavoriteproviders]:[type:get]:[info:index]:[user:anonymous]
+[1/6/2021 10:33:20 PM]:[account/login]:[type:get]:[info:login]:[user:anonymous]
+[1/6/2021 10:33:22 PM]:[account/login]:[type:post]:[info:login successful]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 10:33:22 PM]:[users/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 10:33:22 PM]:[users/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/6/2021 10:33:56 PM]:[book/listfavoriteproviders]:[type:get]:[info:index]:[user:anonymous]
+[1/6/2021 10:33:58 PM]:[account/login]:[type:get]:[info:login]:[user:anonymous]
+[1/6/2021 10:33:59 PM]:[account/login]:[type:post]:[info:login successful]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 10:33:59 PM]:[users/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 10:34:04 PM]:[users/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 10:34:04 PM]:[users/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 10:34:04 PM]:[users/create]:[type:get]:[info:create]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 10:34:07 PM]:[users/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 10:34:15 PM]:[book/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 10:34:17 PM]:[users/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 10:35:39 PM]:[users/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 10:35:40 PM]:[book/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 10:35:45 PM]:[book/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 10:35:58 PM]:[account/profile]:[type:get]:[info:profile]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 10:35:59 PM]:[book/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 10:36:00 PM]:[home/about]:[type:get]:[info:about]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 10:36:01 PM]:[book/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 10:36:01 PM]:[users/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/7/2021 12:58:11 AM]:[book/listfavoriteproviders]:[type:get]:[info:index]:[user:anonymous]
+[1/7/2021 12:58:20 AM]:[book/index]:[type:get]:[info:index]:[user:anonymous]
+[1/7/2021 12:58:23 AM]:[account/login]:[type:get]:[info:login]:[user:anonymous]
+[1/7/2021 12:58:24 AM]:[account/login]:[type:post]:[info:login successful]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 12:58:24 AM]:[home/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 12:58:24 AM]:[book/listfavoriteproviders]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 12:58:25 AM]:[book/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 12:58:28 AM]:[book/delete]:[type:post/24]:[info:delete 24 provider]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 12:58:29 AM]:[book/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 12:58:31 AM]:[book/delete]:[type:post/16]:[info:delete 16 provider]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 12:58:31 AM]:[book/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 12:58:41 AM]:[book/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 12:58:44 AM]:[book/delete]:[type:post/22]:[info:delete 22 provider]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 12:58:44 AM]:[book/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 12:58:46 AM]:[book/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/7/2021 1:01:33 AM]:[book/listfavoriteproviders]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 1:01:56 AM]:[book/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 1:02:00 AM]:[book/edit/14]:[type:get]:[info:edit]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 1:02:20 AM]:[book/edit]:[type:post]:[info:edit 14 provider]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 1:02:20 AM]:[book/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 1:02:28 AM]:[book/edit/14]:[type:get]:[info:edit]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 1:02:38 AM]:[book/edit]:[type:post]:[info:edit 14 provider]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 1:02:38 AM]:[book/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 1:02:45 AM]:[book/edit/14]:[type:get]:[info:edit]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 1:02:55 AM]:[book/edit]:[type:post]:[info:edit 14 provider]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 1:02:55 AM]:[book/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]

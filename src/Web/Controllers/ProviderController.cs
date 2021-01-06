@@ -146,13 +146,13 @@ namespace Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int id, string searchSelectionString, string seacrhString)
         {
             _providerService.DeleteProvider(id);
 
             _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_DELETE, LoggerConstants.TYPE_POST +$"/{id}", $"delete {id} provider", GetCurrentUserId());
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", new { searchSelectionString, seacrhString });
         }
 
         [HttpGet]

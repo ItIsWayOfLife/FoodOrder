@@ -1,0 +1,86 @@
+﻿@model Web.Models.Catalog.CatalogdProviderIdViewModel
+
+@{ ViewBag.Title = "Catalog"; }
+
+
+<div class="row mb-5">
+
+    <div class="col-12 shadow-lg p-0 bg-white">
+        <div class="card">
+            <div class="card-header">
+                <h3>Catalog @ViewData["NameProvider"]</h3>
+            </div>
+            <div class="card-body">
+                <div  class="container">
+                    <form method="get">
+                        <input type="hidden" name="providerId" value="@Model.ProviderId" />
+                        <div class="form-inline form-group">
+                            <label class="mr-1" asp-for="SearchSelectionString">SearchBy: </label>
+                            <select class="mr-1" style="height: 1.8em;" name="searchSelectionString" asp-items="Model.SearchSelection" asp-for="SearchSelectionString"></select>
+                            <label class="mr-1" asp-for="SeacrhString">Value: </label>
+                            <input class="mr-1" name="name" asp-for="SeacrhString" />
+                            <input class="btn btn-sm btn-primary mr-1" type="submit" value="Search" />
+                            <a class="btn btn-sm btn-danger mr-1" asp-action="Index" asp-route-providerId="@Model.ProviderId">Refresh</a>
+                            <a class="btn btn-sm btn-warning mr-1" asp-action="Index" asp-controller="Provider" asp-route-providerId="@Model.ProviderId" >Back</a>
+                           
+                            @if (User.IsInRole("admin"))
+                            {
+                                <a class="btn btn-sm btn-success mr-1" asp-controller="Catalog" asp-action="Add" asp-route-providerId="@Model.ProviderId">AddCatalog</a>
+                            }
+
+                        </div>
+                    </form>
+
+                    @if (Model.Catalogs.Any())
+                    {
+                <table class="table">
+                    <tr>
+                        <th>
+                            <a asp-action="Index" asp-route-providerId="@Model.ProviderId" asp-route-sortCatalog="@ViewBag.NameSort"
+                               asp-route-searchSelectionString="@Model.SearchSelectionString" asp-route-name="@Model.SeacrhString">
+                                Catalog
+                            </a>
+                        </th>
+                        <th>Info</th>
+                        <th></th>
+                        @if (User.IsInRole("admin"))
+                        {
+                <th></th>
+}
+                    </tr>
+
+                    @foreach (var catalog in Model.Catalogs)
+                    {
+                <tr>
+                    <td>@catalog.Name</td>
+                    <td>@catalog.Info</td>
+                    <td><a class="btn btn-sm btn-primary" asp-controller="Dish" asp-action="Index" asp-route-catalogId="@catalog.Id" asp-route-menuId="@Model.MenuId">Dishes</a></td>
+                    @if (User.IsInRole("admin"))
+                    {
+                <td>
+                    <form asp-action="Delete" asp-route-id="@catalog.Id"
+                          asp-route-providerId="@catalog.ProviderId"
+                          asp-route-searchSelectionString="@Model.SearchSelectionString"
+                          asp-route-name="@Model.SeacrhString"
+                          method="post">
+                        <input type="hidden" name="providerId" value="@Model.ProviderId" />
+                        <a class="btn btn-sm btn-primary" asp-action="Edit" asp-route-id="@catalog.Id">Edit</a>
+                        <button type="submit" class="btn btn-sm btn-danger">
+                            Delete
+                        </button>
+                    </form>
+                </td>
+}
+                </tr>
+}
+                </table> }
+            else
+            {
+                <h2 class="text-center text-danger">
+                    There were no catalogs
+                </h2>}
+            </div>
+        </div>
+    </div>
+   </div>
+</div>

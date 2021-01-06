@@ -21,7 +21,7 @@ namespace Web.Controllers
         {
             _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_INDEX, LoggerConstants.TYPE_GET, "index", GetCurrentUserId());
 
-            return View();
+            return RedirectToAction("ListFavoriteProviders", "Provider");
         }
 
         [HttpGet]
