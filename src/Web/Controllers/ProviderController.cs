@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using Web.Models.Provider;
 using Web.Interfaces;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Security.Claims;
 
 namespace Web.Controllers
 {
@@ -21,17 +22,21 @@ namespace Web.Controllers
         private readonly IProviderService _providerService;
         private readonly IWebHostEnvironment _appEnvironment;
         private readonly IProviderHelper _providerHelper;
+        private readonly ILoggerService _loggerService;
 
+        private const string CONTROLLER_NAME = "book";
         private readonly string _path;
 
         public ProviderController(IProviderService providerService,
             IWebHostEnvironment appEnvironment,
-             IProviderHelper providerHelper)
+             IProviderHelper providerHelper,
+             ILoggerService loggerService)
         {
             _providerService = providerService;
             _appEnvironment = appEnvironment;
             _path = PathConstants.PATH_PROVIDER;
             _providerHelper = providerHelper;
+            _loggerService = loggerService;
         }
 
         [AllowAnonymous]
@@ -66,6 +71,8 @@ namespace Web.Controllers
             else if (searchSelectionString == "Inactive")
                 providersViewModel = providersViewModel.Where(a => a.IsActive == false).ToList();
 
+            _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_INDEX, LoggerConstants.TYPE_GET, "index", GetCurrentUserId());
+
             return View(new ProviderListViewModel()
             {
                 ListProviders = new ListProviderViewModel() { Providers = providersViewModel },
@@ -81,6 +88,8 @@ namespace Web.Controllers
         {
             var providersViewModel = _providerHelper.GetProvidersFavorite();
 
+            _loggerService.LogInformation(CONTROLLER_NAME + "/listfavoriteproviders", LoggerConstants.TYPE_GET, "index", GetCurrentUserId());
+
             return View(new ListProviderViewModel() { Providers = providersViewModel });
         }
 
@@ -89,6 +98,8 @@ namespace Web.Controllers
         [HttpGet]
         public ActionResult Add()
         {
+            _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_ADD, LoggerConstants.TYPE_GET, "add", GetCurrentUserId());
+
             return View();
         }
 
@@ -110,7 +121,7 @@ namespace Web.Controllers
                         await uploadedFile.CopyToAsync(fileStream);
                     }
                 }
-               
+
                 providerDto = new ProviderDTO
                 {
                     Email = model.Email,
@@ -126,6 +137,8 @@ namespace Web.Controllers
 
                 _providerService.AddProvider(providerDto);
 
+                _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_ADD, LoggerConstants.TYPE_POST, $"add {model.Email}", GetCurrentUserId());
+
                 return RedirectToAction("Index");
             }
 
@@ -137,6 +150,8 @@ namespace Web.Controllers
         {
             _providerService.DeleteProvider(id);
 
+            _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_DELETE, LoggerConstants.TYPE_POST +$"/{id}", $"delete {id} provider", GetCurrentUserId());
+
             return RedirectToAction("Index");
         }
 
@@ -146,7 +161,7 @@ namespace Web.Controllers
             ProviderDTO providerDto = _providerService.GetProvider(id);
 
             if (providerDto == null)
-                return BadRequest();
+                return RedirectToAction("Error", "Home", new { requestId = "400" });
 
             var provider = new EditProviderViewModel()
             {
@@ -161,6 +176,8 @@ namespace Web.Controllers
                 TimeWorkWith = providerDto.TimeWorkWith,
                 WorkingDays = providerDto.WorkingDays
             };
+
+            _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_EDIT +$"/{id}", LoggerConstants.TYPE_GET, "edit", GetCurrentUserId());
 
             return View(provider);
         }
@@ -204,6 +221,8 @@ namespace Web.Controllers
 
                 _providerService.EditProvider(providerDto);
 
+                _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_EDIT, LoggerConstants.TYPE_POST, $"edit {model.Id} provider", GetCurrentUserId());
+
                 return RedirectToAction("Index");
             }
 
@@ -211,5 +230,17 @@ namespace Web.Controllers
         }
 
         #endregion
+
+        private string GetCurrentUserId()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                return User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            }
+            else
+            {
+                return null;
+            }
+        }
     }
 }

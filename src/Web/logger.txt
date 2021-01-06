@@ -1,0 +1,33 @@
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/6/2021 8:28:45 PM]:[book/listfavoriteproviders]:[type:get]:[info:index]:[user:anonymous]
+[1/6/2021 8:28:47 PM]:[book/index]:[type:get]:[info:index]:[user:anonymous]
+[1/6/2021 8:28:54 PM]:[book/index]:[type:get]:[info:index]:[user:anonymous]
+[1/6/2021 8:29:00 PM]:[account/login]:[type:get]:[info:login]:[user:anonymous]
+[1/6/2021 8:29:01 PM]:[account/login]:[type:post]:[info:login successful]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 8:29:01 PM]:[home/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 8:29:03 PM]:[book/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 8:29:16 PM]:[book/add]:[type:get]:[info:add]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 8:30:07 PM]:[book/add]:[type:post]:[info:add mail@yandex.com]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 8:30:07 PM]:[book/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 8:30:20 PM]:[book/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 8:30:33 PM]:[book/edit/31]:[type:get]:[info:edit]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 8:30:38 PM]:[book/edit]:[type:post]:[info:edit 31 provider]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 8:30:38 PM]:[book/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 8:30:53 PM]:[book/delete]:[type:post$/{id}]:[info:delete 18 provider]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 8:30:53 PM]:[book/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+
+
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/6/2021 8:33:25 PM]:[book/listfavoriteproviders]:[type:get]:[info:index]:[user:anonymous]
+[1/6/2021 8:33:28 PM]:[account/login]:[type:get]:[info:login]:[user:anonymous]
+[1/6/2021 8:33:29 PM]:[book/index]:[type:get]:[info:index]:[user:anonymous]
+[1/6/2021 8:33:30 PM]:[account/login]:[type:get]:[info:login]:[user:anonymous]
+[1/6/2021 8:33:32 PM]:[account/login]:[type:post]:[info:login successful]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 8:33:32 PM]:[home/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 8:33:33 PM]:[book/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 8:33:38 PM]:[book/delete]:[type:post/19]:[info:delete 19 provider]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/6/2021 8:33:38 PM]:[book/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
