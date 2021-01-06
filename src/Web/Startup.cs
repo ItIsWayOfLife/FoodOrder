@@ -55,9 +55,10 @@ namespace Web
                   })
                   .AddEntityFrameworkStores<IdentityContext>();
 
-            services.AddTransient<IProviderService, ProviderService>();
-
             services.AddTransient<IUnitOfWork, EFUnitOfWork>();
+
+            services.AddTransient<IProviderService, ProviderService>();
+            services.AddTransient<ICatalogService, CatalogService>();
 
             services.AddTransient<IUserHelper, UserHelper>();
             services.AddTransient<IProviderHelper, ProviderHelper>();

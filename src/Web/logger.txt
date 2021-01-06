@@ -31,3 +31,22 @@ Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
 [1/6/2021 8:33:33 PM]:[book/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
 [1/6/2021 8:33:38 PM]:[book/delete]:[type:post/19]:[info:delete 19 provider]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
 [1/6/2021 8:33:38 PM]:[book/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/6/2021 8:36:05 PM]:[book/listfavoriteproviders]:[type:get]:[info:index]:[user:anonymous]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/6/2021 8:36:41 PM]:[book/listfavoriteproviders]:[type:get]:[info:index]:[user:anonymous]
+[1/6/2021 8:36:42 PM]:[book/listfavoriteproviders]:[type:get]:[info:index]:[user:anonymous]
+[1/6/2021 8:36:44 PM]:[account/login]:[type:get]:[info:login]:[user:anonymous]
+[1/6/2021 8:36:44 PM]:[book/index]:[type:get]:[info:index]:[user:anonymous]
+[1/6/2021 8:36:45 PM]:[book/listfavoriteproviders]:[type:get]:[info:index]:[user:anonymous]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/6/2021 8:37:08 PM]:[book/listfavoriteproviders]:[type:get]:[info:index]:[user:anonymous]
+[1/6/2021 8:37:10 PM]:[account/login]:[type:get]:[info:login]:[user:anonymous]
+[1/6/2021 8:37:13 PM]:[book/index]:[type:get]:[info:index]:[user:anonymous]
+[1/6/2021 8:37:25 PM]:[home/error/404]:[type:get]:[info:error 404]:[user:anonymous]
