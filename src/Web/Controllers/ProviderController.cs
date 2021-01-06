@@ -71,7 +71,7 @@ namespace Web.Controllers
             else if (searchSelectionString == "Inactive")
                 providersViewModel = providersViewModel.Where(a => a.IsActive == false).ToList();
 
-            _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_INDEX, LoggerConstants.TYPE_GET, "index", GetCurrentUserId());
+            _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_INDEX, LoggerConstants.TYPE_GET, "index – get providers", GetCurrentUserId());
 
             return View(new ProviderListViewModel()
             {
@@ -88,7 +88,7 @@ namespace Web.Controllers
         {
             var providersViewModel = _providerHelper.GetProvidersFavorite();
 
-            _loggerService.LogInformation(CONTROLLER_NAME + "/listfavoriteproviders", LoggerConstants.TYPE_GET, "index", GetCurrentUserId());
+            _loggerService.LogInformation(CONTROLLER_NAME + "/listfavoriteproviders", LoggerConstants.TYPE_GET, "get favorite providers", GetCurrentUserId());
 
             return View(new ListProviderViewModel() { Providers = providersViewModel });
         }
@@ -137,7 +137,7 @@ namespace Web.Controllers
 
                 _providerService.AddProvider(providerDto);
 
-                _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_ADD, LoggerConstants.TYPE_POST, $"add {model.Email}", GetCurrentUserId());
+                _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_ADD, LoggerConstants.TYPE_POST, $"add provider email: {model.Email}", GetCurrentUserId());
 
                 return RedirectToAction("Index");
             }
@@ -150,13 +150,13 @@ namespace Web.Controllers
         {
             _providerService.DeleteProvider(id);
 
-            _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_DELETE, LoggerConstants.TYPE_POST +$"/{id}", $"delete {id} provider", GetCurrentUserId());
+            _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_DELETE, LoggerConstants.TYPE_POST +$"/{id}", $"delete provider id: {id}", GetCurrentUserId());
 
             return RedirectToAction("Index", new { searchSelectionString, seacrhString });
         }
 
         [HttpGet]
-        public ActionResult Edit(int id)
+        public IActionResult Edit(int id)
         {
             ProviderDTO providerDto = _providerService.GetProvider(id);
 
@@ -177,13 +177,13 @@ namespace Web.Controllers
                 WorkingDays = providerDto.WorkingDays
             };
 
-            _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_EDIT +$"/{id}", LoggerConstants.TYPE_GET, "edit", GetCurrentUserId());
+            _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_EDIT +$"/{id}", LoggerConstants.TYPE_GET, $"get provider id: {id} for edit", GetCurrentUserId());
 
             return View(provider);
         }
 
         [HttpPost]
-        public async Task<ActionResult> Edit(IFormFile uploadedFile, [FromForm] EditProviderViewModel model)
+        public async Task<IActionResult> Edit(IFormFile uploadedFile, [FromForm] EditProviderViewModel model)
         {
             if (ModelState.IsValid)
             {
@@ -221,7 +221,7 @@ namespace Web.Controllers
 
                 _providerService.EditProvider(providerDto);
 
-                _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_EDIT, LoggerConstants.TYPE_POST, $"edit {model.Id} provider", GetCurrentUserId());
+                _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_EDIT, LoggerConstants.TYPE_POST, $"edit provider id: {model.Id}", GetCurrentUserId());
 
                 return RedirectToAction("Index");
             }
