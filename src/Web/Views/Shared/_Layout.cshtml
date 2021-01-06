@@ -26,14 +26,19 @@
                         <a class="nav-link" asp-controller="Users" asp-action="Index">User</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" asp-controller="Provider" asp-action="Index">Provider</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" asp-controller="Home" asp-action="About">About</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" asp-controller="Home" asp-action="AboutDelivery">About delivery</a>
                     </li>
-
                     <li class="nav-item">
                         <a class="nav-link" asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Provider" asp-action="ListFavoriteProviders">Favorite providers</a>
                     </li>
 
                 </ul>
@@ -88,7 +93,7 @@
 
     </header>
     <div class="container mtByHeader">
-        <main class="mt-5">
+        <main>
             @RenderBody()
         </main>
         <br />

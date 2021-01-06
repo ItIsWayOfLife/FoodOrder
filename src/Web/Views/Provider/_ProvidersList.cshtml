@@ -1,0 +1,61 @@
+﻿@model Web.Models.Provider.ProviderViewModel
+
+<div class="col-4">
+    <div class="shadow-lg p-3 bg-white mb-4">
+        <div class="card">
+            @if (Model.Path != null)
+            {
+        <div class="card-img-wrapper">
+            <a asp-action="Index" asp-controller="Menu" asp-route-providerId="@Model.Id"> <img title="@Model.Name" class="card-img-top" src="@Model.Path" alt="@Model.Name" /></a>
+        </div>
+            }
+        <div class="container">
+            @if (Model.Name.Length >= 17)
+            {
+        <h2>@Model.Name.Remove(15)...</h2> }
+    else
+    {
+        <h2>@Model.Name</h2>}
+
+
+            @if (User.IsInRole("admin"))
+            {
+        <h6>Id: @Model.Id </h6>
+                        <h6>
+                            Is favorite:
+                            @if (Model.IsFavorite)
+                            {<span>Yes</span> }
+                            else
+                            { <span>No</span>}
+                        </h6>            }
+            <h6>@Model.WorkingDays</h6>
+            <h6>TimeWork: @Model.TimeWorkWith.ToShortTimeString() : @Model.TimeWorkTo.ToShortTimeString()</h6>
+            <h6>Info: @Model.Info</h6>
+            <h6>Email: @Model.Email</h6>
+            <h6>
+                Is active:
+                @if (Model.IsActive)
+                {<span>Yes</span> }
+                else
+                { <span>No</span>}
+            </h6>
+
+            @if (User.IsInRole("admin"))
+            {
+        <form asp-action="Delete" asp-route-id="@Model.Id" method="post">
+            <input type="hidden" name="searchSelectionString" value="@ViewData["SearchSelectionString"]" />
+            <input type="hidden" name="seacrhString" value="@ViewData["SeacrhString"]" />
+            <a class="btn btn-sm btn-success" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+            <button onclick="if (!confirm('Are you sure you want to delete this Item?')) { return false }" type="submit" class="btn btn-sm btn-danger">
+                Delete
+            </button>
+        </form>
+                        <br />}
+            <a class="btn btn-sm btn-primary" asp-action="Index" asp-controller="Menu" asp-route-providerId="@Model.Id">Menu</a>
+            <a class="btn btn-sm btn-primary" asp-action="Index" asp-controller="Catalog" asp-route-providerId="@Model.Id">CatalogDishes</a>
+            <br />
+            <br />
+        </div>
+        </div>
+    </div>
+</div>

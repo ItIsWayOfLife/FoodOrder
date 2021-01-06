@@ -1,0 +1,80 @@
+﻿@model Web.Models.Provider.EditProviderViewModel
+
+@{ ViewBag.Title = "Edit provider"; }
+
+<div class="row mb-5">
+    <div class="col-6 m-auto">
+        <div class="card m-auto">
+            <div class="card-header">
+                <h3>Edit provider</h3>
+            </div>
+            <div class="card-body">
+                <form method="post" asp-controller="Provider" asp-action="Edit" enctype="multipart/form-data">
+                    <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+
+                    <input type="hidden" asp-for="Id" />
+                    <input type="hidden" asp-for="Path" />
+
+                    <div class="form-group col-12">
+                        <label for="file">Image</label>
+                        <input type="file" name="uploadedFile" id="file" /><br>
+                    </div>
+
+                    <div class="form-group col-12">
+                        <label asp-for="Email"></label>
+                        <span class="text-danger" asp-validation-for="Email"></span><br />
+                        <input class="form-control" asp-for="Email" />
+                    </div>
+
+                    <div class="form-group col-12">
+                        <label asp-for="Name"></label>
+                        <span class="text-danger" asp-validation-for="Name"></span><br />
+                        <input class="form-control" asp-for="Name" />
+                    </div>
+
+                    <div class="form-group col-12">
+                        <label asp-for="Info"></label>
+                        <span class="text-danger" asp-validation-for="Info"></span><br />
+                        <textarea rows="3" class="form-control" asp-for="Info"></textarea>
+                    </div>
+
+                    <div class="form-group col-12">
+                        <label asp-for="TimeWorkWith"></label>
+                        <span class="text-danger" asp-validation-for="TimeWorkWith"></span><br />
+                        <input type="time" class="form-control" asp-for="TimeWorkWith" />
+                    </div>
+
+                    <div class="form-group col-12">
+                        <label asp-for="TimeWorkTo"></label>
+                        <span class="text-danger" asp-validation-for="TimeWorkTo"></span><br />
+                        <input type="time" class="form-control" asp-for="TimeWorkTo" />
+                    </div>
+
+                    <div class="form-group col-12">
+                        <label asp-for="WorkingDays"></label>
+                        <span class="text-danger" asp-validation-for="WorkingDays"></span><br />
+                        <input class="form-control" asp-for="WorkingDays" />
+                    </div>
+
+                    <div class="form-group col-12">
+                        <label asp-for="IsActive"></label>
+                        <span class="text-danger" asp-validation-for="IsActive"></span><br />
+                        <input class="form-control" asp-for="IsActive" />
+                    </div>
+
+                    <div class="form-group col-12">
+                        <label asp-for="IsFavorite"></label>
+                        <span class="text-danger" asp-validation-for="IsFavorite"></span><br />
+                        <input class="form-control" asp-for="IsFavorite" />
+                    </div><br />
+
+                    <div class="form-group col-12">
+                        <button type="submit" class="btn btn-primary">Edit</button>
+                        <a asp-action="Index" class="btn btn-warning">Back</a>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

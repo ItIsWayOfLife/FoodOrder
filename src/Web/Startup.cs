@@ -60,6 +60,7 @@ namespace Web
             services.AddTransient<IUnitOfWork, EFUnitOfWork>();
 
             services.AddTransient<IUserHelper, UserHelper>();
+            services.AddTransient<IProviderHelper, ProviderHelper>();
 
             services.AddTransient<ILoggerService, LoggerService>();
 
@@ -102,7 +103,7 @@ namespace Web
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Provider}/{action=ListFavoriteProviders}/{id?}");
             });
         }
     }

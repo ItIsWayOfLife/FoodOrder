@@ -1,0 +1,32 @@
+﻿@model Web.Models.Provider.ProviderListViewModel
+
+@{ 
+    ViewBag.Title = "Providers"; 
+}
+
+<div class="text-center">
+    <h1 class="display-4 mb-2" style="margin-top: -3%;">Providers</h1>
+</div>
+
+<form method="get">
+    <div class="form-inline form-group">
+        <label class="mr-1" asp-for="SearchSelectionString">SearchBy: </label>
+        <select class="mr-1" style="height: 2em;" name="searchSelectionString" asp-items="Model.SearchSelection" asp-for="SearchSelectionString"></select>
+        <label class="mr-1" asp-for="SeacrhString">Value: </label>
+        <input class="mr-1" name="seacrhString"asp-for="SeacrhString" />
+        <input class="btn btn-sm btn-primary mr-1" type="submit" value="Search" />
+        <a class="btn btn-sm btn-danger mr-1" asp-action="Index">Refresh</a>
+        @if (User.IsInRole("admin"))
+        {
+            <a class="btn btn-sm btn-success mr-1" asp-controller="Provider" asp-action="Add">AddProvider</a>
+        }
+    </div>
+</form>
+
+<div class="row mb-5">
+    @{ foreach (Web.Models.Provider.ProviderViewModel provider in Model.ListProviders.Providers)
+        {
+@await Html.PartialAsync("_ProvidersList", provider, new ViewDataDictionary(this.ViewData) {
+           { "SearchSelectionString", Model.SearchSelectionString },
+            { "SeacrhString", Model.SeacrhString }}) } }
+</div>
