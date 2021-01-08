@@ -102,7 +102,7 @@ namespace Web.Controllers
                 {
                     _menuService.AddMenu(menuDTO);
                 }
-                catch(ValidationException ex)
+                catch (ValidationException ex)
                 {
                     ModelState.AddModelError(ex.Property, ex.Message);
 
@@ -123,15 +123,15 @@ namespace Web.Controllers
             try
             {
                 _menuService.DeleteMenu(id);
-
-                sortMenu =  sortMenu == SortState.DateAsc ? SortState.DateDesc : SortState.DateAsc;
-
-                return RedirectToAction("Index", new { providerId, searchSelectionString, seacrhString, sortMenu });
             }
-            catch (Exception)
+            catch (ValidationException ex)
             {
-                return RedirectToAction("Error", "Home", new { requestId = "400" });
+                return RedirectToAction("Error", "Home", new { requestId = "400", errorInfo = ex.Message });
             }
+
+            sortMenu = sortMenu == SortState.DateAsc ? SortState.DateDesc : SortState.DateAsc;
+
+            return RedirectToAction("Index", new { providerId, searchSelectionString, seacrhString, sortMenu });
         }
 
         [HttpGet]
@@ -141,27 +141,20 @@ namespace Web.Controllers
             ViewBag.SeacrhString = seacrhString;
             ViewBag.DateSort = sortMenu == SortState.DateAsc ? SortState.DateDesc : SortState.DateAsc;
 
-            try
-            {
-                MenuDTO menuDTO = _menuService.GetMenu(id);
+            MenuDTO menuDTO = _menuService.GetMenu(id);
 
-                if (menuDTO == null)
-                    return RedirectToAction("Error", "Home", new { requestId = "400" });
-
-                var provider = new EditMenuViewModel()
-                {
-                    Id = menuDTO.Id,
-                    Date = menuDTO.Date,
-                    Info = menuDTO.Info,
-                    ProviderId = menuDTO.ProviderId
-                };
-
-                return View(provider);
-            }
-            catch (Exception)
-            {
+            if (menuDTO == null)
                 return RedirectToAction("Error", "Home", new { requestId = "400" });
-            }
+
+            var provider = new EditMenuViewModel()
+            {
+                Id = menuDTO.Id,
+                Date = menuDTO.Date,
+                Info = menuDTO.Info,
+                ProviderId = menuDTO.ProviderId
+            };
+
+            return View(provider);
         }
 
         [HttpPost]
@@ -173,21 +166,17 @@ namespace Web.Controllers
 
             if (ModelState.IsValid)
             {
+                MenuDTO menuDto = new MenuDTO
+                {
+                    Id = model.Id,
+                    Date = model.Date,
+                    Info = model.Info,
+                    ProviderId = model.ProviderId
+                };
+
                 try
                 {
-                    MenuDTO menuDto = new MenuDTO
-                    {
-                        Id = model.Id,
-                        Date = model.Date,
-                        Info = model.Info,
-                        ProviderId = model.ProviderId
-                    };
-
                     _menuService.EditMenu(menuDto);
-
-                    ViewBag.DateSort = sortMenu == SortState.DateAsc ? SortState.DateDesc : SortState.DateAsc;
-
-                    return RedirectToAction("Index", new { model.ProviderId, searchSelectionString, seacrhString, sortMenu });
                 }
                 catch (ValidationException ex)
                 {
@@ -195,6 +184,10 @@ namespace Web.Controllers
 
                     return View(model);
                 }
+
+                ViewBag.DateSort = sortMenu == SortState.DateAsc ? SortState.DateDesc : SortState.DateAsc;
+
+                return RedirectToAction("Index", new { model.ProviderId, searchSelectionString, seacrhString, sortMenu });
             }
 
             return View(model);

@@ -10,6 +10,7 @@ using Web.Models.Catalog;
 using Web.Interfaces;
 using Core.Constants;
 using System.Security.Claims;
+using Core.Exceptions;
 
 namespace Web.Controllers
 {
@@ -111,7 +112,16 @@ namespace Web.Controllers
                     ProviderId = model.ProviderId
                 };
 
-                _сatalogService.AddСatalog(сatalogDTO);
+                try
+                {
+                    _сatalogService.AddСatalog(сatalogDTO);
+                }
+                catch (ValidationException ex)
+                {
+                    ModelState.AddModelError(ex.Property, ex.Message);
+
+                    return View(model);
+                }
 
                 _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_ADD , LoggerConstants.TYPE_POST, $"add catalog name: {model.Name} providerId: {model.ProviderId}", GetCurrentUserId());
               
@@ -125,7 +135,14 @@ namespace Web.Controllers
         [HttpPost]
         public ActionResult Delete(int id, int providerId, string searchSelectionString, string seacrhString, int? menuId, SortState sortCatalog)
         {
-            _сatalogService.DeleteСatalog(id);
+            try
+            {
+                _сatalogService.DeleteСatalog(id);
+            }
+            catch (ValidationException ex)
+            {
+                return RedirectToAction("Error", "Home", new { requestId = "400", errorInfo = ex.Message });
+            }
 
             _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_DELETE, LoggerConstants.TYPE_POST, $"delete catalog id: {id} providerId: {providerId}", GetCurrentUserId());
 
@@ -175,7 +192,16 @@ namespace Web.Controllers
                     ProviderId = model.ProviderId
                 };
 
-                _сatalogService.EditСatalog(сatalogDTO);
+                try
+                {
+                    _сatalogService.EditСatalog(сatalogDTO);
+                }
+                catch (ValidationException ex)
+                {
+                    ModelState.AddModelError(ex.Property, ex.Message);
+
+                    return View(model);
+                }
 
                 _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_EDIT, LoggerConstants.TYPE_POST, $"edit catalog id: {model.Id} providerId: {model.ProviderId}", GetCurrentUserId());
 

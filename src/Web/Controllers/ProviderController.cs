@@ -13,6 +13,7 @@ using Web.Models.Provider;
 using Web.Interfaces;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Security.Claims;
+using Core.Exceptions;
 
 namespace Web.Controllers
 {
@@ -141,7 +142,16 @@ namespace Web.Controllers
                     WorkingDays = model.WorkingDays
                 };
 
-                _providerService.AddProvider(providerDto);
+                try
+                {
+                    _providerService.AddProvider(providerDto);
+                }
+                catch (ValidationException ex)
+                {
+                    ModelState.AddModelError(ex.Property, ex.Message);
+
+                    return View(model);
+                }
 
                 _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_ADD, LoggerConstants.TYPE_POST, $"add provider email: {model.Email}", GetCurrentUserId());
 
@@ -157,7 +167,14 @@ namespace Web.Controllers
             ViewBag.SearchSelectionString = searchSelectionString;
             ViewBag.SeacrhString = seacrhString;
 
-            _providerService.DeleteProvider(id);
+            try
+            {
+                _providerService.DeleteProvider(id);
+            }
+            catch (ValidationException ex)
+            {
+                return RedirectToAction("Error", "Home", new { requestId = "400", errorInfo = ex.Message });
+            }
 
             _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_DELETE, LoggerConstants.TYPE_POST +$"/{id}", $"delete provider id: {id}", GetCurrentUserId());
 
@@ -234,7 +251,16 @@ namespace Web.Controllers
                     WorkingDays = model.WorkingDays
                 };
 
-                _providerService.EditProvider(providerDto);
+                try
+                {
+                    _providerService.EditProvider(providerDto);
+                }
+                catch (ValidationException ex)
+                {
+                    ModelState.AddModelError(ex.Property, ex.Message);
+
+                    return View(model);
+                }
 
                 _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_EDIT, LoggerConstants.TYPE_POST, $"edit provider id: {model.Id}", GetCurrentUserId());
 
