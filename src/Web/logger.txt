@@ -210,3 +210,11 @@ Change password failed for user.
 [1/8/2021 8:55:23 PM]:[home/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
 [1/8/2021 8:55:24 PM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
 [1/8/2021 8:55:24 PM]:[home/error/404]:[type:get]:[info:error 404]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/8/2021 9:05:20 PM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 9:05:21 PM]:[home/error/404]:[type:get]:[info:error 404]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 9:05:24 PM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of provider id: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 9:05:28 PM]:[catalog/delete]:[type:post]:[info:delete catalog id: 2 provider id: 1 error: Catalog id not set]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 9:05:29 PM]:[home/error/400]:[type:get]:[info:error 400]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]

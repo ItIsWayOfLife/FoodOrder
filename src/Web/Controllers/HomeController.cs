@@ -52,7 +52,7 @@ namespace Web.Controllers
         [HttpGet]
         public IActionResult Error(string requestId, string errorInfo)
         {
-            _loggerService.LogInformation(CONTROLLER_NAME + $"/error/{requestId}", LoggerConstants.TYPE_GET, $"error {requestId}", GetCurrentUserId());
+            _loggerService.LogInformation(CONTROLLER_NAME + $"/error/{requestId}&{errorInfo}", LoggerConstants.TYPE_GET, $"error code: {requestId} info: {errorInfo}", GetCurrentUserId());
 
             return View(new ErrorViewModel() { RequestId = requestId, ErrorInfo = errorInfo });
         }

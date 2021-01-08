@@ -67,7 +67,7 @@ namespace Web.Controllers
                 _ => catalogs.OrderBy(s => s.Name).ToList(),
             };
 
-            _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_INDEX + $"/{providerId}", LoggerConstants.TYPE_GET, $"index – get catalogs of providerId: {providerId}", GetCurrentUserId());
+            _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_INDEX + $"/{providerId}", LoggerConstants.TYPE_GET, $"index – get catalogs of provider id: {providerId}", GetCurrentUserId());
 
             return View(new CatalogdProviderIdViewModel()
             {
@@ -90,7 +90,7 @@ namespace Web.Controllers
             ViewBag.SeacrhString = seacrhString;
             ViewBag.NameSort = sortCatalog == SortState.NameAsc ? SortState.NameDesc : SortState.NameAsc;
 
-            _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_ADD + $"/{providerId}", LoggerConstants.TYPE_GET, $"add catalog providerId: {providerId}", GetCurrentUserId());
+            _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_ADD + $"/{providerId}", LoggerConstants.TYPE_GET, $"add catalog provider id: {providerId}", GetCurrentUserId());
 
             return View(new AddCatalogViewModel() { ProviderId = providerId });
         }
@@ -118,17 +118,20 @@ namespace Web.Controllers
                 }
                 catch (ValidationException ex)
                 {
+                    _loggerService.LogWarning(CONTROLLER_NAME + LoggerConstants.ACTION_ADD, LoggerConstants.TYPE_POST, $"add catalog name: {model.Name} provider id: {model.ProviderId} error: {ex.Message}", GetCurrentUserId());
+
                     ModelState.AddModelError(ex.Property, ex.Message);
 
                     return View(model);
                 }
 
-                _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_ADD , LoggerConstants.TYPE_POST, $"add catalog name: {model.Name} providerId: {model.ProviderId}", GetCurrentUserId());
+                _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_ADD , LoggerConstants.TYPE_POST, $"add catalog name: {model.Name} provider id: {model.ProviderId} successful", GetCurrentUserId());
               
                 ViewBag.NameSort = sortCatalog == SortState.NameAsc ? SortState.NameDesc : SortState.NameAsc;
 
                 return RedirectToAction("Index", new { model.ProviderId, menuId, searchSelectionString, seacrhString, sortCatalog });
             }
+
             return View(model);
         }
 
@@ -141,10 +144,12 @@ namespace Web.Controllers
             }
             catch (ValidationException ex)
             {
+                _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_DELETE, LoggerConstants.TYPE_POST, $"delete catalog id: {id} provider id: {providerId} error: {ex.Message}", GetCurrentUserId());
+
                 return RedirectToAction("Error", "Home", new { requestId = "400", errorInfo = ex.Message });
             }
 
-            _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_DELETE, LoggerConstants.TYPE_POST, $"delete catalog id: {id} providerId: {providerId}", GetCurrentUserId());
+            _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_DELETE, LoggerConstants.TYPE_POST, $"delete catalog id: {id} provider id: {providerId} successful", GetCurrentUserId());
 
             sortCatalog = sortCatalog == SortState.NameAsc ? SortState.NameDesc : SortState.NameAsc;
 
@@ -169,7 +174,7 @@ namespace Web.Controllers
                 ProviderId = сatalogDTO.ProviderId
             };
 
-            _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_EDIT +$"/{id}", LoggerConstants.TYPE_GET, $"edit catalog id: {id} providerId: {provider.ProviderId}", GetCurrentUserId());
+            _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_EDIT +$"/{id}", LoggerConstants.TYPE_GET, $"edit catalog id: {id} provider id: {provider.ProviderId}", GetCurrentUserId());
 
             return View(provider);
         }
@@ -198,12 +203,14 @@ namespace Web.Controllers
                 }
                 catch (ValidationException ex)
                 {
+                    _loggerService.LogWarning(CONTROLLER_NAME + LoggerConstants.ACTION_EDIT, LoggerConstants.TYPE_POST, $"edit catalog id: {model.Id} provider id: {model.ProviderId} error: {ex.Message}", GetCurrentUserId());
+
                     ModelState.AddModelError(ex.Property, ex.Message);
 
                     return View(model);
                 }
 
-                _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_EDIT, LoggerConstants.TYPE_POST, $"edit catalog id: {model.Id} providerId: {model.ProviderId}", GetCurrentUserId());
+                _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_EDIT, LoggerConstants.TYPE_POST, $"edit catalog id: {model.Id} provider id: {model.ProviderId} successful", GetCurrentUserId());
 
                 ViewBag.NameSort = sortCatalog == SortState.NameAsc ? SortState.NameDesc : SortState.NameAsc;
 
