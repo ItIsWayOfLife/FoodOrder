@@ -160,16 +160,13 @@ namespace Web.Controllers.Identity
         {
             if (User.Identity.IsAuthenticated)
             {
-                ApplicationUser user = null;
-
-                string currentUserId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
-                user = _userManager.Users.FirstOrDefault(p => p.Id == currentUserId);
+                ApplicationUser user = _userHelper.GetUserById(GetCurrentUserId());
 
                 if (user == null)
                 {
                     _loggerService.LogWarning(CONTROLLER_NAME + LoggerConstants.ACTIN_LOGOUT, LoggerConstants.TYPE_POST, LoggerConstants.ERROR_USER_NOT_FOUND, null);
 
-                    return RedirectToAction("Error", "Home", new { requestId = "400" });
+                    return RedirectToAction("Error", "Home", new { requestId = "400", errorInfo = "User not found" });
                 }
 
                 _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTIN_LOGOUT, LoggerConstants.TYPE_POST, "logout", user.Id);
@@ -183,7 +180,7 @@ namespace Web.Controllers.Identity
             {
                 _loggerService.LogWarning(CONTROLLER_NAME + LoggerConstants.ACTIN_LOGOUT, LoggerConstants.TYPE_GET, LoggerConstants.ERROR_USER_NOT_AUTHENTICATED, null);
 
-                return RedirectToAction("Error", "Home", new { requestId = "400" });
+                return RedirectToAction("Error", "Home", new { requestId = "400", errorInfo = "User not found" });
             }
         }
 
@@ -192,16 +189,13 @@ namespace Web.Controllers.Identity
         {
             if (User.Identity.IsAuthenticated)
             {
-                ApplicationUser user = null;
-
-                string currentUserId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
-                user = _userManager.Users.FirstOrDefault(p => p.Id == currentUserId);
+                ApplicationUser user = _userHelper.GetUserById(GetCurrentUserId());
 
                 if (user == null)
                 {
                     _loggerService.LogWarning(CONTROLLER_NAME + LoggerConstants.ACTIN_PROFILE, LoggerConstants.TYPE_GET, LoggerConstants.ERROR_USER_NOT_FOUND, null);
 
-                    return RedirectToAction("Error", "Home", new { requestId = "400" });
+                    return RedirectToAction("Error", "Home", new { requestId = "400", errorInfo = "User not found" });
                 }
 
                 ProfileViewModel userView = new ProfileViewModel()
@@ -229,16 +223,13 @@ namespace Web.Controllers.Identity
         {
             if (User.Identity.IsAuthenticated)
             {
-                ApplicationUser user = null;
-
-                string currentUserId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
-                user = _userManager.Users.ToList().FirstOrDefault(p => p.Id == currentUserId);
+                ApplicationUser user = _userHelper.GetUserById(GetCurrentUserId());
 
                 if (user == null)
                 {
                     _loggerService.LogWarning(CONTROLLER_NAME + LoggerConstants.ACTION_EDIT, LoggerConstants.TYPE_GET, LoggerConstants.ERROR_USER_NOT_FOUND, null);
 
-                    return RedirectToAction("Error", "Home", new { requestId = "400" });
+                    return RedirectToAction("Error", "Home", new { requestId = "400", errorInfo = "User not found" });
                 }
 
                 ProfileViewModel userView = new ProfileViewModel()
@@ -301,7 +292,7 @@ namespace Web.Controllers.Identity
                     {
                         _loggerService.LogWarning(CONTROLLER_NAME + LoggerConstants.ACTION_EDIT, LoggerConstants.TYPE_POST, LoggerConstants.ERROR_USER_NOT_FOUND, null);
 
-                        return RedirectToAction("Error", "Home", new { requestId = "400" });
+                        return RedirectToAction("Error", "Home", new { requestId = "400", errorInfo = "User not found" });
                     }
                 }
 
@@ -320,16 +311,13 @@ namespace Web.Controllers.Identity
         {
             if (User.Identity.IsAuthenticated)
             {
-                ApplicationUser user = null;
-
-                string currentUserId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
-                user = _userManager.Users.ToList().FirstOrDefault(p => p.Id == currentUserId);
+                ApplicationUser user = _userHelper.GetUserById(GetCurrentUserId());
 
                 if (user == null)
                 {
                     _loggerService.LogWarning(CONTROLLER_NAME + LoggerConstants.ACTION_CHANGEPASSWORD, LoggerConstants.TYPE_GET, LoggerConstants.ERROR_USER_NOT_FOUND, null);
 
-                    return RedirectToAction("Error", "Home", new { requestId = "400" });
+                    return RedirectToAction("Error", "Home", new { requestId = "400", errorInfo = "User not found" });
                 }
 
                 ChangePasswordViewModel model = new ChangePasswordViewModel { Id = user.Id, Email = user.Email };
@@ -387,14 +375,13 @@ namespace Web.Controllers.Identity
         [HttpGet]
         public IActionResult RegistrationSuccessful()
         {
-            string currentUserId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
-            ApplicationUser user = _userHelper.GetUserById(currentUserId);
+            ApplicationUser user = _userHelper.GetUserById(GetCurrentUserId());
 
             if (user == null)
             {
                 _loggerService.LogWarning(CONTROLLER_NAME + LoggerConstants.ACTION_REGISTRATIONSUCCESSFUL, LoggerConstants.TYPE_GET, LoggerConstants.ERROR_USER_NOT_FOUND, user.Id);
 
-                return RedirectToAction("Error", "Home", new { requestId = "400" });
+                return RedirectToAction("Error", "Home", new { requestId = "400", errorInfo = "User not found" });
             }
 
             _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_REGISTRATIONSUCCESSFUL, LoggerConstants.TYPE_GET, "registration successful", user.Id);
@@ -402,6 +389,18 @@ namespace Web.Controllers.Identity
             ViewBag.Name = user.UserName;
 
             return View();
+        }
+
+        private string GetCurrentUserId()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                return User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }

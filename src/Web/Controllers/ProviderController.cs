@@ -190,7 +190,7 @@ namespace Web.Controllers
             ProviderDTO providerDto = _providerService.GetProvider(id);
 
             if (providerDto == null)
-                return RedirectToAction("Error", "Home", new { requestId = "400" });
+                return RedirectToAction("Error", "Home", new { requestId = "400", errorInfo = "Provider not found" });
 
             var provider = new EditProviderViewModel()
             {

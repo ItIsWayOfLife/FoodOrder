@@ -36,7 +36,7 @@ namespace Web.Controllers
             var provider = _providerService.GetProvider(providerId);
 
             if (provider == null)
-                return RedirectToAction("Error", "Home", new { requestId = "400" });
+                return RedirectToAction("Error", "Home", new { requestId = "400", errorInfo = "Provider not found" });
 
             ViewData["NameProvider"] = "" + provider.Name;
 
@@ -144,7 +144,7 @@ namespace Web.Controllers
             MenuDTO menuDTO = _menuService.GetMenu(id);
 
             if (menuDTO == null)
-                return RedirectToAction("Error", "Home", new { requestId = "400" });
+                return RedirectToAction("Error", "Home", new { requestId = "400" , errorInfo = "Menu not found" });
 
             var provider = new EditMenuViewModel()
             {
