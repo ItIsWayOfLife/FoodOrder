@@ -88,3 +88,77 @@ Hosting environment: Development
 Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
 [1/8/2021 7:48:13 PM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
 [1/8/2021 7:48:13 PM]:[home/error/404]:[type:get]:[info:error 404]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/8/2021 8:11:59 PM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 8:11:59 PM]:[home/error/404]:[type:get]:[info:error 404]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 8:12:03 PM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 8:12:03 PM]:[home/error/404]:[type:get]:[info:error 404]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 8:12:04 PM]:[book/add]:[type:get]:[info:add]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 8:12:11 PM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 8:12:11 PM]:[home/error/404]:[type:get]:[info:error 404]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 8:12:16 PM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 8:12:18 PM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 8:12:18 PM]:[home/error/404]:[type:get]:[info:error 404]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 8:12:22 PM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 8:12:23 PM]:[book/add]:[type:get]:[info:add]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 8:12:26 PM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 8:13:25 PM]:[book/add]:[type:get]:[info:add]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 8:13:27 PM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 8:13:28 PM]:[book/edit/8]:[type:get]:[info:get provider id: 8 for edit]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 8:13:31 PM]:[book/edit]:[type:post]:[info:edit provider id: 8]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 8:13:31 PM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 8:13:35 PM]:[book/edit/8]:[type:get]:[info:get provider id: 8 for edit]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 8:13:44 PM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 8:14:09 PM]:[book/add]:[type:get]:[info:add]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 8:14:10 PM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 8:14:29 PM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 8:14:29 PM]:[home/error/404]:[type:get]:[info:error 404]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 8:15:08 PM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 8:15:08 PM]:[home/error/404]:[type:get]:[info:error 404]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 8:15:09 PM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 8:15:09 PM]:[home/error/404]:[type:get]:[info:error 404]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 8:15:10 PM]:[book/add]:[type:get]:[info:add]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/8/2021 8:17:04 PM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 8:17:05 PM]:[home/error/404]:[type:get]:[info:error 404]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 8:17:06 PM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 8:17:06 PM]:[home/error/404]:[type:get]:[info:error 404]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 8:17:07 PM]:[book/add]:[type:get]:[info:add]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/8/2021 8:17:26 PM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 8:17:27 PM]:[home/error/404]:[type:get]:[info:error 404]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 8:17:28 PM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 8:17:28 PM]:[home/error/404]:[type:get]:[info:error 404]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 8:17:29 PM]:[book/add]:[type:get]:[info:add]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 8:17:37 PM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 8:17:37 PM]:[home/error/404]:[type:get]:[info:error 404]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/8/2021 8:18:14 PM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 8:18:15 PM]:[home/error/404]:[type:get]:[info:error 404]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 8:18:16 PM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 8:18:16 PM]:[home/error/404]:[type:get]:[info:error 404]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/8/2021 8:18:44 PM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 8:18:44 PM]:[home/error/404]:[type:get]:[info:error 404]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/8/2021 8:19:12 PM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 8:19:12 PM]:[home/error/404]:[type:get]:[info:error 404]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/8/2021 8:21:12 PM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 8:21:12 PM]:[home/error/404]:[type:get]:[info:error 404]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 8:21:13 PM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 8:21:13 PM]:[home/error/404]:[type:get]:[info:error 404]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
