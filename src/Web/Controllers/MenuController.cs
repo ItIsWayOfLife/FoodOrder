@@ -52,7 +52,7 @@ namespace Web.Controllers
             else if (searchSelectionString == searchSelection[2])
                 menus = menus.Where(t => t.Date.ToShortDateString().Contains(seacrhString.ToLower())).ToList();
 
-            ViewData["DateSort"] = sortMenu == SortState.DateAsc ? SortState.DateDesc : SortState.DateAsc;
+            ViewBag.DateSort = sortMenu == SortState.DateAsc ? SortState.DateDesc : SortState.DateAsc;
 
             menus = sortMenu switch
             {
@@ -73,14 +73,22 @@ namespace Web.Controllers
         #region For admin
 
         [HttpGet]
-        public IActionResult Add(int providerId)
+        public IActionResult Add(int providerId, string searchSelectionString, string seacrhString, SortState sortMenu)
         {
+            ViewBag.SearchSelectionString = searchSelectionString;
+            ViewBag.SeacrhString = seacrhString;
+            ViewBag.DateSort = sortMenu == SortState.DateAsc ? SortState.DateDesc : SortState.DateAsc;
+
             return View(new AddMenuViewModel() { ProviderId = providerId, Date = DateTime.Now});
         }
 
         [HttpPost]
-        public IActionResult Add(AddMenuViewModel model)
+        public IActionResult Add(AddMenuViewModel model, string searchSelectionString, string seacrhString, SortState sortMenu)
         {
+            ViewBag.SearchSelectionString = searchSelectionString;
+            ViewBag.SeacrhString = seacrhString;
+            ViewBag.DateSort = sortMenu;
+
             if (ModelState.IsValid)
             {
                 MenuDTO menuDTO = new MenuDTO()
@@ -101,20 +109,24 @@ namespace Web.Controllers
                     return View(model);
                 }
 
-                return RedirectToAction("Index", new { model.ProviderId });
+                ViewBag.DateSort = sortMenu == SortState.DateAsc ? SortState.DateDesc : SortState.DateAsc;
+
+                return RedirectToAction("Index", new { model.ProviderId, searchSelectionString, seacrhString, sortMenu });
             }
 
             return View(model);
         }
 
         [HttpPost]
-        public ActionResult Delete(int? id, int providerId, string searchSelectionString, string seacrhString)
+        public ActionResult Delete(int? id, int providerId, string searchSelectionString, string seacrhString, SortState sortMenu)
         {
             try
             {
                 _menuService.DeleteMenu(id);
 
-                return RedirectToAction("Index", new { providerId, searchSelectionString, seacrhString });
+                sortMenu =  sortMenu == SortState.DateAsc ? SortState.DateDesc : SortState.DateAsc;
+
+                return RedirectToAction("Index", new { providerId, searchSelectionString, seacrhString, sortMenu });
             }
             catch (Exception)
             {
@@ -123,8 +135,12 @@ namespace Web.Controllers
         }
 
         [HttpGet]
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int? id, string searchSelectionString, string seacrhString, SortState sortMenu)
         {
+            ViewBag.SearchSelectionString = searchSelectionString;
+            ViewBag.SeacrhString = seacrhString;
+            ViewBag.DateSort = sortMenu == SortState.DateAsc ? SortState.DateDesc : SortState.DateAsc;
+
             try
             {
                 MenuDTO menuDTO = _menuService.GetMenu(id);
@@ -149,8 +165,12 @@ namespace Web.Controllers
         }
 
         [HttpPost]
-        public IActionResult Edit(EditMenuViewModel model)
+        public IActionResult Edit(EditMenuViewModel model, string searchSelectionString, string seacrhString, SortState sortMenu)
         {
+            ViewBag.SearchSelectionString = searchSelectionString;
+            ViewBag.SeacrhString = seacrhString;
+            ViewBag.DateSort = sortMenu;
+
             if (ModelState.IsValid)
             {
                 try
@@ -165,7 +185,9 @@ namespace Web.Controllers
 
                     _menuService.EditMenu(menuDto);
 
-                    return RedirectToAction("Index", new { providerId = model.ProviderId });
+                    ViewBag.DateSort = sortMenu == SortState.DateAsc ? SortState.DateDesc : SortState.DateAsc;
+
+                    return RedirectToAction("Index", new { model.ProviderId, searchSelectionString, seacrhString, sortMenu });
                 }
                 catch (ValidationException ex)
                 {

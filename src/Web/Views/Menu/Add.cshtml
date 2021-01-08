@@ -9,7 +9,11 @@
                 <h3>Add menu</h3>
             </div>
             <div class="card-body">
-                <form method="post" asp-controller="Menu" asp-action="Add" enctype="multipart/form-data">
+                <form method="post" asp-controller="Menu" asp-action="Add" 
+                       asp-route-sortMenu="@ViewBag.DateSort"
+                       asp-route-searchSelectionString="@ViewBag.SearchSelectionString"
+                       asp-route-seacrhString="@ViewBag.SeacrhString"
+                      enctype="multipart/form-data">
                     <div class="text-danger" asp-validation-summary="All"></div>
                     <input type="hidden" asp-for="ProviderId" />
 
@@ -28,7 +32,10 @@
 
                     <div class="form-group col-12">
                         <button type="submit" class="btn btn-primary">Add</button>
-                        <a asp-action="Index" asp-route-providerId="@Model.ProviderId" class="btn btn-warning">Back</a>
+                        <a asp-action="Index" asp-route-providerId="@Model.ProviderId"   
+                       asp-route-sortMenu="@ViewBag.DateSort"
+                       asp-route-searchSelectionString="@ViewBag.SearchSelectionString"
+                       asp-route-seacrhString="@ViewBag.SeacrhString" class="btn btn-warning">Back</a>
                     </div>
 
                 </form>
