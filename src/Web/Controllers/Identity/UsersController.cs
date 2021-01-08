@@ -80,16 +80,22 @@ namespace Web.Controllers.Identity
         }
 
         [HttpGet]
-        public IActionResult Create()
+        public IActionResult Create(string searchSelectionString, string seacrhString)
         {
+            ViewBag.SearchSelectionString = searchSelectionString;
+            ViewBag.SeacrhString = seacrhString;
+
             _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_CREATE, LoggerConstants.TYPE_GET, "create", GetCurrentUserId());
 
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(CreateUserViewModel model)
+        public async Task<IActionResult> Create(CreateUserViewModel model, string searchSelectionString, string seacrhString)
         {
+            ViewBag.SearchSelectionString = searchSelectionString;
+            ViewBag.SeacrhString = seacrhString;
+
             if (ModelState.IsValid)
             {
                 ApplicationUser user = new ApplicationUser
@@ -105,9 +111,9 @@ namespace Web.Controllers.Identity
 
                 if (result.Succeeded)
                 {
-                    _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_CREATE, LoggerConstants.TYPE_POST, $"create user {_userHelper.GetIdUserByEmail(model.Email)} successful", GetCurrentUserId());
+                    _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_CREATE, LoggerConstants.TYPE_POST, $"create user email: {_userHelper.GetIdUserByEmail(model.Email)} successful", GetCurrentUserId());
 
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Index", new { searchSelectionString, seacrhString });
                 }
                 else
                 {
@@ -124,7 +130,7 @@ namespace Web.Controllers.Identity
         }
 
         [HttpGet]
-        public async Task<IActionResult> Edit(string id)
+        public async Task<IActionResult> Edit(string id, string searchSelectionString, string seacrhString)
         {
             ApplicationUser user = await _userManager.FindByIdAsync(id);
 
@@ -132,8 +138,11 @@ namespace Web.Controllers.Identity
             {
                 _loggerService.LogWarning(CONTROLLER_NAME + LoggerConstants.ACTION_EDIT + $"/{id}", LoggerConstants.TYPE_GET, LoggerConstants.ERROR_USER_NOT_FOUND, GetCurrentUserId());
 
-                return RedirectToAction("Error", "Home", new { requestId = "400" });
+                return RedirectToAction("Error", "Home", new { requestId = "400", errorInfo = "User not found" });
             }
+
+            ViewBag.SearchSelectionString = searchSelectionString;
+            ViewBag.SeacrhString = seacrhString;
 
             EditUserViewModel model = new EditUserViewModel
             {
@@ -144,14 +153,17 @@ namespace Web.Controllers.Identity
                 Patronomic = user.Patronomic
             };
 
-            _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_EDIT, LoggerConstants.TYPE_GET, $"edit user {id}", GetCurrentUserId());
+            _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_EDIT, LoggerConstants.TYPE_GET, $"edit user id: {id}", GetCurrentUserId());
 
             return View(model);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(EditUserViewModel model)
+        public async Task<IActionResult> Edit(EditUserViewModel model, string searchSelectionString, string seacrhString)
         {
+            ViewBag.SearchSelectionString = searchSelectionString;
+            ViewBag.SeacrhString = seacrhString;
+
             if (ModelState.IsValid)
             {
                 ApplicationUser user = await _userManager.FindByIdAsync(model.Id);
@@ -168,9 +180,9 @@ namespace Web.Controllers.Identity
 
                     if (result.Succeeded)
                     {
-                        _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_EDIT, LoggerConstants.TYPE_POST, $"edit user {model.Id} successful", GetCurrentUserId());
+                        _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_EDIT, LoggerConstants.TYPE_POST, $"edit  id: {model.Id} successful", GetCurrentUserId());
 
-                        return RedirectToAction("Index");
+                        return RedirectToAction("Index", new { searchSelectionString, seacrhString });
                     }
                     else
                     {
@@ -186,7 +198,7 @@ namespace Web.Controllers.Identity
                 {
                     _loggerService.LogWarning(CONTROLLER_NAME + LoggerConstants.ACTION_EDIT, LoggerConstants.TYPE_POST, LoggerConstants.ERROR_USER_NOT_FOUND, GetCurrentUserId());
 
-                    return RedirectToAction("Error", "Home", new { requestId = "400" });
+                    return RedirectToAction("Error", "Home", new { requestId = "400", errorInfo = "User not found" });
                 }
             }
 
@@ -194,7 +206,7 @@ namespace Web.Controllers.Identity
         }
 
         [HttpPost]
-        public async Task<ActionResult> Delete(string id)
+        public async Task<ActionResult> Delete(string id, string searchSelectionString, string seacrhString)
         {
             ApplicationUser user = await _userManager.FindByIdAsync(id);
 
@@ -204,37 +216,55 @@ namespace Web.Controllers.Identity
 
                 if (result.Succeeded)
                 {
-                    _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_DELETE + $"/{id}", LoggerConstants.TYPE_POST, $"delete user {id} successful", GetCurrentUserId());
+                    _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_DELETE + $"/{id}", LoggerConstants.TYPE_POST, $"delete user id: {id} successful", GetCurrentUserId());
 
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Index", new { searchSelectionString, seacrhString });
+                }
+                else
+                {
+                    foreach (var error in result.Errors)
+                    {
+                        _loggerService.LogWarning(CONTROLLER_NAME + LoggerConstants.ACTION_CREATE, LoggerConstants.TYPE_POST, $"code:{error.Code}|description:{error.Description}", GetCurrentUserId());
+
+                        ModelState.AddModelError(string.Empty, error.Description);
+                    }
+
+                    return RedirectToAction("Error", "Home", new { requestId = "400", errorInfo = $"{result.Errors}" });
+
                 }
             }
 
             _loggerService.LogWarning(CONTROLLER_NAME + LoggerConstants.ACTION_DELETE, LoggerConstants.TYPE_POST, LoggerConstants.ERROR_USER_NOT_FOUND, GetCurrentUserId());
 
-            return RedirectToAction("Error", "Home", new { requestId = "400" });
+            return RedirectToAction("Error", "Home", new { requestId = "400", errorInfo = $"User not found: valid" });
         }
 
         [HttpGet]
-        public async Task<IActionResult> ChangePassword(string id)
+        public async Task<IActionResult> ChangePassword(string id, string searchSelectionString, string seacrhString)
         {
             var user = await _userManager.FindByIdAsync(id);
 
             if (user == null)
             {
-                return RedirectToAction("Error", "Home", new { requestId = "400" });
+                return RedirectToAction("Error", "Home", new { requestId = "400", errorInfo = "User not found" });
             }
+
+            ViewBag.SearchSelectionString = searchSelectionString;
+            ViewBag.SeacrhString = seacrhString;
 
             ChangePasswordViewModel model = new ChangePasswordViewModel { Id = user.Id, Email = user.Email };
 
-            _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_CHANGEPASSWORD + $"/{id}", LoggerConstants.TYPE_GET, $"change password user {user.Id}", GetCurrentUserId());
+            _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_CHANGEPASSWORD + $"/{id}", LoggerConstants.TYPE_GET, $"change password user id: {user.Id}", GetCurrentUserId());
 
             return View(model);
         }
 
         [HttpPost]
-        public async Task<IActionResult> ChangePassword(ChangePasswordViewModel model)
+        public async Task<IActionResult> ChangePassword(ChangePasswordViewModel model, string searchSelectionString, string seacrhString)
         {
+            ViewBag.SearchSelectionString = searchSelectionString;
+            ViewBag.SeacrhString = seacrhString;
+
             if (ModelState.IsValid)
             {
                 var user = await _userManager.FindByIdAsync(model.Id);
@@ -245,9 +275,9 @@ namespace Web.Controllers.Identity
 
                     if (result.Succeeded)
                     {
-                        _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_CHANGEPASSWORD, LoggerConstants.TYPE_POST, $"change password user {user.Id}", GetCurrentUserId());
+                        _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_CHANGEPASSWORD, LoggerConstants.TYPE_POST, $"change password user id: {user.Id} ", GetCurrentUserId());
 
-                        return RedirectToAction("Index");
+                        return RedirectToAction("Index", new { searchSelectionString, seacrhString });
                     }
                     else
                     {
@@ -263,7 +293,7 @@ namespace Web.Controllers.Identity
                 {
                     _loggerService.LogWarning(CONTROLLER_NAME + LoggerConstants.ACTION_CHANGEPASSWORD, LoggerConstants.TYPE_POST, LoggerConstants.ERROR_USER_NOT_FOUND, GetCurrentUserId());
 
-                    ModelState.AddModelError(string.Empty, "User is not found");
+                    return RedirectToAction("Error", "Home", new { requestId = "400", errorInfo = "User not found" });
                 }
             }
 

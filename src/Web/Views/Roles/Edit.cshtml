@@ -12,7 +12,9 @@
                 <h3>Change of rights @Model.UserEmail</h3>
             </div>
             <div class="card-body">
-                <form method="post" autocomplete="off" asp-action="Edit" asp-controller="Roles">
+                <form method="post" autocomplete="off" asp-action="Edit" asp-controller="Roles"
+                      asp-route-searchSelectionString="@ViewBag.SearchSelectionString"
+                      asp-route-seacrhString="@ViewBag.SeacrhString">
                     <div class="text-danger" asp-validation-summary="ModelOnly"></div>
                     <input type="hidden" name="userId" value="@Model.UserId" />
 
@@ -29,7 +31,10 @@
 
                     <div class="form-group col-12">
                         <button type="submit" class="btn btn-primary">Change</button>
-                        <a asp-controller="Users" asp-action="Index" class="btn btn-warning">Back</a>
+                        <a asp-controller="Users" asp-action="Index"
+                           asp-route-searchSelectionString="@ViewBag.SearchSelectionString"
+                           asp-route-seacrhString="@ViewBag.SeacrhString"
+                           class="btn btn-warning">Back</a>
                     </div>
 
                 </form>

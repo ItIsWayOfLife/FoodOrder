@@ -33,7 +33,7 @@ namespace Web.Controllers
 
         [AllowAnonymous]
         [HttpGet]
-        public IActionResult Index(int providerId, int? menuId, string searchSelectionString, string name, SortState sortCatalog = SortState.NameAsc)
+        public IActionResult Index(int providerId, int? menuId, string searchSelectionString, string seacrhString, SortState sortCatalog = SortState.NameAsc)
         {
             IEnumerable<CatalogDTO> сatalogDTOs = _сatalogService.GetСatalogs(providerId);
             var mapper = new MapperConfiguration(cfg => cfg.CreateMap<CatalogDTO, CatalogViewModel>()).CreateMapper();
@@ -49,14 +49,14 @@ namespace Web.Controllers
             // list search
             List<string> searchSelection = new List<string>() { "SearchBy", "Catalog", "Info" };
 
-            if (name == null)
-                name = "";
+            if (seacrhString == null)
+                seacrhString = "";
 
             // search
             if (searchSelection[1] == searchSelectionString)
-                catalogs = catalogs.Where(n => n.Name.ToLower().Contains(name.ToLower())).ToList();
+                catalogs = catalogs.Where(n => n.Name.ToLower().Contains(seacrhString.ToLower())).ToList();
             else if (searchSelection[2] == searchSelectionString)
-                catalogs = catalogs.Where(e => e.Info.ToLower().Contains(name.ToLower())).ToList();
+                catalogs = catalogs.Where(e => e.Info.ToLower().Contains(seacrhString.ToLower())).ToList();
 
             ViewBag.NameSort = sortCatalog == SortState.NameAsc ? SortState.NameDesc : SortState.NameAsc;
 
@@ -73,7 +73,7 @@ namespace Web.Controllers
                 MenuId = menuId,
                 Catalogs = catalogs,
                 ProviderId = providerId,
-                SeacrhString = name,
+                SeacrhString = seacrhString,
                 SearchSelection = new SelectList(searchSelection),
                 SearchSelectionString = searchSelectionString
             });
@@ -111,13 +111,13 @@ namespace Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Delete(int? id, int providerId, string searchSelectionString, string name)
+        public ActionResult Delete(int? id, int providerId, string searchSelectionString, string seacrhString)
         {
             _сatalogService.DeleteСatalog(id);
 
             _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_DELETE, LoggerConstants.TYPE_POST, $"delete catalog id: {id} providerId: {providerId}", GetCurrentUserId());
 
-            return RedirectToAction("Index", new { providerId, searchSelectionString, name });
+            return RedirectToAction("Index", new { providerId, searchSelectionString, seacrhString });
         }
 
         [HttpGet]

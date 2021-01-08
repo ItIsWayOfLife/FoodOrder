@@ -1,0 +1,38 @@
+﻿@model Web.Models.Menu.AddMenuViewModel
+
+@{ ViewBag.Title = "Add menu"; }
+
+<div class="row mb-5">
+    <div class="col-6 m-auto">
+        <div class="card m-auto">
+            <div class="card-header">
+                <h3>Add menu</h3>
+            </div>
+            <div class="card-body">
+                <form method="post" asp-controller="Menu" asp-action="Add" enctype="multipart/form-data">
+                    <div class="text-danger" asp-validation-summary="All"></div>
+                    <input type="hidden" asp-for="ProviderId" />
+
+
+                    <div class="form-group col-12">
+                        <label asp-for="Info"></label>
+                        <span class="text-danger" asp-validation-for="Info"></span><br />
+                        <textarea rows="3" class="form-control" asp-for="Info"></textarea>
+                    </div><br />
+
+                    <div class="form-group col-12">
+                        <label asp-for="Date"></label>
+                        <span class="text-danger" asp-validation-for="Date"></span><br />
+                        <input type="date" class="form-control" asp-for="Date" />
+                    </div>
+
+                    <div class="form-group col-12">
+                        <button type="submit" class="btn btn-primary">Add</button>
+                        <a asp-action="Index" asp-route-providerId="@Model.ProviderId" class="btn btn-warning">Back</a>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

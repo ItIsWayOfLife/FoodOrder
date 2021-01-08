@@ -18,3 +18,414 @@ Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
 [1/7/2021 1:25:55 AM]:[catalog/add]:[type:post]:[info:add catalog name: 323223 providerId: 14]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
 [1/7/2021 1:25:55 AM]:[catalog/index/14]:[type:get]:[info:index – get catalogs of providerId: 14]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
 [1/7/2021 1:25:56 AM]:[catalog/add/14]:[type:get]:[info:add catalog providerId: 14]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/7/2021 2:10:10 AM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 2:10:12 AM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 2:10:21 AM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 2:10:24 AM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/7/2021 2:11:02 AM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 2:11:13 AM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/7/2021 2:13:13 AM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 2:14:19 AM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 2:14:32 AM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 2:14:32 AM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 2:14:35 AM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of providerId: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/7/2021 2:15:23 AM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 2:16:01 AM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 2:16:21 AM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+The view 'Add' was not found. Searched locations: /Views/Menu/Add.cshtml, /Views/Shared/Add.cshtml
+1/7/2021 2:16:27 AM: Something went wrong: System.InvalidOperationException: The view 'Add' was not found. The following locations were searched:
+/Views/Menu/Add.cshtml
+/Views/Shared/Add.cshtml
+   at Microsoft.AspNetCore.Mvc.ViewEngines.ViewEngineResult.EnsureSuccessful(IEnumerable`1 originalLocations)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Web.Exceptions.ExceptionInterceptor.InvokeAsync(HttpContext context) in C:\Users\asus\Desktop\Work\FoodOrder\src\Web\Exceptions\ExceptionInterceptor.cs:line 24
+The view 'Add' was not found. Searched locations: /Views/Menu/Add.cshtml, /Views/Shared/Add.cshtml
+An unhandled exception has occurred while executing the request.
+[1/7/2021 2:16:27 AM]:[home/error/]:[type:get]:[info:error ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 2:16:29 AM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 2:16:30 AM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 2:16:31 AM]:[users/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 2:16:31 AM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 2:16:35 AM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of providerId: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 2:16:36 AM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 2:16:38 AM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/7/2021 2:22:08 AM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 2:22:17 AM]:[users/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 2:22:17 AM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/7/2021 2:22:40 AM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 2:22:42 AM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 2:22:44 AM]:[home/about]:[type:get]:[info:about]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 2:22:45 AM]:[home/aboutdelivery]:[type:get]:[info:aboutdelivery]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 2:22:47 AM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 2:22:49 AM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of providerId: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 2:22:54 AM]:[catalog/add/1]:[type:get]:[info:add catalog providerId: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 2:22:56 AM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of providerId: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 2:22:57 AM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/7/2021 2:23:52 AM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 2:23:54 AM]:[users/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 2:23:55 AM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/7/2021 2:24:44 AM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+1/7/2021 2:25:32 AM: Something went wrong: Core.Exceptions.ValidationException: The menu already exists on this date
+   at Core.Services.MenuService.AddMenu(MenuDTO menuDTO) in C:\Users\asus\Desktop\Work\FoodOrder\src\Core\Services\MenuService.cs:line 79
+   at Web.Controllers.MenuController.Add(AddMenuViewModel model) in C:\Users\asus\Desktop\Work\FoodOrder\src\Web\Controllers\MenuController.cs:line 96
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Web.Exceptions.ExceptionInterceptor.InvokeAsync(HttpContext context) in C:\Users\asus\Desktop\Work\FoodOrder\src\Web\Exceptions\ExceptionInterceptor.cs:line 24
+An unhandled exception has occurred while executing the request.
+1/7/2021 2:25:51 AM: Something went wrong: Core.Exceptions.ValidationException: The menu already exists on this date
+   at Core.Services.MenuService.AddMenu(MenuDTO menuDTO) in C:\Users\asus\Desktop\Work\FoodOrder\src\Core\Services\MenuService.cs:line 79
+   at Web.Controllers.MenuController.Add(AddMenuViewModel model) in C:\Users\asus\Desktop\Work\FoodOrder\src\Web\Controllers\MenuController.cs:line 96
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Web.Exceptions.ExceptionInterceptor.InvokeAsync(HttpContext context) in C:\Users\asus\Desktop\Work\FoodOrder\src\Web\Exceptions\ExceptionInterceptor.cs:line 24
+An unhandled exception has occurred while executing the request.
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/7/2021 2:27:45 AM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 2:27:47 AM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+1/7/2021 2:28:05 AM: Something went wrong: Core.Exceptions.ValidationException: The menu already exists on this date
+   at Core.Services.MenuService.AddMenu(MenuDTO menuDTO) in C:\Users\asus\Desktop\Work\FoodOrder\src\Core\Services\MenuService.cs:line 79
+   at Web.Controllers.MenuController.Add(AddMenuViewModel model) in C:\Users\asus\Desktop\Work\FoodOrder\src\Web\Controllers\MenuController.cs:line 96
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Web.Exceptions.ExceptionInterceptor.InvokeAsync(HttpContext context) in C:\Users\asus\Desktop\Work\FoodOrder\src\Web\Exceptions\ExceptionInterceptor.cs:line 24
+An unhandled exception has occurred while executing the request.
+1/7/2021 2:28:10 AM: Something went wrong: Core.Exceptions.ValidationException: The menu already exists on this date
+   at Core.Services.MenuService.AddMenu(MenuDTO menuDTO) in C:\Users\asus\Desktop\Work\FoodOrder\src\Core\Services\MenuService.cs:line 79
+   at Web.Controllers.MenuController.Add(AddMenuViewModel model) in C:\Users\asus\Desktop\Work\FoodOrder\src\Web\Controllers\MenuController.cs:line 96
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Web.Exceptions.ExceptionInterceptor.InvokeAsync(HttpContext context) in C:\Users\asus\Desktop\Work\FoodOrder\src\Web\Exceptions\ExceptionInterceptor.cs:line 24
+An unhandled exception has occurred while executing the request.
+1/7/2021 2:28:21 AM: Something went wrong: Core.Exceptions.ValidationException: Menu cannot be compiled for the past date
+   at Core.Services.MenuService.AddMenu(MenuDTO menuDTO) in C:\Users\asus\Desktop\Work\FoodOrder\src\Core\Services\MenuService.cs:line 74
+   at Web.Controllers.MenuController.Add(AddMenuViewModel model) in C:\Users\asus\Desktop\Work\FoodOrder\src\Web\Controllers\MenuController.cs:line 96
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Web.Exceptions.ExceptionInterceptor.InvokeAsync(HttpContext context) in C:\Users\asus\Desktop\Work\FoodOrder\src\Web\Exceptions\ExceptionInterceptor.cs:line 24
+An unhandled exception has occurred while executing the request.
+1/7/2021 2:28:37 AM: Something went wrong: Core.Exceptions.ValidationException: The menu already exists on this date
+   at Core.Services.MenuService.AddMenu(MenuDTO menuDTO) in C:\Users\asus\Desktop\Work\FoodOrder\src\Core\Services\MenuService.cs:line 79
+   at Web.Controllers.MenuController.Add(AddMenuViewModel model) in C:\Users\asus\Desktop\Work\FoodOrder\src\Web\Controllers\MenuController.cs:line 96
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Web.Exceptions.ExceptionInterceptor.InvokeAsync(HttpContext context) in C:\Users\asus\Desktop\Work\FoodOrder\src\Web\Exceptions\ExceptionInterceptor.cs:line 24
+An unhandled exception has occurred while executing the request.
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/7/2021 2:29:15 AM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 2:29:18 AM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 2:29:56 AM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/7/2021 2:30:54 AM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 2:32:02 AM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+1/7/2021 2:32:23 AM: Something went wrong: Core.Exceptions.ValidationException: The menu already exists on this date
+   at Core.Services.MenuService.AddMenu(MenuDTO menuDTO) in C:\Users\asus\Desktop\Work\FoodOrder\src\Core\Services\MenuService.cs:line 79
+   at Web.Controllers.MenuController.Add(AddMenuViewModel model) in C:\Users\asus\Desktop\Work\FoodOrder\src\Web\Controllers\MenuController.cs:line 96
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Web.Exceptions.ExceptionInterceptor.InvokeAsync(HttpContext context) in C:\Users\asus\Desktop\Work\FoodOrder\src\Web\Exceptions\ExceptionInterceptor.cs:line 24
+An unhandled exception has occurred while executing the request.
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/7/2021 2:35:49 AM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 2:35:51 AM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/7/2021 2:36:26 AM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 2:36:28 AM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/7/2021 2:42:10 AM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/7/2021 2:45:03 AM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/7/2021 2:45:22 AM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/7/2021 2:49:19 AM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 2:49:22 AM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/7/2021 2:50:45 AM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 2:50:47 AM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 2:50:48 AM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of providerId: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 2:50:55 AM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of providerId: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 2:50:58 AM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of providerId: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 2:51:00 AM]:[catalog/delete]:[type:post]:[info:delete catalog id: 3 providerId: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 2:51:00 AM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of providerId: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 2:51:02 AM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 2:51:20 AM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 2:51:23 AM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 2:51:28 AM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 2:51:32 AM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of providerId: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 2:51:33 AM]:[catalog/add/1]:[type:get]:[info:add catalog providerId: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 2:51:35 AM]:[catalog/add]:[type:post]:[info:add catalog name: 221 providerId: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 2:51:35 AM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of providerId: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 2:51:38 AM]:[catalog/delete]:[type:post]:[info:delete catalog id: 7 providerId: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 2:51:38 AM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of providerId: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 2:51:41 AM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 2:52:27 AM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 2:52:28 AM]:[users/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/7/2021 11:16:31 PM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:anonymous]
+[1/7/2021 11:16:50 PM]:[account/login]:[type:get]:[info:login]:[user:anonymous]
+[1/7/2021 11:16:51 PM]:[account/login]:[type:post]:[info:login successful]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 11:16:51 PM]:[home/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/7/2021 11:16:51 PM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/7/2021 11:18:03 PM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/7/2021 11:18:25 PM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/8/2021 6:53:37 AM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:anonymous]
+[1/8/2021 6:57:02 AM]:[account/login]:[type:get]:[info:login]:[user:anonymous]
+[1/8/2021 6:57:03 AM]:[account/login]:[type:post]:[info:login successful]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 6:57:03 AM]:[users/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 6:57:09 AM]:[users/create]:[type:get]:[info:create]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+User validation failed: InvalidUserName.
+[1/8/2021 6:57:13 AM]:[users/create]:[type:post]:[warning:code:InvalidUserName|description:Username 'admваin@gmail.com' is invalid, can only contain letters or digits.]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 6:57:25 AM]:[users/create]:[type:post]:[info:create user email: 5feb2e9a-35d8-4e08-a8eb-86ac3abb28cb successful]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 6:57:25 AM]:[users/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 6:57:26 AM]:[users/create]:[type:get]:[info:create]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 6:57:30 AM]:[users/create]:[type:post]:[info:create user email: 52df8a22-acd0-4a7f-8438-c820f87c5b44 successful]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 6:57:30 AM]:[users/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 6:57:36 AM]:[users/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 6:57:37 AM]:[users/create]:[type:get]:[info:create]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 6:57:38 AM]:[users/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 6:57:40 AM]:[users/create]:[type:get]:[info:create]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 6:57:43 AM]:[users/create]:[type:post]:[info:create user email: e03aa789-63d5-4ab3-b200-92855536b72f successful]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 6:57:43 AM]:[users/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 6:57:45 AM]:[users/edit]:[type:get]:[info:edit user id: 171b5ff8-a18b-4b0d-bdec-6b28650610ca]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 6:57:46 AM]:[users/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 6:57:49 AM]:[users/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 6:57:54 AM]:[users/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 6:57:55 AM]:[users/edit]:[type:get]:[info:edit user id: 5feb2e9a-35d8-4e08-a8eb-86ac3abb28cb]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 6:58:00 AM]:[users/edit]:[type:post]:[info:edit  id: 5feb2e9a-35d8-4e08-a8eb-86ac3abb28cb successful]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 6:58:00 AM]:[users/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 6:58:02 AM]:[users/changepassword/5feb2e9a-35d8-4e08-a8eb-86ac3abb28cb]:[type:get]:[info:change password user id: 5feb2e9a-35d8-4e08-a8eb-86ac3abb28cb]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 6:58:05 AM]:[users/changepassword]:[type:post]:[info:change password user id: 5feb2e9a-35d8-4e08-a8eb-86ac3abb28cb ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 6:58:05 AM]:[users/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 6:58:10 AM]:[roles/edit/5feb2e9a-35d8-4e08-a8eb-86ac3abb28cb]:[type:get]:[info:edit roles user id: 5feb2e9a-35d8-4e08-a8eb-86ac3abb28cb]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 6:58:14 AM]:[roles/edit]:[type:post]:[info:edit roles user id: 5feb2e9a-35d8-4e08-a8eb-86ac3abb28cb successful]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 6:58:14 AM]:[users/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 6:58:15 AM]:[roles/edit/5feb2e9a-35d8-4e08-a8eb-86ac3abb28cb]:[type:get]:[info:edit roles user id: 5feb2e9a-35d8-4e08-a8eb-86ac3abb28cb]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 6:58:18 AM]:[users/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 6:58:20 AM]:[users/changepassword/5feb2e9a-35d8-4e08-a8eb-86ac3abb28cb]:[type:get]:[info:change password user id: 5feb2e9a-35d8-4e08-a8eb-86ac3abb28cb]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 6:58:21 AM]:[users/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 6:58:22 AM]:[users/edit]:[type:get]:[info:edit user id: 5feb2e9a-35d8-4e08-a8eb-86ac3abb28cb]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 6:58:23 AM]:[users/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 6:58:25 AM]:[users/delete/5feb2e9a-35d8-4e08-a8eb-86ac3abb28cb]:[type:post]:[info:delete user id: 5feb2e9a-35d8-4e08-a8eb-86ac3abb28cb successful]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 6:58:25 AM]:[users/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 6:58:26 AM]:[users/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 6:58:30 AM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 6:58:32 AM]:[account/profile]:[type:get]:[info:profile]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 6:58:34 AM]:[account/edit]:[type:get]:[info:edit]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 6:58:35 AM]:[account/profile]:[type:get]:[info:profile]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 6:58:36 AM]:[account/changepassword]:[type:get]:[info:change password]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 6:58:37 AM]:[account/profile]:[type:get]:[info:profile]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 6:58:38 AM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 6:58:39 AM]:[users/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 6:58:45 AM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 6:58:50 AM]:[home/about]:[type:get]:[info:about]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 6:59:31 AM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 6:59:33 AM]:[users/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 6:59:35 AM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 6:59:40 AM]:[home/aboutdelivery]:[type:get]:[info:aboutdelivery]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 6:59:41 AM]:[home/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 6:59:41 AM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 6:59:41 AM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 6:59:42 AM]:[home/about]:[type:get]:[info:about]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 6:59:42 AM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 6:59:42 AM]:[users/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 6:59:44 AM]:[users/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 6:59:45 AM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 6:59:45 AM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 6:59:49 AM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 7:00:16 AM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
