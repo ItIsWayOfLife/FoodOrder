@@ -42,15 +42,16 @@
 
             @if (User.IsInRole("admin"))
             {
-        <form asp-action="Delete" asp-route-id="@Model.Id" asp-route-searchSelectionString="@ViewData["SearchSelectionString"]" asp-route-seacrhString="@ViewData["SeacrhString"]" method="post">
-            <input type="hidden" name="searchSelectionString" value="@ViewData["SearchSelectionString"]" />
-            <input type="hidden" name="seacrhString" value="@ViewData["SeacrhString"]" />
-            <a class="btn btn-sm btn-success" asp-action="Edit" asp-route-id="@Model.Id"  asp-route-searchSelectionString="@ViewData["SearchSelectionString"]" asp-route-seacrhString="@ViewData["SeacrhString"]">Edit</a>
-            <button onclick="if (!confirm('Are you sure you want to delete this Item?')) { return false }" type="submit" class="btn btn-sm btn-danger">
-                Delete
-            </button>
-        </form>
-                        <br />}
+            <form asp-action="Delete" asp-route-id="@Model.Id" asp-route-searchSelectionString="@ViewData["SearchSelectionString"]" asp-route-seacrhString="@ViewData["SeacrhString"]" method="post">
+                <input type="hidden" name="searchSelectionString" value="@ViewData["SearchSelectionString"]" />
+                <input type="hidden" name="seacrhString" value="@ViewData["SeacrhString"]" />
+                <a class="btn btn-sm btn-success" asp-action="Edit" asp-route-id="@Model.Id"  asp-route-searchSelectionString="@ViewData["SearchSelectionString"]" asp-route-seacrhString="@ViewData["SeacrhString"]">Edit</a>
+                <button onclick="if (!confirm('Are you sure you want to delete this Item?')) { return false }" type="submit" class="btn btn-sm btn-danger">
+                    Delete
+                </button>
+            </form>
+            <br />
+            }
             <a class="btn btn-sm btn-primary" asp-action="Index" asp-controller="Menu" asp-route-providerId="@Model.Id" >Menu</a>
             <a class="btn btn-sm btn-primary" asp-action="Index" asp-controller="Catalog" asp-route-providerId="@Model.Id">Catalog dishes</a>
             <br />

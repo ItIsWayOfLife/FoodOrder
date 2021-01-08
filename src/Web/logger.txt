@@ -218,3 +218,321 @@ Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
 [1/8/2021 9:05:24 PM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of provider id: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
 [1/8/2021 9:05:28 PM]:[catalog/delete]:[type:post]:[info:delete catalog id: 2 provider id: 1 error: Catalog id not set]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
 [1/8/2021 9:05:29 PM]:[home/error/400]:[type:get]:[info:error 400]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/8/2021 11:40:26 PM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 11:40:27 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 11:40:38 PM]:[menu/index/1]:[type:get]:[info:index – get menus of provider id: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 11:40:39 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 11:40:41 PM]:[menu/index/1]:[type:get]:[info:index – get menus of provider id: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 11:40:44 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 11:40:45 PM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of provider id: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+1/8/2021 11:40:46 PM: Something went wrong: System.InvalidOperationException: Unable to resolve service for type 'Core.Interfaces.IDishService' while attempting to activate 'Web.Controllers.DishController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method(Closure , IServiceProvider , Object[] )
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.<>c__DisplayClass4_0.<CreateActivator>b__0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass5_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Web.Exceptions.ExceptionInterceptor.InvokeAsync(HttpContext context) in C:\Users\asus\Desktop\Work\FoodOrder\src\Web\Exceptions\ExceptionInterceptor.cs:line 24
+An unhandled exception has occurred while executing the request.
+[1/8/2021 11:40:46 PM]:[home/error/&]:[type:get]:[info:error code:  info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/8/2021 11:41:22 PM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 11:41:23 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 11:41:25 PM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 11:41:25 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 11:41:29 PM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 11:41:29 PM]:[users/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 11:41:30 PM]:[home/about]:[type:get]:[info:about]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 11:41:30 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 11:41:30 PM]:[home/aboutdelivery]:[type:get]:[info:aboutdelivery]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 11:41:31 PM]:[home/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 11:41:31 PM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 11:41:32 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 11:41:33 PM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 11:41:33 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 11:41:39 PM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of provider id: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 11:41:42 PM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of provider id: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 11:41:45 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 11:41:45 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 11:41:45 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 11:41:45 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/8/2021 11:42:39 PM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 11:42:39 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/8/2021 11:47:35 PM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 11:47:36 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 11:47:39 PM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of provider id: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 11:47:59 PM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of provider id: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 11:48:05 PM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 11:48:05 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 11:48:12 PM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 11:48:12 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 11:48:22 PM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 11:48:22 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 11:48:22 PM]:[home/about]:[type:get]:[info:about]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 11:48:23 PM]:[home/aboutdelivery]:[type:get]:[info:aboutdelivery]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 11:48:24 PM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 11:48:24 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 11:48:25 PM]:[home/aboutdelivery]:[type:get]:[info:aboutdelivery]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 11:48:27 PM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 11:48:27 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/8/2021 11:49:00 PM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 11:49:01 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 11:49:02 PM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 11:49:02 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/8/2021 11:57:58 PM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 11:57:59 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 11:58:03 PM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of provider id: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 11:58:07 PM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of provider id: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/8/2021 11:59:55 PM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/8/2021 11:59:56 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/9/2021 12:00:09 AM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of provider id: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/9/2021 12:09:21 AM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/9/2021 12:09:22 AM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/9/2021 12:09:25 AM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/9/2021 12:09:26 AM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/9/2021 12:09:31 AM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of provider id: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/9/2021 12:17:29 AM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/9/2021 12:17:31 AM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/9/2021 12:20:54 AM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/9/2021 12:20:54 AM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/9/2021 12:20:56 AM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of provider id: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/9/2021 12:21:19 AM]:[account/logout]:[type:post]:[info:logout]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/9/2021 12:21:19 AM]:[home/index]:[type:get]:[info:index]:[user:anonymous]
+[1/9/2021 12:21:19 AM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:anonymous]
+[1/9/2021 12:21:19 AM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:anonymous]
+[1/9/2021 12:21:22 AM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of provider id: 1]:[user:anonymous]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/9/2021 12:23:12 AM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:anonymous]
+[1/9/2021 12:23:12 AM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:anonymous]
+[1/9/2021 12:23:15 AM]:[book/index]:[type:get]:[info:index – get providers]:[user:anonymous]
+[1/9/2021 12:23:15 AM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:anonymous]
+[1/9/2021 12:23:16 AM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of provider id: 1]:[user:anonymous]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/9/2021 12:24:17 AM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:anonymous]
+[1/9/2021 12:24:18 AM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:anonymous]
+[1/9/2021 12:24:21 AM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of provider id: 1]:[user:anonymous]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/9/2021 12:25:12 AM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:anonymous]
+[1/9/2021 12:25:13 AM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:anonymous]
+[1/9/2021 12:25:16 AM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of provider id: 1]:[user:anonymous]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/9/2021 12:27:16 AM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:anonymous]
+[1/9/2021 12:27:17 AM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:anonymous]
+[1/9/2021 12:27:33 AM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of provider id: 1]:[user:anonymous]
+[1/9/2021 12:27:36 AM]:[catalog/index/10]:[type:get]:[info:index – get catalogs of provider id: 10]:[user:anonymous]
+[1/9/2021 12:27:38 AM]:[book/index]:[type:get]:[info:index – get providers]:[user:anonymous]
+[1/9/2021 12:27:38 AM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:anonymous]
+[1/9/2021 12:27:39 AM]:[menu/index/2]:[type:get]:[info:index – get menus of provider id: 2]:[user:anonymous]
+[1/9/2021 12:27:41 AM]:[book/index]:[type:get]:[info:index – get providers]:[user:anonymous]
+[1/9/2021 12:27:41 AM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:anonymous]
+[1/9/2021 12:27:42 AM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of provider id: 1]:[user:anonymous]
+[1/9/2021 12:27:48 AM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of provider id: 1]:[user:anonymous]
+[1/9/2021 12:27:51 AM]:[catalog/index/2]:[type:get]:[info:index – get catalogs of provider id: 2]:[user:anonymous]
+[1/9/2021 12:27:54 AM]:[book/index]:[type:get]:[info:index – get providers]:[user:anonymous]
+[1/9/2021 12:27:55 AM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:anonymous]
+[1/9/2021 12:27:58 AM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of provider id: 1]:[user:anonymous]
+[1/9/2021 12:28:09 AM]:[catalog/index/9]:[type:get]:[info:index – get catalogs of provider id: 9]:[user:anonymous]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/9/2021 12:28:53 AM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:anonymous]
+[1/9/2021 12:28:54 AM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:anonymous]
+[1/9/2021 12:28:57 AM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of provider id: 1]:[user:anonymous]
+[1/9/2021 12:29:00 AM]:[book/index]:[type:get]:[info:index – get providers]:[user:anonymous]
+[1/9/2021 12:29:00 AM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:anonymous]
+[1/9/2021 12:29:01 AM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of provider id: 1]:[user:anonymous]
+1/9/2021 12:29:36 AM: Something went wrong: Core.Exceptions.ValidationException: Provider not found
+   at Core.Services.CatalogService.GetСatalogs(Nullable`1 providerId) in C:\Users\asus\Desktop\Work\FoodOrder\src\Core\Services\CatalogService.cs:line 38
+   at Web.Controllers.CatalogController.Index(Int32 providerId, Nullable`1 menuId, String searchSelectionString, String seacrhString, SortState sortCatalog) in C:\Users\asus\Desktop\Work\FoodOrder\src\Web\Controllers\CatalogController.cs:line 39
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Web.Exceptions.ExceptionInterceptor.InvokeAsync(HttpContext context) in C:\Users\asus\Desktop\Work\FoodOrder\src\Web\Exceptions\ExceptionInterceptor.cs:line 24
+An unhandled exception has occurred while executing the request.
+[1/9/2021 12:29:37 AM]:[home/error/&]:[type:get]:[info:error code:  info: ]:[user:anonymous]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/9/2021 12:31:26 AM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:anonymous]
+[1/9/2021 12:31:27 AM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:anonymous]
+[1/9/2021 12:31:29 AM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of provider id: 1]:[user:anonymous]
+1/9/2021 12:31:45 AM: Something went wrong: Core.Exceptions.ValidationException: Provider not found
+   at Core.Services.CatalogService.GetСatalogs(Nullable`1 providerId) in C:\Users\asus\Desktop\Work\FoodOrder\src\Core\Services\CatalogService.cs:line 38
+   at Web.Controllers.CatalogController.Index(Int32 providerId, Nullable`1 menuId, String searchSelectionString, String seacrhString, SortState sortCatalog) in C:\Users\asus\Desktop\Work\FoodOrder\src\Web\Controllers\CatalogController.cs:line 39
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Web.Exceptions.ExceptionInterceptor.InvokeAsync(HttpContext context) in C:\Users\asus\Desktop\Work\FoodOrder\src\Web\Exceptions\ExceptionInterceptor.cs:line 24
+An unhandled exception has occurred while executing the request.
+[1/9/2021 12:31:46 AM]:[home/error/&]:[type:get]:[info:error code:  info: ]:[user:anonymous]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/9/2021 12:32:33 AM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:anonymous]
+[1/9/2021 12:32:34 AM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:anonymous]
+[1/9/2021 12:32:37 AM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of provider id: 1]:[user:anonymous]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/9/2021 12:33:43 AM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:anonymous]
+[1/9/2021 12:33:44 AM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:anonymous]
+[1/9/2021 12:33:46 AM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of provider id: 1]:[user:anonymous]
+[1/9/2021 12:33:59 AM]:[book/index]:[type:get]:[info:index – get providers]:[user:anonymous]
+[1/9/2021 12:34:00 AM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:anonymous]
+[1/9/2021 12:34:02 AM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of provider id: 1]:[user:anonymous]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/9/2021 12:36:12 AM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:anonymous]
+[1/9/2021 12:36:12 AM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:anonymous]
+[1/9/2021 12:36:15 AM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of provider id: 1]:[user:anonymous]
+[1/9/2021 12:36:21 AM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of provider id: 1]:[user:anonymous]
+[1/9/2021 12:36:25 AM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of provider id: 1]:[user:anonymous]
+[1/9/2021 12:36:27 AM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of provider id: 1]:[user:anonymous]
+[1/9/2021 12:36:34 AM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of provider id: 1]:[user:anonymous]
+[1/9/2021 12:36:35 AM]:[book/index]:[type:get]:[info:index – get providers]:[user:anonymous]
+[1/9/2021 12:36:35 AM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:anonymous]
+[1/9/2021 12:36:38 AM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of provider id: 1]:[user:anonymous]
+[1/9/2021 12:36:46 AM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of provider id: 1]:[user:anonymous]
+[1/9/2021 12:36:48 AM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of provider id: 1]:[user:anonymous]
+[1/9/2021 12:36:50 AM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of provider id: 1]:[user:anonymous]
+[1/9/2021 12:36:52 AM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of provider id: 1]:[user:anonymous]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/9/2021 12:37:34 AM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:anonymous]
+[1/9/2021 12:37:35 AM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:anonymous]
+[1/9/2021 12:37:38 AM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of provider id: 1]:[user:anonymous]
+[1/9/2021 12:37:38 AM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of provider id: 1]:[user:anonymous]
+[1/9/2021 12:37:41 AM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of provider id: 1]:[user:anonymous]
+[1/9/2021 12:37:45 AM]:[book/index]:[type:get]:[info:index – get providers]:[user:anonymous]
+[1/9/2021 12:37:45 AM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:anonymous]
+[1/9/2021 12:37:48 AM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of provider id: 1]:[user:anonymous]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/9/2021 12:38:44 AM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:anonymous]
+[1/9/2021 12:38:44 AM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:anonymous]
+[1/9/2021 12:38:46 AM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of provider id: 1]:[user:anonymous]
+[1/9/2021 12:38:54 AM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of provider id: 1]:[user:anonymous]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/9/2021 12:39:54 AM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:anonymous]
+[1/9/2021 12:39:55 AM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:anonymous]
+[1/9/2021 12:40:02 AM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of provider id: 1]:[user:anonymous]
+[1/9/2021 12:40:08 AM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of provider id: 1]:[user:anonymous]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/9/2021 12:43:10 AM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:anonymous]
+[1/9/2021 12:43:10 AM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:anonymous]
+[1/9/2021 12:43:13 AM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of provider id: 1]:[user:anonymous]
+[1/9/2021 12:43:18 AM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of provider id: 1]:[user:anonymous]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/9/2021 12:45:52 AM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:anonymous]
+[1/9/2021 12:45:53 AM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:anonymous]
+[1/9/2021 12:45:55 AM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of provider id: 1]:[user:anonymous]
+[1/9/2021 12:45:58 AM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of provider id: 1]:[user:anonymous]
+[1/9/2021 12:49:11 AM]:[book/index]:[type:get]:[info:index – get providers]:[user:anonymous]
+[1/9/2021 12:49:11 AM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:anonymous]
+[1/9/2021 12:49:11 AM]:[book/index]:[type:get]:[info:index – get providers]:[user:anonymous]
+[1/9/2021 12:49:12 AM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:anonymous]
+[1/9/2021 12:49:12 AM]:[book/index]:[type:get]:[info:index – get providers]:[user:anonymous]
+[1/9/2021 12:49:12 AM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:anonymous]
+[1/9/2021 12:49:21 AM]:[book/index]:[type:get]:[info:index – get providers]:[user:anonymous]
+[1/9/2021 12:49:21 AM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:anonymous]
+[1/9/2021 12:49:33 AM]:[menu/index/1]:[type:get]:[info:index – get menus of provider id: 1]:[user:anonymous]
+[1/9/2021 12:49:33 AM]:[menu/index/1]:[type:get]:[info:index – get menus of provider id: 1]:[user:anonymous]
+[1/9/2021 12:49:33 AM]:[menu/index/1]:[type:get]:[info:index – get menus of provider id: 1]:[user:anonymous]
+[1/9/2021 12:49:38 AM]:[menu/index/1]:[type:get]:[info:index – get menus of provider id: 1]:[user:anonymous]
+[1/9/2021 12:49:39 AM]:[menu/index/1]:[type:get]:[info:index – get menus of provider id: 1]:[user:anonymous]
+[1/9/2021 12:49:41 AM]:[menu/index/1]:[type:get]:[info:index – get menus of provider id: 1]:[user:anonymous]
+[1/9/2021 12:49:41 AM]:[menu/index/1]:[type:get]:[info:index – get menus of provider id: 1]:[user:anonymous]
+[1/9/2021 12:49:43 AM]:[menu/index/1]:[type:get]:[info:index – get menus of provider id: 1]:[user:anonymous]
+[1/9/2021 12:49:44 AM]:[menu/index/1]:[type:get]:[info:index – get menus of provider id: 1]:[user:anonymous]
+[1/9/2021 12:49:46 AM]:[menu/index/1]:[type:get]:[info:index – get menus of provider id: 1]:[user:anonymous]
+[1/9/2021 12:49:46 AM]:[menu/index/1]:[type:get]:[info:index – get menus of provider id: 1]:[user:anonymous]
+[1/9/2021 12:49:47 AM]:[menu/index/1]:[type:get]:[info:index – get menus of provider id: 1]:[user:anonymous]
+[1/9/2021 12:49:47 AM]:[menu/index/1]:[type:get]:[info:index – get menus of provider id: 1]:[user:anonymous]
+[1/9/2021 12:49:49 AM]:[menu/index/1]:[type:get]:[info:index – get menus of provider id: 1]:[user:anonymous]

@@ -1,0 +1,49 @@
+﻿@model Web.Models.Dish.DishViewModel
+<div class="col-4">
+    <div class="shadow-lg p-3 bg-white mb-4">
+        <div class="card">
+
+            @if (Model.Path != null)
+            {
+        <div class="card-img-wrapper">
+            <img title="@Model.Name" class="card-img-top" src="@Model.Path" alt="@Model.Name" />
+        </div>}
+
+        <div class="container">
+            @if (Model.Name.Length >= 16)
+            {
+        <h2>@Model.Name.Remove(13)...</h2> }
+        else
+        {
+        <h2>@Model.Name</h2>}
+            @if (User.IsInRole("admin"))
+            {
+                <h6> Id: @Model.Id </h6>
+            }
+            <h6> Info: @Model.Info </h6>
+            <h6>Weight: @Model.Weight</h6>
+            <h6>Price: <span class="text-danger">@Model.Price</span> $</h6>
+
+            @if (User.IsInRole("admin"))
+            {
+                if (@ViewData["MenuId"] == null)
+                {
+                <form asp-action="Delete" asp-route-id="@Model.Id" asp-route-catalogId="@Model.CatalogId" method="post">
+                    <input type="hidden" name="searchSelectionString" value="@ViewData["SearchSelectionString"]" />
+                    <input type="hidden" name="name" value="@ViewData["SeacrhString"]" />
+                    <a class="btn btn-sm btn-primary" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+                    <button type="submit" class="btn btn-sm btn-danger">
+                        Delete
+                    </button>
+                </form> }
+                else
+                {
+                  <input type="hidden" name="allSelect" value="@Model.Id" />
+                  <label for="@Model.Id">AddInMenu</label>
+                  <input id="@Model.Id" type="checkbox" name="newAddedDishes" value="@Model.Id"
+                  @(Model.AddMenu ? "checked=\"checked\"" : "") /> }
+                  <br />}
+        </div>
+    </div>
+ </div>
+</div>

@@ -1,0 +1,70 @@
+﻿@model Web.Models.Dish.ListDishViewModel
+@{ ViewBag.Title = "Dishes"; }
+
+
+
+<div class="text-center">
+    <h1 style="margin-top: -3%;">Dishes @ViewData["NameCatalog"]</h1>
+</div>
+
+<form method="get" asp-route-menuId="@Model.MenuId">
+    <input type="hidden" name="catalogId" value="@Model.CatalogId" />
+    <div class="form-inline form-group">
+        @if (Model.Dishes.Any())
+        {
+    <a asp-action="Index" asp-route-catalogId="@Model.CatalogId" asp-route-sortDish="@ViewData["PriceSort"]" asp-route-menuId="@Model.MenuId"
+       asp-route-searchSelectionString="@Model.SearchSelectionString" asp-route-seacrhString="@Model.SeacrhString" class="mr-1 text-black">
+        SortByPrice
+    </a>}
+        <label asp-for="SearchSelectionString" class="mr-1">SearchBy </label>
+        <select class="mr-1" style="height: 1.8em;" name="searchSelectionString" asp-items="Model.SearchSelection" asp-for="SearchSelectionString"></select>
+        <label asp-for="SeacrhString" class="mr-1" style="margin-left: 5px;">Value: </label>
+        <input class="mr-1" name="seacrhString" asp-for="SeacrhString" />
+        <input type="submit" value="Search" class="btn btn-sm btn-primary mr-1" />
+        <a asp-action="Index" asp-route-catalogId="@Model.CatalogId" asp-route-menuId="@Model.MenuId" class="btn btn-sm btn-danger mr-1">Refresh</a>
+        <a class="btn btn-sm btn-warning mr-1" asp-action="Index" asp-controller="Catalog" asp-route-providerId="@ViewBag.ProviderId">Back</a>
+
+        @if (User.IsInRole("admin"))
+        {
+        <a class="btn btn-sm btn-success mr-1" asp-controller="Dish" asp-action="Add" asp-route-catalogId="@Model.CatalogId">Add dish</a>}
+
+    </div>
+</form>
+
+@if (Model.Dishes.Any())
+{
+@if (Model.MenuId != null)
+{
+<form asp-action="MakeMenu" asp-controller="Dish" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <input type="hidden" name="menuId" value="@Model.MenuId" />
+
+    <div class="row mb-5">
+        @{ foreach (Web.Models.Dish.DishViewModel dish in Model.Dishes)
+            {
+<input type="hidden" name="addedDish" value="@dish.AddMenu" />
+
+                        @await Html.PartialAsync("_DishesList", dish, new ViewDataDictionary(this.ViewData) {
+                            { "SearchSelectionString", Model.SearchSelectionString },
+                            { "SeacrhString", Model.SeacrhString },
+                            { "MenuId", Model.MenuId} }) } }
+    </div>
+    <button type="submit" class="btn btn-success"> Save</button>
+</form> }
+                else
+                {
+<div class="row mb-5">
+    @{ foreach (Web.Models.Dish.DishViewModel dish in Model.Dishes)
+        {
+<input type="hidden" name="addedDish" value="@dish.AddMenu" />
+
+                        @await Html.PartialAsync("_DishesList", dish, new ViewDataDictionary(this.ViewData) {
+                        { "SearchSelectionString", Model.SearchSelectionString },
+                       { "SeacrhString", Model.SeacrhString },
+                       { "MenuId", Model.MenuId} }) } }
+</div>} }
+            else
+            {
+<h2 class="text-center text-danger">
+    Empty
+</h2>}

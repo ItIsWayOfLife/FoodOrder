@@ -60,6 +60,7 @@ namespace Web
             services.AddTransient<IProviderService, ProviderService>();
             services.AddTransient<ICatalogService, CatalogService>();
             services.AddTransient<IMenuService, MenuService>();
+            services.AddTransient<IDishService, DishService>();
 
             services.AddTransient<IUserHelper, UserHelper>();
             services.AddTransient<IProviderHelper, ProviderHelper>();

@@ -5,7 +5,7 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4 mb-2" style="margin-top: -3%;">Providers</h1>
+    <h1 style="margin-top: -3%;">Providers</h1>
 </div>
 
 <form method="get">
@@ -18,7 +18,7 @@
         <a class="btn btn-sm btn-danger mr-1" asp-action="Index">Refresh</a>
         @if (User.IsInRole("admin"))
         {
-            <a class="btn btn-sm btn-success mr-1" asp-controller="Provider" asp-action="Add"  asp-route-searchSelectionString="@Model.SearchSelectionString" asp-route-seacrhString="@Model.SeacrhString">AddProvider</a>
+            <a class="btn btn-sm btn-success mr-1" asp-controller="Provider" asp-action="Add"  asp-route-searchSelectionString="@Model.SearchSelectionString" asp-route-seacrhString="@Model.SeacrhString">Add provider</a>
         }
     </div>
 </form>
