@@ -9,6 +9,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Web.Models.Menu;
+using Web.Interfaces;
+using Core.Constants;
+using System.Security.Claims;
 
 namespace Web.Controllers
 {
@@ -17,12 +20,16 @@ namespace Web.Controllers
     {
         private readonly IMenuService _menuService;
         private readonly IProviderService _providerService;
+        private readonly ILoggerService _loggerService;
 
+        private const string CONTROLLER_NAME = "menu";
         public MenuController(IMenuService menuService,
-            IProviderService providerService)
+            IProviderService providerService,
+            ILoggerService loggerService)
         {
             _menuService = menuService;
             _providerService = providerService;
+            _loggerService = loggerService;
         }
 
         [AllowAnonymous]
@@ -60,6 +67,8 @@ namespace Web.Controllers
                 _ => menus.OrderBy(s => s.Date).ToList(),
             };
 
+            _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_INDEX + $"/{providerId}", LoggerConstants.TYPE_GET, $"index – get menus of provider id: {providerId}", GetCurrentUserId());
+
             return View(new MenuAndProviderIdViewModel()
             {
                 Menus = menus,
@@ -78,6 +87,8 @@ namespace Web.Controllers
             ViewBag.SearchSelectionString = searchSelectionString;
             ViewBag.SeacrhString = seacrhString;
             ViewBag.DateSort = sortMenu == SortState.DateAsc ? SortState.DateDesc : SortState.DateAsc;
+
+            _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_ADD + $"/{providerId}", LoggerConstants.TYPE_GET, $"add menu provider id: {providerId}", GetCurrentUserId());
 
             return View(new AddMenuViewModel() { ProviderId = providerId, Date = DateTime.Now});
         }
@@ -104,12 +115,16 @@ namespace Web.Controllers
                 }
                 catch (ValidationException ex)
                 {
+                    _loggerService.LogWarning(CONTROLLER_NAME + LoggerConstants.ACTION_ADD, LoggerConstants.TYPE_POST, $"add menu date: {model.Date} provider id: {model.ProviderId} error: {ex.Message}", GetCurrentUserId());
+
                     ModelState.AddModelError(ex.Property, ex.Message);
 
                     return View(model);
                 }
 
                 ViewBag.DateSort = sortMenu == SortState.DateAsc ? SortState.DateDesc : SortState.DateAsc;
+
+                _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_ADD, LoggerConstants.TYPE_POST, $"add menu date: {model.Date} provider id: {model.ProviderId} successful", GetCurrentUserId());
 
                 return RedirectToAction("Index", new { model.ProviderId, searchSelectionString, seacrhString, sortMenu });
             }
@@ -118,7 +133,7 @@ namespace Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Delete(int? id, int providerId, string searchSelectionString, string seacrhString, SortState sortMenu)
+        public ActionResult Delete(int id, int providerId, string searchSelectionString, string seacrhString, SortState sortMenu)
         {
             try
             {
@@ -126,8 +141,12 @@ namespace Web.Controllers
             }
             catch (ValidationException ex)
             {
+                _loggerService.LogWarning(CONTROLLER_NAME + LoggerConstants.ACTION_DELETE, LoggerConstants.TYPE_POST, $"delete menu id: {id} provider id: {providerId} error: {ex.Message}", GetCurrentUserId());
+
                 return RedirectToAction("Error", "Home", new { requestId = "400", errorInfo = ex.Message });
             }
+
+            _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_DELETE, LoggerConstants.TYPE_POST, $"delete menu id: {id} provider id: {providerId} successful", GetCurrentUserId());
 
             sortMenu = sortMenu == SortState.DateAsc ? SortState.DateDesc : SortState.DateAsc;
 
@@ -135,7 +154,7 @@ namespace Web.Controllers
         }
 
         [HttpGet]
-        public ActionResult Edit(int? id, string searchSelectionString, string seacrhString, SortState sortMenu)
+        public ActionResult Edit(int id, string searchSelectionString, string seacrhString, SortState sortMenu)
         {
             ViewBag.SearchSelectionString = searchSelectionString;
             ViewBag.SeacrhString = seacrhString;
@@ -153,6 +172,8 @@ namespace Web.Controllers
                 Info = menuDTO.Info,
                 ProviderId = menuDTO.ProviderId
             };
+
+            _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_EDIT + $"/{id}", LoggerConstants.TYPE_GET, $"edit menu id: {id} provider id: {provider.ProviderId}", GetCurrentUserId());
 
             return View(provider);
         }
@@ -180,10 +201,14 @@ namespace Web.Controllers
                 }
                 catch (ValidationException ex)
                 {
+                    _loggerService.LogWarning(CONTROLLER_NAME + LoggerConstants.ACTION_EDIT, LoggerConstants.TYPE_POST, $"edit menu id: {model.Id} provider id: {model.ProviderId} error: {ex.Message}", GetCurrentUserId());
+
                     ModelState.AddModelError(ex.Property, ex.Message);
 
                     return View(model);
                 }
+
+                _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_EDIT, LoggerConstants.TYPE_POST, $"edit menu id: {model.Id} provider id: {model.ProviderId} successful", GetCurrentUserId());
 
                 ViewBag.DateSort = sortMenu == SortState.DateAsc ? SortState.DateDesc : SortState.DateAsc;
 
@@ -192,7 +217,17 @@ namespace Web.Controllers
 
             return View(model);
         }
-
+        private string GetCurrentUserId()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                return User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            }
+            else
+            {
+                return null;
+            }
+        }
         #endregion
     }
 }
