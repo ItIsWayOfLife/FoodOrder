@@ -9,7 +9,13 @@
                 <h3>Edit catalog</h3>
             </div>
             <div class="card-body">
-                <form method="post" asp-controller="Catalog" asp-action="Edit" enctype="multipart/form-data">
+                <form method="post" asp-controller="Catalog" asp-action="Edit"
+                        asp-route-providerId="@Model.ProviderId" 
+                        asp-route-menuId="@ViewBag.MenuId"
+                        asp-route-searchSelectionString="@ViewBag.SearchSelectionString"
+                        asp-route-seacrhString="@ViewBag.SeacrhString"
+                        asp-route-sortCatalog="@ViewBag.NameSort"
+                      enctype="multipart/form-data">
                     <div class="text-danger" asp-validation-summary="ModelOnly"></div>
                     <input type="hidden" asp-for="ProviderId" />
                     <input type="hidden" asp-for="Id" />
@@ -28,7 +34,11 @@
 
                     <div class="form-group col-12">
                         <button type="submit" class="btn btn-primary">Edit</button>
-                        <a asp-action="Index" asp-route-providerId="@Model.ProviderId" class="btn btn-warning">Back</a>
+                        <a asp-action="Index" asp-route-providerId="@Model.ProviderId" 
+                        asp-route-menuId="@ViewBag.MenuId"
+                        asp-route-searchSelectionString="@ViewBag.SearchSelectionString"
+                        asp-route-seacrhString="@ViewBag.SeacrhString"
+                        asp-route-sortCatalog="@ViewBag.NameSort" class="btn btn-warning">Back</a>
                     </div>
 
                 </form>

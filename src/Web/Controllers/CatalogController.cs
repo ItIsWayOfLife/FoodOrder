@@ -82,16 +82,26 @@ namespace Web.Controllers
         #region For admin
 
         [HttpGet]
-        public IActionResult Add(int providerId)
+        public IActionResult Add(int providerId, int? menuId, string searchSelectionString, string seacrhString, SortState sortCatalog)
         {
+            ViewBag.MenuId = menuId;
+            ViewBag.SearchSelectionString = searchSelectionString;
+            ViewBag.SeacrhString = seacrhString;
+            ViewBag.NameSort = sortCatalog == SortState.NameAsc ? SortState.NameDesc : SortState.NameAsc;
+
             _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_ADD + $"/{providerId}", LoggerConstants.TYPE_GET, $"add catalog providerId: {providerId}", GetCurrentUserId());
 
             return View(new AddCatalogViewModel() { ProviderId = providerId });
         }
 
         [HttpPost]
-        public IActionResult Add(AddCatalogViewModel model)
+        public IActionResult Add(AddCatalogViewModel model, int? menuId, string searchSelectionString, string seacrhString, SortState sortCatalog)
         {
+            ViewBag.MenuId = menuId;
+            ViewBag.SearchSelectionString = searchSelectionString;
+            ViewBag.SeacrhString = seacrhString;
+            ViewBag.NameSort = sortCatalog;
+
             if (ModelState.IsValid)
             {
                 CatalogDTO сatalogDTO = new CatalogDTO()
@@ -104,25 +114,34 @@ namespace Web.Controllers
                 _сatalogService.AddСatalog(сatalogDTO);
 
                 _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_ADD , LoggerConstants.TYPE_POST, $"add catalog name: {model.Name} providerId: {model.ProviderId}", GetCurrentUserId());
+              
+                ViewBag.NameSort = sortCatalog == SortState.NameAsc ? SortState.NameDesc : SortState.NameAsc;
 
-                return RedirectToAction("Index", new { model.ProviderId });
+                return RedirectToAction("Index", new { model.ProviderId, menuId, searchSelectionString, seacrhString, sortCatalog });
             }
             return View(model);
         }
 
         [HttpPost]
-        public ActionResult Delete(int? id, int providerId, string searchSelectionString, string seacrhString)
+        public ActionResult Delete(int id, int providerId, string searchSelectionString, string seacrhString, int? menuId, SortState sortCatalog)
         {
             _сatalogService.DeleteСatalog(id);
 
             _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_DELETE, LoggerConstants.TYPE_POST, $"delete catalog id: {id} providerId: {providerId}", GetCurrentUserId());
 
-            return RedirectToAction("Index", new { providerId, searchSelectionString, seacrhString });
+            sortCatalog = sortCatalog == SortState.NameAsc ? SortState.NameDesc : SortState.NameAsc;
+
+            return RedirectToAction("Index", new { providerId, menuId, searchSelectionString, seacrhString, sortCatalog });
         }
 
         [HttpGet]
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int id, int? menuId, string searchSelectionString, string seacrhString, SortState sortCatalog)
         {
+            ViewBag.MenuId = menuId;
+            ViewBag.SearchSelectionString = searchSelectionString;
+            ViewBag.SeacrhString = seacrhString;
+            ViewBag.NameSort = sortCatalog == SortState.NameAsc ? SortState.NameDesc : SortState.NameAsc;
+
             CatalogDTO сatalogDTO = _сatalogService.GetСatalog(id);
 
             var provider = new EditCatalogViewModel()
@@ -139,8 +158,13 @@ namespace Web.Controllers
         }
 
         [HttpPost]
-        public IActionResult Edit(EditCatalogViewModel model)
+        public IActionResult Edit(EditCatalogViewModel model, int? menuId, string searchSelectionString, string seacrhString, SortState sortCatalog)
         {
+            ViewBag.MenuId = menuId;
+            ViewBag.SearchSelectionString = searchSelectionString;
+            ViewBag.SeacrhString = seacrhString;
+            ViewBag.NameSort = sortCatalog;
+
             if (ModelState.IsValid)
             {
                 CatalogDTO сatalogDTO = new CatalogDTO
@@ -155,7 +179,9 @@ namespace Web.Controllers
 
                 _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_EDIT, LoggerConstants.TYPE_POST, $"edit catalog id: {model.Id} providerId: {model.ProviderId}", GetCurrentUserId());
 
-                return RedirectToAction("Index", new { providerId = model.ProviderId });
+                ViewBag.NameSort = sortCatalog == SortState.NameAsc ? SortState.NameDesc : SortState.NameAsc;
+
+                return RedirectToAction("Index", new { model.ProviderId, menuId, searchSelectionString, seacrhString, sortCatalog });
             }
 
             return View(model);
