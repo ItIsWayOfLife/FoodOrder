@@ -18,7 +18,7 @@
         <a class="btn btn-sm btn-danger mr-1" asp-action="Index">Refresh</a>
         @if (User.IsInRole("admin"))
         {
-            <a class="btn btn-sm btn-success mr-1" asp-controller="Provider" asp-action="Add">AddProvider</a>
+            <a class="btn btn-sm btn-success mr-1" asp-controller="Provider" asp-action="Add"  asp-route-searchSelectionString="@Model.SearchSelectionString" asp-route-seacrhString="@Model.SeacrhString">AddProvider</a>
         }
     </div>
 </form>

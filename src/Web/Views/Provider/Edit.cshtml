@@ -9,7 +9,9 @@
                 <h3>Edit provider</h3>
             </div>
             <div class="card-body">
-                <form method="post" asp-controller="Provider" asp-action="Edit" enctype="multipart/form-data">
+                <form method="post" asp-controller="Provider" asp-action="Edit"
+                      asp-route-searchSelectionString="@ViewBag.SearchSelectionString" asp-route-seacrhString="@ViewBag.SeacrhString"
+                      enctype="multipart/form-data">
                     <div class="text-danger" asp-validation-summary="ModelOnly"></div>
 
                     <input type="hidden" asp-for="Id" />
@@ -70,7 +72,8 @@
 
                     <div class="form-group col-12">
                         <button type="submit" class="btn btn-primary">Edit</button>
-                        <a asp-action="Index" class="btn btn-warning">Back</a>
+                        <a asp-action="Index" class="btn btn-warning" 
+                           asp-route-searchSelectionString="@ViewBag.SearchSelectionString" asp-route-seacrhString="@ViewBag.SeacrhString">Back</a>
                     </div>
 
                 </form>

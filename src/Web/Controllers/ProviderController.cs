@@ -96,16 +96,22 @@ namespace Web.Controllers
         #region For admin
 
         [HttpGet]
-        public ActionResult Add()
+        public ActionResult Add(string searchSelectionString, string seacrhString)
         {
+            ViewBag.SearchSelectionString = searchSelectionString;
+            ViewBag.SeacrhString = seacrhString;
+
             _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_ADD, LoggerConstants.TYPE_GET, "add", GetCurrentUserId());
 
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> Add(IFormFile uploadedFile, [FromForm] AddProviderViewModel model)
+        public async Task<IActionResult> Add(IFormFile uploadedFile, [FromForm] AddProviderViewModel model, string searchSelectionString, string seacrhString)
         {
+            ViewBag.SearchSelectionString = searchSelectionString;
+            ViewBag.SeacrhString = seacrhString;
+
             if (ModelState.IsValid)
             {
                 ProviderDTO providerDto = null;
@@ -139,7 +145,7 @@ namespace Web.Controllers
 
                 _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_ADD, LoggerConstants.TYPE_POST, $"add provider email: {model.Email}", GetCurrentUserId());
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", new { searchSelectionString, seacrhString });
             }
 
             return View(model);
@@ -148,6 +154,9 @@ namespace Web.Controllers
         [HttpPost]
         public ActionResult Delete(int id, string searchSelectionString, string seacrhString)
         {
+            ViewBag.SearchSelectionString = searchSelectionString;
+            ViewBag.SeacrhString = seacrhString;
+
             _providerService.DeleteProvider(id);
 
             _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_DELETE, LoggerConstants.TYPE_POST +$"/{id}", $"delete provider id: {id}", GetCurrentUserId());
@@ -156,8 +165,11 @@ namespace Web.Controllers
         }
 
         [HttpGet]
-        public IActionResult Edit(int id)
+        public IActionResult Edit(int id, string searchSelectionString, string seacrhString)
         {
+            ViewBag.SearchSelectionString = searchSelectionString;
+            ViewBag.SeacrhString = seacrhString;
+
             ProviderDTO providerDto = _providerService.GetProvider(id);
 
             if (providerDto == null)
@@ -183,8 +195,11 @@ namespace Web.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(IFormFile uploadedFile, [FromForm] EditProviderViewModel model)
+        public async Task<IActionResult> Edit(IFormFile uploadedFile, [FromForm] EditProviderViewModel model, string searchSelectionString, string seacrhString)
         {
+            ViewBag.SearchSelectionString = searchSelectionString;
+            ViewBag.SeacrhString = seacrhString;
+
             if (ModelState.IsValid)
             {
                 ProviderDTO providerDto = null;
@@ -223,7 +238,7 @@ namespace Web.Controllers
 
                 _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_EDIT, LoggerConstants.TYPE_POST, $"edit provider id: {model.Id}", GetCurrentUserId());
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", new { searchSelectionString, seacrhString });
             }
 
             return View(model);
