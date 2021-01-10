@@ -122,8 +122,6 @@ namespace Web.Controllers
                     return View(model);
                 }
 
-                ViewBag.DateSort = sortMenu == SortState.DateAsc ? SortState.DateDesc : SortState.DateAsc;
-
                 _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_ADD, LoggerConstants.TYPE_POST, $"add menu date: {model.Date} provider id: {model.ProviderId} successful", GetCurrentUserId());
 
                 return RedirectToAction("Index", new { model.ProviderId, searchSelectionString, seacrhString, sortMenu });
@@ -209,8 +207,6 @@ namespace Web.Controllers
                 }
 
                 _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_EDIT, LoggerConstants.TYPE_POST, $"edit menu id: {model.Id} provider id: {model.ProviderId} successful", GetCurrentUserId());
-
-                ViewBag.DateSort = sortMenu == SortState.DateAsc ? SortState.DateDesc : SortState.DateAsc;
 
                 return RedirectToAction("Index", new { model.ProviderId, searchSelectionString, seacrhString, sortMenu });
             }

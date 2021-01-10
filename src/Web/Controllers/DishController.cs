@@ -114,45 +114,55 @@ namespace Web.Controllers
         #region For admin
 
         [HttpGet]
-        public IActionResult Add(int catalogId)
+        public IActionResult Add(int catalogId, int? menuId, string searchSelectionString, string seacrhString, SortState sortDish)
         {
+            ViewBag.MenuId = menuId;
+            ViewBag.SearchSelectionString = searchSelectionString;
+            ViewBag.SeacrhString = seacrhString;
+            ViewBag.SortDish = sortDish == SortState.PriceAsc ? SortState.PriceDesc : SortState.PriceAsc;
+
             return View(new AddDishViewModel() { CatalogId = catalogId });
         }
 
         [HttpPost]
-        public async Task<IActionResult> Add(IFormFile uploadedFile, [FromForm] AddDishViewModel model)
+        public async Task<IActionResult> Add(IFormFile uploadedFile, [FromForm] AddDishViewModel model, int? menuId, string searchSelectionString, string seacrhString, SortState sortDish)
         {
+            ViewBag.MenuId = menuId;
+            ViewBag.SearchSelectionString = searchSelectionString;
+            ViewBag.SeacrhString = seacrhString;
+            ViewBag.SortDish = sortDish;
+
             if (ModelState.IsValid)
             {
+                DishDTO dishDTO = null;
+                string path = null;
+
+                // save img
+                if (uploadedFile != null)
+                {
+                    path = uploadedFile.FileName;
+                    // save img to wwwroot/files/dishes/
+                    using (var fileStream = new FileStream(_appEnvironment.WebRootPath + _path + path, FileMode.Create))
+                    {
+                        await uploadedFile.CopyToAsync(fileStream);
+                    }
+                }
+
+                dishDTO = new DishDTO
+                {
+                    Info = model.Info,
+                    CatalogId = model.CatalogId,
+                    Name = model.Name,
+                    Path = path,
+                    Price = model.Price,
+                    Weight = model.Weight
+                };
+
                 try
                 {
-                    DishDTO dishDTO = null;
-                    string path = null;
-
-                    // save img
-                    if (uploadedFile != null)
-                    {
-                        path = uploadedFile.FileName;
-                        // сохраняем файл в папку wwwroot/files/dishes/
-                        using (var fileStream = new FileStream(_appEnvironment.WebRootPath + _path + path, FileMode.Create))
-                        {
-                            await uploadedFile.CopyToAsync(fileStream);
-                        }
-                    }
-
-                    dishDTO = new DishDTO
-                    {
-                        Info = model.Info,
-                        CatalogId = model.CatalogId,
-                        Name = model.Name,
-                        Path = path,
-                        Price = model.Price,
-                        Weight = model.Weight
-                    };
-
                     _dishService.AddDish(dishDTO);
 
-                    return RedirectToAction("Index", new { dishDTO.CatalogId });
+                    return RedirectToAction("Index", new { model.CatalogId, menuId, searchSelectionString, seacrhString, sortDish });
                 }
                 catch (ValidationException ex)
                 {
@@ -163,13 +173,15 @@ namespace Web.Controllers
             return View(model);
         }
         [HttpPost]
-        public IActionResult Delete(int? id, int catalogId, string searchSelectionString, string name)
+        public IActionResult Delete(int id, int catalogId, int? menuId, string searchSelectionString, string seacrhString, SortState sortDish)
         {
             try
             {
                 _dishService.DeleteDish(id);
 
-                return RedirectToAction("Index", new { catalogId, searchSelectionString, name });
+                sortDish = sortDish == SortState.PriceAsc ? SortState.PriceDesc : SortState.PriceAsc;
+
+                return RedirectToAction("Index", new { catalogId, menuId, searchSelectionString, seacrhString , sortDish });
             }
             catch (ValidationException ex)
             {
@@ -178,71 +190,73 @@ namespace Web.Controllers
         }
 
         [HttpGet]
-        public IActionResult Edit(int? id)
+        public IActionResult Edit(int id, int? menuId, string searchSelectionString, string seacrhString, SortState sortDish)
         {
-            try
-            {
-                DishDTO dishDTO = _dishService.GetDish(id);
+            ViewBag.MenuId = menuId;
+            ViewBag.SearchSelectionString = searchSelectionString;
+            ViewBag.SeacrhString = seacrhString;
+            ViewBag.SortDish = sortDish == SortState.PriceAsc ? SortState.PriceDesc : SortState.PriceAsc;
 
-                var provider = new EditDithViewModel()
-                {
-                    Info = dishDTO.Info,
-                    Id = dishDTO.Id,
-                    Name = dishDTO.Name,
-                    Path = _path + dishDTO.Path,
-                    Price = dishDTO.Price,
-                    Weight = dishDTO.Weight,
-                    CatalogId = dishDTO.CatalogId
-                };
+            DishDTO dishDTO = _dishService.GetDish(id);
 
-                return View(provider);
-            }
-            catch (ValidationException ex)
+            var provider = new EditDithViewModel()
             {
-                return Content(ex.Message);
-            }
+                Info = dishDTO.Info,
+                Id = dishDTO.Id,
+                Name = dishDTO.Name,
+                Path = _path + dishDTO.Path,
+                Price = dishDTO.Price,
+                Weight = dishDTO.Weight,
+                CatalogId = dishDTO.CatalogId
+            };
+
+            return View(provider);
         }
 
-
         [HttpPost]
-        public async Task<ActionResult> Edit(IFormFile uploadedFile, [FromForm] EditDithViewModel model)
+        public async Task<ActionResult> Edit(IFormFile uploadedFile, [FromForm] EditDithViewModel model, int? menuId, string searchSelectionString, string seacrhString, SortState sortDish)
         {
+            ViewBag.MenuId = menuId;
+            ViewBag.SearchSelectionString = searchSelectionString;
+            ViewBag.SeacrhString = seacrhString;
+            ViewBag.SortDish = sortDish;
+
             if (ModelState.IsValid)
             {
+                DishDTO dishDTO = null;
+                string path = null;
+
+                // save img
+                if (uploadedFile != null)
+                {
+                    path = uploadedFile.FileName;
+                    // save img to wwwroot/files/provider/
+                    using (var fileStream = new FileStream(_appEnvironment.WebRootPath + _path + path, FileMode.Create))
+                    {
+                        await uploadedFile.CopyToAsync(fileStream);
+                    }
+                }
+                else
+                {
+                    path = model.Path;
+                }
+
+                dishDTO = new DishDTO
+                {
+                    Id = model.Id,
+                    Info = model.Info,
+                    Name = model.Name,
+                    Path = path.Replace(_path, ""),
+                    Price = model.Price,
+                    Weight = model.Weight,
+                    CatalogId = model.CatalogId
+                };
+
                 try
                 {
-                    DishDTO dishDTO = null;
-                    string path = null;
-
-                    // сохранение картинки
-                    if (uploadedFile != null)
-                    {
-                        path = uploadedFile.FileName;
-                        // сохраняем файл в папку files/provider/ в каталоге wwwroot
-                        using (var fileStream = new FileStream(_appEnvironment.WebRootPath + _path + path, FileMode.Create))
-                        {
-                            await uploadedFile.CopyToAsync(fileStream);
-                        }
-                    }
-                    else
-                    {
-                        path = model.Path;
-                    }
-
-                    dishDTO = new DishDTO
-                    {
-                        Id = model.Id,
-                        Info = model.Info,
-                        Name = model.Name,
-                        Path = path.Replace(_path, ""),
-                        Price = model.Price,
-                        Weight = model.Weight,
-                        CatalogId = model.CatalogId
-                    };
-
                     _dishService.EditDish(dishDTO);
 
-                    return RedirectToAction("Index", new { dishDTO.CatalogId });
+                    return RedirectToAction("Index", new { dishDTO.CatalogId, menuId, searchSelectionString, seacrhString, sortDish });
                 }
                 catch (ValidationException ex)
                 {

@@ -20,3 +20,332 @@ Hosting environment: Development
 Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
 [1/10/2021 7:22:54 PM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
 [1/10/2021 7:22:56 PM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/10/2021 7:39:05 PM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:anonymous]
+[1/10/2021 7:39:16 PM]:[book/index]:[type:get]:[info:index – get providers]:[user:anonymous]
+[1/10/2021 7:39:17 PM]:[account/login]:[type:get]:[info:login]:[user:anonymous]
+[1/10/2021 7:39:18 PM]:[account/login]:[type:post]:[info:login successful]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 7:39:18 PM]:[users/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 7:39:20 PM]:[users/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 7:39:22 PM]:[users/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 7:39:23 PM]:[users/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 7:39:24 PM]:[users/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 7:39:25 PM]:[users/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 7:39:27 PM]:[users/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 7:39:29 PM]:[users/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 7:39:33 PM]:[users/edit]:[type:get]:[info:edit user id: 171b5ff8-a18b-4b0d-bdec-6b28650610ca]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 7:39:34 PM]:[users/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 7:39:38 PM]:[users/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 7:39:39 PM]:[users/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 7:39:42 PM]:[users/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 7:39:43 PM]:[users/edit]:[type:get]:[info:edit user id: 171b5ff8-a18b-4b0d-bdec-6b28650610ca]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 7:39:44 PM]:[users/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 7:39:45 PM]:[users/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/10/2021 7:49:25 PM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:anonymous]
+[1/10/2021 7:49:28 PM]:[book/index]:[type:get]:[info:index – get providers]:[user:anonymous]
+[1/10/2021 7:49:30 PM]:[account/login]:[type:get]:[info:login]:[user:anonymous]
+[1/10/2021 7:49:31 PM]:[account/login]:[type:post]:[info:login successful]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 7:49:31 PM]:[home/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 7:49:31 PM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 7:49:33 PM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of provider id: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/10/2021 8:00:16 PM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 8:00:28 PM]:[users/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 8:00:31 PM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 8:04:38 PM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 8:04:39 PM]:[users/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 8:04:40 PM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 8:04:40 PM]:[home/about]:[type:get]:[info:about]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 8:04:41 PM]:[home/aboutdelivery]:[type:get]:[info:aboutdelivery]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 8:04:42 PM]:[home/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 8:04:42 PM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 8:04:42 PM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 8:04:44 PM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of provider id: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/10/2021 8:06:05 PM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 8:06:27 PM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of provider id: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/10/2021 8:07:19 PM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 8:07:21 PM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 8:07:33 PM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 8:07:35 PM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of provider id: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 8:07:37 PM]:[home/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 8:07:37 PM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 8:07:38 PM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 8:07:39 PM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of provider id: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 8:07:46 PM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of provider id: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 8:07:48 PM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 8:07:50 PM]:[book/add]:[type:get]:[info:add]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 8:07:59 PM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 8:08:00 PM]:[users/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 8:08:01 PM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 8:08:01 PM]:[home/about]:[type:get]:[info:about]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 8:08:02 PM]:[home/aboutdelivery]:[type:get]:[info:aboutdelivery]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 8:08:03 PM]:[home/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 8:08:03 PM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 8:08:04 PM]:[users/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 8:08:05 PM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 8:08:07 PM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of provider id: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/10/2021 8:10:03 PM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 8:10:06 PM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 8:10:08 PM]:[book/add]:[type:get]:[info:add]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 8:10:18 PM]:[book/add]:[type:post]:[info:add provider email: 23 successful]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 8:10:18 PM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 8:10:20 PM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of provider id: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/10/2021 8:12:44 PM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 8:12:47 PM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 8:13:01 PM]:[book/add]:[type:get]:[info:add]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 8:13:19 PM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 8:13:21 PM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 8:13:23 PM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of provider id: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/10/2021 8:15:49 PM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 8:15:54 PM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 8:15:55 PM]:[book/add]:[type:get]:[info:add]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 8:15:59 PM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 8:16:01 PM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of provider id: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+1/10/2021 8:17:20 PM: Something went wrong: Core.Exceptions.ValidationException: Catalog not found
+   at Core.Services.CatalogService.GetСatalog(Nullable`1 id) in C:\Users\asus\Desktop\Work\FoodOrder\src\Core\Services\CatalogService.cs:line 88
+   at Web.Controllers.DishController.Index(Int32 catalogId, Nullable`1 menuId, String searchSelectionString, String seacrhString, SortState sortDish) in C:\Users\asus\Desktop\Work\FoodOrder\src\Web\Controllers\DishController.cs:line 48
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Web.Exceptions.ExceptionInterceptor.InvokeAsync(HttpContext context) in C:\Users\asus\Desktop\Work\FoodOrder\src\Web\Exceptions\ExceptionInterceptor.cs:line 24
+An unhandled exception has occurred while executing the request.
+[1/10/2021 8:17:21 PM]:[home/error/&]:[type:get]:[info:error code:  info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/10/2021 8:18:04 PM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 8:18:08 PM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of provider id: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/10/2021 8:19:06 PM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 8:19:08 PM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of provider id: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/10/2021 8:20:31 PM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 8:20:38 PM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of provider id: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/10/2021 8:23:20 PM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 8:23:23 PM]:[book/edit/1]:[type:get]:[info:get provider id: 1 for edit]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 8:23:35 PM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/10/2021 8:25:35 PM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 8:27:35 PM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 8:27:37 PM]:[book/add]:[type:get]:[info:add]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 8:27:40 PM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 8:27:41 PM]:[book/edit/1]:[type:get]:[info:get provider id: 1 for edit]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/10/2021 8:28:46 PM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 8:28:48 PM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 8:28:51 PM]:[book/edit/2]:[type:get]:[info:get provider id: 2 for edit]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 8:29:11 PM]:[book/edit]:[type:post]:[info:edit provider id: 2 successful]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 8:29:11 PM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 8:29:14 PM]:[book/edit/2]:[type:get]:[info:get provider id: 2 for edit]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/10/2021 8:29:36 PM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 8:29:39 PM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 8:29:40 PM]:[book/edit/2]:[type:get]:[info:get provider id: 2 for edit]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/10/2021 8:30:43 PM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 8:30:47 PM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of provider id: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/10/2021 8:31:33 PM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 8:31:37 PM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 8:31:37 PM]:[home/about]:[type:get]:[info:about]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 8:31:38 PM]:[home/aboutdelivery]:[type:get]:[info:aboutdelivery]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 8:31:39 PM]:[users/index]:[type:get]:[info:index]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 8:31:40 PM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 8:31:42 PM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of provider id: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 8:32:22 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 8:32:30 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/10/2021 8:52:16 PM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 8:56:15 PM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of provider id: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/10/2021 9:02:06 PM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:02:19 PM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of provider id: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:02:44 PM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:02:46 PM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of provider id: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:02:49 PM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:02:51 PM]:[menu/index/1]:[type:get]:[info:index – get menus of provider id: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:02:53 PM]:[menu/index/1]:[type:get]:[info:index – get menus of provider id: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:02:54 PM]:[menu/index/1]:[type:get]:[info:index – get menus of provider id: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:02:54 PM]:[menu/index/1]:[type:get]:[info:index – get menus of provider id: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:02:55 PM]:[menu/index/1]:[type:get]:[info:index – get menus of provider id: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:02:55 PM]:[menu/index/1]:[type:get]:[info:index – get menus of provider id: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:02:56 PM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:02:58 PM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of provider id: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:03:19 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:03:21 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:03:23 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:03:24 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:03:28 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:03:31 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:03:33 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:03:35 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:03:40 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:03:41 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:03:45 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:03:50 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:03:52 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/10/2021 9:05:31 PM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:05:34 PM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of provider id: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:05:54 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:06:02 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:06:03 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:06:09 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:06:16 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:06:19 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:06:21 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:06:27 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:06:32 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:06:36 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:06:39 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/10/2021 9:10:07 PM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:10:09 PM]:[menu/index/1]:[type:get]:[info:index – get menus of provider id: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:10:11 PM]:[menu/add/1]:[type:get]:[info:add menu provider id: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:10:13 PM]:[menu/add]:[type:post]:[warning:add menu date: 1/10/2021 12:00:00 AM provider id: 1 error: The menu already exists on this date]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:10:18 PM]:[menu/add]:[type:post]:[info:add menu date: 1/15/2021 12:00:00 AM provider id: 1 successful]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:10:18 PM]:[menu/index/1]:[type:get]:[info:index – get menus of provider id: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:10:18 PM]:[menu/add/1]:[type:get]:[info:add menu provider id: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:10:22 PM]:[menu/add]:[type:post]:[info:add menu date: 1/28/2021 12:00:00 AM provider id: 1 successful]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:10:22 PM]:[menu/index/1]:[type:get]:[info:index – get menus of provider id: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:10:30 PM]:[menu/index/1]:[type:get]:[info:index – get menus of provider id: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:10:32 PM]:[menu/add/1]:[type:get]:[info:add menu provider id: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:10:36 PM]:[menu/add]:[type:post]:[info:add menu date: 1/24/2021 12:00:00 AM provider id: 1 successful]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:10:36 PM]:[menu/index/1]:[type:get]:[info:index – get menus of provider id: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:10:44 PM]:[menu/edit/6]:[type:get]:[info:edit menu id: 6 provider id: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:10:46 PM]:[menu/edit]:[type:post]:[info:edit menu id: 6 provider id: 1 successful]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:10:46 PM]:[menu/index/1]:[type:get]:[info:index – get menus of provider id: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:10:48 PM]:[menu/index/1]:[type:get]:[info:index – get menus of provider id: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:10:50 PM]:[menu/edit/4]:[type:get]:[info:edit menu id: 4 provider id: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:10:52 PM]:[menu/edit]:[type:post]:[info:edit menu id: 4 provider id: 1 successful]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:10:52 PM]:[menu/index/1]:[type:get]:[info:index – get menus of provider id: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/10/2021 9:11:32 PM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:11:35 PM]:[menu/index/1]:[type:get]:[info:index – get menus of provider id: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:11:36 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:11:37 PM]:[menu/index/1]:[type:get]:[info:index – get menus of provider id: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:11:41 PM]:[menu/add/1]:[type:get]:[info:add menu provider id: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:11:46 PM]:[menu/add]:[type:post]:[info:add menu date: 1/12/2021 12:00:00 AM provider id: 1 successful]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:11:46 PM]:[menu/index/1]:[type:get]:[info:index – get menus of provider id: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:11:48 PM]:[menu/index/1]:[type:get]:[info:index – get menus of provider id: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:11:50 PM]:[menu/add/1]:[type:get]:[info:add menu provider id: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:11:54 PM]:[menu/add]:[type:post]:[info:add menu date: 1/23/2021 12:00:00 AM provider id: 1 successful]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:11:54 PM]:[menu/index/1]:[type:get]:[info:index – get menus of provider id: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:11:59 PM]:[menu/delete]:[type:post]:[info:delete menu id: 7 provider id: 1 successful]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:11:59 PM]:[menu/index/1]:[type:get]:[info:index – get menus of provider id: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:12:01 PM]:[menu/edit/4]:[type:get]:[info:edit menu id: 4 provider id: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:12:03 PM]:[menu/edit]:[type:post]:[info:edit menu id: 4 provider id: 1 successful]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:12:03 PM]:[menu/index/1]:[type:get]:[info:index – get menus of provider id: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/10/2021 9:12:55 PM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:12:58 PM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:13:00 PM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of provider id: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:13:01 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:13:08 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:13:10 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:13:15 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:13:21 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:13:26 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:13:28 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:13:33 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:13:40 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:13:42 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:13:43 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:13:46 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:13:47 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:13:50 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:13:54 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:13:57 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/10/2021 9:15:06 PM]:[book/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:15:09 PM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of provider id: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:15:11 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:15:13 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:15:15 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:15:16 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:15:17 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:15:19 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:15:23 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:15:25 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:15:26 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:15:28 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:15:38 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:15:47 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:15:53 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:15:56 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:16:02 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:16:05 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:16:08 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:16:11 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:16:12 PM]:[catalog/index/1]:[type:get]:[info:index – get catalogs of provider id: 1]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]
+[1/10/2021 9:16:14 PM]:[book/index]:[type:get]:[info:index – get providers]:[user:171b5ff8-a18b-4b0d-bdec-6b28650610ca]

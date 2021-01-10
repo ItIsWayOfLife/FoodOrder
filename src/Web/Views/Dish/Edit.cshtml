@@ -1,37 +1,69 @@
 ﻿@model Web.Models.Dish.EditDithViewModel
 
-@{ ViewData["Title"] = "EditDish"; }
+@{ ViewBag.Title = "Edit dish"; }
 
-<h1 class="text-center"> EditDish "@Model.Name"</h1>
-<br />
-@if (Model.Path != null)
-{
-<img width="360" height="180" class="img-thumbnail" src="@Model.Path" alt="@Model.Name" />}
-<h3>DishEditImgInfo </h3>
-<form method="post" asp-controller=Dish asp-action="Edit" enctype="multipart/form-data">
-    <input type="file" name="uploadedFile" /><br>
-    <input type="hidden" asp-for="CatalogId" />
-    <input type="hidden" asp-for="Id" />
-    <input type="hidden" asp-for="Path" />
-    <div asp-validation-summary="All" class="text-danger"></div>
-    <div class="form-group">
-        <label asp-for="Name" class="control-label">Name</label>
-        <input type="text" asp-for="Name" class="form-control" />
-    </div>
-    <div class="form-group">
-        <label asp-for="Info" class="control-label">Info</label>
-        <input type="text" asp-for="Info" class="form-control" />
-    </div>
-    <div class="form-group">
-        <label asp-for="Weight" class="control-label">Weight</label>
-        <input type="text" asp-for="Weight" class="form-control" />
-    </div>
-    <div class="form-group">
-        <label asp-for="Price" class="control-label">Price</label>
-        <input type="text" asp-for="Price" class="form-control" />
-    </div>
+<div class="row mb-5">
+    <div class="col-6 m-auto">
+        <div class="card m-auto">
+            <div class="card-header">
+                <h3>Edit dish</h3>
+            </div>
+            <div class="card-body">
+                <form method="post" asp-controller=Dish asp-action="Edit"
+                        asp-route-sortDish="@ViewBag.SortDish" asp-route-menuId="@ViewBag.MenuId"
+                     asp-route-searchSelectionString="@ViewBag.SearchSelectionString" asp-route-seacrhString="@ViewBag.SeacrhString"
+                      enctype="multipart/form-data">
+                    <div class="text-danger" asp-validation-summary="ModelOnly"></div>
 
-    <div class="form-group">
-        <input type="submit" value="Edit" class="btn btn-outline-secondary" />
+                    <input type="hidden" asp-for="CatalogId" />
+                    <input type="hidden" asp-for="Id" />
+                    <input type="hidden" asp-for="Path" />
+
+                    <div class="form-group col-12 ml-3">
+                        @if (Model.Path != null)
+                        {
+                        <img style="width: 40%; height: 20%;" class="img-thumbnail" src="@Model.Path" alt="@Model.Name" />}
+                    </div>
+
+                    <div class="form-group col-12">
+                        <label for="file">Image</label><br />
+                        <input type="file" name="uploadedFile" id="file" />
+                    </div>
+
+                    <div class="form-group col-12">
+                        <label asp-for="Name"></label>
+                        <span class="text-danger" asp-validation-for="Name"></span><br />
+                        <input class="form-control" asp-for="Name" />
+                    </div>
+
+                    <div class="form-group col-12">
+                        <label asp-for="Info"></label>
+                        <span class="text-danger" asp-validation-for="Info"></span><br />
+                        <textarea rows="3" class="form-control" asp-for="Info"></textarea>
+                    </div>
+
+                    <div class="form-group col-12">
+                        <label asp-for="Weight"></label>
+                        <span class="text-danger" asp-validation-for="Weight"></span><br />
+                        <input class="form-control" asp-for="Weight" />
+                    </div>
+
+                    <div class="form-group col-12">
+                        <label asp-for="Price"></label>
+                        <span class="text-danger" asp-validation-for="Price"></span><br />
+                        <input class="form-control" asp-for="Price" />
+                    </div>
+
+                    <div class="form-group col-12">
+                        <button type="submit" class="btn btn-primary">Edit</button>
+                        <a asp-action="Index" asp-route-catalogId="@Model.CatalogId"
+                             asp-route-sortDish="@ViewBag.SortDish" asp-route-menuId="@ViewBag.MenuId"
+                            asp-route-searchSelectionString="@ViewBag.SearchSelectionString" asp-route-seacrhString="@ViewBag.SeacrhString"
+                           class="btn btn-warning">Back</a>
+                    </div>
+
+                </form>
+            </div>
+        </div>
     </div>
-</form>
+</div>

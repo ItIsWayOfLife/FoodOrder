@@ -13,7 +13,7 @@
         @if (Model.Dishes.Any())
         {
     <a asp-action="Index" asp-route-catalogId="@Model.CatalogId" asp-route-sortDish="@ViewData["PriceSort"]" asp-route-menuId="@Model.MenuId"
-       asp-route-searchSelectionString="@Model.SearchSelectionString" asp-route-seacrhString="@Model.SeacrhString" class="mr-1 text-black">
+       asp-route-searchSelectionString="@Model.SearchSelectionString" asp-route-seacrhString="@Model.SeacrhString"  class="mr-1 text-black">
         SortByPrice
     </a>}
         <label asp-for="SearchSelectionString" class="mr-1">SearchBy </label>
@@ -26,45 +26,49 @@
 
         @if (User.IsInRole("admin"))
         {
-        <a class="btn btn-sm btn-success mr-1" asp-controller="Dish" asp-action="Add" asp-route-catalogId="@Model.CatalogId">Add dish</a>}
+        <a class="btn btn-sm btn-success mr-1" asp-controller="Dish" asp-action="Add" asp-route-catalogId="@Model.CatalogId"
+           asp-route-sortDish="@ViewData["PriceSort"]" asp-route-menuId="@Model.MenuId"
+       asp-route-searchSelectionString="@Model.SearchSelectionString" asp-route-seacrhString="@Model.SeacrhString">Add dish</a>}
 
     </div>
 </form>
 
 @if (Model.Dishes.Any())
 {
-@if (Model.MenuId != null)
-{
-<form asp-action="MakeMenu" asp-controller="Dish" method="post">
-    <div asp-validation-summary="All" class="text-danger"></div>
-    <input type="hidden" name="menuId" value="@Model.MenuId" />
+    @if (Model.MenuId != null)
+    {
+    <form asp-action="MakeMenu" asp-controller="Dish" method="post">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <input type="hidden" name="menuId" value="@Model.MenuId" />
 
-    <div class="row mb-5">
-        @{ foreach (Web.Models.Dish.DishViewModel dish in Model.Dishes)
-            {
-<input type="hidden" name="addedDish" value="@dish.AddMenu" />
+            <div class="row mb-5">
+                @{ foreach (Web.Models.Dish.DishViewModel dish in Model.Dishes)
+                        {
+            <input type="hidden" name="addedDish" value="@dish.AddMenu" />
 
-                        @await Html.PartialAsync("_DishesList", dish, new ViewDataDictionary(this.ViewData) {
-                            { "SearchSelectionString", Model.SearchSelectionString },
-                            { "SeacrhString", Model.SeacrhString },
-                            { "MenuId", Model.MenuId} }) } }
-    </div>
-    <button type="submit" class="btn btn-success"> Save</button>
-</form> }
-                else
-                {
-<div class="row mb-5">
-    @{ foreach (Web.Models.Dish.DishViewModel dish in Model.Dishes)
-        {
-<input type="hidden" name="addedDish" value="@dish.AddMenu" />
-
-                        @await Html.PartialAsync("_DishesList", dish, new ViewDataDictionary(this.ViewData) {
+                    @await Html.PartialAsync("_DishesList", dish, new ViewDataDictionary(this.ViewData) {
                         { "SearchSelectionString", Model.SearchSelectionString },
-                       { "SeacrhString", Model.SeacrhString },
-                       { "MenuId", Model.MenuId} }) } }
-</div>} }
-            else
-            {
+                        { "SeacrhString", Model.SeacrhString },
+                        { "MenuId", Model.MenuId},
+                        {"SortDish", ViewData["PriceSort"] } }) } }
+                </div>
+            <button type="submit" class="btn btn-success"> Save</button>
+            </form> }
+        else
+        {
+        <div class="row mb-5">
+            @{ foreach (Web.Models.Dish.DishViewModel dish in Model.Dishes)
+                {
+        <input type="hidden" name="addedDish" value="@dish.AddMenu" />
+
+                                @await Html.PartialAsync("_DishesList", dish, new ViewDataDictionary(this.ViewData) {
+                                { "SearchSelectionString", Model.SearchSelectionString },
+                                { "SeacrhString", Model.SeacrhString },
+                                { "MenuId", Model.MenuId} ,
+                                { "SortDish", ViewData["PriceSort"] } }) } }
+        </div>} }
+        else
+        {
 <h2 class="text-center text-danger">
     Empty
 </h2>}
