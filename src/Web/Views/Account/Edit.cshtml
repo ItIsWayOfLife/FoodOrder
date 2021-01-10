@@ -43,7 +43,7 @@
                         </div><br/>
 
                         <div class="form-group col-12">
-                            <button type="submit" class="btn btn-primary">Edit</button>
+                            <button  onclick="if (!confirm('For correct work, after changing the email, re-enter your account')) { return false }" type="submit" class="btn btn-primary">Edit</button>
                             <a asp-controller="Account" asp-action="Profile" class="btn btn-warning">Back</a>
                         </div>
 

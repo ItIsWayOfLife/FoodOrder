@@ -48,6 +48,7 @@ namespace Web.Controllers.Identity
                     });
             }
 
+            // list search
             List<string> searchSelection = new List<string>() { "Search by", "Id", "Email", "Full name" };
 
             if (seacrhString == null)
@@ -55,17 +56,33 @@ namespace Web.Controllers.Identity
                 seacrhString = "";
             }
 
-            if (searchSelectionString == searchSelection[1])
+            // search
+            if (searchSelectionString != "" && searchSelectionString != null && searchSelectionString != "Search" && seacrhString != null)
             {
-                listViewUsers = listViewUsers.Where(e => e.Id.ToLower().Contains(seacrhString.ToLower())).ToList();
-            }
-            else if (searchSelectionString == searchSelection[2])
-            {
-                listViewUsers = listViewUsers.Where(e => e.Email.ToLower().Contains(seacrhString.ToLower())).ToList();
-            }
-            else if (searchSelectionString == searchSelection[3])
-            {
-                listViewUsers = listViewUsers.Where(e => e.FLP.ToLower().Contains(seacrhString.ToLower())).ToList();
+                if (searchSelectionString.ToLower() == searchSelection[1].ToLower() && seacrhString != "")
+                {
+                    listViewUsers = listViewUsers.Where(p => p.Id != null && p.Id.ToLower().Contains(seacrhString.ToLower())).ToList();
+                }
+                else if (searchSelectionString.ToLower() == searchSelection[1].ToLower() && seacrhString == "")
+                {
+                    listViewUsers = listViewUsers.Where(p => p.Id == null || p.Id == "").ToList();
+                }
+                else if (searchSelectionString.ToLower() == searchSelection[2].ToLower() && seacrhString != "")
+                {
+                    listViewUsers = listViewUsers.Where(p => p.Email != null && p.Email.ToLower().Contains(seacrhString.ToLower())).ToList();
+                }
+                else if (searchSelectionString.ToLower() == searchSelection[2].ToLower() && seacrhString == "")
+                {
+                    listViewUsers = listViewUsers.Where(p => p.Email == null || p.Email == "").ToList();
+                }
+                else if (searchSelectionString.ToLower() == searchSelection[3].ToLower() && seacrhString != "")
+                {
+                    listViewUsers = listViewUsers.Where(p => p.FLP != null && p.FLP.ToLower().Contains(seacrhString.ToLower())).ToList();
+                }
+                else if (searchSelectionString.ToLower() == searchSelection[3].ToLower() && seacrhString == "")
+                {
+                    listViewUsers = listViewUsers.Where(p => p.FLP == null || p.FLP == "" || p.FLP == "  ").ToList();
+                }
             }
 
             _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_INDEX, LoggerConstants.TYPE_GET, "index", GetCurrentUserId());
@@ -208,6 +225,9 @@ namespace Web.Controllers.Identity
         [HttpPost]
         public async Task<ActionResult> Delete(string id, string searchSelectionString, string seacrhString)
         {
+            if (id == GetCurrentUserId())
+                return RedirectToAction("Error", "Home", new { requestId = "400", errorInfo = "You cannot delete this user" });
+
             ApplicationUser user = await _userManager.FindByIdAsync(id);
 
             if (user != null)
@@ -230,7 +250,6 @@ namespace Web.Controllers.Identity
                     }
 
                     return RedirectToAction("Error", "Home", new { requestId = "400", errorInfo = $"{result.Errors}" });
-
                 }
             }
 
