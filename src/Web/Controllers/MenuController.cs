@@ -112,19 +112,17 @@ namespace Web.Controllers
                 try
                 {
                     _menuService.AddMenu(menuDTO);
+
+                    _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_ADD, LoggerConstants.TYPE_POST, $"add menu date: {model.Date} provider id: {model.ProviderId} successful", GetCurrentUserId());
+
+                    return RedirectToAction("Index", new { model.ProviderId, searchSelectionString, seacrhString, sortMenu });
                 }
                 catch (ValidationException ex)
                 {
                     _loggerService.LogWarning(CONTROLLER_NAME + LoggerConstants.ACTION_ADD, LoggerConstants.TYPE_POST, $"add menu date: {model.Date} provider id: {model.ProviderId} error: {ex.Message}", GetCurrentUserId());
 
                     ModelState.AddModelError(ex.Property, ex.Message);
-
-                    return View(model);
                 }
-
-                _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_ADD, LoggerConstants.TYPE_POST, $"add menu date: {model.Date} provider id: {model.ProviderId} successful", GetCurrentUserId());
-
-                return RedirectToAction("Index", new { model.ProviderId, searchSelectionString, seacrhString, sortMenu });
             }
 
             return View(model);
@@ -196,19 +194,17 @@ namespace Web.Controllers
                 try
                 {
                     _menuService.EditMenu(menuDto);
+
+                    _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_EDIT, LoggerConstants.TYPE_POST, $"edit menu id: {model.Id} provider id: {model.ProviderId} successful", GetCurrentUserId());
+
+                    return RedirectToAction("Index", new { model.ProviderId, searchSelectionString, seacrhString, sortMenu });
                 }
                 catch (ValidationException ex)
                 {
                     _loggerService.LogWarning(CONTROLLER_NAME + LoggerConstants.ACTION_EDIT, LoggerConstants.TYPE_POST, $"edit menu id: {model.Id} provider id: {model.ProviderId} error: {ex.Message}", GetCurrentUserId());
 
                     ModelState.AddModelError(ex.Property, ex.Message);
-
-                    return View(model);
                 }
-
-                _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_EDIT, LoggerConstants.TYPE_POST, $"edit menu id: {model.Id} provider id: {model.ProviderId} successful", GetCurrentUserId());
-
-                return RedirectToAction("Index", new { model.ProviderId, searchSelectionString, seacrhString, sortMenu });
             }
 
             return View(model);

@@ -145,19 +145,17 @@ namespace Web.Controllers
                 try
                 {
                     _providerService.AddProvider(providerDto);
+
+                    _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_ADD, LoggerConstants.TYPE_POST, $"add provider email: {model.Email} successful", GetCurrentUserId());
+
+                    return RedirectToAction("Index", new { searchSelectionString, seacrhString });
                 }
                 catch (ValidationException ex)
                 {
                     _loggerService.LogWarning(CONTROLLER_NAME + LoggerConstants.ACTION_ADD, LoggerConstants.TYPE_POST, $"add provider email: {model.Email} error: {ex.Message}", GetCurrentUserId());
 
                     ModelState.AddModelError(ex.Property, ex.Message);
-
-                    return View(model);
                 }
-
-                _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_ADD, LoggerConstants.TYPE_POST, $"add provider email: {model.Email} successful", GetCurrentUserId());
-
-                return RedirectToAction("Index", new { searchSelectionString, seacrhString });
             }
 
             return View(model);
@@ -258,19 +256,17 @@ namespace Web.Controllers
                 try
                 {
                     _providerService.EditProvider(providerDto);
+
+                    _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_EDIT, LoggerConstants.TYPE_POST, $"edit provider id: {model.Id} successful", GetCurrentUserId());
+
+                    return RedirectToAction("Index", new { searchSelectionString, seacrhString });
                 }
                 catch (ValidationException ex)
                 {
                     _loggerService.LogWarning(CONTROLLER_NAME + LoggerConstants.ACTION_EDIT, LoggerConstants.TYPE_POST, $"edit provider id: {model.Id} error: {ex.Message}", GetCurrentUserId());
 
                     ModelState.AddModelError(ex.Property, ex.Message);
-
-                    return View(model);
                 }
-
-                _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_EDIT, LoggerConstants.TYPE_POST, $"edit provider id: {model.Id} successful", GetCurrentUserId());
-
-                return RedirectToAction("Index", new { searchSelectionString, seacrhString });
             }
 
             return View(model);
