@@ -10,12 +10,11 @@
 <form method="get" asp-route-menuId="@Model.MenuId">
     <input type="hidden" name="catalogId" value="@Model.CatalogId" />
     <div class="form-inline form-group">
-        @if (Model.Dishes.Any())
-        {
+       
     <a asp-action="Index" asp-route-catalogId="@Model.CatalogId" asp-route-sortDish="@ViewData["PriceSort"]" asp-route-menuId="@Model.MenuId"
        asp-route-searchSelectionString="@Model.SearchSelectionString" asp-route-seacrhString="@Model.SeacrhString"  class="mr-1 text-black">
         SortByPrice
-    </a>}
+    </a>
         <label asp-for="SearchSelectionString" class="mr-1">SearchBy </label>
         <select class="mr-1" style="height: 1.8em;" name="searchSelectionString" asp-items="Model.SearchSelection" asp-for="SearchSelectionString"></select>
         <label asp-for="SeacrhString" class="mr-1" style="margin-left: 5px;">Value: </label>
@@ -44,7 +43,7 @@
             <div class="row mb-5">
                 @{ foreach (Web.Models.Dish.DishViewModel dish in Model.Dishes)
                         {
-            <input type="hidden" name="addedDish" value="@dish.AddMenu" />
+                    <input type="hidden" name="addedDish" value="@dish.AddMenu" />
 
                     @await Html.PartialAsync("_DishesList", dish, new ViewDataDictionary(this.ViewData) {
                         { "SearchSelectionString", Model.SearchSelectionString },
@@ -59,13 +58,13 @@
         <div class="row mb-5">
             @{ foreach (Web.Models.Dish.DishViewModel dish in Model.Dishes)
                 {
-        <input type="hidden" name="addedDish" value="@dish.AddMenu" />
+                 <input type="hidden" name="addedDish" value="@dish.AddMenu" />
 
-                                @await Html.PartialAsync("_DishesList", dish, new ViewDataDictionary(this.ViewData) {
-                                { "SearchSelectionString", Model.SearchSelectionString },
-                                { "SeacrhString", Model.SeacrhString },
-                                { "MenuId", Model.MenuId} ,
-                                { "SortDish", ViewData["PriceSort"] } }) } }
+                @await Html.PartialAsync("_DishesList", dish, new ViewDataDictionary(this.ViewData) {
+                { "SearchSelectionString", Model.SearchSelectionString },
+                { "SeacrhString", Model.SeacrhString },
+                { "MenuId", Model.MenuId} ,
+                { "SortDish", ViewData["PriceSort"] } }) } }
         </div>} }
         else
         {

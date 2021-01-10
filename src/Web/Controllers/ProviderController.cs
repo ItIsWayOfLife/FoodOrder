@@ -57,20 +57,60 @@ namespace Web.Controllers
                 searchSelection = _providerHelper.GetSearchSelection(false);
             }
 
-            if (searchSelectionString == "Id")
-                providersViewModel = providersViewModel.Where(n => n.Id.ToString().ToLower().Contains(seacrhString.ToLower())).ToList();
-            else if (searchSelectionString == "Name")
-                providersViewModel = providersViewModel.Where(n => n.Name.ToLower().Contains(seacrhString.ToLower())).ToList();
-            else if (searchSelectionString == "Email")
-                providersViewModel = providersViewModel.Where(e => e.Email.ToLower().Contains(seacrhString.ToLower())).ToList();
-            else if (searchSelectionString == "TimeWorkWith")
-                providersViewModel = providersViewModel.Where(t => t.TimeWorkWith.ToShortTimeString().ToLower().Contains(seacrhString.ToLower())).ToList();
-            else if (searchSelectionString == "TimeWorkTo")
-                providersViewModel = providersViewModel.Where(t => t.TimeWorkTo.ToShortTimeString().ToLower().Contains(seacrhString.ToLower())).ToList();
-            else if (searchSelectionString == "IsActive")
-                providersViewModel = providersViewModel.Where(a => a.IsActive == true).ToList();
-            else if (searchSelectionString == "Inactive")
-                providersViewModel = providersViewModel.Where(a => a.IsActive == false).ToList();
+            seacrhString = seacrhString ?? string.Empty;
+
+            // search
+            if (searchSelectionString != string.Empty && searchSelectionString != null && searchSelectionString != "Search" && seacrhString != null)
+            {
+                if (searchSelectionString.ToLower() == "id" && seacrhString != string.Empty)
+                {
+                    providersViewModel = providersViewModel.Where(p => p.Id.ToString().ToLower().Contains(seacrhString.ToLower())).ToList();
+                }
+                else if (searchSelectionString.ToLower() == "id" && seacrhString == string.Empty)
+                {
+                    providersViewModel = providersViewModel.Where(p => p.Id == 0).ToList();
+                }
+                else if (searchSelectionString.ToLower() == "name" && seacrhString != string.Empty)
+                {
+                    providersViewModel = providersViewModel.Where(p => p.Name != null && p.Name.ToLower().Contains(seacrhString.ToLower())).ToList();
+                }
+                else if (searchSelectionString.ToLower() == "name" && seacrhString == string.Empty)
+                {
+                    providersViewModel = providersViewModel.Where(p => p.Name == null || p.Name == string.Empty).ToList();
+                }
+                else if (searchSelectionString.ToLower() == "email" && seacrhString != string.Empty)
+                {
+                    providersViewModel = providersViewModel.Where(p => p.Email != null && p.Email.ToLower().Contains(seacrhString.ToLower())).ToList();
+                }
+                else if (searchSelectionString.ToLower() == "email" && seacrhString == string.Empty)
+                {
+                    providersViewModel = providersViewModel.Where(p => p.Email == null || p.Email == string.Empty).ToList();
+                }
+                else if (searchSelectionString.ToLower() == "timeworkwith" && seacrhString != string.Empty)
+                {
+                    providersViewModel = providersViewModel.Where(p => p.TimeWorkWith != null && p.TimeWorkWith.ToShortTimeString().ToLower().Contains(seacrhString.ToLower())).ToList();
+                }
+                else if (searchSelectionString.ToLower() == "timeworkwith" && seacrhString == string.Empty)
+                {
+                    providersViewModel = providersViewModel.Where(p => p.TimeWorkWith == null).ToList();
+                }
+                else if (searchSelectionString.ToLower() == "timeworkto" && seacrhString != string.Empty)
+                {
+                    providersViewModel = providersViewModel.Where(p => p.TimeWorkTo != null && p.TimeWorkTo.ToShortTimeString().ToLower().Contains(seacrhString.ToLower())).ToList();
+                }
+                else if (searchSelectionString.ToLower() == "timeworkto" && seacrhString != string.Empty)
+                {
+                    providersViewModel = providersViewModel.Where(p => p.TimeWorkTo == null).ToList();
+                }
+                else if (searchSelectionString.ToLower() == "isactive")
+                {
+                    providersViewModel = providersViewModel.Where(a => a.IsActive == true).ToList();
+                }
+                else if (searchSelectionString.ToLower() == "inactive")
+                {
+                    providersViewModel = providersViewModel.Where(a => a.IsActive == false).ToList();
+                }
+            }
 
             _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_INDEX, LoggerConstants.TYPE_GET, "index – get providers", GetCurrentUserId());
 
@@ -116,7 +156,7 @@ namespace Web.Controllers
             if (ModelState.IsValid)
             {
                 ProviderDTO providerDto = null;
-                string path = "";
+                string path = string.Empty;
 
                 // save img
                 if (uploadedFile != null)
@@ -222,7 +262,7 @@ namespace Web.Controllers
             if (ModelState.IsValid)
             {
                 ProviderDTO providerDto = null;
-                string path = "";
+                string path = string.Empty;
 
                 // save img
                 if (uploadedFile != null)
@@ -247,7 +287,7 @@ namespace Web.Controllers
                     IsActive = model.IsActive,
                     IsFavorite = model.IsFavorite,
                     Name = model.Name,
-                    Path = path.Replace(_path, ""),
+                    Path = path.Replace(_path, string.Empty),
                     TimeWorkTo = model.TimeWorkTo,
                     TimeWorkWith = model.TimeWorkWith,
                     WorkingDays = model.WorkingDays

@@ -45,19 +45,33 @@ namespace Web.Controllers
             if (provider == null)
                 return RedirectToAction("Error", "Home", new { requestId = "400", errorInfo = "Provider not found" });
 
-            ViewData["NameProvider"] = "" + provider.Name;
+            ViewData["NameProvider"] = string.Empty + provider.Name;
 
             // list search
             List<string> searchSelection = new List<string>() { "SearchBy", "Catalog", "Info" };
 
-            if (seacrhString == null)
-                seacrhString = "";
+            seacrhString = seacrhString ?? string.Empty;
 
             // search
-            if (searchSelection[1] == searchSelectionString)
-                catalogs = catalogs.Where(n => n.Name.ToLower().Contains(seacrhString.ToLower())).ToList();
-            else if (searchSelection[2] == searchSelectionString)
-                catalogs = catalogs.Where(e => e.Info.ToLower().Contains(seacrhString.ToLower())).ToList();
+            if (searchSelectionString != string.Empty && searchSelectionString != null && searchSelectionString != "Search" && seacrhString != null)
+            {
+                if (searchSelection[1].ToLower() == searchSelectionString.ToLower() && seacrhString != string.Empty)
+                {
+                    catalogs = catalogs.Where(p => p.Name != null && p.Name.ToLower().Contains(seacrhString.ToLower())).ToList();
+                }
+                else if (searchSelection[1].ToLower() == searchSelectionString.ToLower() && seacrhString == string.Empty)
+                {
+                    catalogs = catalogs.Where(p => p.Name == null || p.Name == string.Empty).ToList();
+                }
+                else if (searchSelection[2].ToLower() == searchSelectionString.ToLower() && seacrhString != string.Empty)
+                {
+                    catalogs = catalogs.Where(p => p.Info != null && p.Info.ToLower().Contains(seacrhString.ToLower())).ToList();
+                }
+                else if (searchSelection[2].ToLower() == searchSelectionString.ToLower() && seacrhString == string.Empty)
+                {
+                    catalogs = catalogs.Where(p => p.Name == null || p.Name == string.Empty).ToList();
+                }
+            }
 
             ViewBag.NameSort = sortCatalog == SortState.NameAsc ? SortState.NameDesc : SortState.NameAsc;
 

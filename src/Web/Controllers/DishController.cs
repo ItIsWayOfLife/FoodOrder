@@ -52,7 +52,7 @@ namespace Web.Controllers
             if (catalog == null)
                 return RedirectToAction("Error", "Home", new { requestId = "400", errorInfo = "Catalog not found" });
 
-            ViewData["NameCatalog"] = "" + catalog.Name;
+            ViewData["NameCatalog"] = string.Empty + catalog.Name;
 
             IEnumerable<DishDTO> providersDtos;
             List<int> addedDish = new List<int>();
@@ -78,18 +78,44 @@ namespace Web.Controllers
             // list search
             List<string> searchSelection = new List<string>() { "SearchBy", "Name", "Info", "Weight", "Price" };
 
-            if (seacrhString == null)
-                seacrhString = "";
+            seacrhString = seacrhString ?? string.Empty;
 
             // search
-            if (searchSelectionString == searchSelection[1])
-                dishes = dishes.Where(n => n.Name.ToLower().Contains(seacrhString.ToLower())).ToList();
-            else if (searchSelectionString == searchSelection[2])
-                dishes = dishes.Where(e => e.Info.ToLower().Contains(seacrhString.ToLower())).ToList();
-            else if (searchSelectionString == searchSelection[3])
-                dishes = dishes.Where(t => t.Weight.ToString() == seacrhString).ToList();
-            else if (searchSelectionString == searchSelection[4])
-                dishes = dishes.Where(t => t.Price.ToString() == seacrhString).ToList();
+            if (searchSelectionString != string.Empty && searchSelectionString != null && searchSelectionString != "Search" && seacrhString != null)
+            {
+                if (searchSelectionString.ToLower() == searchSelection[1].ToLower() && seacrhString != string.Empty)
+                {
+                    dishes = dishes.Where(p => p.Name != null && p.Name.ToLower().Contains(seacrhString.ToLower())).ToList();
+                }
+                else if (searchSelectionString.ToLower() == searchSelection[1].ToLower() && seacrhString == string.Empty)
+                {
+                    dishes = dishes.Where(p => p.Name == null || p.Name == string.Empty).ToList();
+                }
+                else if (searchSelectionString.ToLower() == searchSelection[2].ToLower() && seacrhString != string.Empty)
+                {
+                    dishes = dishes.Where(p => p.Info != null && p.Info.ToLower().Contains(seacrhString.ToLower())).ToList();
+                }
+                else if (searchSelectionString.ToLower() == searchSelection[2].ToLower() && seacrhString == string.Empty)
+                {
+                    dishes = dishes.Where(p => p.Info == null || p.Info == string.Empty).ToList();
+                }
+                else if (searchSelectionString.ToLower() == searchSelection[3].ToLower() && seacrhString != string.Empty)
+                {
+                    dishes = dishes.Where(p => p.Weight.ToString().Contains(seacrhString)).ToList();
+                }
+                else if (searchSelectionString.ToLower() == searchSelection[3].ToLower() && seacrhString == string.Empty)
+                {
+                    dishes = dishes.Where(p => p.Weight == 0).ToList();
+                }
+                else if (searchSelectionString.ToLower() == searchSelection[4].ToLower() && seacrhString != string.Empty)
+                {
+                    dishes = dishes.Where(p => p.Price.ToString().Contains(seacrhString)).ToList();
+                }
+                else if (searchSelectionString.ToLower() == searchSelection[4].ToLower() && seacrhString == string.Empty)
+                {
+                    dishes = dishes.Where(p => p.Price == 0).ToList();
+                }
+            }
 
             ViewData["PriceSort"] = sortDish == SortState.PriceAsc ? SortState.PriceDesc : SortState.PriceAsc;
 
@@ -246,7 +272,7 @@ namespace Web.Controllers
                     Id = model.Id,
                     Info = model.Info,
                     Name = model.Name,
-                    Path = path.Replace(_path, ""),
+                    Path = path.Replace(_path, string.Empty),
                     Price = model.Price,
                     Weight = model.Weight,
                     CatalogId = model.CatalogId

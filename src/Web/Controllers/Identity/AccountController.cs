@@ -147,7 +147,7 @@ namespace Web.Controllers.Identity
                 {
                     _loggerService.LogWarning(CONTROLLER_NAME + LoggerConstants.ACTIN_LOGIN, LoggerConstants.TYPE_POST, "wrong login or password", null);
 
-                    ModelState.AddModelError("", "Wrong login or password");
+                    ModelState.AddModelError(string.Empty, "Wrong login or password");
                 }
             }
 

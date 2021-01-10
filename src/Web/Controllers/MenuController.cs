@@ -45,19 +45,33 @@ namespace Web.Controllers
             if (provider == null)
                 return RedirectToAction("Error", "Home", new { requestId = "400", errorInfo = "Provider not found" });
 
-            ViewData["NameProvider"] = "" + provider.Name;
+            ViewData["NameProvider"] = string.Empty + provider.Name;
 
             // list search
             List<string> searchSelection = new List<string>() { "SearchBy", "Info", "Date add" };
 
-            if (seacrhString == null)
-                seacrhString = "";
+            seacrhString = seacrhString ?? string.Empty;
 
             // search
-            if (searchSelectionString == searchSelection[1])
-                menus = menus.Where(e => e.Info.ToLower().Contains(seacrhString.ToLower())).ToList();
-            else if (searchSelectionString == searchSelection[2])
-                menus = menus.Where(t => t.Date.ToShortDateString().Contains(seacrhString.ToLower())).ToList();
+            if (searchSelectionString != string.Empty && searchSelectionString != null && searchSelectionString != "Search" && seacrhString != null)
+            {
+                if (searchSelectionString.ToLower() == searchSelection[1].ToLower() && seacrhString != string.Empty)
+                {
+                    menus = menus.Where(p => p.Info != null && p.Info.ToLower().Contains(seacrhString.ToLower())).ToList();
+                }
+                else if (searchSelectionString.ToLower() == searchSelection[1].ToLower() && seacrhString == string.Empty)
+                {
+                    menus = menus.Where(p => p.Info == null || p.Info == string.Empty).ToList();
+                }
+                else if (searchSelectionString.ToLower() == searchSelection[2].ToLower() && seacrhString != string.Empty)
+                {
+                    menus = menus.Where(p => p.Date != null && p.Date.ToShortDateString().Contains(seacrhString.ToLower())).ToList();
+                }
+                else if (searchSelectionString.ToLower() == searchSelection[2].ToLower() && seacrhString == string.Empty)
+                {
+                    menus = menus.Where(p => p.Date == null).ToList();
+                }
+            }
 
             ViewBag.DateSort = sortMenu == SortState.DateAsc ? SortState.DateDesc : SortState.DateAsc;
 
