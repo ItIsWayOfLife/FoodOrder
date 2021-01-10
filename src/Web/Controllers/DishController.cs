@@ -111,6 +111,148 @@ namespace Web.Controllers
             });
         }
 
+        #region For admin
 
+        [HttpGet]
+        public IActionResult Add(int catalogId)
+        {
+            return View(new AddDishViewModel() { CatalogId = catalogId });
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Add(IFormFile uploadedFile, [FromForm] AddDishViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    DishDTO dishDTO = null;
+                    string path = null;
+
+                    // save img
+                    if (uploadedFile != null)
+                    {
+                        path = uploadedFile.FileName;
+                        // сохраняем файл в папку wwwroot/files/dishes/
+                        using (var fileStream = new FileStream(_appEnvironment.WebRootPath + _path + path, FileMode.Create))
+                        {
+                            await uploadedFile.CopyToAsync(fileStream);
+                        }
+                    }
+
+                    dishDTO = new DishDTO
+                    {
+                        Info = model.Info,
+                        CatalogId = model.CatalogId,
+                        Name = model.Name,
+                        Path = path,
+                        Price = model.Price,
+                        Weight = model.Weight
+                    };
+
+                    _dishService.AddDish(dishDTO);
+
+                    return RedirectToAction("Index", new { dishDTO.CatalogId });
+                }
+                catch (ValidationException ex)
+                {
+                    ModelState.AddModelError(ex.Property, ex.Message);
+                }
+            }
+
+            return View(model);
+        }
+        [HttpPost]
+        public IActionResult Delete(int? id, int catalogId, string searchSelectionString, string name)
+        {
+            try
+            {
+                _dishService.DeleteDish(id);
+
+                return RedirectToAction("Index", new { catalogId, searchSelectionString, name });
+            }
+            catch (ValidationException ex)
+            {
+                return RedirectToAction("Error", "Home", new { requestId = "400", errorInfo = ex.Message });
+            }
+        }
+
+        [HttpGet]
+        public IActionResult Edit(int? id)
+        {
+            try
+            {
+                DishDTO dishDTO = _dishService.GetDish(id);
+
+                var provider = new EditDithViewModel()
+                {
+                    Info = dishDTO.Info,
+                    Id = dishDTO.Id,
+                    Name = dishDTO.Name,
+                    Path = _path + dishDTO.Path,
+                    Price = dishDTO.Price,
+                    Weight = dishDTO.Weight,
+                    CatalogId = dishDTO.CatalogId
+                };
+
+                return View(provider);
+            }
+            catch (ValidationException ex)
+            {
+                return Content(ex.Message);
+            }
+        }
+
+
+        [HttpPost]
+        public async Task<ActionResult> Edit(IFormFile uploadedFile, [FromForm] EditDithViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    DishDTO dishDTO = null;
+                    string path = null;
+
+                    // сохранение картинки
+                    if (uploadedFile != null)
+                    {
+                        path = uploadedFile.FileName;
+                        // сохраняем файл в папку files/provider/ в каталоге wwwroot
+                        using (var fileStream = new FileStream(_appEnvironment.WebRootPath + _path + path, FileMode.Create))
+                        {
+                            await uploadedFile.CopyToAsync(fileStream);
+                        }
+                    }
+                    else
+                    {
+                        path = model.Path;
+                    }
+
+                    dishDTO = new DishDTO
+                    {
+                        Id = model.Id,
+                        Info = model.Info,
+                        Name = model.Name,
+                        Path = path.Replace(_path, ""),
+                        Price = model.Price,
+                        Weight = model.Weight,
+                        CatalogId = model.CatalogId
+                    };
+
+                    _dishService.EditDish(dishDTO);
+
+                    return RedirectToAction("Index", new { dishDTO.CatalogId });
+                }
+                catch (ValidationException ex)
+                {
+                    ModelState.AddModelError(ex.Property, ex.Message);
+                }
+            }
+
+            return View(model);
+        }
+
+        #endregion
     }
 }

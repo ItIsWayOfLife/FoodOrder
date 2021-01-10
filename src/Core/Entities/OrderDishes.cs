@@ -1,11 +1,11 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Core.Entities
 {
     public class OrderDishes
     {
         public int Id { get; set; }
+
         [Required]
         public int Count { get; set; }
         public int OrderId { get; set; }

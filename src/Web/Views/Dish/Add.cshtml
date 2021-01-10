@@ -1,0 +1,33 @@
+﻿@model Web.Models.Dish.AddDishViewModel
+@{ ViewBag.Titile ="AddingDish"; }
+
+<h1 class="text-center">AddingDish</h1>
+<br />
+
+<h3>AddImgInfo</h3>
+<form method="post" asp-controller=Dish asp-action="Add" enctype="multipart/form-data">
+    <input type="file" name="uploadedFile" /><br>
+    <input type="hidden" asp-for="CatalogId" />
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for="Name" class="control-label">Name</label>
+        <input type="text" asp-for="Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Info" class="control-label">Info</label>
+        <input type="text" asp-for="Info" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Weight" class="control-label">Weight</label>
+        <input type="text" asp-for="Weight" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Price" class="control-label">Price</label>
+        <input type="text" asp-for="Price" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Add" class="btn btn-outline-secondary" />
+    </div>
+</form>
+
