@@ -1,0 +1,164 @@
+﻿@{ ViewBag.Title = "Report"; }
+
+<div class="row mb-5">
+
+    <div class="col-12 shadow-lg p-0 bg-white">
+        <div class="card">
+            <div class="card-header">
+                <h3>Report</h3>
+            </div>
+            <div class="card-body">
+                <div class="container">
+
+                    <div>
+                        <h3 class="text-center">Report by provider</h3>
+                        <div class="container">
+
+                            <form method="post" asp-controller="Report" asp-action="GetReportProvider">
+                                <h5>For all time</h5>
+                                <div class="container">
+                                    <label>Provider id: </label>
+                                    <input style="margin-top: -5px;" type="number" name="providerId" />
+                                    <input class="btn btn-sm btn-success mb-1" type="submit" value="Make up" />
+                                </div>                              
+                            </form>
+
+                            <form method="post" asp-controller="Report" asp-action="GetReportProvider">
+                                <h5>Per day</h5>
+                                <div class="container">
+
+                                    <label>Provider id: </label>
+                                    <input type="number" name="providerId" />
+                                    <label>Date: </label>
+                                    <input type="date" name="dateWith" />
+                                    <input class="btn btn-sm btn-success mb-1" type="submit" value="Make up" />
+                                </div>
+                            </form>
+
+                            <form method="post" asp-controller="Report" asp-action="GetReportProvider">
+                                <h5>For certain time</h5>
+                                <div class="container">
+
+                                    <label>Provider id: </label>
+                                    <input type="number" name="providerId" />
+                                    <label>Date from: </label>
+                                    <input type="date" name="dateWith" />
+                                    <label>Date by: </label>
+                                    <input type="date" name="dateTo" />
+                                    <input class="btn btn-sm btn-success mb-1" type="submit" value="Make up" />
+                                </div>
+                            </form>
+
+                            <form method="post" asp-controller="Report" asp-action="GetReportProviders">
+                                <h5>For all providers for all time</h5>
+                                <div class="container">
+
+                                    <input class="btn btn-sm btn-success mb-1" type="submit" value="Make up" />
+                                </div>
+                            </form>
+
+                            <form method="post" asp-controller="Report" asp-action="GetReportProviders">
+                                <h5>For all providers for day</h5>
+                                <div class="container">
+
+                                    <label>Date: </label>
+                                    <input type="date" name="dateWith" />
+                                    <input class="btn btn-sm btn-success mb-1" type="submit" value="Make up" />
+                                </div>
+                            </form>
+
+                            <form method="post" asp-controller="Report" asp-action="GetReportProviders">
+                                <h5>For all providers for certain time</h5>
+                                <div class="container">
+
+                                    <label>Date from: </label>
+                                    <input type="date" name="dateWith" />
+                                    <label>Date by: </label>
+                                    <input type="date" name="dateTo" />
+                                    <input class="btn btn-sm btn-success mb-1" type="submit" value="Make up" />
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+
+                    <hr/>
+
+                    <div>
+                        <h3 class="text-center">Report by users</h3>
+                        <div class="container">
+
+                            <form method="post" asp-controller="Report" asp-action="GetReportUser">
+                                <h5>For all time</h5>
+                                <div class="container">
+
+                                    <label>User id: </label>
+                                    <input type="text" style="width:310px" name="userId" />
+                                    <input class="btn btn-sm btn-success mb-1" type="submit" value="Make up" />
+                                </div>
+                            </form>
+
+                            <form method="post" asp-controller="Report" asp-action="GetReportUser">
+                                <h5>Per day</h5>
+                                <div class="container">
+
+                                    <label>User id: </label>
+                                    <input type="text" style="width:310px" name="userId" />
+                                    <label>Date: </label>
+                                    <input type="date" name="dateWith" />
+                                    <input class="btn btn-sm btn-success mb-1" type="submit" value="Make up" />
+                                </div>
+                            </form>
+
+                            <form method="post" asp-controller="Report" asp-action="GetReportUser">
+                                <h5>For certain time</h5>
+                                <div class="container">
+
+                                    <label>User id: </label>
+                                    <input type="text" style="width:310px" name="userId" />
+                                    <label>Date from: </label>
+                                    <input type="date" name="dateWith" />
+                                    <label>Date by: </label>
+                                    <input type="date" name="dateTo" />
+                                    <input class="btn btn-sm btn-success mb-1" type="submit" value="Make up" />
+                                </div>
+                            </form>
+
+                            <form method="post" asp-controller="Report" asp-action="GetReportUsers">
+                                <h5>For all users for all time</h5>
+                                <div class="container">
+
+                                    <input class="btn btn-sm btn-success mb-1" type="submit" value="Make up" />
+                                </div>
+                            </form>
+
+                            <form method="post" asp-controller="Report" asp-action="GetReportUsers">
+                                <h5>For all users for day</h5>
+                                <div class="container">
+
+                                    <label>Date: </label>
+                                    <input type="date" name="dateWith" />
+                                    <input class="btn btn-sm btn-success mb-1" type="submit" value="Make up" />
+                                </div>
+                            </form>
+
+                            <form method="post" asp-controller="Report" asp-action="GetReportUsers">
+                                <h5>For all users for certain time</h5>
+                                <div class="container">
+
+                                    <label>Date from: </label>
+                                    <input type="date" name="dateWith" />
+                                    <label>Date by: </label>
+                                    <input type="date" name="dateTo" />
+                                    <input class="btn btn-sm btn-success mb-1" type="submit" value="Make up" />
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                    <br />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
