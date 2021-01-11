@@ -219,12 +219,12 @@ namespace Web.Controllers
             }
             catch (ValidationException ex)
             {
-                _loggerService.LogWarning(CONTROLLER_NAME + LoggerConstants.ACTION_DELETE, LoggerConstants.TYPE_POST, $"delete dish id: {id} catalog id: {catalogId} error: {ex.Message}", GetCurrentUserId());
+                _loggerService.LogWarning(CONTROLLER_NAME + LoggerConstants.ACTION_DELETE +$"/{id}", LoggerConstants.TYPE_POST, $"delete dish id: {id} catalog id: {catalogId} error: {ex.Message}", GetCurrentUserId());
 
                 return RedirectToAction("Error", "Home", new { requestId = "400", errorInfo = ex.Message });
             }
 
-            _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_DELETE, LoggerConstants.TYPE_POST, $"delete dish id: {id} catalog id: {catalogId} successful", GetCurrentUserId());
+            _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_DELETE + $"/{id}", LoggerConstants.TYPE_POST, $"delete dish id: {id} catalog id: {catalogId} successful", GetCurrentUserId());
 
             sortDish = sortDish == SortState.PriceAsc ? SortState.PriceDesc : SortState.PriceAsc;
 

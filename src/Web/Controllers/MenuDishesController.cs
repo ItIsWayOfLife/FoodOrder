@@ -4,11 +4,13 @@ using Core.Interfaces;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
 using System.Linq;
 using Web.Models.MenuDishes;
 using Core.Exceptions;
+using Web.Interfaces;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Web.Controllers
 {
@@ -17,21 +19,25 @@ namespace Web.Controllers
         private readonly IMenuService _menuService;
         private readonly IProviderService _providerService;
         private readonly ICatalogService _catalogService;
+        private readonly ILoggerService _loggerService;
 
+        private const string CONTROLLER_NAME = "catalog";
         private readonly string _path;
 
         public MenuDishesController(IMenuService menuService,
             IProviderService providerService,
-            ICatalogService catalogService)
+            ICatalogService catalogService,
+            ILoggerService loggerService)
         {
             _menuService = menuService;
             _providerService = providerService;
             _path = PathConstants.PATH_DISH;
             _catalogService = catalogService;
+            _loggerService = loggerService;
         }
 
         [HttpGet]
-        public IActionResult Index(int? menuId, string searchSelectionString, string seacrhString, string filterCatalog, SortStateMenuDishes sortMenuDish = SortStateMenuDishes.PriceAsc)
+        public IActionResult Index(int menuId, string searchSelectionString, string seacrhString, string filterCatalog, SortStateMenuDishes sortMenuDish = SortStateMenuDishes.PriceAsc)
         {
             var menu = _menuService.GetMenu(menuId);
 
@@ -124,9 +130,11 @@ namespace Web.Controllers
                 _ => menuDishes.OrderBy(s => s.Price).ToList(),
             };
 
+            _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_INDEX +$"/{menuId}", LoggerConstants.TYPE_GET, $"index – get menu dishes of menu id: {menuId}", GetCurrentUserId());
+
             return View(new ListMenuDishViewModel()
             {
-                MenuId = menuId.Value,
+                MenuId = menuId,
                 MenuDishes = menuDishes,
                 SeacrhString = seacrhString,
                 SearchSelection = new SelectList(searchSelection),
@@ -137,8 +145,9 @@ namespace Web.Controllers
             });
         }
 
+        [Authorize(Roles = "admin")]
         [HttpPost]
-        public IActionResult Delete(int id, int? menuId, string searchSelectionString, string seacrhString, string filterCatalog, SortStateMenuDishes sortMenuDish)
+        public IActionResult Delete(int id, int menuId, string searchSelectionString, string seacrhString, string filterCatalog, SortStateMenuDishes sortMenuDish)
         {
             try
             {
@@ -146,13 +155,28 @@ namespace Web.Controllers
             }
             catch (ValidationException ex)
             {
+                _loggerService.LogWarning(CONTROLLER_NAME + LoggerConstants.ACTION_DELETE +$"/{id}", LoggerConstants.TYPE_POST, $"delete menu dish id: {id} menu id: {menuId} error: {ex.Message}", GetCurrentUserId());
 
                 return RedirectToAction("Error", "Home", new { requestId = "400", errorInfo = ex.Message });
             }
 
+            _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_DELETE + $"/{id}", LoggerConstants.TYPE_POST, $"delete menu dish id: {id} menu id: {menuId} successful", GetCurrentUserId());
+
             sortMenuDish = sortMenuDish == SortStateMenuDishes.PriceAsc ? SortStateMenuDishes.PriceDesc : SortStateMenuDishes.PriceAsc;
 
             return RedirectToAction("Index", new { menuId, searchSelectionString, seacrhString, filterCatalog, sortMenuDish });
+        }
+
+        private string GetCurrentUserId()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                return User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }
