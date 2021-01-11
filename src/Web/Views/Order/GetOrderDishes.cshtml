@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Web.Models.Order.OrderDishesViewModel>
+
+@{ ViewBag.Title = "Ordered books"; }
+
+<div class="row mb-5">
+
+    <div class="col-12 shadow-lg p-0 bg-white">
+        <div class="card">
+            <div class="card-header">
+                <h3>Ordered books</h3>
+            </div>
+            <div class="card-body">
+                <div class="container">
+                    @if (Model.Any())
+                    {
+        <table class="table">
+            <tr>
+                <th>Dish</th>
+                <th>Name</th>
+                <th>Info</th>
+                <th>Weight</th>
+                <th>Price</th>
+                <th>Amount</th>
+                <th>
+                    Total price
+                </th>
+            </tr>
+
+            @foreach (var cartD in Model)
+            {
+<tr>
+    <td> <img style="width:60px; height: 60px;" src="@cartD.Path" alt="@cartD.Name" /></td>
+    <td>@cartD.Name</td>
+    <td>@cartD.Info</td>
+    <td>@cartD.Weight</td>
+    <td>@cartD.Price Currency</td>
+    <td>@cartD.Count</td>
+
+    <td>@Math.Round(cartD.Count * cartD.Price, 2).ToString("N2") $</td>
+</tr>
+            }
+        </table>
+          <br />
+
+          <div class="float-right">
+              <span class="text-danger" style="font-size: 1.7em; font-weight: 700;">Total price: @ViewData["FullPrice"] $</span>
+          </div>
+                        <br /> }
+                    else
+                    {
+        <h2 class="text-center text-danger">
+            Order is empty
+        </h2>
+         <h3 class="text-center text-info">
+                        <a asp-action="Index" asp-controller="Order">To orders</a>
+                    </h3>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
