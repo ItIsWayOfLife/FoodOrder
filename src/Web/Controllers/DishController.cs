@@ -8,9 +8,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.Extensions.Localization;
-using Microsoft.Extensions.Logging;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -212,6 +209,7 @@ namespace Web.Controllers
 
             return View(model);
         }
+        
         [HttpPost]
         public IActionResult Delete(int id, int catalogId, int? menuId, string searchSelectionString, string seacrhString, SortState sortDish)
         {
@@ -260,7 +258,7 @@ namespace Web.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Edit(IFormFile uploadedFile, [FromForm] EditDithViewModel model, int? menuId, string searchSelectionString, string seacrhString, SortState sortDish)
+        public async Task<IActionResult> Edit(IFormFile uploadedFile, [FromForm] EditDithViewModel model, int? menuId, string searchSelectionString, string seacrhString, SortState sortDish)
         {
             ViewBag.MenuId = menuId;
             ViewBag.SearchSelectionString = searchSelectionString;
@@ -315,6 +313,26 @@ namespace Web.Controllers
             }
 
             return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult MakeMenu(int menuId, List<int> newAddedDishes, List<int> allSelect)
+        {
+            try
+            {
+                _menuService.MakeMenu(menuId, newAddedDishes, allSelect);
+
+                _loggerService.LogInformation(CONTROLLER_NAME + $"/makemenu/{menuId}", LoggerConstants.TYPE_POST, $"Make menu for menu id: {menuId} successful", GetCurrentUserId());
+
+                return RedirectToAction("Index", "MenuDishes", new { menuId = menuId });
+            }
+            catch (ValidationException ex)
+            {
+                _loggerService.LogWarning(CONTROLLER_NAME + $"/makemenu/{menuId}", LoggerConstants.TYPE_POST, $"Make menu for menu id: {menuId} error: {ex.Message}", GetCurrentUserId());
+
+                return RedirectToAction("Error", "Home", new { requestId = "400", errorInfo = ex.Message });
+
+            }
         }
 
         #endregion

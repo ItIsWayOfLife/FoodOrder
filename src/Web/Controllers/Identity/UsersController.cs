@@ -220,7 +220,7 @@ namespace Web.Controllers.Identity
         }
 
         [HttpPost]
-        public async Task<ActionResult> Delete(string id, string searchSelectionString, string seacrhString)
+        public async Task<IActionResult> Delete(string id, string searchSelectionString, string seacrhString)
         {
             if (id == GetCurrentUserId())
                 return RedirectToAction("Error", "Home", new { requestId = "400", errorInfo = "You cannot delete this user" });

@@ -137,7 +137,7 @@ namespace Web.Controllers
         #region For admin
 
         [HttpGet]
-        public ActionResult Add(string searchSelectionString, string seacrhString)
+        public IActionResult Add(string searchSelectionString, string seacrhString)
         {
             ViewBag.SearchSelectionString = searchSelectionString;
             ViewBag.SeacrhString = seacrhString;
@@ -202,7 +202,7 @@ namespace Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Delete(int id, string searchSelectionString, string seacrhString)
+        public IActionResult Delete(int id, string searchSelectionString, string seacrhString)
         {
             ViewBag.SearchSelectionString = searchSelectionString;
             ViewBag.SeacrhString = seacrhString;

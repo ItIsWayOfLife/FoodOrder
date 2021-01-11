@@ -1,7 +1,7 @@
 ﻿
-namespace Core.DTO
+namespace Web.Models.MenuDishes
 {
-    public class MenuDishesDTO
+    public class MenuDishesViewModel
     {
         public int Id { get; set; }
         public int? MenuId { get; set; }

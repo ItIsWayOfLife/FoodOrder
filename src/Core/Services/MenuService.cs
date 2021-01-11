@@ -168,6 +168,7 @@ namespace Core.Services
             {
                 menuDishesDTOs.Add(new MenuDishesDTO()
                 {
+                    Id = menuDish.Id,
                     DishId = menuDish.DishId.Value,
                     Info = menuDish.Dish.Info,
                     Name = menuDish.Dish.Name,
@@ -213,6 +214,20 @@ namespace Core.Services
                 }
             }
 
+            Database.Save();
+        }
+
+        public void DeleteDishInMenu(int? id)
+        {
+            if (id == null)
+                throw new ValidationException("Menu dish id not set", "");
+
+            MenuDishes menuDishes = Database.MenuDishes.Get(id.Value);
+
+            if (menuDishes == null)
+                throw new ValidationException("Menu dish not found", "");
+
+            Database.MenuDishes.Delete(id.Value);
             Database.Save();
         }
 

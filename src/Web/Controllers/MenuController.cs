@@ -143,7 +143,7 @@ namespace Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Delete(int id, int providerId, string searchSelectionString, string seacrhString, SortState sortMenu)
+        public IActionResult Delete(int id, int providerId, string searchSelectionString, string seacrhString, SortState sortMenu)
         {
             try
             {
@@ -164,7 +164,7 @@ namespace Web.Controllers
         }
 
         [HttpGet]
-        public ActionResult Edit(int id, string searchSelectionString, string seacrhString, SortState sortMenu)
+        public IActionResult Edit(int id, string searchSelectionString, string seacrhString, SortState sortMenu)
         {
             ViewBag.SearchSelectionString = searchSelectionString;
             ViewBag.SeacrhString = seacrhString;
@@ -223,6 +223,9 @@ namespace Web.Controllers
 
             return View(model);
         }
+       
+        #endregion
+
         private string GetCurrentUserId()
         {
             if (User.Identity.IsAuthenticated)
@@ -234,6 +237,6 @@ namespace Web.Controllers
                 return null;
             }
         }
-        #endregion
+        
     }
 }

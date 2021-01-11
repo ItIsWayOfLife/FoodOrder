@@ -146,7 +146,7 @@ namespace Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Delete(int id, int providerId, string searchSelectionString, string seacrhString, int? menuId, SortState sortCatalog)
+        public IActionResult Delete(int id, int providerId, string searchSelectionString, string seacrhString, int? menuId, SortState sortCatalog)
         {
             try
             {
@@ -167,7 +167,7 @@ namespace Web.Controllers
         }
 
         [HttpGet]
-        public ActionResult Edit(int id, int? menuId, string searchSelectionString, string seacrhString, SortState sortCatalog)
+        public IActionResult Edit(int id, int? menuId, string searchSelectionString, string seacrhString, SortState sortCatalog)
         {
             ViewBag.MenuId = menuId;
             ViewBag.SearchSelectionString = searchSelectionString;

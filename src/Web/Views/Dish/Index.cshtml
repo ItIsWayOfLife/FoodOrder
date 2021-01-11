@@ -11,10 +11,10 @@
     <input type="hidden" name="catalogId" value="@Model.CatalogId" />
     <div class="form-inline form-group">
        
-    <a asp-action="Index" asp-route-catalogId="@Model.CatalogId" asp-route-sortDish="@ViewData["PriceSort"]" asp-route-menuId="@Model.MenuId"
-       asp-route-searchSelectionString="@Model.SearchSelectionString" asp-route-seacrhString="@Model.SeacrhString"  class="mr-1 text-black">
-        SortByPrice
-    </a>
+        <a asp-action="Index" asp-route-catalogId="@Model.CatalogId" asp-route-sortDish="@ViewData["PriceSort"]" asp-route-menuId="@Model.MenuId"
+           asp-route-searchSelectionString="@Model.SearchSelectionString" asp-route-seacrhString="@Model.SeacrhString"  class="btn btn-sm btn-info mr-1">
+            SortByPrice
+        </a>
         <label asp-for="SearchSelectionString" class="mr-1">SearchBy </label>
         <select class="mr-1" style="height: 1.8em;" name="searchSelectionString" asp-items="Model.SearchSelection" asp-for="SearchSelectionString"></select>
         <label asp-for="SeacrhString" class="mr-1" style="margin-left: 5px;">Value: </label>
@@ -36,23 +36,27 @@
 {
     @if (Model.MenuId != null)
     {
-    <form asp-action="MakeMenu" asp-controller="Dish" method="post">
-        <div asp-validation-summary="All" class="text-danger"></div>
-        <input type="hidden" name="menuId" value="@Model.MenuId" />
+<form class="mb-5" asp-action="MakeMenu" asp-controller="Dish" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <input type="hidden" name="menuId" value="@Model.MenuId" />
 
-            <div class="row mb-5">
-                @{ foreach (Web.Models.Dish.DishViewModel dish in Model.Dishes)
-                        {
-                    <input type="hidden" name="addedDish" value="@dish.AddMenu" />
+    <div class="row mb-2">
+        @{ foreach (Web.Models.Dish.DishViewModel dish in Model.Dishes)
+            {
+                     <input type="hidden" name="addedDish" value="@dish.AddMenu" />
 
-                    @await Html.PartialAsync("_DishesList", dish, new ViewDataDictionary(this.ViewData) {
+                            @await Html.PartialAsync("_DishesList", dish, new ViewDataDictionary(this.ViewData) {
                         { "SearchSelectionString", Model.SearchSelectionString },
                         { "SeacrhString", Model.SeacrhString },
                         { "MenuId", Model.MenuId},
                         {"SortDish", ViewData["PriceSort"] } }) } }
-                </div>
-            <button type="submit" class="btn btn-success"> Save</button>
-            </form> }
+    </div>
+    <div class="mb-5">
+        <button type="submit" class="btn btn-success">Save</button>
+        <br />
+        <br />
+    </div>
+</form> }
         else
         {
         <div class="row mb-5">

@@ -1,0 +1,51 @@
+﻿@model Web.Models.MenuDishes.ListMenuDishViewModel
+
+
+@{ ViewBag.Title = "Menu dishes"; }
+
+
+<div class="text-center">
+    <h1 style="margin-top: -3%;">@ViewBag.NameMenuDishes</h1>
+</div>
+
+
+<form method="get">
+    <input type="hidden" name="menuId" value="@Model.MenuId" />
+   
+    <div class="form-inline form-group">
+        <a asp-action="Index" asp-route-menuId="@Model.MenuId" asp-route-sortMenuDish="@ViewBag.PriceSort"
+           asp-route-searchSelectionString="@Model.SearchSelectionString" asp-route-seacrhString="@Model.SeacrhString"
+           asp-route-filterCatalog="@Model.FilterCatalog" class="btn btn-sm btn-info mr-1">
+            SortByPrice
+        </a>
+        <label class="mr-1" asp-for="FilterCatalog">Categories: </label>
+        <select style="height: 1.8em;" class="mr-1" name="filterCatalog" asp-items="Model.FilterCategorySelection" asp-for="FilterCatalog"></select>
+        <label class="mr-1" asp-for="SearchSelectionString">SearchBy: </label>
+        <select style="height: 1.8em;" class="mr-1" name="searchSelectionString" asp-items="Model.SearchSelection" asp-for="SearchSelectionString"></select>
+        <label class="mr-1" asp-for="SeacrhString">Value: </label>
+        <input class="mr-1" name="seacrhString" asp-for="SeacrhString" />
+        <input type="submit" value="Apply" class="btn btn-sm btn-primary mr-1" />
+        <a asp-action="Index" asp-route-menuId="@Model.MenuId" class="btn btn-sm btn-danger mr-1">Refresh</a>
+        <a class="btn btn-sm btn-warning mr-1" asp-action="Index" asp-controller="Menu" asp-route-providerId="@Model.ProviderId">Back</a>
+
+        @if (User.IsInRole("admin"))
+        {
+    <a class="btn btn-sm btn-success mr-1" asp-controller="Catalog" asp-action="Index" asp-route-providerId="@Model.ProviderId" asp-route-menuId="@Model.MenuId">Menu compilation</a>}
+    </div>
+</form>
+        @if (Model.MenuDishes.Any())
+            {
+              <div class="row mb-5">
+                @{ foreach (Web.Models.MenuDishes.MenuDishesViewModel menuDish in Model.MenuDishes)
+                                    {
+                    @await Html.PartialAsync("_MenuDishesList", menuDish, new ViewDataDictionary(this.ViewData) {
+                            { "SearchSelectionString", Model.SearchSelectionString },
+                            { "SeacrhString", Model.SeacrhString },
+                            { "FilterCatalog", Model.FilterCatalog }
+                            }) } }
+            </div> }
+        else
+        { 
+        <h2 class="text-center text-danger">
+            Empty
+        </h2>}
