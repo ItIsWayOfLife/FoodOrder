@@ -25,7 +25,7 @@ namespace Web.Controllers
         private readonly IProviderHelper _providerHelper;
         private readonly ILoggerService _loggerService;
 
-        private const string CONTROLLER_NAME = "book";
+        private const string CONTROLLER_NAME = "provider";
         private readonly string _path;
 
         public ProviderController(IProviderService providerService,

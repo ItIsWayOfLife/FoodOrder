@@ -23,6 +23,7 @@ namespace Web.Controllers
         private readonly ILoggerService _loggerService;
 
         private const string CONTROLLER_NAME = "menu";
+
         public MenuController(IMenuService menuService,
             IProviderService providerService,
             ILoggerService loggerService)

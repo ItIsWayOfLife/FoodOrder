@@ -5,12 +5,10 @@ using Core.Interfaces;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Localization;
-using Microsoft.Extensions.Logging;
-using System;
 using System.Collections.Generic;
 using System.Security.Claims;
 using Web.Models.Cart;
+using Web.Interfaces;
 
 namespace Web.Controllers
 {
@@ -18,12 +16,17 @@ namespace Web.Controllers
     public class CartController : Controller
     {
         private readonly ICartService _cartService;
+        private readonly ILoggerService _loggerService;
+
+        private const string CONTROLLER_NAME = "cart";
 
         private readonly string _path;
 
-        public CartController(ICartService cartService)
+        public CartController(ICartService cartService,
+            ILoggerService loggerService)
         {
             _cartService = cartService;
+            _loggerService = loggerService;
             _path = PathConstants.PATH_DISH;
         }
 
@@ -46,8 +49,12 @@ namespace Web.Controllers
 
                 ViewData["FullPrice"] = _cartService.FullPriceCart(currentUserId);
 
+                _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_INDEX, LoggerConstants.TYPE_GET, "index", currentUserId);
+
                 return View(cartDishes);
             }
+
+            _loggerService.LogWarning(CONTROLLER_NAME + LoggerConstants.ACTION_INDEX, LoggerConstants.TYPE_GET, LoggerConstants.ERROR_USER_NOT_AUTHENTICATED, null);
 
             return RedirectToAction("Login", "Account");
         }
@@ -61,15 +68,21 @@ namespace Web.Controllers
 
                 try
                 {
-                    _cartService.DeleteCartDish(cartDishId, currentUserId);
-
-                    return RedirectToAction("Index");
+                    _cartService.DeleteCartDish(cartDishId, currentUserId);                 
                 }
                 catch (ValidationException ex)
                 {
+                    _loggerService.LogWarning(CONTROLLER_NAME + LoggerConstants.ACTION_DELETE + $"/{cartDishId}", LoggerConstants.TYPE_POST, $"delete cartDishId: {cartDishId} error: {ex.Message}", currentUserId);
+
                     return RedirectToAction("Error", "Home", new { requestId = "400", errorInfo = ex.Message });
                 }
+
+                _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_DELETE + $"/{cartDishId}", LoggerConstants.TYPE_POST, $"delete cartDishId: {cartDishId} successful", currentUserId);
+
+                return RedirectToAction("Index");
             }
+
+            _loggerService.LogWarning(CONTROLLER_NAME + LoggerConstants.ACTION_INDEX + $"/{cartDishId}", LoggerConstants.TYPE_GET, LoggerConstants.ERROR_USER_NOT_AUTHENTICATED, null);
 
             return RedirectToAction("Login", "Account");
         }
@@ -81,10 +94,23 @@ namespace Web.Controllers
             {
                 string currentUserId = GetCurrentUserId();
 
-                _cartService.AddDishToCart(dishId, currentUserId);
+                try
+                {
+                    _cartService.AddDishToCart(dishId, currentUserId);
+                }
+                catch (ValidationException ex)
+                {
+                    _loggerService.LogWarning(CONTROLLER_NAME + LoggerConstants.ACTION_ADD + $"{dishId}", LoggerConstants.TYPE_GET, $"add dish id: {dishId} to cart error: {ex.Message}", currentUserId);
+
+                    return RedirectToAction("Error", "Home", new { requestId = "400", errorInfo = ex.Message });
+                }
+
+                _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_ADD + $"{dishId}", LoggerConstants.TYPE_GET, $"add dish id: {dishId} to cart", currentUserId);
 
                 return RedirectToAction("Index");
             }
+
+            _loggerService.LogWarning(CONTROLLER_NAME + LoggerConstants.ACTION_ADD +$"/{dishId}", LoggerConstants.TYPE_GET, LoggerConstants.ERROR_USER_NOT_AUTHENTICATED, null);
 
             return RedirectToAction("Login", "Account");
         }
@@ -102,11 +128,17 @@ namespace Web.Controllers
                 }
                 catch (ValidationException ex)
                 {
+                    _loggerService.LogWarning(CONTROLLER_NAME + $"/deleteall", LoggerConstants.TYPE_POST, $"delete all dihes in cart error: {ex.Message}", GetCurrentUserId());
+
                     return RedirectToAction("Error", "Home", new { requestId = "400", errorInfo = ex.Message });
                 }
 
+                _loggerService.LogInformation(CONTROLLER_NAME + $"/deleteall", LoggerConstants.TYPE_POST, "delete all dihes in cart successful", GetCurrentUserId());
+
                 return RedirectToAction("Index");
             }
+
+            _loggerService.LogWarning(CONTROLLER_NAME + $"/deleteall", LoggerConstants.TYPE_POST, LoggerConstants.ERROR_USER_NOT_AUTHENTICATED, null);
 
             return RedirectToAction("Login", "Account");
         }
@@ -124,11 +156,17 @@ namespace Web.Controllers
                 }
                 catch (ValidationException ex)
                 {
+                    _loggerService.LogWarning(CONTROLLER_NAME + $"/{dishCartId}&{count}", LoggerConstants.TYPE_POST, $"update dish id: {dishCartId} on count: {count} error: {ex.Message}", currentUserId);
+
                     return RedirectToAction("Error", "Home", new { requestId = "400", errorInfo = ex.Message });
                 }
 
+                _loggerService.LogInformation(CONTROLLER_NAME + $"/{dishCartId}&{count}", LoggerConstants.TYPE_POST, $"update dish id: {dishCartId} on count: {count} successful", currentUserId);
+
                 return RedirectToAction("Index");
             }
+
+            _loggerService.LogWarning(CONTROLLER_NAME + $"/{dishCartId}&{count}", LoggerConstants.TYPE_POST, LoggerConstants.ERROR_USER_NOT_AUTHENTICATED, null);
 
             return RedirectToAction("Login", "Account");
         }

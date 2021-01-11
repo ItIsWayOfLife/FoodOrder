@@ -27,7 +27,7 @@ namespace Web.Controllers
         private readonly IMenuService _menuService;
         private readonly ILoggerService _loggerService;
 
-        private const string CONTROLLER_NAME = "catalog";
+        private const string CONTROLLER_NAME = "dish";
 
         private readonly string _path;
 
