@@ -1,0 +1,94 @@
+﻿@model IEnumerable<Web.Models.Cart.CartDishesViewModel>
+
+@{ ViewBag.Title = "Cart"; }
+
+<div class="row mb-5">
+
+    <div class="col-12 shadow-lg p-0 bg-white">
+        <div class="card">
+            <div class="card-header">
+                <h3>Cart</h3>
+            </div>
+            <div class="card-body">
+
+                <div class="container">
+
+                    @if (Model.Any())
+                    { <h6 class="text-center">
+                            Update the quantity of each dish
+                        </h6>
+                        <br/>
+
+
+                <table class="table center">
+                    <tr>
+                <th>Dish</th>
+                <th>Name</th>
+                <th>Info</th>
+                <th>Weight</th>
+                <th>Price for one ($)</th>
+                <th>Amount</th>
+                <th>Price per quantity</th>
+                <th></th>
+            </tr>
+
+            @foreach (var cartD in Model)
+            {
+            <tr>
+                <td> <img style="width: 60px; height: 60px;" src="@cartD.Path" /></td>
+                <td>@cartD.Name</td>
+                <td>@cartD.Info</td>
+                <td>@cartD.Weight</td>
+                <td>@cartD.Price</td>
+                <td>
+                    <form method="post" asp-controller="Cart" asp-action="Update">
+                        <input type="hidden" name="dishCartId" value="@cartD.Id" />
+                        <input type="number" min="1" value="@cartD.Count" name="count" />
+                        <input type="submit" value="Update" class="btn btn-sm btn-primary text-center mt-2" style="margin-left: 20%;" />
+                    </form>
+                </td>
+
+                <td>@Math.Round(cartD.Count * cartD.Price, 2).ToString("N2") $</td>
+                <td>
+                    <form method="post" asp-action="Delete" asp-route-cartDishId="@cartD.Id">
+                        <div asp-validation-summary="All" class="text-danger"></div>
+                        <button onclick="if (!confirm('Are you sure you want to delete this Item?')) { return false }" class="btn btn-sm btn-danger">
+                            Delete
+                        </button>
+                    </form>
+                </td>
+            </tr>
+            }
+        </table>
+
+            <br class="col-10" />
+
+                            <div>
+                                <form method="post" asp-controller="Cart" asp-action="DeleteAll">
+                                    <div asp-validation-summary="All" class="text-danger"></div>
+                                    <button onclick="if (!confirm('Are you sure you want to delete this Items?')) { return false }" class="btn btn-sm btn-danger">
+                                        Empty cart
+                                    </button>
+                                    <button class="btn btn-sm btn-success" asp-controller="Order" asp-action="Create" type="submit">
+                                        To order
+                                    </button>
+                                    <a class="btn btn-sm btn-warning" asp-controller="Provider" asp-action="Index">  Back to prividers</a>
+
+                                    <h3 class="float-right">Total price: <span class="text-danger">@ViewData["FullPrice"].ToString()</span> $</h3>
+                                </form>
+                            </div> }
+                        else
+                        {
+                            <h2 class="text-center text-danger">
+                                Cart is empty
+                            </h2>
+                            <br />
+                        }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
