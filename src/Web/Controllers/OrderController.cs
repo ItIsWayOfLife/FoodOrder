@@ -5,13 +5,11 @@ using Core.Interfaces;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Localization;
-using Microsoft.Extensions.Logging;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using Web.Models.Order;
+using Web.Interfaces;
 
 namespace Web.Controllers
 {
@@ -20,14 +18,18 @@ namespace Web.Controllers
     {
         private readonly IOrderService _orderService;
         private readonly ICartService _cartService;
+        private readonly ILoggerService _loggerService;
 
+        private const string CONTROLLER_NAME = "order";
         private readonly string _path;
 
         public OrderController(IOrderService orderService,
-            ICartService cartService)
+            ICartService cartService,
+            ILoggerService loggerService)
         {
             _orderService = orderService;
             _cartService = cartService;
+            _loggerService = loggerService;
             _path = PathConstants.PATH_DISH;
         }
 
@@ -38,8 +40,19 @@ namespace Web.Controllers
             {
                 string currentUserId = GetCurrentUserId();
 
-                _orderService.Create(currentUserId);
+                try
+                {
+                    _orderService.Create(currentUserId);
                 _cartService.AllDeleteDishesToCart(currentUserId);
+                }
+                catch (ValidationException ex)
+                {
+                    _loggerService.LogWarning(CONTROLLER_NAME + LoggerConstants.ACTION_CREATE, LoggerConstants.TYPE_POST, $"create order error: {ex.Message}", currentUserId);
+
+                    return RedirectToAction("Error", "Home", new { requestId = "400", errorInfo = ex.Message });
+                }
+
+                _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_CREATE, LoggerConstants.TYPE_POST, $"create order successful", currentUserId);
 
                 return RedirectToAction("Index");
             }
@@ -75,8 +88,12 @@ namespace Web.Controllers
                     _ => orders.OrderBy(s => s.Id).ToList(),
                 };
 
+                _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_INDEX, LoggerConstants.TYPE_GET, "index", currentUserId);
+
                 return View(orders);
             }
+
+            _loggerService.LogWarning(CONTROLLER_NAME + LoggerConstants.ACTION_INDEX, LoggerConstants.TYPE_GET, LoggerConstants.ERROR_USER_NOT_AUTHENTICATED, null);
 
             return RedirectToAction("Login", "Account");
         }
@@ -99,8 +116,12 @@ namespace Web.Controllers
 
                 ViewData["FullPrice"] = _orderService.GetOrders(currentUserId).Where(p => p.Id == orderId).FirstOrDefault().FullPrice;
 
+                _loggerService.LogInformation(CONTROLLER_NAME + $"/getorderdishes/{orderId}", LoggerConstants.TYPE_GET, $"get order id: {orderId}", currentUserId);
+
                 return View(orderDishes);
             }
+
+            _loggerService.LogWarning(CONTROLLER_NAME + $"/getorderdishes/{orderId}", LoggerConstants.TYPE_GET, LoggerConstants.ERROR_USER_NOT_AUTHENTICATED, null);
 
             return RedirectToAction("Login", "Account");
         }
