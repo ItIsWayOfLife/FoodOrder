@@ -17,6 +17,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Web.Models.Dish;
+using Web.Interfaces;
 
 namespace Web.Controllers
 {
@@ -27,18 +28,23 @@ namespace Web.Controllers
         private readonly ICatalogService _сatalogService;
         private readonly IWebHostEnvironment _appEnvironment;
         private readonly IMenuService _menuService;
+        private readonly ILoggerService _loggerService;
+
+        private const string CONTROLLER_NAME = "catalog";
 
         private readonly string _path;
 
         public DishController(IDishService dishService, IWebHostEnvironment appEnvironment,
              ICatalogService сatalogService,
-             IMenuService menuService)
+             IMenuService menuService,
+             ILoggerService loggerService)
         {
             _dishService = dishService;
             _appEnvironment = appEnvironment;
             _сatalogService = сatalogService;
             _menuService = menuService;
             _path = PathConstants.PATH_DISH;
+            _loggerService = loggerService;
         }
 
         [AllowAnonymous]
@@ -125,6 +131,8 @@ namespace Web.Controllers
                 _ => dishes.OrderBy(s => s.Price).ToList(),
             };
 
+            _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_INDEX + $"/{catalogId}", LoggerConstants.TYPE_GET, $"index – get dishes of catalog id: {catalogId}", GetCurrentUserId());
+
             return View(new ListDishViewModel()
             {
                 MenuId = menuId,
@@ -146,6 +154,8 @@ namespace Web.Controllers
             ViewBag.SearchSelectionString = searchSelectionString;
             ViewBag.SeacrhString = seacrhString;
             ViewBag.SortDish = sortDish == SortState.PriceAsc ? SortState.PriceDesc : SortState.PriceAsc;
+
+            _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_ADD + $"/{catalogId}", LoggerConstants.TYPE_GET, $"add dish catalog id: {catalogId}", GetCurrentUserId());
 
             return View(new AddDishViewModel() { CatalogId = catalogId });
         }
@@ -188,10 +198,14 @@ namespace Web.Controllers
                 {
                     _dishService.AddDish(dishDTO);
 
+                    _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_ADD, LoggerConstants.TYPE_POST, $"add dish name: {model.Name} catalog id: {model.CatalogId} successful", GetCurrentUserId());
+
                     return RedirectToAction("Index", new { model.CatalogId, menuId, searchSelectionString, seacrhString, sortDish });
                 }
                 catch (ValidationException ex)
                 {
+                    _loggerService.LogWarning(CONTROLLER_NAME + LoggerConstants.ACTION_ADD, LoggerConstants.TYPE_POST, $"add dish name: {model.Name} catalog id: {model.CatalogId} error: {ex.Message}", GetCurrentUserId());
+
                     ModelState.AddModelError(ex.Property, ex.Message);
                 }
             }
@@ -203,16 +217,20 @@ namespace Web.Controllers
         {
             try
             {
-                _dishService.DeleteDish(id);
-
-                sortDish = sortDish == SortState.PriceAsc ? SortState.PriceDesc : SortState.PriceAsc;
-
-                return RedirectToAction("Index", new { catalogId, menuId, searchSelectionString, seacrhString , sortDish });
+                _dishService.DeleteDish(id);             
             }
             catch (ValidationException ex)
             {
+                _loggerService.LogWarning(CONTROLLER_NAME + LoggerConstants.ACTION_DELETE, LoggerConstants.TYPE_POST, $"delete dish id: {id} catalog id: {catalogId} error: {ex.Message}", GetCurrentUserId());
+
                 return RedirectToAction("Error", "Home", new { requestId = "400", errorInfo = ex.Message });
             }
+
+            _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_DELETE, LoggerConstants.TYPE_POST, $"delete dish id: {id} catalog id: {catalogId} successful", GetCurrentUserId());
+
+            sortDish = sortDish == SortState.PriceAsc ? SortState.PriceDesc : SortState.PriceAsc;
+
+            return RedirectToAction("Index", new { catalogId, menuId, searchSelectionString, seacrhString, sortDish });
         }
 
         [HttpGet]
@@ -235,6 +253,8 @@ namespace Web.Controllers
                 Weight = dishDTO.Weight,
                 CatalogId = dishDTO.CatalogId
             };
+
+            _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_EDIT + $"/{id}", LoggerConstants.TYPE_GET, $"edit dish id: {id} catalog id: {provider.CatalogId}", GetCurrentUserId());
 
             return View(provider);
         }
@@ -282,10 +302,14 @@ namespace Web.Controllers
                 {
                     _dishService.EditDish(dishDTO);
 
+                    _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_EDIT, LoggerConstants.TYPE_POST, $"edit dish  id: {model.Id} catalog id: {model.CatalogId} successful", GetCurrentUserId());
+
                     return RedirectToAction("Index", new { dishDTO.CatalogId, menuId, searchSelectionString, seacrhString, sortDish });
                 }
                 catch (ValidationException ex)
                 {
+                    _loggerService.LogWarning(CONTROLLER_NAME + LoggerConstants.ACTION_EDIT, LoggerConstants.TYPE_POST, $"edit dish id: {model.Id} catalog id: {model.CatalogId} error: {ex.Message}", GetCurrentUserId());
+
                     ModelState.AddModelError(ex.Property, ex.Message);
                 }
             }
@@ -294,5 +318,17 @@ namespace Web.Controllers
         }
 
         #endregion
+
+        private string GetCurrentUserId()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                return User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            }
+            else
+            {
+                return null;
+            }
+        }
     }
 }

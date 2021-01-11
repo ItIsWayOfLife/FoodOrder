@@ -154,7 +154,7 @@ namespace Web.Controllers
             }
             catch (ValidationException ex)
             {
-                _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_DELETE, LoggerConstants.TYPE_POST, $"delete catalog id: {id} provider id: {providerId} error: {ex.Message}", GetCurrentUserId());
+                _loggerService.LogWarning(CONTROLLER_NAME + LoggerConstants.ACTION_DELETE, LoggerConstants.TYPE_POST, $"delete catalog id: {id} provider id: {providerId} error: {ex.Message}", GetCurrentUserId());
 
                 return RedirectToAction("Error", "Home", new { requestId = "400", errorInfo = ex.Message });
             }
