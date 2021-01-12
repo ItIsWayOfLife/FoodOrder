@@ -43,7 +43,7 @@ namespace Web.Helper
                 searchSelection.Add("Id");
             }
 
-            searchSelection.AddRange(new string[] { "Name", "Email", "TimeWorkWith", "TimeWorkTo", "IsActive", "Inactive" });
+            searchSelection.AddRange(new string[] { "Name", "Email", "TimeWorkWith", "TimeWorkTo", "IsActive", "InActive" });
 
             return searchSelection;
         }

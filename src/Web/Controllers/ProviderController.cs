@@ -98,7 +98,7 @@ namespace Web.Controllers
                 {
                     providersViewModel = providersViewModel.Where(p => p.TimeWorkTo != null && p.TimeWorkTo.ToShortTimeString().ToLower().Contains(seacrhString.ToLower())).ToList();
                 }
-                else if (searchSelectionString.ToLower() == "timeworkto" && seacrhString != string.Empty)
+                else if (searchSelectionString.ToLower() == "timeworkto" && seacrhString == string.Empty)
                 {
                     providersViewModel = providersViewModel.Where(p => p.TimeWorkTo == null).ToList();
                 }
