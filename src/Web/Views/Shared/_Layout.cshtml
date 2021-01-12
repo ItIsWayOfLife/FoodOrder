@@ -22,35 +22,92 @@
 
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav mr-auto">
+
                     <li class="nav-item">
-                        <a class="nav-link" asp-controller="Report" asp-action="Index">Report</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="Order" asp-action="Index">Order</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="Users" asp-action="Index">User</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="Cart" asp-action="Index">Cart</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="Provider" asp-action="Index">Provider</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="Home" asp-action="About">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="Home" asp-action="AboutDelivery">About delivery</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="Home" asp-action="Index">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="Provider" asp-action="ListFavoriteProviders">Favorite providers</a>
+                        @if (Context.Request.Path.ToString().ToLower().Contains("provider"))
+                        {
+                            <a class="nav-link active" asp-controller="Provider" asp-action="Index">Provider</a>
+                        }
+                        else
+                        {
+                            <a class="nav-link" asp-controller="Provider" asp-action="Index">Provider</a>
+                        }
                     </li>
 
-                </ul>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li class="nav-item">
+                            @if (Context.Request.Path.ToString().ToLower().Contains("cart"))
+                            {
+                                <a class="nav-link active" asp-controller="Cart" asp-action="Index">Cart</a>
+                            }
+                            else
+                            {
+                                <a class="nav-link" asp-controller="Cart" asp-action="Index">Cart</a>
+
+                            }
+                        </li>
+
+                        <li class="nav-item">
+                            @if (Context.Request.Path.ToString().ToLower().Contains("order"))
+                            {
+                                <a class="nav-link active" asp-controller="Order" asp-action="Index">Order</a>
+                            }
+                            else
+                            {
+                                <a class="nav-link" asp-controller="Order" asp-action="Index">Order</a>
+                            }
+                        </li>
+                    }
+
+                    @if (User.IsInRole("admin"))
+                    {
+                        <li class="nav-item">
+                            @if (Context.Request.Path.ToString().ToLower().Contains("users"))
+                            {
+                                <a class="nav-link active" asp-controller="Users" asp-action="Index">User</a>
+                            }
+                            else
+                            {
+                                <a class="nav-link" asp-controller="Users" asp-action="Index">User</a>
+                            }
+                        </li>
+
+                        <li class="nav-item">
+                            @if (Context.Request.Path.ToString().ToLower().Contains("report"))
+                            {
+                                <a class="nav-link active" asp-controller="Report" asp-action="Index">Report</a>
+                            }
+                            else
+                            {
+                                <a class="nav-link" asp-controller="Report" asp-action="Index">Report</a>
+                            }
+                        </li>
+                    }
+
+                        <li class="nav-item">
+                            @if (Context.Request.Path.ToString().ToLower().Contains("aboutdelivery"))
+                            {
+                                <a class="nav-link active" asp-controller="Home" asp-action="AboutDelivery">About delivery</a>
+                            }
+                            else
+                            {
+                                <a class="nav-link" asp-controller="Home" asp-action="AboutDelivery">About delivery</a>
+                            }
+                        </li>
+
+                        <li class="nav-item">
+                            @if (Context.Request.Path.ToString().ToLower().Contains("about") && !Context.Request.Path.ToString().ToLower().Contains("delivery"))
+                            {
+                                <a class="nav-link active" asp-controller="Home" asp-action="About">About</a>
+                            }
+                            else
+                            {
+                                <a class="nav-link" asp-controller="Home" asp-action="About">About</a>
+                            }
+                        </li>
+
+                    </ul>
                 <nav>
                     <ul class="navbar-nav mr-auto">
 
