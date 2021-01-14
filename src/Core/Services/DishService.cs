@@ -28,12 +28,12 @@ namespace Core.Services
         public IEnumerable<DishDTO> GetDishesForMenu(int? catalogId, List<int> addedDishes)
         {
             if (catalogId == null)
-                throw new ValidationException("Catalog id not set", "");
+                throw new ValidationException("Catalog id not set", string.Empty);
 
             var сatalog = Database.Catalog.Get(catalogId.Value);
 
             if (сatalog == null)
-                throw new ValidationException("Catalog not found", "");
+                throw new ValidationException("Catalog not found", string.Empty);
 
             var mapper = new MapperConfiguration(cfg => cfg.CreateMap<Dish, DishDTO>()).CreateMapper();
             var dishes = mapper.Map<IEnumerable<Dish>, List<DishDTO>>(Database.Dish.GetAll());
@@ -56,12 +56,12 @@ namespace Core.Services
         public IEnumerable<DishDTO> GetDishes(int? catalogId)
         {
             if (catalogId == null)
-                throw new ValidationException("Catalog id not set", "");
+                throw new ValidationException("Catalog id not set", string.Empty);
 
             var сatalog = Database.Catalog.Get(catalogId.Value);
 
             if (сatalog == null)
-                throw new ValidationException("Catalog not found", "");
+                throw new ValidationException("Catalog not found", string.Empty);
 
             var mapper = new MapperConfiguration(cfg => cfg.CreateMap<Dish, DishDTO>()).CreateMapper();
             var dishes = mapper.Map<IEnumerable<Dish>, List<DishDTO>>(Database.Dish.GetAll());
@@ -72,10 +72,10 @@ namespace Core.Services
         public void AddDish(DishDTO dishDTO)
         {
             if (dishDTO.Name == null)
-                throw new ValidationException("Name not set", "");
+                throw new ValidationException("Name not set", string.Empty);
 
             if (dishDTO.Info == null)
-                throw new ValidationException("Information not set", "");
+                throw new ValidationException("Information not set", string.Empty);
 
             Dish dish = new Dish()
             {
@@ -94,12 +94,12 @@ namespace Core.Services
         public void DeleteDish(int? id)
         {
             if (id == null)
-                throw new ValidationException("Dish id no set", "");
+                throw new ValidationException("Dish id no set", string.Empty);
 
             var provider = Database.Dish.Get(id.Value);
 
             if (provider == null)
-                throw new ValidationException("Dish not found", "");
+                throw new ValidationException("Dish not found", string.Empty);
 
             var dishesInMenu = Database.MenuDishes.GetAll().Where(p => p.DishId == id.Value);
 
@@ -115,12 +115,12 @@ namespace Core.Services
         public DishDTO GetDish(int? id)
         {
             if (id == null)
-                throw new ValidationException("Dish id no set", "");
+                throw new ValidationException("Dish id no set", string.Empty);
 
             var dish = Database.Dish.Get(id.Value);
 
             if (dish == null)
-                throw new ValidationException("Dish not found", "");
+                throw new ValidationException("Dish not found", string.Empty);
 
             DishDTO dishDTO = new DishDTO()
             {
@@ -139,15 +139,15 @@ namespace Core.Services
         public void EditDish(DishDTO dishDTO)
         {
             if (dishDTO.Name == null)
-                throw new ValidationException("Name not set", "");
+                throw new ValidationException("Name not set", string.Empty);
 
             if (dishDTO.Info == null)
-                throw new ValidationException("Info not set", "");
+                throw new ValidationException("Info not set", string.Empty);
 
             Dish dish = Database.Dish.Get(dishDTO.Id);
 
             if (dish == null)
-                throw new ValidationException("Dish not found", "");
+                throw new ValidationException("Dish not found", string.Empty);
 
             dish.Info = dishDTO.Info;
             dish.Name = dishDTO.Name;

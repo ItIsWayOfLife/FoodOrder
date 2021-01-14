@@ -32,16 +32,16 @@ namespace Core.Services
         public void AddProvider(ProviderDTO providerDTO)
         {
             if (providerDTO.Name == null)
-                throw new ValidationException("Name not set", "");
+                throw new ValidationException("Name not set", string.Empty);
 
             if (providerDTO.Email == null)
-                throw new ValidationException("Email not set", "");
+                throw new ValidationException("Email not set", string.Empty);
 
             if (providerDTO.TimeWorkWith == null)
-                throw new ValidationException("TimeWorkWith not set", "");
+                throw new ValidationException("TimeWorkWith not set", string.Empty);
 
             if (providerDTO.TimeWorkTo == null)
-                throw new ValidationException("TimeWorkTo not set", "");
+                throw new ValidationException("TimeWorkTo not set", string.Empty);
 
             Provider provider = new Provider()
             {
@@ -63,12 +63,12 @@ namespace Core.Services
         public void DeleteProvider(int? id)
         {
             if (id == null)
-                throw new ValidationException("Provider id not set", "");
+                throw new ValidationException("Provider id not set", string.Empty);
 
             var provider = Database.Provider.Get(id.Value);
 
             if (provider == null)
-                throw new ValidationException("Provider not found", "");
+                throw new ValidationException("Provider not found", string.Empty);
 
             var dishesInMenu = Database.MenuDishes.GetAll().Where(p => p.Menu.ProviderId == id.Value);
 
@@ -84,21 +84,21 @@ namespace Core.Services
         public void EditProvider(ProviderDTO providerDTO)
         {
             if (providerDTO.Name == null)
-                throw new ValidationException("Name not set", "");
+                throw new ValidationException("Name not set", string.Empty);
 
             if (providerDTO.Email == null)
-                throw new ValidationException("Email not set", "");
+                throw new ValidationException("Email not set", string.Empty);
 
             if (providerDTO.TimeWorkWith == null)
-                throw new ValidationException("TimeWorkWith not set", "");
+                throw new ValidationException("TimeWorkWith not set", string.Empty);
 
             if (providerDTO.TimeWorkTo == null)
-                throw new ValidationException("TimeWorkTo not set", "");
+                throw new ValidationException("TimeWorkTo not set", string.Empty);
 
             Provider provider = Database.Provider.Get(providerDTO.Id);
 
             if (provider == null)
-                throw new ValidationException("Provider not found", "");
+                throw new ValidationException("Provider not found", string.Empty);
             
             provider.Email = providerDTO.Email;
             provider.Info = providerDTO.Info;
@@ -117,12 +117,12 @@ namespace Core.Services
         public ProviderDTO GetProvider(int? id)
         {
             if (id == null)
-                throw new ValidationException("Provider id not set", "");
+                throw new ValidationException("Provider id not set", string.Empty);
 
             var provider = Database.Provider.Get(id.Value);
 
             if (provider == null)
-                throw new ValidationException("Provider not found", "");
+                throw new ValidationException("Provider not found", string.Empty);
 
             ProviderDTO providerDTO = new ProviderDTO()
             {

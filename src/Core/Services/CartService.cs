@@ -19,7 +19,7 @@ namespace Core.Services
         public Cart Create(string applicationUserId)
         {
             if (applicationUserId == null)
-                throw new ValidationException("User id not set", "");
+                throw new ValidationException("User id not set", string.Empty);
 
             Database.Cart.Create(new Cart() { ApplicationUserId = applicationUserId });
             Database.Save();
@@ -30,14 +30,11 @@ namespace Core.Services
         public CartDTO GetCart(string applicationUserId)
         {
             if (applicationUserId == null)
-                throw new ValidationException("User id not set", "");
+                throw new ValidationException("User id not set", string.Empty);
 
             var cart = Database.Cart.Find(p => p.ApplicationUserId == applicationUserId).FirstOrDefault();
 
-            if (cart == null)
-            {
-                cart = Create(applicationUserId);
-            }
+            cart = cart ?? null;
 
             CartDTO cartDTO = new CartDTO()
             {
@@ -51,12 +48,12 @@ namespace Core.Services
         public IEnumerable<CartDishesDTO> GetCartDishes(string applicationUserId)
         {
             if (applicationUserId == null)
-                throw new ValidationException("User id not set", "");
+                throw new ValidationException("User id not set", string.Empty);
 
             var cart = GetCart(applicationUserId);
 
             if (cart == null)
-                throw new ValidationException("Cart not found", "");
+                throw new ValidationException("Cart not found", string.Empty);
 
             var cartDishes = Database.CartDishes.Find(p => p.CartId == cart.Id);
 
@@ -84,20 +81,20 @@ namespace Core.Services
         public void DeleteCartDish(int? id, string applicationUserId)
         {
             if (applicationUserId == null)
-                throw new ValidationException("User id not set", "");
+                throw new ValidationException("User id not set", string.Empty);
 
             var cart = GetCart(applicationUserId);
 
             if (cart == null)
-                throw new ValidationException("Cart not found", "");
+                throw new ValidationException("Cart not found", string.Empty);
 
             if (id == null)
-                throw new ValidationException("Menu dish delete id in cart not set", "");
+                throw new ValidationException("Menu dish delete id in cart not set", string.Empty);
 
             var cartDish = Database.CartDishes.Get(id.Value);
 
             if (cartDish.CartId != cart.Id)
-                throw new ValidationException("Dish in cart not found", "");
+                throw new ValidationException("Dish in cart not found", string.Empty);
 
             Database.CartDishes.Delete(id.Value);
             Database.Save();
@@ -106,15 +103,15 @@ namespace Core.Services
         public void AddDishToCart(int? dishId, string applicationUserId)
         {
             if (applicationUserId == null)
-                throw new ValidationException("User id not set", "");
+                throw new ValidationException("User id not set", string.Empty);
 
             var cart = GetCart(applicationUserId);
 
             if (cart == null)
-                throw new ValidationException("Cart not found", "");
+                throw new ValidationException("Cart not found", string.Empty);
 
             if (dishId == null)
-                throw new ValidationException("Menu dish add id in cart not set", "");
+                throw new ValidationException("Menu dish add id in cart not set", string.Empty);
 
             // if it already exists in the basket, then it is increased by 1(if not, then created with the number of 1)
             if (GetCartDishes(applicationUserId).Where(p => p.DishId == dishId.Value).Count() > 0)
@@ -129,7 +126,7 @@ namespace Core.Services
                 Dish dish = Database.Dish.Get(dishId.Value);
 
                 if (dish == null)
-                    throw new ValidationException("Dish not found", "");
+                    throw new ValidationException("Dish not found", string.Empty);
 
                 Database.CartDishes.Create(new CartDishes()
                 {
@@ -145,17 +142,17 @@ namespace Core.Services
         public void AllDeleteDishesToCart(string applicationUserId)
         {
             if (applicationUserId == null)
-                throw new ValidationException("User id not set", "");
+                throw new ValidationException("User id not set", string.Empty);
 
             var cart = GetCart(applicationUserId);
 
             if (cart == null)
-                throw new ValidationException("Cart not found", "");
+                throw new ValidationException("Cart not found", string.Empty);
 
             var cartDish = GetCartDishes(applicationUserId);
 
             if (cartDish.Count() < 1)
-                throw new ValidationException("Cart is empty", "");
+                throw new ValidationException("Cart is empty", string.Empty);
 
             foreach (var cartD in cartDish)
             {
@@ -168,25 +165,25 @@ namespace Core.Services
         public void UpdateCountDishInCart(string applicationUserId, int? dishCartId, int count)
         {
             if (applicationUserId == null)
-                throw new ValidationException("User id not set", "");
+                throw new ValidationException("User id not set", string.Empty);
 
             var cart = GetCart(applicationUserId);
 
             if (cart == null)
-                throw new ValidationException("Cart not found", "");
+                throw new ValidationException("Cart not found", string.Empty);
 
             var cartDishes = GetCartDishes(applicationUserId);
 
             if (cartDishes.Count() < 1)
-                throw new ValidationException("Cart is empty", "");
+                throw new ValidationException("Cart is empty", string.Empty);
 
             if (cartDishes.Where(p => p.Id == dishCartId).Count() < 1)
-                throw new ValidationException("Specified dish is not in the cart", "");
+                throw new ValidationException("Specified dish is not in the cart", string.Empty);
 
             CartDishes cartDishe = Database.CartDishes.Find(p => p.Id == dishCartId).FirstOrDefault();
 
             if (count <= 0)
-                throw new ValidationException("Quantity must be a positive integer", "");
+                throw new ValidationException("Quantity must be a positive integer", string.Empty);
 
             cartDishe.Count = count;
 

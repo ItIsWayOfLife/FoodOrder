@@ -28,12 +28,12 @@ namespace Core.Services
         public List<int> GetMenuIdDishes(int? menuId)
         {
             if (menuId == null)
-                throw new ValidationException("Menu id not set", "");
+                throw new ValidationException("Menu id not set", string.Empty);
 
             var menu = Database.Menu.Get(menuId.Value);
 
             if (menu == null)
-                throw new ValidationException("Menu not found", "");
+                throw new ValidationException("Menu not found", string.Empty);
 
             List<int> addedDish = new List<int>();
 
@@ -50,12 +50,12 @@ namespace Core.Services
         public IEnumerable<MenuDTO> GetMenus(int? providerId)
         {
             if (providerId == null)
-                throw new ValidationException("Provider id not set", "");
+                throw new ValidationException("Provider id not set", string.Empty);
 
             var provider = Database.Provider.Get(providerId.Value);
 
             if (provider == null)
-                throw new ValidationException("Provider not found", "");
+                throw new ValidationException("Provider not found", string.Empty);
 
             var mapper = new MapperConfiguration(cfg => cfg.CreateMap<Menu, MenuDTO>()).CreateMapper();
             var menus = mapper.Map<IEnumerable<Menu>, List<MenuDTO>>(Database.Menu.GetAll());
@@ -66,15 +66,15 @@ namespace Core.Services
         public void AddMenu(MenuDTO menuDTO)
         {
             if (menuDTO.Date == null)
-                throw new ValidationException("Date not set", "");
+                throw new ValidationException("Date not set", string.Empty);
 
             if (menuDTO.Date.Date < DateTime.Now.Date)
-                throw new ValidationException("Menu cannot be compiled for the past date", "");
+                throw new ValidationException("Menu cannot be compiled for the past date", string.Empty);
 
             var menus = Database.Menu.GetAll().Where(p => p.ProviderId == menuDTO.ProviderId);
 
             if (menus.Where(p => p.Date.Date == menuDTO.Date).FirstOrDefault() != null)
-                throw new ValidationException("The menu already exists on this date", "");
+                throw new ValidationException("The menu already exists on this date", string.Empty);
 
             Menu menu = new Menu()
             {
@@ -90,12 +90,12 @@ namespace Core.Services
         public void DeleteMenu(int? id)
         {
             if (id == null)
-                throw new ValidationException("Menu id not set", "");
+                throw new ValidationException("Menu id not set", string.Empty);
 
             var provider = Database.Menu.Get(id.Value);
 
             if (provider == null)
-                throw new ValidationException("Menu not found", "");
+                throw new ValidationException("Menu not found", string.Empty);
 
             var dishesInMenu = Database.MenuDishes.GetAll().Where(p => p.MenuId == id.Value);
 
@@ -111,12 +111,12 @@ namespace Core.Services
         public MenuDTO GetMenu(int? id)
         {
             if (id == null)
-                throw new ValidationException("Menu id not set", "");
+                throw new ValidationException("Menu id not set", string.Empty);
 
             var menu = Database.Menu.Get(id.Value);
 
             if (menu == null)
-                throw new ValidationException("Menu not found", "");
+                throw new ValidationException("Menu not found", string.Empty);
 
             MenuDTO menuDTO = new MenuDTO()
             {
@@ -132,21 +132,21 @@ namespace Core.Services
         public void EditMenu(MenuDTO menuDTO)
         {
             if (menuDTO.Date == null)
-                throw new ValidationException("Date not set", "");
+                throw new ValidationException("Date not set", string.Empty);
 
             if (menuDTO.Date.Date < DateTime.Now.Date)
-                throw new ValidationException("Menu cannot be compiled for the past date", "");
+                throw new ValidationException("Menu cannot be compiled for the past date", string.Empty);
 
             var menus = Database.Menu.GetAll().Where(p => p.ProviderId == menuDTO.ProviderId);
             var checkDateMenu = menus.Where(p => p.Date.Date == menuDTO.Date).FirstOrDefault();
 
             if (checkDateMenu != null && checkDateMenu.Id != menuDTO.Id)
-                throw new ValidationException("The menu already exists on this date", "");
+                throw new ValidationException("The menu already exists on this date", string.Empty);
 
             Menu menu = Database.Menu.Get(menuDTO.Id);
 
             if (menu == null)
-                throw new ValidationException("Menu not found", "");
+                throw new ValidationException("Menu not found", string.Empty);
 
             menu.Info = menuDTO.Info;
             menu.Date = menuDTO.Date;
@@ -158,7 +158,7 @@ namespace Core.Services
         public IEnumerable<MenuDishesDTO> GetMenuDishes(int? menuId)
         {
             if (menuId == null)
-                throw new ValidationException("Menu id not set", "");
+                throw new ValidationException("Menu id not set", string.Empty);
 
             var menuDishes = Database.MenuDishes.GetAll().Where(p => p.MenuId == menuId.Value).ToList();
 
@@ -186,7 +186,7 @@ namespace Core.Services
         public void MakeMenu(int? menuId, List<int> newAddedDishes, List<int> allSelect)
         {
             if (menuId == null)
-                throw new ValidationException("Menu id not set", "");
+                throw new ValidationException("Menu id not set", string.Empty);
 
             var menuDishes = GetMenuDishes(menuId);
 
@@ -220,12 +220,12 @@ namespace Core.Services
         public void DeleteDishInMenu(int? id)
         {
             if (id == null)
-                throw new ValidationException("Menu dish id not set", "");
+                throw new ValidationException("Menu dish id not set", string.Empty);
 
             MenuDishes menuDishes = Database.MenuDishes.Get(id.Value);
 
             if (menuDishes == null)
-                throw new ValidationException("Menu dish not found", "");
+                throw new ValidationException("Menu dish not found", string.Empty);
 
             Database.MenuDishes.Delete(id.Value);
             Database.Save();

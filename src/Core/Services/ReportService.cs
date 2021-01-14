@@ -26,7 +26,7 @@ namespace Core.Services
         public List<List<string>> GetReportProvider(int? providerId)
         {
             if (providerId == null)
-                throw new ValidationException("Provider id not set", "");
+                throw new ValidationException("Provider id not set", string.Empty);
 
             return GetReportProviderList(providerId.Value, null, null);
         }
@@ -34,10 +34,10 @@ namespace Core.Services
         public List<List<string>> GetReportProvider(int? providerId, DateTime? date)
         {
             if (providerId == null)
-                throw new ValidationException("Provider id not set", "");
+                throw new ValidationException("Provider id not set", string.Empty);
 
             if (date == null)
-                throw new ValidationException("Date not set", "");
+                throw new ValidationException("Date not set", string.Empty);
 
             return GetReportProviderList(providerId.Value, date, null);
         }
@@ -45,10 +45,10 @@ namespace Core.Services
         public List<List<string>> GetReportProvider(int? providerId, DateTime? dateWith, DateTime? dateTo)
         {
             if (providerId == null)
-                throw new ValidationException("Provider id not set", "");
+                throw new ValidationException("Provider id not set", string.Empty);
 
             if (dateWith == null || dateTo == null)
-                throw new ValidationException("Date not set", "");
+                throw new ValidationException("Date not set", string.Empty);
 
             return GetReportProviderList(providerId.Value, dateWith, dateTo);
         }
@@ -249,7 +249,7 @@ namespace Core.Services
         public List<List<string>> GetReportUser(string userId)
         {
             if (userId == null)
-                throw new ValidationException("User id not set", "");
+                throw new ValidationException("User id not set", string.Empty);
 
             return GetReportUserList(userId, null, null);
         }
@@ -257,10 +257,10 @@ namespace Core.Services
         public List<List<string>> GetReportUser(string userId, DateTime? date)
         {
             if (userId == null)
-                throw new ValidationException("User id not set", "");
+                throw new ValidationException("User id not set", string.Empty);
 
             if (date == null)
-                throw new ValidationException("Date not set", "");
+                throw new ValidationException("Date not set", string.Empty);
 
             return GetReportUserList(userId, date, null);
         }
@@ -268,10 +268,10 @@ namespace Core.Services
         public List<List<string>> GetReportUser(string userId, DateTime? dateWith, DateTime? dateTo)
         {
             if (userId == null)
-                throw new ValidationException("User id not set", "");
+                throw new ValidationException("User id not set", string.Empty);
 
             if (dateWith == null || dateTo == null)
-                throw new ValidationException("Date not set", "");
+                throw new ValidationException("Date not set", string.Empty);
 
             return GetReportUserList(userId, dateWith, dateTo);
         }

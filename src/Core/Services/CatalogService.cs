@@ -28,12 +28,12 @@ namespace Core.Services
         public IEnumerable<CatalogDTO> GetСatalogs(int? providerId)
         {
             if (providerId == null)
-                throw new ValidationException("Provider id not set", "");
+                throw new ValidationException("Provider id not set", string.Empty);
 
             var provider = Database.Provider.Get(providerId.Value);
 
             if (provider == null)
-                throw new ValidationException("Provider not found", "");
+                throw new ValidationException("Provider not found", string.Empty);
 
             return GetСatalogs().Where(p => p.ProviderId == providerId).ToList();
         }
@@ -41,7 +41,7 @@ namespace Core.Services
         public void AddСatalog(CatalogDTO сatalogDTO)
         {
             if (сatalogDTO.Name == null)
-                throw new ValidationException("Name not set", "");
+                throw new ValidationException("Name not set", string.Empty);
 
             Catalog menu = new Catalog()
             {
@@ -57,12 +57,12 @@ namespace Core.Services
         public void DeleteСatalog(int? id)
         {
             if (id == null)
-                throw new ValidationException("Catalog id not set", "");
+                throw new ValidationException("Catalog id not set", string.Empty);
 
             var provider = Database.Catalog.Get(id.Value);
 
             if (provider == null)
-                throw new ValidationException("Catalog not found", "");
+                throw new ValidationException("Catalog not found", string.Empty);
 
             var dishesInMenu = Database.MenuDishes.GetAll().Where(p => p.Dish.CatalogId == id.Value);
 
@@ -78,12 +78,12 @@ namespace Core.Services
         public CatalogDTO GetСatalog(int? id)
         {
             if (id == null)
-                throw new ValidationException("Catalog id not set", "");
+                throw new ValidationException("Catalog id not set", string.Empty);
 
             var сatalog = Database.Catalog.Get(id.Value);
 
             if (сatalog == null)
-                throw new ValidationException("Catalog not found", "");
+                throw new ValidationException("Catalog not found", string.Empty);
 
             CatalogDTO сatalogDTO = new CatalogDTO()
             {
@@ -99,12 +99,12 @@ namespace Core.Services
         public void EditСatalog(CatalogDTO сatalogDTO)
         {
             if (сatalogDTO.Name == null)
-                throw new ValidationException("Name not set", "");
+                throw new ValidationException("Name not set", string.Empty);
 
             Catalog сatalog = Database.Catalog.Get(сatalogDTO.Id);
 
             if (сatalog == null)
-                throw new ValidationException("Catalog not found", "");
+                throw new ValidationException("Catalog not found", string.Empty);
 
             сatalog.Info = сatalogDTO.Info;
             сatalog.Name = сatalogDTO.Name;

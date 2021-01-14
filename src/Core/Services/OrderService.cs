@@ -32,17 +32,17 @@ namespace Core.Services
         public OrderDTO Create(string applicationUserId)
         {
             if (applicationUserId == null)
-                throw new ValidationException("User id not set", "");
+                throw new ValidationException("User id not set", string.Empty);
 
             var cart = Database.Cart.Find(p => p.ApplicationUserId == applicationUserId).FirstOrDefault();
 
             if (cart == null)
-                throw new ValidationException("Cart not found", "");
+                throw new ValidationException("Cart not found", string.Empty);
 
             var cartDishes = Database.CartDishes.Find(p => p.CartId == cart.Id).ToList();
 
             if (cartDishes == null || cartDishes.Count() == 0)
-                throw new ValidationException("Cart is empty", "");
+                throw new ValidationException("Cart is empty", string.Empty);
 
             // create order
             Order order = new Order() { ApplicationUserId = applicationUserId, DateOrder = DateTime.Now };
@@ -76,7 +76,7 @@ namespace Core.Services
         public IEnumerable<OrderDTO> GetOrders(string applicationUserId)
         {
             if (applicationUserId == null)
-                throw new ValidationException("User id not set", "");
+                throw new ValidationException("User id not set", string.Empty);
 
             var orders = Database.Orders.Find(p => p.ApplicationUserId == applicationUserId);
 
@@ -99,10 +99,10 @@ namespace Core.Services
         public IEnumerable<OrderDishesDTO> GetOrderDishes(string applicationUserId, int? orderId)
         {
             if (applicationUserId == null)
-                throw new ValidationException("User id not set", "");
+                throw new ValidationException("User id not set", string.Empty);
 
             if (orderId == null)
-                throw new ValidationException("Order not selected", "");
+                throw new ValidationException("Order not selected", string.Empty);
 
             var orderDishes = Database.OrderDishes.Find(p => p.OrderId == orderId).Where(p => p.Order.ApplicationUserId == applicationUserId);
 
