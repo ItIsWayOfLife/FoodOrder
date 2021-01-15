@@ -1,5 +1,5 @@
 ﻿
-namespace API.Models.Identity
+namespace API.Models.Identity.Account
 {
     public class ProfileModel
     {

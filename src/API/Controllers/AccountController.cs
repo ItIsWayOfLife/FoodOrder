@@ -1,5 +1,5 @@
 ﻿using API.Interfaces;
-using API.Models.Identity;
+using API.Models.Identity.Account;
 using Core.Identity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;

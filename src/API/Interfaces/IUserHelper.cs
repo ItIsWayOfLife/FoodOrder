@@ -1,4 +1,4 @@
-﻿using API.Models.Identity;
+﻿using API.Models.Identity.Account;
 using Core.Identity;
 using System.Threading.Tasks;
 

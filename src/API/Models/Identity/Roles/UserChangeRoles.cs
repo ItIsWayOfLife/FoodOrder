@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace API.Models.Identity
+namespace API.Models.Identity.Roles
 {
     public class UserChangeRoles
     {
