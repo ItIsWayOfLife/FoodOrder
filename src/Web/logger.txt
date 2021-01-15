@@ -1,0 +1,4 @@
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/15/2021 11:38:15 AM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:anonymous]
