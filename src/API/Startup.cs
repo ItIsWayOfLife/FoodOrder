@@ -76,6 +76,7 @@ namespace API
             services.AddTransient<IReportService, ReportService>();
 
             services.AddTransient<IUserHelper, UserHelper>();
+            services.AddTransient<IProviderHelper, ProviderHelper>();
 
             services.AddTransient<IJwtConfigurator, JwtConfigurator>();
 
