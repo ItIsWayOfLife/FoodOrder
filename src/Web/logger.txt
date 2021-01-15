@@ -2,3 +2,19 @@ Application started. Press Ctrl+C to shut down.
 Hosting environment: Development
 Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
 [1/15/2021 11:38:15 AM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:anonymous]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/15/2021 12:06:37 PM]:[provider/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:anonymous]
+[1/15/2021 12:06:39 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:anonymous]
+[1/15/2021 12:06:47 PM]:[provider/index]:[type:get]:[info:index – get providers]:[user:anonymous]
+[1/15/2021 12:06:47 PM]:[home/aboutdelivery]:[type:get]:[info:aboutdelivery]:[user:anonymous]
+[1/15/2021 12:06:48 PM]:[home/about]:[type:get]:[info:about]:[user:anonymous]
+[1/15/2021 12:06:49 PM]:[provider/index]:[type:get]:[info:index – get providers]:[user:anonymous]
+[1/15/2021 12:06:49 PM]:[provider/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:anonymous]
+[1/15/2021 12:06:50 PM]:[home/aboutdelivery]:[type:get]:[info:aboutdelivery]:[user:anonymous]
+[1/15/2021 12:06:50 PM]:[home/about]:[type:get]:[info:about]:[user:anonymous]
+[1/15/2021 12:06:50 PM]:[provider/index]:[type:get]:[info:index – get providers]:[user:anonymous]
+[1/15/2021 12:06:51 PM]:[account/register]:[type:get]:[info:registeration]:[user:anonymous]
+[1/15/2021 12:06:52 PM]:[account/login]:[type:get]:[info:login]:[user:anonymous]
+[1/15/2021 12:06:59 PM]:[home/error/404&]:[type:get]:[info:error code: 404 info: ]:[user:anonymous]
