@@ -39,7 +39,7 @@ namespace API.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            if (!CheckLogin(user).Result)
+            if (!_userHelper.CheckLogin(user).Result)
                 return Unauthorized();
 
             string userId = _userHelper.GetUserIdByEmail(user.Email);
@@ -164,12 +164,6 @@ namespace API.Controllers
             {
                 return BadRequest(result.Errors);
             }
-        }
-
-        private async Task<bool> CheckLogin(LoginModel model)
-        {
-            var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, true, false);
-            return result.Succeeded;
         }
 
         private string GetCurrentUserId()

@@ -1,4 +1,6 @@
-﻿using Core.Identity;
+﻿using API.Models.Identity;
+using Core.Identity;
+using System.Threading.Tasks;
 
 namespace API.Interfaces
 {
@@ -6,5 +8,6 @@ namespace API.Interfaces
     {
         string GetUserIdByEmail(string email);
         ApplicationUser GetUserById(string id);
+        Task<bool> CheckLogin(LoginModel model);
     }
 }
