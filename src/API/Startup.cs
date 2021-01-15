@@ -1,6 +1,13 @@
+using API.Configurators;
+using API.Helpers;
+using API.Interfaces;
 using Core.Identity;
+using Core.Interfaces;
+using Core.Services;
 using Infrastructure.Entities;
 using Infrastructure.Identity;
+using Infrastructure.Repositories;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http.Features;
@@ -12,11 +19,13 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace API
@@ -56,6 +65,20 @@ namespace API
                 o.MemoryBufferThreshold = int.MaxValue;
             });
 
+            services.AddTransient<IUnitOfWork, EFUnitOfWork>();
+
+            services.AddTransient<IProviderService, ProviderService>();
+            services.AddTransient<ICatalogService, CatalogService>();
+            services.AddTransient<IDishService, DishService>();
+            services.AddTransient<ICartService, CartService>();
+            services.AddTransient<IOrderService, OrderService>();
+            services.AddTransient<IMenuService, MenuService>();
+            services.AddTransient<IReportService, ReportService>();
+
+            services.AddTransient<IUserHelper, UserHelper>();
+
+            services.AddTransient<IJwtConfigurator, JwtConfigurator>();
+
             services.AddCors(options =>
             {
                 options.AddPolicy("EnableCORS", builder =>
@@ -66,9 +89,28 @@ namespace API
                 });
             });
 
+            services.AddAuthentication(opt => {
+                opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                opt.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+         .AddJwtBearer(options =>
+         {
+             options.TokenValidationParameters = new TokenValidationParameters
+             {
+                 ValidateIssuer = true,
+                 ValidateAudience = true,
+                 ValidateLifetime = true,
+                 ValidateIssuerSigningKey = true,
+
+                 ValidIssuer = "https://localhost:44342",
+                 ValidAudience = "https://localhost:44342",
+                 IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("superSecretKey@345"))
+             };
+         });
+
             services.AddControllers();
 
-            services.AddSwaggerGen(options => 
+            services.AddSwaggerGen(options =>
             {
                 options.SwaggerDoc("v1",
                     new Microsoft.OpenApi.Models.OpenApiInfo
@@ -96,7 +138,7 @@ namespace API
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            
             app.UseCors("EnableCORS");
             app.UseRouting();
 
@@ -110,7 +152,7 @@ namespace API
 
             app.UseSwagger();
 
-            app.UseSwaggerUI(options => 
+            app.UseSwaggerUI(options =>
             {
                 options.SwaggerEndpoint("/swagger/v1/swagger.json", "Swagger test API");
                 options.RoutePrefix = "";

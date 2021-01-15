@@ -17,7 +17,7 @@ namespace Web.Models.Account
         public string Lastname { get; set; }
 
         [Display(Name = "Middle Name")]
-        public string Patronomic { get; set; }
+        public string Patronymic { get; set; }
 
         [Required(ErrorMessage = "Enter password")]
         [DataType(DataType.Password)]

@@ -15,7 +15,7 @@ namespace Web.Models.Account
         public string Lastname { get; set; }
 
         [Display(Name = "Middle Name")]
-        public string Patronomic { get; set; }
+        public string Patronymic { get; set; }
 
         [Required(ErrorMessage = "Email address not specified")]
         [Display(Name = "Email")]

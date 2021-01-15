@@ -1,5 +1,4 @@
-﻿using API.Interfaces;
-using API.Models;
+﻿using API.Models.Identity;
 using Core.Identity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -19,7 +18,7 @@ namespace API.Controllers
         private readonly UserManager<ApplicationUser> _userManager;
 
         public RolesController(RoleManager<IdentityRole> roleManager,
-             UserManager<ApplicationUser> userManager)
+              UserManager<ApplicationUser> userManager)
         {
             _roleManager = roleManager;
             _userManager = userManager;
@@ -29,7 +28,6 @@ namespace API.Controllers
         public IActionResult Get()
         {
             var allRoles = _roleManager.Roles.ToList();
-
             List<string> allRolesStr = new List<string>();
 
             foreach (var role in allRoles)

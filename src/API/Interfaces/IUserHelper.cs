@@ -1,8 +1,10 @@
-﻿
+﻿using Core.Identity;
+
 namespace API.Interfaces
 {
     public interface IUserHelper
     {
-        string GetUserId(string email);
+        string GetUserIdByEmail(string email);
+        ApplicationUser GetUserById(string id);
     }
 }

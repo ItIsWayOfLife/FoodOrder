@@ -319,7 +319,7 @@ namespace Core.Services
                     {
                         Id = u.Id,
                         Email = u.Email,
-                        LFP = $"{u.Lastname} {u.Firstname} {u.Patronomic}",
+                        LFP = $"{u.Lastname} {u.Firstname} {u.Patronymic}",
                         CountOrder = user.Count(),
                         CountOrderDishes = user.Sum(p => p.CountOrderDishes),
                         FullPrice = user.Sum(p => p.FullPrice)

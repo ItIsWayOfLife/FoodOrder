@@ -1,9 +1,9 @@
-﻿using Microsoft.AspNetCore.Identity;
-
-namespace Core.Identity
+﻿
+namespace API.Models.Identity
 {
-    public class ApplicationUser : IdentityUser
+    public class ProfileModel
     {
+        public string Email { get; set; }
         public string Firstname { get; set; }
         public string Lastname { get; set; }
         public string Patronymic { get; set; }

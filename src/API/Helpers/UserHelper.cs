@@ -17,23 +17,28 @@ namespace API.Helpers
             _userManager = userManager;
         }
 
-        public string GetUserId(string email)
+        public string GetUserIdByEmail(string email)
         {
             try
             {
                 ApplicationUser user = _userManager.Users.FirstOrDefault(p => p.Email == email);
 
                 if (user == null)
-                {
                     return null;
-                }
 
                 return user.Id;
             }
-            catch (Exception)
+            catch(Exception)
             {
                 return null;
             }
+        }
+
+        public ApplicationUser GetUserById(string id)
+        {
+            ApplicationUser user = _userManager.Users.FirstOrDefault(p => p.Id == id);
+
+            return user;
         }
     }
 }

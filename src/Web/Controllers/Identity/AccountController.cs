@@ -62,7 +62,7 @@ namespace Web.Controllers.Identity
                     UserName = model.Email,
                     Firstname = model.Firstname,
                     Lastname = model.Lastname,
-                    Patronomic = model.Patronomic
+                    Patronymic = model.Patronymic
                 };
 
                 // add user
@@ -202,7 +202,7 @@ namespace Web.Controllers.Identity
                 {
                     Firstname = user.Firstname,
                     Lastname = user.Lastname,
-                    Patronomic = user.Patronomic,
+                    Patronymic = user.Patronymic,
                     Email = user.Email
                 };
 
@@ -237,7 +237,7 @@ namespace Web.Controllers.Identity
                     Id = user.Id,
                     Firstname = user.Firstname,
                     Lastname = user.Lastname,
-                    Patronomic = user.Patronomic,
+                    Patronymic = user.Patronymic,
                     Email = user.Email
                 };
 
@@ -268,7 +268,7 @@ namespace Web.Controllers.Identity
                         user.UserName = model.Email;
                         user.Firstname = model.Firstname;
                         user.Lastname = model.Lastname;
-                        user.Patronomic = model.Patronomic;
+                        user.Patronymic = model.Patronymic;
 
                         var result = await _userManager.UpdateAsync(user);
 

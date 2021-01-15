@@ -5,6 +5,7 @@ using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,16 +21,17 @@ namespace API.Configurators
             _userManager = userManager;
         }
 
-        private async Task<List<Claim>> GetClaims(string userName)
+        private async Task<List<Claim>> GetClaims(string userId)
         {
-            var user = await _userManager.FindByEmailAsync(userName);
+            var user = await _userManager.FindByIdAsync(userId);
+
             if (user != null)
             {
                 var userRoles = await _userManager.GetRolesAsync(user);
 
                 List<Claim> claims = new List<Claim>()
                 {
-                  new Claim(ClaimTypes.Name, userName)
+                   new Claim(ClaimTypes.NameIdentifier, user.Id)
                 };
 
                 foreach (string role in userRoles)
@@ -39,11 +41,11 @@ namespace API.Configurators
 
                 return claims;
             }
-            return null;
 
+            return null;
         }
 
-        public string GetToken(string userName)
+        public string GetToken(string userId)
         {
             var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("superSecretKey@345"));
             var signinCredentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
@@ -51,12 +53,13 @@ namespace API.Configurators
             var tokeOptions = new JwtSecurityToken(
                 issuer: "https://localhost:44342",
                 audience: "https://localhost:44342",
-                claims: GetClaims(userName).Result,
+                claims: GetClaims(userId).Result,
                 expires: DateTime.Now.AddMinutes(10080),
                 signingCredentials: signinCredentials
             );
 
             var tokenString = new JwtSecurityTokenHandler().WriteToken(tokeOptions);
+
             return tokenString;
         }
     }

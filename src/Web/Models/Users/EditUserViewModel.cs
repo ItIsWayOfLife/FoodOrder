@@ -19,6 +19,6 @@ namespace Web.Models.Users
         public string Lastname { get; set; }
 
         [Display(Name = "Middle Name")]
-        public string Patronomic { get; set; }
+        public string Patronymic { get; set; }
     }
 }

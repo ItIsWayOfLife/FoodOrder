@@ -3,6 +3,6 @@ namespace API.Interfaces
 {
     public interface IJwtConfigurator
     {
-        public string GetToken(string userName);
+        public string GetToken(string userId);
     }
 }
