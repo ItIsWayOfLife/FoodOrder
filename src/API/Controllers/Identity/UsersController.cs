@@ -135,6 +135,32 @@ namespace API.Controllers.Identity
             }
         }
 
+        [HttpPost, Route("changepassword")]
+        public async Task<IActionResult> ChangePassword(UserModelChangePasword model)
+        {
+            if (model == null)
+                return BadRequest("Invalid client request");
+
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            ApplicationUser user = await _userHelper.GetUserByIdAsync(model.Id);
+
+            if (user == null)
+                return NotFound("User not found");
+
+            IdentityResult result = await _userManager.ChangePasswordAsync(user, model.OldPassword, model.NewPassword);
+
+            if (result.Succeeded)
+            {
+                return Ok(model);
+            }
+            else
+            {
+                return BadRequest(result.Errors);
+            }
+        }
+
         private string GetCurrentUserId()
         {
             if (User.Identity.IsAuthenticated)
