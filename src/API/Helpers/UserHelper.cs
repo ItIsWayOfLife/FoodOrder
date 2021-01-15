@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Identity;
 using System;
 using System.Linq;
 
-namespace API.Helper
+namespace API.Helpers
 {
     [Authorize]
     public class UserHelper : IUserHelper
