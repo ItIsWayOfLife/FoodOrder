@@ -1,0 +1,30 @@
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/15/2021 11:58:22 PM]:[provider/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:anonymous]
+[1/15/2021 11:58:32 PM]:[home/aboutdelivery]:[type:get]:[info:aboutdelivery]:[user:anonymous]
+[1/15/2021 11:58:33 PM]:[home/about]:[type:get]:[info:about]:[user:anonymous]
+[1/15/2021 11:58:34 PM]:[account/login]:[type:get]:[info:login]:[user:anonymous]
+Invalid password for user.
+User 16474969-5b4b-41a5-adc3-f91220a9ee2b failed to provide the correct password.
+[1/15/2021 11:58:36 PM]:[account/login]:[type:post]:[warning:wrong login or password]:[user:anonymous]
+Invalid password for user.
+User 16474969-5b4b-41a5-adc3-f91220a9ee2b failed to provide the correct password.
+[1/15/2021 11:58:44 PM]:[account/login]:[type:post]:[warning:wrong login or password]:[user:anonymous]
+[1/15/2021 11:58:47 PM]:[account/login]:[type:post]:[warning:wrong login or password]:[user:anonymous]
+[1/15/2021 11:58:53 PM]:[account/login]:[type:post]:[warning:wrong login or password]:[user:anonymous]
+[1/15/2021 11:58:57 PM]:[account/login]:[type:post]:[warning:wrong login or password]:[user:anonymous]
+[1/15/2021 11:59:05 PM]:[account/login]:[type:post]:[info:login successful]:[user:f1a8159e-dd7d-48a9-a369-9253ba0ee9f5]
+[1/15/2021 11:59:05 PM]:[home/index]:[type:get]:[info:index]:[user:f1a8159e-dd7d-48a9-a369-9253ba0ee9f5]
+[1/15/2021 11:59:06 PM]:[provider/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:f1a8159e-dd7d-48a9-a369-9253ba0ee9f5]
+[1/15/2021 11:59:12 PM]:[provider/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:f1a8159e-dd7d-48a9-a369-9253ba0ee9f5]
+[1/15/2021 11:59:12 PM]:[provider/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:f1a8159e-dd7d-48a9-a369-9253ba0ee9f5]
+[1/15/2021 11:59:14 PM]:[account/profile]:[type:get]:[info:profile]:[user:f1a8159e-dd7d-48a9-a369-9253ba0ee9f5]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/16/2021 12:16:24 AM]:[provider/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:f1a8159e-dd7d-48a9-a369-9253ba0ee9f5]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\Web
+[1/16/2021 12:17:09 AM]:[provider/listfavoriteproviders]:[type:get]:[info:get favorite providers]:[user:f1a8159e-dd7d-48a9-a369-9253ba0ee9f5]

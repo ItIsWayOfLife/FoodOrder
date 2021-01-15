@@ -6,8 +6,8 @@ namespace API.Interfaces
 {
     public interface IUserHelper
     {
-        string GetUserIdByEmail(string email);
-        ApplicationUser GetUserById(string id);
-        Task<bool> CheckLogin(LoginModel model);
+        Task<string> GetUserIdByEmailAsync(string email);
+        Task<ApplicationUser> GetUserByIdAsync(string id);
+        Task<bool> CheckLoginAsync(LoginModel model);
     }
 }

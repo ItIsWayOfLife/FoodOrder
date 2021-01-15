@@ -1,5 +1,5 @@
 ﻿using API.Interfaces;
-using API.Models.Identity;
+using API.Models.Identity.Account;
 using Core.Identity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -23,11 +23,11 @@ namespace API.Helpers
             _signInManager = signInManager;
         }
 
-        public string GetUserIdByEmail(string email)
+        public async Task<string> GetUserIdByEmailAsync(string email)
         {
             try
             {
-                ApplicationUser user = _userManager.Users.FirstOrDefault(p => p.Email == email);
+                ApplicationUser user = await _userManager.FindByEmailAsync(email);
 
                 if (user == null)
                     return null;
@@ -40,17 +40,18 @@ namespace API.Helpers
             }
         }
 
-        public ApplicationUser GetUserById(string id)
+        public async Task<ApplicationUser> GetUserByIdAsync(string id)
         {
-            ApplicationUser user = _userManager.Users.FirstOrDefault(p => p.Id == id);
+            ApplicationUser user = await _userManager.FindByIdAsync(id);
 
             return user;
         }
 
         [AllowAnonymous]
-        public async Task<bool> CheckLogin(LoginModel model)
+        public async Task<bool> CheckLoginAsync(LoginModel model)
         {
             var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, true, false);
+
             return result.Succeeded;
         }
     }

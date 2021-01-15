@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace API.Controllers
+namespace API.Controllers.Identity
 {
     [Route("api/roles")]
     [ApiController]
@@ -42,7 +42,7 @@ namespace API.Controllers
         public async Task<IActionResult> Get(string id)
         {
             if (id == null)
-                return BadRequest();
+                return BadRequest("Invalid client request");
 
             // get user
             var user = await _userManager.FindByIdAsync(id);
@@ -59,6 +59,9 @@ namespace API.Controllers
         [HttpPut]
         public async Task<IActionResult> Put([FromBody] UserChangeRoles model)
         {
+            if (model == null)
+                return BadRequest("Invalid client request");
+
             // get user
             ApplicationUser user = await _userManager.FindByIdAsync(model.Id);
 

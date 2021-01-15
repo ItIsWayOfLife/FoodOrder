@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
-namespace API.Controllers
+namespace API.Controllers.Identity
 {
     [Route("api/account")]
     [ApiController]
@@ -31,7 +31,7 @@ namespace API.Controllers
         }
 
         [HttpPost, Route("login")]
-        public IActionResult Login([FromBody] LoginModel user)
+        public async Task<IActionResult> Login([FromBody] LoginModel user)
         {
             if (user == null)
                 return BadRequest("Invalid client request");
@@ -39,10 +39,10 @@ namespace API.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            if (!_userHelper.CheckLogin(user).Result)
+            if (!_userHelper.CheckLoginAsync(user).Result)
                 return Unauthorized();
 
-            string userId = _userHelper.GetUserIdByEmail(user.Email);
+            string userId = await _userHelper.GetUserIdByEmailAsync(user.Email);
 
             var tokenString = _jwtConfigurator.GetToken(userId);
 
@@ -81,12 +81,12 @@ namespace API.Controllers
         }
 
         [HttpGet, Route("profile")]
-        public IActionResult Profile()
+        public async Task<IActionResult> Profile()
         {
             if (!User.Identity.IsAuthenticated)
                 return Unauthorized();
 
-            ApplicationUser user = _userHelper.GetUserById(GetCurrentUserId());
+            ApplicationUser user = await _userHelper.GetUserByIdAsync(GetCurrentUserId());
 
             if (user == null)
                 return NotFound("User not found");
@@ -109,12 +109,12 @@ namespace API.Controllers
                 return Unauthorized();
 
             if (model == null)
-                return BadRequest();
+                return BadRequest("Invalid client request");
 
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            ApplicationUser user = _userHelper.GetUserById(GetCurrentUserId());
+            ApplicationUser user = await _userHelper.GetUserByIdAsync(GetCurrentUserId());
 
             if (user == null)
                 return NotFound("User not found");
@@ -144,12 +144,12 @@ namespace API.Controllers
                 return Unauthorized();
 
             if (model == null)
-                return BadRequest();
+                return BadRequest("Invalid client request");
 
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            ApplicationUser user = _userHelper.GetUserById(GetCurrentUserId());
+            ApplicationUser user = await _userHelper.GetUserByIdAsync(GetCurrentUserId());
 
             if (user == null)
                 return NotFound("User not found");
