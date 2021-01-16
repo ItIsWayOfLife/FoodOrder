@@ -8,7 +8,6 @@ using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using Web.Interfaces;
 using Web.Models.Account;
 
 namespace Web.Controllers.Identity

@@ -92,7 +92,7 @@ namespace API.Controllers.Identity
 
             await _userManager.RemoveFromRolesAsync(user, removedRoles);
 
-            _loggerService.LogInformation(CONTROLLER_NAME, LoggerConstants.TYPE_PUT, $"edit roles user id: {user.Id}", GetCurrentUserId());
+            _loggerService.LogInformation(CONTROLLER_NAME, LoggerConstants.TYPE_PUT, $"edit roles user id: {user.Id} successful", GetCurrentUserId());
 
             return Ok(model);
         }

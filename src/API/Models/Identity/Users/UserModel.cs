@@ -17,8 +17,6 @@ namespace API.Models.Identity.Users
 
         public string Patronymic { get; set; }
 
-        [Required(ErrorMessage = "Enter password")]
-        [DataType(DataType.Password)]
         public string Password { get; set; }
     }
 }

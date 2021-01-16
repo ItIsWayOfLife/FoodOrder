@@ -1,6 +1,6 @@
-﻿using API.Interfaces;
-using API.Models.Identity.Users;
+﻿using API.Models.Identity.Users;
 using AutoMapper;
+using Core.Constants;
 using Core.Identity;
 using Core.Interfaces;
 using Microsoft.AspNetCore.Authorization;
@@ -19,12 +19,17 @@ namespace API.Controllers.Identity
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly IUserHelper _userHelper;
+        private readonly ILoggerService _loggerService;
+
+        private const string CONTROLLER_NAME = "api/users";
 
         public UsersController(UserManager<ApplicationUser> userManager,
-              IUserHelper userHelper)
+              IUserHelper userHelper,
+              ILoggerService loggerService)
         {
             _userManager = userManager;
             _userHelper = userHelper;
+            _loggerService = loggerService;
         }
 
         [HttpGet]
@@ -33,6 +38,8 @@ namespace API.Controllers.Identity
             IEnumerable<ApplicationUser> listUsers = _userManager.Users;
             var mapper = new MapperConfiguration(cfg => cfg.CreateMap<ApplicationUser, UserModel>()).CreateMapper();
             var listViewUsers = mapper.Map<IEnumerable<ApplicationUser>, List<UserModel>>(listUsers);
+
+            _loggerService.LogInformation(CONTROLLER_NAME, LoggerConstants.TYPE_GET, "get users", GetCurrentUserId());
 
             return new ObjectResult(listViewUsers);
         }
@@ -47,6 +54,8 @@ namespace API.Controllers.Identity
 
             var mapper = new MapperConfiguration(cfg => cfg.CreateMap<ApplicationUser, UserModel>()).CreateMapper();
             UserModel userViewModel = mapper.Map<ApplicationUser, UserModel>(user);
+
+            _loggerService.LogInformation(CONTROLLER_NAME +$"{id}", LoggerConstants.TYPE_GET, "get user id: {id}", GetCurrentUserId());
 
             return new ObjectResult(userViewModel);
         }
@@ -73,11 +82,15 @@ namespace API.Controllers.Identity
 
             if (result.Succeeded)
             {
+                _loggerService.LogInformation(CONTROLLER_NAME, LoggerConstants.TYPE_POST, $"add user id: {await _userHelper.GetUserIdByEmailAsync(user.Email)} successful", GetCurrentUserId());
+
                 return Ok(model);
             }
             else
             {
-                return BadRequest(result);
+                _loggerService.LogWarning(CONTROLLER_NAME, LoggerConstants.TYPE_POST, $"add user error: {result.Errors}", GetCurrentUserId());
+
+                return BadRequest(result.Errors);
             }
         }
 
@@ -105,10 +118,14 @@ namespace API.Controllers.Identity
 
             if (result.Succeeded)
             {
+                _loggerService.LogInformation(CONTROLLER_NAME, LoggerConstants.TYPE_PUT, $"edit user id: {model.Id} successful", GetCurrentUserId());
+
                 return Ok(model);
             }
             else
             {
+                _loggerService.LogWarning(CONTROLLER_NAME, LoggerConstants.TYPE_PUT, $"edit user id: {model.Id} error: {result.Errors}", GetCurrentUserId());
+
                 return BadRequest(result.Errors);
             }
         }
@@ -128,15 +145,19 @@ namespace API.Controllers.Identity
 
             if (result.Succeeded)
             {
+                _loggerService.LogInformation(CONTROLLER_NAME +$"{id}", LoggerConstants.ACTION_DELETE, $"delete user id: {id} successful", GetCurrentUserId());
+
                 return Ok(user);
             }
             else
             {
+                _loggerService.LogWarning(CONTROLLER_NAME + $"{id}", LoggerConstants.ACTION_DELETE, $"delete user id: {id} error: {result.Errors}", GetCurrentUserId());
+
                 return BadRequest(result.Errors);
             }
         }
 
-        [HttpPost, Route("changepassword")]
+        [HttpPut, Route("changepassword")]
         public async Task<IActionResult> ChangePassword(UserModelChangePasword model)
         {
             if (model == null)
@@ -154,10 +175,14 @@ namespace API.Controllers.Identity
 
             if (result.Succeeded)
             {
+                _loggerService.LogInformation(CONTROLLER_NAME + "/changepassword", LoggerConstants.TYPE_PUT, $"change password user id: {model.Id} successful", GetCurrentUserId());
+
                 return Ok(model);
             }
             else
             {
+                _loggerService.LogWarning(CONTROLLER_NAME + "/changepassword", LoggerConstants.TYPE_PUT, $"change password user id: {model.Id} error: {result.Errors}", GetCurrentUserId());
+
                 return BadRequest(result.Errors);
             }
         }

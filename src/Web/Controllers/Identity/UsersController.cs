@@ -9,7 +9,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using Web.Interfaces;
 using Web.Models.Users;
 
 namespace Web.Controllers.Identity

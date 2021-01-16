@@ -8,7 +8,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using Web.Interfaces;
 using Web.Models.Roles;
 
 namespace Web.Controllers.Identity
