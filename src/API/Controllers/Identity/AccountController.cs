@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace API.Controllers.Identity
 {
-    [Route("api/account")]
+    [Route("api/[controller]")]
     [ApiController]
     public class AccountController : ControllerBase
     {
@@ -21,7 +21,7 @@ namespace API.Controllers.Identity
         private readonly IUserHelper _userHelper;
         private readonly ILoggerService _loggerService;
 
-        private const string CONTROLLER_NAME = "account";
+        private const string CONTROLLER_NAME = "api/account";
 
         public AccountController(SignInManager<ApplicationUser> signInManager,
             UserManager<ApplicationUser> userManager,
@@ -151,13 +151,13 @@ namespace API.Controllers.Identity
 
             if (result.Succeeded)
             {
-                _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_EDIT, LoggerConstants.TYPE_PUT, $"edit profile user id: {user.Id} successful", user.Id);
+                _loggerService.LogInformation(CONTROLLER_NAME + "/editprofile", LoggerConstants.TYPE_PUT, $"edit profile user id: {user.Id} successful", user.Id);
 
                 return Ok(model);
             }
             else
             {
-                _loggerService.LogWarning(CONTROLLER_NAME + LoggerConstants.ACTION_EDIT, LoggerConstants.TYPE_PUT, $"edit profile user id: {user.Id} error: {result.Errors}", user.Id);
+                _loggerService.LogWarning(CONTROLLER_NAME + "/editprofile", LoggerConstants.TYPE_PUT, $"edit profile user id: {user.Id} error: {result.Errors}", user.Id);
 
                 return BadRequest(result.Errors);
             }
@@ -184,13 +184,13 @@ namespace API.Controllers.Identity
 
             if (result.Succeeded)
             {
-                _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_CHANGEPASSWORD, LoggerConstants.TYPE_PUT, $"edit password user id: {user.Id} successful", user.Id);
+                _loggerService.LogInformation(CONTROLLER_NAME + "/changepassword", LoggerConstants.TYPE_PUT, $"edit password user id: {user.Id} successful", user.Id);
 
                 return Ok(model);
             }
             else
             {
-                _loggerService.LogWarning(CONTROLLER_NAME + LoggerConstants.ACTION_CHANGEPASSWORD, LoggerConstants.TYPE_PUT, $"edit profile user id: {user.Id} successful", user.Id);
+                _loggerService.LogWarning(CONTROLLER_NAME + "/changepassword", LoggerConstants.TYPE_PUT, $"edit profile user id: {user.Id} successful", user.Id);
 
                 return BadRequest(result.Errors);
             }

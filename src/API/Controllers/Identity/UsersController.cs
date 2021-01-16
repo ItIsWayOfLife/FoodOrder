@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace API.Controllers.Identity
 {
-    [Route("api/users")]
+    [Route("api/[controller]")]
     [ApiController]
     [Authorize(Roles = "admin")]
     public class UsersController : ControllerBase
