@@ -1,7 +1,10 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Core.Constants;
+using Core.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.IO;
 using System.Net.Http.Headers;
+using System.Security.Claims;
 
 namespace API.Controllers
 {
@@ -10,6 +13,15 @@ namespace API.Controllers
     [Authorize(Roles = "admin")]
     public class UploadController : ControllerBase
     {
+        private readonly ILoggerService _loggerService;
+
+        private const string CONTROLLER_NAME = "api/upload";
+
+        public UploadController(ILoggerService loggerService)
+        {
+            _loggerService = loggerService;
+        }
+
         [HttpPost, DisableRequestSizeLimit]
         public IActionResult Upload()
         {
@@ -27,11 +39,27 @@ namespace API.Controllers
                     file.CopyTo(stream);
                 }
 
+                _loggerService.LogInformation(CONTROLLER_NAME, LoggerConstants.TYPE_POST, $"upload file: {fileName} successful", GetCurrentUserId());
+
                 return Ok(new { fileName });
             }
             else
             {
+                _loggerService.LogInformation(CONTROLLER_NAME, LoggerConstants.TYPE_POST, $"upload file error", GetCurrentUserId());
+
                 return BadRequest("Invalid file");
+            }
+        }
+
+        private string GetCurrentUserId()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                return User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            }
+            else
+            {
+                return null;
             }
         }
     }
