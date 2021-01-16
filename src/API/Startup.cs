@@ -1,4 +1,5 @@
 using API.Configurators;
+using API.Exceptions;
 using API.Helpers;
 using API.Interfaces;
 using Core.Identity;
@@ -139,6 +140,8 @@ namespace API
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseMiddleware<ExceptionInterceptor>();
 
             app.UseHttpsRedirection();
 
