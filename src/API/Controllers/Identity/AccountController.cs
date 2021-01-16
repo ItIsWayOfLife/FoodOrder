@@ -1,5 +1,6 @@
 ﻿using API.Interfaces;
 using API.Models.Identity.Account;
+using Core.Constants;
 using Core.Identity;
 using Core.Interfaces;
 using Microsoft.AspNetCore.Authorization;
@@ -18,17 +19,22 @@ namespace API.Controllers.Identity
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly IJwtConfigurator _jwtConfigurator;
         private readonly IUserHelper _userHelper;
+        private readonly ILoggerService _loggerService;
+
+        private const string CONTROLLER_NAME = "account";
 
         public AccountController(SignInManager<ApplicationUser> signInManager,
             UserManager<ApplicationUser> userManager,
             IJwtConfigurator jwtConfigurator,
-             IUserHelper userHelper
+             IUserHelper userHelper,
+             ILoggerService loggerService
             )
         {
             _signInManager = signInManager;
             _userManager = userManager;
             _jwtConfigurator = jwtConfigurator;
             _userHelper = userHelper;
+            _loggerService = loggerService;
         }
 
         [HttpPost, Route("login")]
@@ -46,6 +52,15 @@ namespace API.Controllers.Identity
             string userId = await _userHelper.GetUserIdByEmailAsync(user.Email);
 
             var tokenString = _jwtConfigurator.GetToken(userId);
+
+            if (tokenString != null)
+            {
+                _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTIN_LOGIN, LoggerConstants.TYPE_POST, $"login user id: {userId} successful", GetCurrentUserId());
+            }
+            else
+            {
+                _loggerService.LogWarning(CONTROLLER_NAME + LoggerConstants.ACTIN_LOGIN, LoggerConstants.TYPE_POST, $"login user id: {userId} error", GetCurrentUserId());
+            }
 
             return Ok(new { Token = tokenString });
         }
@@ -73,15 +88,19 @@ namespace API.Controllers.Identity
 
             if (result.Succeeded)
             {
+                _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTIN_REGISTER, LoggerConstants.TYPE_POST, $"register user id: {await _userHelper.GetUserIdByEmailAsync(user.Email)} successful", GetCurrentUserId());
+
                 return Ok(model);
             }
             else
             {
-                return BadRequest(result);
+                _loggerService.LogWarning(CONTROLLER_NAME + LoggerConstants.ACTIN_REGISTER, LoggerConstants.TYPE_POST, $"register user id: {await _userHelper.GetUserIdByEmailAsync(user.Email)} error: {result.Errors}", GetCurrentUserId());
+
+                return BadRequest(result.Errors);
             }
         }
 
-        [HttpGet, Route("profile")]
+        [HttpGet, Route("profile"), Authorize]
         public async Task<IActionResult> Profile()
         {
             if (!User.Identity.IsAuthenticated)
@@ -100,10 +119,12 @@ namespace API.Controllers.Identity
                 Email = user.Email
             };
 
+            _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTIN_PROFILE, LoggerConstants.TYPE_GET, $"get profile", user.Id);
+
             return new ObjectResult(model);
         }
 
-        [HttpPost, Route("editprofile"), Authorize]
+        [HttpPut, Route("editprofile")]
         public async Task<IActionResult> Edit(ProfileModel model)
         {
             if (!User.Identity.IsAuthenticated)
@@ -130,15 +151,19 @@ namespace API.Controllers.Identity
 
             if (result.Succeeded)
             {
+                _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_EDIT, LoggerConstants.TYPE_PUT, $"edit profile user id: {user.Id} successful", user.Id);
+
                 return Ok(model);
             }
             else
             {
+                _loggerService.LogWarning(CONTROLLER_NAME + LoggerConstants.ACTION_EDIT, LoggerConstants.TYPE_PUT, $"edit profile user id: {user.Id} error: {result.Errors}", user.Id);
+
                 return BadRequest(result.Errors);
             }
         }
 
-        [HttpPost, Route("changepassword"), Authorize]
+        [HttpPut, Route("changepassword"), Authorize]
         public async Task<IActionResult> ChangePassword(ChangePasswordModel model)
         {
             if (!User.Identity.IsAuthenticated)
@@ -159,10 +184,14 @@ namespace API.Controllers.Identity
 
             if (result.Succeeded)
             {
+                _loggerService.LogInformation(CONTROLLER_NAME + LoggerConstants.ACTION_CHANGEPASSWORD, LoggerConstants.TYPE_PUT, $"edit password user id: {user.Id} successful", user.Id);
+
                 return Ok(model);
             }
             else
             {
+                _loggerService.LogWarning(CONTROLLER_NAME + LoggerConstants.ACTION_CHANGEPASSWORD, LoggerConstants.TYPE_PUT, $"edit profile user id: {user.Id} successful", user.Id);
+
                 return BadRequest(result.Errors);
             }
         }

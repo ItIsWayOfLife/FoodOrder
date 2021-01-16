@@ -77,6 +77,7 @@ namespace API
             services.AddTransient<IOrderService, OrderService>();
             services.AddTransient<IMenuService, MenuService>();
             services.AddTransient<IReportService, ReportService>();
+            services.AddTransient<ILoggerService, LoggerService>();
 
             services.AddTransient<IUserHelper, UserHelper>();
             services.AddTransient<IProviderHelper, ProviderHelper>();

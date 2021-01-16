@@ -19,7 +19,9 @@ namespace Core.Constants
 
         public const string TYPE_GET = "get";
         public const string TYPE_POST = "post";
-
+        public const string TYPE_PUT = "put";
+        public const string TYPE_DELETE = "delete";
+      
         public const string ERROR_USER_NOT_FOUND = "user not found";
         public const string ERROR_USER_NOT_AUTHENTICATED = "user not authenticated";
     }
