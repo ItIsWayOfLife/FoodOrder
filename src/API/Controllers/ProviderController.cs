@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 
 namespace API.Controllers
 {
@@ -21,18 +22,23 @@ namespace API.Controllers
         private readonly IWebHostEnvironment _appEnvironment;
         private readonly IUserHelper _userHelper;
         private readonly IProviderHelper _providerHelper;
+        private readonly ILoggerService _loggerService;
+
+        private const string CONTROLLER_NAME = "api/provider";
 
         private readonly string _path;
 
         public ProviderController(IProviderService providerService,
             IWebHostEnvironment appEnvironment,
             IUserHelper userHelper,
-            IProviderHelper providerHelper)
+            IProviderHelper providerHelper,
+            ILoggerService loggerService)
         {
             _providerService = providerService;
             _appEnvironment = appEnvironment;
             _userHelper = userHelper;
             _providerHelper = providerHelper;
+            _loggerService = loggerService;
 
             _path = _path = PathAPIConstants.API_URL + PathAPIConstants.API_PATH_FILES;
         }
@@ -40,18 +46,20 @@ namespace API.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-                IEnumerable<ProviderDTO> providersDtos = _providerService.GetProviders();
-                var mapper = new MapperConfiguration(cfg => cfg.CreateMap<ProviderDTO, ProviderModel>()).CreateMapper();
-                var providers = mapper.Map<IEnumerable<ProviderDTO>, List<ProviderModel>>(providersDtos);
+            IEnumerable<ProviderDTO> providersDtos = _providerService.GetProviders();
+            var mapper = new MapperConfiguration(cfg => cfg.CreateMap<ProviderDTO, ProviderModel>()).CreateMapper();
+            var providers = mapper.Map<IEnumerable<ProviderDTO>, List<ProviderModel>>(providersDtos);
 
-                foreach (var pr in providers)
-                {
-                    pr.Path = _path + pr.Path;
-                    pr.TimeWorkTo = providersDtos.FirstOrDefault(p => p.Id == pr.Id).TimeWorkTo.ToString("HH:mm");
-                    pr.TimeWorkWith = providersDtos.FirstOrDefault(p => p.Id == pr.Id).TimeWorkWith.ToString("HH:mm");
-                }
+            foreach (var pr in providers)
+            {
+                pr.Path = _path + pr.Path;
+                pr.TimeWorkTo = providersDtos.FirstOrDefault(p => p.Id == pr.Id).TimeWorkTo.ToString("HH:mm");
+                pr.TimeWorkWith = providersDtos.FirstOrDefault(p => p.Id == pr.Id).TimeWorkWith.ToString("HH:mm");
+            }
 
-                return new ObjectResult(providers);          
+            _loggerService.LogInformation(CONTROLLER_NAME, LoggerConstants.TYPE_GET, $"get providers", GetCurrentUserId());
+
+            return new ObjectResult(providers);
         }
 
         [HttpGet("{id}")]
@@ -61,6 +69,8 @@ namespace API.Controllers
 
             if (provider == null)
                 return NotFound("Provider not found");
+
+            _loggerService.LogInformation(CONTROLLER_NAME +$"/{id}", LoggerConstants.TYPE_GET, $"get provider id: {id}", GetCurrentUserId());
 
             return new ObjectResult(provider);
         }
@@ -78,9 +88,13 @@ namespace API.Controllers
             try
             {
                 _providerService.AddProvider(_providerHelper.ConvertProviderModelToProviderDTO(model));
+
+                _loggerService.LogInformation(CONTROLLER_NAME, LoggerConstants.TYPE_POST, $"add provider name: {model.Name} successful", GetCurrentUserId());
             }
             catch (ValidationException ex)
             {
+                _loggerService.LogWarning(CONTROLLER_NAME, LoggerConstants.TYPE_POST, $"add provider name: {model.Name} error: {ex.Message}", GetCurrentUserId());
+
                 return BadRequest(ex.Message);
             }
 
@@ -102,9 +116,13 @@ namespace API.Controllers
             try
             {
                 _providerService.EditProvider(provider);
+
+                _loggerService.LogInformation(CONTROLLER_NAME, LoggerConstants.TYPE_PUT, $"edit provider id: {model.Id} successful", GetCurrentUserId());
             }
             catch (ValidationException ex)
             {
+                _loggerService.LogWarning(CONTROLLER_NAME, LoggerConstants.TYPE_PUT, $"edit provider id: {model.Id} error: {ex.Message}", GetCurrentUserId());
+
                 return BadRequest(ex.Message);
             }
 
@@ -118,13 +136,29 @@ namespace API.Controllers
             try
             {
                 _providerService.DeleteProvider(id);
+
+                _loggerService.LogInformation(CONTROLLER_NAME, LoggerConstants.TYPE_DELETE, $"delete provider id: {id} successful", GetCurrentUserId());
             }
             catch (ValidationException ex)
             {
+                _loggerService.LogWarning(CONTROLLER_NAME, LoggerConstants.TYPE_DELETE, $"delete provider id: {id} error: {ex.Message}", GetCurrentUserId());
+
                 return BadRequest(ex.Message);
             }
 
             return Ok(id);           
+        }
+
+        private string GetCurrentUserId()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                return User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }
