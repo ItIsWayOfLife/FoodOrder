@@ -123,13 +123,13 @@ namespace API.Controllers
             {
                 _cartService.DeleteCartDish(id, GetCurrentUserId());
 
-                _loggerService.LogInformation(CONTROLLER_NAME +$"{id}", LoggerConstants.ACTION_DELETE, $"delete cart dish id: {id} successful", GetCurrentUserId());
+                _loggerService.LogInformation(CONTROLLER_NAME +$"/{id}", LoggerConstants.ACTION_DELETE, $"delete cart dish id: {id} successful", GetCurrentUserId());
 
                 return Ok(id);
             }
             catch (ValidationException ex)
             {
-                _loggerService.LogWarning(CONTROLLER_NAME + $"{id}", LoggerConstants.ACTION_DELETE, $"delete cart dish id: {id} error: {ex.Message}", GetCurrentUserId());
+                _loggerService.LogWarning(CONTROLLER_NAME + $"/{id}", LoggerConstants.ACTION_DELETE, $"delete cart dish id: {id} error: {ex.Message}", GetCurrentUserId());
 
                 return BadRequest(ex.Message);
             }

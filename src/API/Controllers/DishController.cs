@@ -58,7 +58,7 @@ namespace API.Controllers
             if (dish == null)
                 return NotFound("Dish not found");
 
-            _loggerService.LogInformation(CONTROLLER_NAME +$"{id}", LoggerConstants.TYPE_GET, $"get dish id: {id}", GetCurrentUserId());
+            _loggerService.LogInformation(CONTROLLER_NAME +$"/{id}", LoggerConstants.TYPE_GET, $"get dish id: {id}", GetCurrentUserId());
 
             return new ObjectResult(_dishHelper.ConvertDishDTOToDishModel(dish));
         }
@@ -72,13 +72,13 @@ namespace API.Controllers
             {
                 var dishModels = _dishHelper.ConvertDishDTOsToDishModels(dishDTOs);
 
-                _loggerService.LogInformation(CONTROLLER_NAME + $"catalog/{catalogid}", LoggerConstants.TYPE_GET, $"get dishes catalog id: {catalogid} successful", GetCurrentUserId());
+                _loggerService.LogInformation(CONTROLLER_NAME + $"/catalog/{catalogid}", LoggerConstants.TYPE_GET, $"get dishes catalog id: {catalogid} successful", GetCurrentUserId());
 
                 return new ObjectResult(dishModels);
             }
             catch (ValidationException ex)
             {
-                _loggerService.LogWarning(CONTROLLER_NAME + $"catalog/{catalogid}", LoggerConstants.TYPE_GET, $"get dishes catalog id: {catalogid} error: {ex.Message}", GetCurrentUserId());
+                _loggerService.LogWarning(CONTROLLER_NAME + $"/catalog/{catalogid}", LoggerConstants.TYPE_GET, $"get dishes catalog id: {catalogid} error: {ex.Message}", GetCurrentUserId());
 
                 return BadRequest(ex.Message);
             }
@@ -99,13 +99,13 @@ namespace API.Controllers
                     menuDishes[i].DishId = menuDishesDTOs[i].DishId.Value;
                 }
 
-                _loggerService.LogInformation(CONTROLLER_NAME + $"menudishes/{menuId}", LoggerConstants.TYPE_GET, $"get  menu dishes menu id: {menuId} successful", GetCurrentUserId());
+                _loggerService.LogInformation(CONTROLLER_NAME + $"/menudishes/{menuId}", LoggerConstants.TYPE_GET, $"get  menu dishes menu id: {menuId} successful", GetCurrentUserId());
 
                 return new ObjectResult(menuDishes);
             }
             catch (ValidationException ex)
             {
-                _loggerService.LogWarning(CONTROLLER_NAME + $"menudishes/{menuId}", LoggerConstants.TYPE_GET, $"get  menu dishes menu id: {menuId} error: {ex.Message}", GetCurrentUserId());
+                _loggerService.LogWarning(CONTROLLER_NAME + $"/menudishes/{menuId}", LoggerConstants.TYPE_GET, $"get  menu dishes menu id: {menuId} error: {ex.Message}", GetCurrentUserId());
 
                 return BadRequest(ex.Message);
             }
@@ -171,11 +171,11 @@ namespace API.Controllers
             {
                 _dishService.DeleteDish(id);
 
-                _loggerService.LogInformation(CONTROLLER_NAME +$"{id}", LoggerConstants.TYPE_DELETE, $"delete dish id: {id} successful", GetCurrentUserId());
+                _loggerService.LogInformation(CONTROLLER_NAME +$"/{id}", LoggerConstants.TYPE_DELETE, $"delete dish id: {id} successful", GetCurrentUserId());
             }
             catch (ValidationException ex)
             {
-                _loggerService.LogWarning(CONTROLLER_NAME + $"{id}", LoggerConstants.TYPE_DELETE, $"delete dish id: {id} error: {ex.Message}", GetCurrentUserId());
+                _loggerService.LogWarning(CONTROLLER_NAME + $"/{id}", LoggerConstants.TYPE_DELETE, $"delete dish id: {id} error: {ex.Message}", GetCurrentUserId());
 
                 return BadRequest(ex.Message);
             }

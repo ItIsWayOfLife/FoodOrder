@@ -48,7 +48,7 @@ namespace API.Controllers
            if (catalog == null)
                 return NotFound("Catalog not found");
 
-            _loggerService.LogInformation(CONTROLLER_NAME +$"{id}", LoggerConstants.TYPE_GET, $"get catalog id: {id}", GetCurrentUserId());
+            _loggerService.LogInformation(CONTROLLER_NAME +$"/{id}", LoggerConstants.TYPE_GET, $"get catalog id: {id}", GetCurrentUserId());
 
             return new ObjectResult(catalog);
         }
@@ -60,13 +60,13 @@ namespace API.Controllers
             {
                 var catalog = _сatalogService.GetСatalogs(providerid);
 
-                _loggerService.LogInformation(CONTROLLER_NAME + $"provider/{providerid}", LoggerConstants.TYPE_GET, $"get catalogs provider id: {providerid} successful", GetCurrentUserId());
+                _loggerService.LogInformation(CONTROLLER_NAME + $"/provider/{providerid}", LoggerConstants.TYPE_GET, $"get catalogs provider id: {providerid} successful", GetCurrentUserId());
 
                 return new ObjectResult(catalog);
             }
             catch (ValidationException ex)
             {
-                _loggerService.LogWarning(CONTROLLER_NAME + $"provider/{providerid}", LoggerConstants.TYPE_GET, $"get catalogs provider id: {providerid} error: {ex.Message}", GetCurrentUserId());
+                _loggerService.LogWarning(CONTROLLER_NAME + $"/provider/{providerid}", LoggerConstants.TYPE_GET, $"get catalogs provider id: {providerid} error: {ex.Message}", GetCurrentUserId());
 
                 return BadRequest(ex.Message);
             }
@@ -86,7 +86,7 @@ namespace API.Controllers
             {
                 _сatalogService.AddСatalog(_catalogHelper.ConvertCatalogModelToCatalogDTO(model));
 
-                _loggerService.LogInformation(CONTROLLER_NAME , LoggerConstants.TYPE_POST, $"add catalog name: {model.Name} successful", GetCurrentUserId());
+                _loggerService.LogInformation(CONTROLLER_NAME, LoggerConstants.TYPE_POST, $"add catalog name: {model.Name} successful", GetCurrentUserId());
 
             }
             catch (ValidationException ex)
@@ -133,13 +133,13 @@ namespace API.Controllers
             {
                 _сatalogService.DeleteСatalog(id);
 
-                _loggerService.LogInformation(CONTROLLER_NAME +$"{id}", LoggerConstants.TYPE_DELETE, $"delete catalog id: {id} successful", GetCurrentUserId());
+                _loggerService.LogInformation(CONTROLLER_NAME +$"/{id}", LoggerConstants.TYPE_DELETE, $"delete catalog id: {id} successful", GetCurrentUserId());
 
                 return Ok(id);
             }
             catch (ValidationException ex)
             {
-                _loggerService.LogWarning(CONTROLLER_NAME + $"{id}", LoggerConstants.TYPE_DELETE, $"delete catalog id: {id} error: {ex.Message}", GetCurrentUserId());
+                _loggerService.LogWarning(CONTROLLER_NAME + $"/{id}", LoggerConstants.TYPE_DELETE, $"delete catalog id: {id} error: {ex.Message}", GetCurrentUserId());
 
                 return BadRequest(ex.Message);
             }
