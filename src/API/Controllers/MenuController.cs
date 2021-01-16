@@ -20,7 +20,7 @@ namespace API.Controllers
         private readonly IMenuHelper _menuHelper;
         private readonly ILoggerService _loggerService;
 
-        private const string CONTROLLER_NAME = "api/dish";
+        private const string CONTROLLER_NAME = "api/menu";
 
         public MenuController(IMenuService menuService,
              IMenuHelper menuHelper,

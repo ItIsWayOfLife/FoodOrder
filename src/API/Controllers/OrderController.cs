@@ -1,6 +1,7 @@
 ﻿using API.Interfaces;
 using API.Models.Order;
 using AutoMapper;
+using Core.Constants;
 using Core.DTO;
 using Core.Exceptions;
 using Core.Interfaces;
@@ -20,14 +21,19 @@ namespace API.Controllers
         private readonly IOrderService _orderService;
         private readonly ICartService _cartService;
         private readonly IOrderHelper _orderHelper;
+        private readonly ILoggerService _loggerService;
+
+        private const string CONTROLLER_NAME = "api/menu";
 
         public OrderController(IOrderService orderService,
             ICartService cartService,
-            IOrderHelper orderHelper)
+            IOrderHelper orderHelper,
+            ILoggerService loggerService)
         {
             _orderService = orderService;
             _cartService = cartService;
             _orderHelper = orderHelper;
+            _loggerService = loggerService;
         }
 
         [HttpGet]
@@ -44,10 +50,14 @@ namespace API.Controllers
                     orders[i].DateOrder = orderDTOs[i].DateOrder.ToString();
                 }
 
+                _loggerService.LogInformation(CONTROLLER_NAME, LoggerConstants.TYPE_GET, $"get orders successful", GetCurrentUserId());
+
                 return new ObjectResult(orders);
             }
             catch (ValidationException ex)
             {
+                _loggerService.LogWarning(CONTROLLER_NAME, LoggerConstants.TYPE_GET, $"get orders error: {ex.Message}", GetCurrentUserId());
+
                 return BadRequest(ex.Message);
             }
         }
@@ -59,10 +69,14 @@ namespace API.Controllers
             {
                 IEnumerable<OrderDishesDTO> orderDishesDTOs = _orderService.GetOrderDishes(GetCurrentUserId(), id);
 
+                _loggerService.LogInformation(CONTROLLER_NAME +$"/{id}", LoggerConstants.TYPE_GET, $"get order dishes order: {id} successful", GetCurrentUserId());
+
                 return new ObjectResult(_orderHelper.ConvertOrderDishesDTOToOrderDishesModels(orderDishesDTOs));
             }
             catch (ValidationException ex)
             {
+                _loggerService.LogWarning(CONTROLLER_NAME + $"/{id}", LoggerConstants.TYPE_GET, $"get order dishes order: {id} successful", GetCurrentUserId());
+
                 return BadRequest(ex.Message);
             }
         }
@@ -77,10 +91,14 @@ namespace API.Controllers
                 // emptying the cart
                 _cartService.AllDeleteDishesToCart(GetCurrentUserId());
 
+                _loggerService.LogInformation(CONTROLLER_NAME, LoggerConstants.TYPE_POST, $"create order successful", GetCurrentUserId());
+
                 return Ok();
             }
             catch (ValidationException ex)
             {
+                _loggerService.LogWarning(CONTROLLER_NAME, LoggerConstants.TYPE_POST, $"create order error: {ex.Message}", GetCurrentUserId());
+
                 return BadRequest(ex.Message);
             }
         }
