@@ -1,5 +1,6 @@
 ﻿using API.Interfaces;
 using API.Models.Menu;
+using Core.Constants;
 using Core.DTO;
 using Core.Exceptions;
 using Core.Interfaces;
@@ -7,6 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 
 namespace API.Controllers
 {
@@ -16,12 +18,17 @@ namespace API.Controllers
     {
         private readonly IMenuService _menuService;
         private readonly IMenuHelper _menuHelper;
+        private readonly ILoggerService _loggerService;
+
+        private const string CONTROLLER_NAME = "api/dish";
 
         public MenuController(IMenuService menuService,
-             IMenuHelper menuHelper)
+             IMenuHelper menuHelper,
+             ILoggerService loggerService)
         {
             _menuService = menuService;
             _menuHelper = menuHelper;
+            _loggerService = loggerService;
         }
 
         [HttpGet]
@@ -29,6 +36,8 @@ namespace API.Controllers
         {
             IEnumerable<MenuDTO> menuDTOs = _menuService.GetAllMenus();
             var menuModels = _menuHelper.ConvertMenuDTOsToMenuModels(menuDTOs);
+
+            _loggerService.LogInformation(CONTROLLER_NAME, LoggerConstants.TYPE_GET, "get menus", GetCurrentUserId());
 
             return new ObjectResult(menuModels);
         }
@@ -41,6 +50,8 @@ namespace API.Controllers
             if (menu == null)
                 return NotFound("Menu not found");
 
+            _loggerService.LogInformation(CONTROLLER_NAME +$"/{id}", LoggerConstants.TYPE_GET, $"get menu id: {id}", GetCurrentUserId()); ;
+
             return new ObjectResult(_menuHelper.ConvertMenuDTOToMenuModel(menu));
         }
 
@@ -51,10 +62,14 @@ namespace API.Controllers
             {
                 IEnumerable<MenuDTO> menuDTOs = _menuService.GetMenus(providerid).OrderByDescending(p => p.Date);
 
+                _loggerService.LogInformation(CONTROLLER_NAME + $"/provider/{providerid}", LoggerConstants.TYPE_GET, $"get menu providerid: {providerid} successful", GetCurrentUserId());
+
                 return new ObjectResult(_menuHelper.ConvertMenuDTOsToMenuModels(menuDTOs));
             }
             catch (ValidationException ex)
             {
+                _loggerService.LogWarning(CONTROLLER_NAME + $"/provider/{providerid}", LoggerConstants.TYPE_GET, $"get menu providerid: {providerid} error: {ex.Message}", GetCurrentUserId());
+
                 return BadRequest(ex.Message);
             }
         }
@@ -68,10 +83,14 @@ namespace API.Controllers
 
                 arrayIdDishes = _menuService.GetMenuIdDishes(menuid);
 
+                _loggerService.LogInformation(CONTROLLER_NAME + $"/dishes/{menuid}", LoggerConstants.TYPE_GET, $"get dishes in menu menuid: {menuid} successful", GetCurrentUserId());
+
                 return new ObjectResult(arrayIdDishes);
             }
             catch (ValidationException ex)
             {
+                _loggerService.LogWarning(CONTROLLER_NAME + $"/dishes/{menuid}", LoggerConstants.TYPE_GET, $"get dishes in menu menuid: {menuid} error: {ex.Message}", GetCurrentUserId());
+
                 return BadRequest(ex.Message);
             }
         }
@@ -90,10 +109,14 @@ namespace API.Controllers
             {
                 _menuService.AddMenu(_menuHelper.ConvertMenuModelToMenuDTO(model));
 
+                _loggerService.LogInformation(CONTROLLER_NAME, LoggerConstants.TYPE_POST, $"add menu date: {model.Date} successful", GetCurrentUserId());
+
                 return Ok(model);
             }
             catch (ValidationException ex)
             {
+                _loggerService.LogWarning(CONTROLLER_NAME, LoggerConstants.TYPE_POST, $"add menu date: {model.Date} error: {ex.Message}", GetCurrentUserId());
+
                 return BadRequest(ex.Message);
             }
         }
@@ -112,10 +135,14 @@ namespace API.Controllers
             {
                 _menuService.MakeMenu(model.MenuId, model.NewAddedDishes, model.AllSelect);
 
+                _loggerService.LogInformation(CONTROLLER_NAME + "/makemenu", LoggerConstants.TYPE_POST, $"make menu id: {model.MenuId} successful", GetCurrentUserId());
+
                 return Ok(model);
             }
             catch (ValidationException ex)
             {
+                _loggerService.LogWarning(CONTROLLER_NAME + "/makemenu", LoggerConstants.TYPE_POST, $"make menu id: {model.MenuId} error: {ex.Message}", GetCurrentUserId());
+
                 return BadRequest(ex.Message);
             }
         }
@@ -134,10 +161,14 @@ namespace API.Controllers
             {
                 _menuService.EditMenu(_menuHelper.ConvertMenuModelToMenuDTO(model));
 
+                _loggerService.LogInformation(CONTROLLER_NAME , LoggerConstants.TYPE_PUT, $"edit menu id: {model.Id} successful", GetCurrentUserId());
+
                 return Ok(model);
             }
             catch (ValidationException ex)
             {
+                _loggerService.LogWarning(CONTROLLER_NAME, LoggerConstants.TYPE_PUT, $"edit menu id: {model.Id} error: {ex.Message}", GetCurrentUserId());
+
                 return BadRequest(ex.Message);
             }
         }
@@ -150,11 +181,27 @@ namespace API.Controllers
             {
                 _menuService.DeleteMenu(id);
 
+                _loggerService.LogInformation(CONTROLLER_NAME +$"{id}", LoggerConstants.TYPE_DELETE, $"delete menu id: {id} successful", GetCurrentUserId());
+
                 return Ok(id);
             }
             catch (ValidationException ex)
             {
+                _loggerService.LogWarning(CONTROLLER_NAME + $"{id}", LoggerConstants.TYPE_DELETE, $"delete menu id: {id} error: {ex.Message}", GetCurrentUserId());
+
                 return BadRequest(ex.Message);
+            }
+        }
+
+        private string GetCurrentUserId()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                return User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            }
+            else
+            {
+                return null;
             }
         }
     }
