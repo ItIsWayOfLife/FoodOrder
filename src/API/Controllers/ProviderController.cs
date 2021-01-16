@@ -6,7 +6,6 @@ using Core.DTO;
 using Core.Exceptions;
 using Core.Interfaces;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,8 +18,6 @@ namespace API.Controllers
     public class ProviderController : ControllerBase
     {
         private readonly IProviderService _providerService;
-        private readonly IWebHostEnvironment _appEnvironment;
-        private readonly IUserHelper _userHelper;
         private readonly IProviderHelper _providerHelper;
         private readonly ILoggerService _loggerService;
 
@@ -29,14 +26,10 @@ namespace API.Controllers
         private readonly string _path;
 
         public ProviderController(IProviderService providerService,
-            IWebHostEnvironment appEnvironment,
-            IUserHelper userHelper,
             IProviderHelper providerHelper,
             ILoggerService loggerService)
         {
             _providerService = providerService;
-            _appEnvironment = appEnvironment;
-            _userHelper = userHelper;
             _providerHelper = providerHelper;
             _loggerService = loggerService;
 
@@ -90,6 +83,8 @@ namespace API.Controllers
                 _providerService.AddProvider(_providerHelper.ConvertProviderModelToProviderDTO(model));
 
                 _loggerService.LogInformation(CONTROLLER_NAME, LoggerConstants.TYPE_POST, $"add provider name: {model.Name} successful", GetCurrentUserId());
+
+                return Ok(model);
             }
             catch (ValidationException ex)
             {
@@ -97,8 +92,6 @@ namespace API.Controllers
 
                 return BadRequest(ex.Message);
             }
-
-            return Ok(model);
         }
 
         [HttpPut]
@@ -118,6 +111,8 @@ namespace API.Controllers
                 _providerService.EditProvider(provider);
 
                 _loggerService.LogInformation(CONTROLLER_NAME, LoggerConstants.TYPE_PUT, $"edit provider id: {model.Id} successful", GetCurrentUserId());
+
+                return Ok(model);
             }
             catch (ValidationException ex)
             {
@@ -125,8 +120,6 @@ namespace API.Controllers
 
                 return BadRequest(ex.Message);
             }
-
-            return Ok(model);
         }
 
         [HttpDelete("{id}")]

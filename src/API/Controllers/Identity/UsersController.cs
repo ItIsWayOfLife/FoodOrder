@@ -55,7 +55,7 @@ namespace API.Controllers.Identity
             var mapper = new MapperConfiguration(cfg => cfg.CreateMap<ApplicationUser, UserModel>()).CreateMapper();
             UserModel userViewModel = mapper.Map<ApplicationUser, UserModel>(user);
 
-            _loggerService.LogInformation(CONTROLLER_NAME +$"/{id}", LoggerConstants.TYPE_GET, "get user id: {id}", GetCurrentUserId());
+            _loggerService.LogInformation(CONTROLLER_NAME + $"/{id}", LoggerConstants.TYPE_GET, "get user id: {id}", GetCurrentUserId());
 
             return new ObjectResult(userViewModel);
         }
@@ -145,7 +145,7 @@ namespace API.Controllers.Identity
 
             if (result.Succeeded)
             {
-                _loggerService.LogInformation(CONTROLLER_NAME +$"/{id}", LoggerConstants.ACTION_DELETE, $"delete user id: {id} successful", GetCurrentUserId());
+                _loggerService.LogInformation(CONTROLLER_NAME + $"/{id}", LoggerConstants.ACTION_DELETE, $"delete user id: {id} successful", GetCurrentUserId());
 
                 return Ok(user);
             }

@@ -57,31 +57,31 @@ namespace API.Controllers
                     reportList = _reportService.GetReportProvider(providerId, dateWith.Value);
                     title = $"{ReportConstants.REPORT_BY_PROVIDER} ({provider.Name}) {ReportConstants.PER} {dateWith.Value.ToString("dd.MM.yyyy")}";
 
-                       _loggerService.LogInformation(CONTROLLER_NAME + $"/getreportprovider/{providerId}", LoggerConstants.TYPE_GET, $"get report provider id: {providerId} dateWith: {dateWith}", GetCurrentUserId());
+                    _loggerService.LogInformation(CONTROLLER_NAME + $"/getreportprovider/{providerId}", LoggerConstants.TYPE_GET, $"get report provider id: {providerId} dateWith: {dateWith}", GetCurrentUserId());
                 }
                 else if (dateWith != null && dateTo != null)
                 {
                     reportList = _reportService.GetReportProvider(providerId, dateWith.Value, dateTo.Value);
                     title = $"{ReportConstants.REPORT_BY_PROVIDER} ({provider.Name}) {ReportConstants.WITH} {dateWith.Value.ToString("dd.MM.yyyy")} \n {ReportConstants.BY} {dateTo.Value.ToString("dd.MM.yyyy")}";
 
-                     _loggerService.LogInformation(CONTROLLER_NAME + $"/getreportprovider/{providerId}", LoggerConstants.TYPE_GET, $"get report provider id: {providerId} dateWith: {dateWith} dateTo: {dateTo}", GetCurrentUserId());
+                    _loggerService.LogInformation(CONTROLLER_NAME + $"/getreportprovider/{providerId}", LoggerConstants.TYPE_GET, $"get report provider id: {providerId} dateWith: {dateWith} dateTo: {dateTo}", GetCurrentUserId());
                 }
                 else
                 {
                     reportList = _reportService.GetReportProvider(providerId);
                     title = $"{ReportConstants.REPORT_BY_PROVIDER} ({provider.Name}) {ReportConstants.FOR_ALL_TIME} ";
 
-                       _loggerService.LogInformation(CONTROLLER_NAME + $"/getreportprovider/{providerId}", LoggerConstants.TYPE_GET, $"get report provider id: {providerId}", GetCurrentUserId());
+                    _loggerService.LogInformation(CONTROLLER_NAME + $"/getreportprovider/{providerId}", LoggerConstants.TYPE_GET, $"get report provider id: {providerId}", GetCurrentUserId());
                 }
+
+                ReportPDF reportProvider = new ReportPDF(_webHostEnvironment);
+
+                return File(reportProvider.Report(reportList, title), "application/pdf");
             }
             catch (ValidationException ex)
             {
                 return BadRequest(ex.Message);
             }
-
-            ReportPDF reportProvider = new ReportPDF(_webHostEnvironment);
-
-            return File(reportProvider.Report(reportList, title), "application/pdf");
         }
 
         [HttpGet("providers/{dateWith?}/{dateTo?}")]
@@ -98,31 +98,31 @@ namespace API.Controllers
                     reportProvidersDTOs = _reportService.GetReportProviders(dateWith.Value);
                     title = $"{ReportConstants.REPORT_BY_PROVIDERS_PER} {dateWith.Value.ToString("dd.MM.yyyy")}";
 
-                       _loggerService.LogInformation(CONTROLLER_NAME + $"/getreportproviders", LoggerConstants.TYPE_GET, $"get report providers dateWith: {dateWith}", GetCurrentUserId());
+                    _loggerService.LogInformation(CONTROLLER_NAME + $"/getreportproviders", LoggerConstants.TYPE_GET, $"get report providers dateWith: {dateWith}", GetCurrentUserId());
                 }
                 else if (dateWith != null && dateTo != null)
                 {
                     reportProvidersDTOs = _reportService.GetReportProviders(dateWith.Value, dateTo.Value);
                     title = $"{ReportConstants.REPORT_BY_PROVIDERS_WITH} {dateWith.Value.ToString("dd.MM.yyyy")} \n {ReportConstants.BY} {dateTo.Value.ToString("dd.MM.yyyy")}";
 
-                        _loggerService.LogInformation(CONTROLLER_NAME + $"/getreportproviders", LoggerConstants.TYPE_GET, $"get report providers dateWith: {dateWith} dateTo: {dateTo}", GetCurrentUserId());
+                    _loggerService.LogInformation(CONTROLLER_NAME + $"/getreportproviders", LoggerConstants.TYPE_GET, $"get report providers dateWith: {dateWith} dateTo: {dateTo}", GetCurrentUserId());
                 }
                 else
                 {
                     reportProvidersDTOs = _reportService.GetReportProviders();
                     title = ReportConstants.REPORT_BY_PROVIDERS_FOR_ALL_TIME;
 
-                         _loggerService.LogInformation(CONTROLLER_NAME + $"/getreportproviders", LoggerConstants.TYPE_GET, $"get report providers", GetCurrentUserId());
+                    _loggerService.LogInformation(CONTROLLER_NAME + $"/getreportproviders", LoggerConstants.TYPE_GET, $"get report providers", GetCurrentUserId());
                 }
+
+                ReportPDF reportProviders = new ReportPDF(_webHostEnvironment);
+
+                return File(reportProviders.Report(reportProvidersDTOs, title), "application/pdf");
             }
             catch (ValidationException ex)
             {
                 return BadRequest(ex.Message);
             }
-
-            ReportPDF reportProviders = new ReportPDF(_webHostEnvironment);
-
-            return File(reportProviders.Report(reportProvidersDTOs, title), "application/pdf");
         }
 
         [HttpGet("user/{userId}/{dateWith?}/{dateTo?}")]
@@ -160,15 +160,15 @@ namespace API.Controllers
 
                     _loggerService.LogInformation(CONTROLLER_NAME + $"/getreportuser/{userId}", LoggerConstants.TYPE_GET, $"get report user id: {userId}", GetCurrentUserId());
                 }
+
+                ReportPDF reportUser = new ReportPDF(_webHostEnvironment);
+
+                return File(reportUser.Report(reportUserDTOs, title), "application/pdf");
             }
             catch (ValidationException ex)
             {
                 return BadRequest(ex.Message);
             }
-
-            ReportPDF reportUser = new ReportPDF(_webHostEnvironment);
-
-            return File(reportUser.Report(reportUserDTOs, title), "application/pdf");
         }
 
         [HttpGet("users/{dateWith?}/{dateTo?}")]
@@ -184,31 +184,31 @@ namespace API.Controllers
                     reportUsersDTOs = _reportService.GetReportUsers(dateWith.Value);
                     title = $"{ReportConstants.REPORT_BY_USERS_PER} {dateWith.Value.ToString("dd.MM.yyyy")}";
 
-                      _loggerService.LogInformation(CONTROLLER_NAME + $"/getreportusers", LoggerConstants.TYPE_GET, $"get report users dateWith: {dateWith}", GetCurrentUserId());
+                    _loggerService.LogInformation(CONTROLLER_NAME + $"/getreportusers", LoggerConstants.TYPE_GET, $"get report users dateWith: {dateWith}", GetCurrentUserId());
                 }
                 else if (dateWith != null && dateTo != null)
                 {
                     reportUsersDTOs = _reportService.GetReportUsers(dateWith.Value, dateTo.Value);
                     title = $"{ReportConstants.REPORT_BY_USERS_WITH} {dateWith.Value.ToString("dd.MM.yyyy")} \n {ReportConstants.BY} {dateTo.Value.ToString("dd.MM.yyyy")}";
 
-                     _loggerService.LogInformation(CONTROLLER_NAME + $"/getreportusers", LoggerConstants.TYPE_GET, $"get report users dateWith: {dateWith} dateTo: {dateTo}", GetCurrentUserId());
+                    _loggerService.LogInformation(CONTROLLER_NAME + $"/getreportusers", LoggerConstants.TYPE_GET, $"get report users dateWith: {dateWith} dateTo: {dateTo}", GetCurrentUserId());
                 }
                 else
                 {
                     reportUsersDTOs = _reportService.GetReportUsers();
                     title = ReportConstants.REPORT_BY_USERS_FOR_ALL_TIME;
 
-                     _loggerService.LogInformation(CONTROLLER_NAME + $"/getreportusers", LoggerConstants.TYPE_GET, $"get report users", GetCurrentUserId());
+                    _loggerService.LogInformation(CONTROLLER_NAME + $"/getreportusers", LoggerConstants.TYPE_GET, $"get report users", GetCurrentUserId());
                 }
+
+                ReportPDF reportUsers = new ReportPDF(_webHostEnvironment);
+
+                return File(reportUsers.Report(reportUsersDTOs, title), "application/pdf");
             }
             catch (ValidationException ex)
             {
                 return BadRequest(ex.Message);
             }
-
-            ReportPDF reportUsers = new ReportPDF(_webHostEnvironment);
-
-            return File(reportUsers.Report(reportUsersDTOs, title), "application/pdf");
         }
 
         private string GetCurrentUserId()

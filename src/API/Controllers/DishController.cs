@@ -58,7 +58,7 @@ namespace API.Controllers
             if (dish == null)
                 return NotFound("Dish not found");
 
-            _loggerService.LogInformation(CONTROLLER_NAME +$"/{id}", LoggerConstants.TYPE_GET, $"get dish id: {id}", GetCurrentUserId());
+            _loggerService.LogInformation(CONTROLLER_NAME + $"/{id}", LoggerConstants.TYPE_GET, $"get dish id: {id}", GetCurrentUserId());
 
             return new ObjectResult(_dishHelper.ConvertDishDTOToDishModel(dish));
         }
@@ -126,6 +126,8 @@ namespace API.Controllers
                 _dishService.AddDish(_dishHelper.ConvertDishModelToDishDTO(model));
 
                 _loggerService.LogInformation(CONTROLLER_NAME, LoggerConstants.TYPE_POST, $"add dish name: {model.Name} successful", GetCurrentUserId());
+
+                return Ok(model);
             }
             catch (ValidationException ex)
             {
@@ -133,8 +135,6 @@ namespace API.Controllers
 
                 return BadRequest(ex.Message);
             }
-
-            return Ok(model);
         }
 
         [HttpPut]
@@ -152,6 +152,8 @@ namespace API.Controllers
                 _dishService.EditDish(_dishHelper.ConvertDishModelToDishDTO(model));
 
                 _loggerService.LogInformation(CONTROLLER_NAME, LoggerConstants.TYPE_PUT, $"edit dish id: {model.Id} successful", GetCurrentUserId());
+
+                return Ok(model);
             }
             catch (ValidationException ex)
             {
@@ -159,8 +161,6 @@ namespace API.Controllers
 
                 return BadRequest(ex.Message);
             }
-
-            return Ok(model);
         }
 
         [HttpDelete("{id}")]
@@ -171,7 +171,9 @@ namespace API.Controllers
             {
                 _dishService.DeleteDish(id);
 
-                _loggerService.LogInformation(CONTROLLER_NAME +$"/{id}", LoggerConstants.TYPE_DELETE, $"delete dish id: {id} successful", GetCurrentUserId());
+                _loggerService.LogInformation(CONTROLLER_NAME + $"/{id}", LoggerConstants.TYPE_DELETE, $"delete dish id: {id} successful", GetCurrentUserId());
+
+                return Ok(id);
             }
             catch (ValidationException ex)
             {
@@ -179,8 +181,6 @@ namespace API.Controllers
 
                 return BadRequest(ex.Message);
             }
-
-            return Ok(id);
         }
 
         private string GetCurrentUserId()

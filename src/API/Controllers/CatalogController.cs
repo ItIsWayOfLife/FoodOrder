@@ -88,6 +88,7 @@ namespace API.Controllers
 
                 _loggerService.LogInformation(CONTROLLER_NAME, LoggerConstants.TYPE_POST, $"add catalog name: {model.Name} successful", GetCurrentUserId());
 
+                return Ok(model);
             }
             catch (ValidationException ex)
             {
@@ -95,8 +96,6 @@ namespace API.Controllers
 
                 return BadRequest(ex.Message);
             }
-
-            return Ok(model);
         }
 
         [HttpPut]
