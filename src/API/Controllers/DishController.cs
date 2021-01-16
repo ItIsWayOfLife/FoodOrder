@@ -38,7 +38,7 @@ namespace API.Controllers
         public IActionResult Get()
         {
             IEnumerable<DishDTO> dishDTOs = _dishService.GetAllDishes();
-            var dishModels = _dishHelper.ConvertDishDTOTODishModel(dishDTOs);
+            var dishModels = _dishHelper.ConvertDishDTOsToDishModels(dishDTOs);
 
             return new ObjectResult(dishModels);
         }
@@ -61,7 +61,7 @@ namespace API.Controllers
 
             try
             {
-                var dishModels = _dishHelper.ConvertDishDTOTODishModel(dishDTOs);
+                var dishModels = _dishHelper.ConvertDishDTOsToDishModels(dishDTOs);
 
                 return new ObjectResult(dishModels);
             }

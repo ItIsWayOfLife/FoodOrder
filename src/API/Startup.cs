@@ -80,6 +80,7 @@ namespace API
             services.AddTransient<ICatalogHelper, CatalogHelper>();
             services.AddTransient<IDishHelper, DishHelper>();
             services.AddTransient<IMenuHelper, MenuHelper>();
+            services.AddTransient<ICartHelper, CartHelper>();
 
             services.AddTransient<IJwtConfigurator, JwtConfigurator>();
 

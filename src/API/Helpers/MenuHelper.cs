@@ -19,14 +19,14 @@ namespace API.Helpers
             };
         }
 
-        public MenuModel ConvertMenuDTOToMenuModel(MenuDTO dto)
+        public MenuModel ConvertMenuDTOToMenuModel(MenuDTO menuDTO)
         {
             return new MenuModel()
             {
-                Id = dto.Id,
-                Info = dto.Info,
-                ProviderId = dto.ProviderId,
-                Date = dto.Date.ToShortDateString()
+                Id = menuDTO.Id,
+                Info = menuDTO.Info,
+                ProviderId = menuDTO.ProviderId,
+                Date = menuDTO.Date.ToShortDateString()
             };
         }
 

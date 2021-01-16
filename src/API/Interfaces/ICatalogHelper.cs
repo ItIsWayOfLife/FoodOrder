@@ -5,6 +5,6 @@ namespace API.Interfaces
 {
     public interface ICatalogHelper
     {
-        CatalogDTO ConvertCatalogModelToCatalogDTO(CatalogModel model);
+        CatalogDTO ConvertCatalogModelToCatalogDTO(CatalogModel catalogDTO);
     }
 }

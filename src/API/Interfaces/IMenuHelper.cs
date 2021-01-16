@@ -7,7 +7,7 @@ namespace API.Interfaces
     public interface IMenuHelper
     {
         MenuDTO ConvertMenuModelToMenuDTO(MenuModel model);
-        MenuModel ConvertMenuDTOToMenuModel(MenuDTO dto);
+        MenuModel ConvertMenuDTOToMenuModel(MenuDTO menuDTO);
 
         IEnumerable<MenuModel> ConvertMenuDTOsToMenuModels(IEnumerable<MenuDTO> dtos);
     }

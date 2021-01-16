@@ -2,10 +2,7 @@
 using API.Models.Dish;
 using Core.Constants;
 using Core.DTO;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace API.Helpers
 {
@@ -32,22 +29,22 @@ namespace API.Helpers
             };
         }
 
-        public DishModel ConvertDishDTOToDishModel(DishDTO dto)
+        public DishModel ConvertDishDTOToDishModel(DishDTO dishDTO)
         {
             return new DishModel()
             {
-                Id = dto.Id,
-                Info = dto.Info,
-                AddMenu = dto.AddMenu,
-                CatalogId = dto.CatalogId,
-                Name = dto.Name,
-                Path = _path + dto.Path,
-                Price = dto.Price,
-                Weight = dto.Weight
+                Id = dishDTO.Id,
+                Info = dishDTO.Info,
+                AddMenu = dishDTO.AddMenu,
+                CatalogId = dishDTO.CatalogId,
+                Name = dishDTO.Name,
+                Path = _path + dishDTO.Path,
+                Price = dishDTO.Price,
+                Weight = dishDTO.Weight
             };
         }
 
-        public IEnumerable<DishModel> ConvertDishDTOTODishModel(IEnumerable<DishDTO> dishDTOs)
+        public IEnumerable<DishModel> ConvertDishDTOsToDishModels(IEnumerable<DishDTO> dishDTOs)
         {
             var dishModels = new List<DishModel>();
 
