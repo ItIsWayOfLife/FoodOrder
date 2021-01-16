@@ -1,8 +1,10 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Core.Interfaces;
+using Microsoft.Extensions.Logging;
 using System;
-using Web.Interfaces;
+using System.Collections.Generic;
+using System.Text;
 
-namespace Web.Services
+namespace Core.Services
 {
     public class LoggerService : ILoggerService
     {

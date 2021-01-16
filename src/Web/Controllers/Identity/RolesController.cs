@@ -1,5 +1,6 @@
 ﻿using Core.Constants;
 using Core.Identity;
+using Core.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;

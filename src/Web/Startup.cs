@@ -1,3 +1,4 @@
+using Core.Helper;
 using Core.Identity;
 using Core.Interfaces;
 using Core.Services;
@@ -22,7 +23,6 @@ using Web.Exceptions;
 using Web.Helper;
 using Web.Interfaces;
 using Web.Logger;
-using Web.Services;
 
 namespace Web
 {
@@ -65,10 +65,12 @@ namespace Web
             services.AddTransient<IOrderService, OrderService>();
             services.AddTransient<IReportService, ReportService>();
 
+            services.AddTransient<ILoggerService, LoggerService>();
+
             services.AddTransient<IUserHelper, UserHelper>();
+
             services.AddTransient<IProviderHelper, ProviderHelper>();
 
-            services.AddTransient<ILoggerService, LoggerService>();
 
             services.AddControllersWithViews();
         }

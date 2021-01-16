@@ -1,5 +1,5 @@
 ﻿
-namespace Web.Interfaces
+namespace Core.Interfaces
 {
     public interface ILoggerService
     {

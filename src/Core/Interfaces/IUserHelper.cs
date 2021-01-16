@@ -1,6 +1,7 @@
 ﻿using Core.Identity;
+using System.Threading.Tasks;
 
-namespace Web.Interfaces
+namespace Core.Interfaces
 {
     public interface IUserHelper
     {
@@ -9,5 +10,9 @@ namespace Web.Interfaces
 
         bool CheckUserExists(string id);
         ApplicationUser GetUserById(string id);
+
+        Task<string> GetUserIdByEmailAsync(string email);
+        Task<ApplicationUser> GetUserByIdAsync(string id);
+        Task<bool> CheckLoginAsync(string email, string password);
     }
 }

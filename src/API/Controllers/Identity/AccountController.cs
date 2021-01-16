@@ -1,6 +1,7 @@
 ﻿using API.Interfaces;
 using API.Models.Identity.Account;
 using Core.Identity;
+using Core.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -39,7 +40,7 @@ namespace API.Controllers.Identity
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            if (!_userHelper.CheckLoginAsync(user).Result)
+            if (!_userHelper.CheckLoginAsync(user.Email, user.Password).Result)
                 return Unauthorized();
 
             string userId = await _userHelper.GetUserIdByEmailAsync(user.Email);

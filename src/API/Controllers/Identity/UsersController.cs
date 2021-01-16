@@ -2,6 +2,7 @@
 using API.Models.Identity.Users;
 using AutoMapper;
 using Core.Identity;
+using Core.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
