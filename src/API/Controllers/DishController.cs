@@ -7,9 +7,9 @@ using Core.Exceptions;
 using Core.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 
 namespace API.Controllers
 {
@@ -20,16 +20,21 @@ namespace API.Controllers
         private readonly IDishService _dishService;
         private readonly IMenuService _menuService;
         private readonly IDishHelper _dishHelper;
+        private readonly ILoggerService _loggerService;
+
+        private const string CONTROLLER_NAME = "api/dish";
 
         private readonly string _path;
 
         public DishController(IDishService dishService,
             IMenuService menuService,
-            IDishHelper dishHelper)
+            IDishHelper dishHelper,
+            ILoggerService loggerService)
         {
             _dishService = dishService;
             _menuService = menuService;
             _dishHelper = dishHelper;
+            _loggerService = loggerService;
 
             _path = PathAPIConstants.API_URL + PathAPIConstants.API_PATH_FILES;
         }
@@ -39,6 +44,8 @@ namespace API.Controllers
         {
             IEnumerable<DishDTO> dishDTOs = _dishService.GetAllDishes();
             var dishModels = _dishHelper.ConvertDishDTOsToDishModels(dishDTOs);
+
+            _loggerService.LogInformation(CONTROLLER_NAME, LoggerConstants.TYPE_GET, "get dishes", GetCurrentUserId());
 
             return new ObjectResult(dishModels);
         }
@@ -50,6 +57,8 @@ namespace API.Controllers
 
             if (dish == null)
                 return NotFound("Dish not found");
+
+            _loggerService.LogInformation(CONTROLLER_NAME +$"{id}", LoggerConstants.TYPE_GET, $"get dish id: {id}", GetCurrentUserId());
 
             return new ObjectResult(_dishHelper.ConvertDishDTOToDishModel(dish));
         }
@@ -63,10 +72,14 @@ namespace API.Controllers
             {
                 var dishModels = _dishHelper.ConvertDishDTOsToDishModels(dishDTOs);
 
+                _loggerService.LogInformation(CONTROLLER_NAME + $"catalog/{catalogid}", LoggerConstants.TYPE_GET, $"get dishes catalog id: {catalogid} successful", GetCurrentUserId());
+
                 return new ObjectResult(dishModels);
             }
             catch (ValidationException ex)
             {
+                _loggerService.LogWarning(CONTROLLER_NAME + $"catalog/{catalogid}", LoggerConstants.TYPE_GET, $"get dishes catalog id: {catalogid} error: {ex.Message}", GetCurrentUserId());
+
                 return BadRequest(ex.Message);
             }
         }
@@ -86,10 +99,14 @@ namespace API.Controllers
                     menuDishes[i].DishId = menuDishesDTOs[i].DishId.Value;
                 }
 
+                _loggerService.LogInformation(CONTROLLER_NAME + $"menudishes/{menuId}", LoggerConstants.TYPE_GET, $"get  menu dishes menu id: {menuId} successful", GetCurrentUserId());
+
                 return new ObjectResult(menuDishes);
             }
             catch (ValidationException ex)
             {
+                _loggerService.LogWarning(CONTROLLER_NAME + $"menudishes/{menuId}", LoggerConstants.TYPE_GET, $"get  menu dishes menu id: {menuId} error: {ex.Message}", GetCurrentUserId());
+
                 return BadRequest(ex.Message);
             }
         }
@@ -107,9 +124,13 @@ namespace API.Controllers
             try
             {
                 _dishService.AddDish(_dishHelper.ConvertDishModelToDishDTO(model));
+
+                _loggerService.LogInformation(CONTROLLER_NAME, LoggerConstants.TYPE_POST, $"add dish name: {model.Name} successful", GetCurrentUserId());
             }
             catch (ValidationException ex)
             {
+                _loggerService.LogWarning(CONTROLLER_NAME, LoggerConstants.TYPE_POST, $"add dish name: {model.Name} error: {ex.Message}", GetCurrentUserId());
+
                 return BadRequest(ex.Message);
             }
 
@@ -129,9 +150,13 @@ namespace API.Controllers
             try
             {
                 _dishService.EditDish(_dishHelper.ConvertDishModelToDishDTO(model));
+
+                _loggerService.LogInformation(CONTROLLER_NAME, LoggerConstants.TYPE_PUT, $"edit dish id: {model.Id} successful", GetCurrentUserId());
             }
             catch (ValidationException ex)
             {
+                _loggerService.LogWarning(CONTROLLER_NAME, LoggerConstants.TYPE_PUT, $"edit dish id: {model.Id} error: {ex.Message}", GetCurrentUserId());
+
                 return BadRequest(ex.Message);
             }
 
@@ -145,13 +170,29 @@ namespace API.Controllers
             try
             {
                 _dishService.DeleteDish(id);
+
+                _loggerService.LogInformation(CONTROLLER_NAME +$"{id}", LoggerConstants.TYPE_DELETE, $"delete dish id: {id} successful", GetCurrentUserId());
             }
             catch (ValidationException ex)
             {
+                _loggerService.LogWarning(CONTROLLER_NAME + $"{id}", LoggerConstants.TYPE_DELETE, $"delete dish id: {id} error: {ex.Message}", GetCurrentUserId());
+
                 return BadRequest(ex.Message);
             }
 
             return Ok(id);
+        }
+
+        private string GetCurrentUserId()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                return User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }
