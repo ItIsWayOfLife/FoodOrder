@@ -34,7 +34,7 @@
                         }
                     </li>
 
-                    @if (User.Identity.IsAuthenticated)
+                    @if (User.Identity.IsAuthenticated && ((User.IsInRole("admin") || (User.IsInRole("employee")))))
                     {
                         <li class="nav-item">
                             @if (Context.Request.Path.ToString().ToLower().Contains("cart"))

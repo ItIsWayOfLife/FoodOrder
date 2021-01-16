@@ -34,7 +34,7 @@ namespace Core.Services
 
             var cart = Database.Cart.Find(p => p.ApplicationUserId == applicationUserId).FirstOrDefault();
 
-            cart = cart ?? null;
+            cart = cart ?? Create(applicationUserId);
 
             CartDTO cartDTO = new CartDTO()
             {

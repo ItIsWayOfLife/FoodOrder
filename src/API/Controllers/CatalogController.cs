@@ -1,15 +1,11 @@
 ﻿using API.Interfaces;
 using API.Models.Catalog;
-using AutoMapper;
 using Core.DTO;
 using Core.Exceptions;
 using Core.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace API.Controllers
 {
