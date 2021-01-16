@@ -1,35 +1,17 @@
-using API.Configurators;
 using API.Exceptions;
-using API.Helpers;
-using API.Interfaces;
 using API.Logger;
-using Core.Helper;
-using Core.Identity;
-using Core.Interfaces;
-using Core.Services;
 using Infrastructure.Entities;
 using Infrastructure.Identity;
-using Infrastructure.Repositories;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http.Features;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using Microsoft.IdentityModel.Tokens;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace API
 {
@@ -51,43 +33,17 @@ namespace API
             services.AddDbContext<IdentityContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("IdentityConnection")));
 
-            services.AddIdentity<ApplicationUser, IdentityRole>(
-                opts => {
-                    opts.Password.RequiredLength = 6;   //minimum length
-                    opts.Password.RequireNonAlphanumeric = false;   // whether non-alphanumeric characters are required
-                    opts.Password.RequireLowercase = false; // whether lowercase characters are required
-                    opts.Password.RequireUppercase = false; // whether uppercase characters are required
-                    opts.Password.RequireDigit = false; // are numbers required
-                })
-                .AddEntityFrameworkStores<IdentityContext>();
+            services.AddIdentityPasswordOptions();
 
-            // limit for upload files
-            services.Configure<FormOptions>(o => {
-                o.ValueLengthLimit = int.MaxValue;
-                o.MultipartBodyLengthLimit = int.MaxValue;
-                o.MemoryBufferThreshold = int.MaxValue;
-            });
+            services.AddLimitUploadFilesMax();
 
-            services.AddTransient<IUnitOfWork, EFUnitOfWork>();
+            services.RegisterUnitOfWork();
 
-            services.AddTransient<IProviderService, ProviderService>();
-            services.AddTransient<ICatalogService, CatalogService>();
-            services.AddTransient<IDishService, DishService>();
-            services.AddTransient<ICartService, CartService>();
-            services.AddTransient<IOrderService, OrderService>();
-            services.AddTransient<IMenuService, MenuService>();
-            services.AddTransient<IReportService, ReportService>();
-            services.AddTransient<ILoggerService, LoggerService>();
+            services.RegisterServices();
 
-            services.AddTransient<IUserHelper, UserHelper>();
-            services.AddTransient<IProviderHelper, ProviderHelper>();
-            services.AddTransient<ICatalogHelper, CatalogHelper>();
-            services.AddTransient<IDishHelper, DishHelper>();
-            services.AddTransient<IMenuHelper, MenuHelper>();
-            services.AddTransient<ICartHelper, CartHelper>();
-            services.AddTransient<IOrderHelper, OrderHelper>();
+            services.RegisterHelpers();
 
-            services.AddTransient<IJwtConfigurator, JwtConfigurator>();
+            services.RegisterConfigurators();
 
             services.AddCors(options =>
             {
@@ -99,24 +55,7 @@ namespace API
                 });
             });
 
-            services.AddAuthentication(opt => {
-                opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                opt.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            })
-         .AddJwtBearer(options =>
-         {
-             options.TokenValidationParameters = new TokenValidationParameters
-             {
-                 ValidateIssuer = true,
-                 ValidateAudience = true,
-                 ValidateLifetime = true,
-                 ValidateIssuerSigningKey = true,
-
-                 ValidIssuer = "https://localhost:44342",
-                 ValidAudience = "https://localhost:44342",
-                 IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("superSecretKey@345"))
-             };
-         });
+            services.AddAuthenticationJwt();
 
             services.AddControllers();
 
@@ -140,7 +79,6 @@ namespace API
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
         {
             loggerFactory.AddFile(Path.Combine(Directory.GetCurrentDirectory(), "logger.txt"));
-            var logger = loggerFactory.CreateLogger("FileLogger");
 
             if (env.IsDevelopment())
             {
