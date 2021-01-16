@@ -77,6 +77,7 @@ namespace API
 
             services.AddTransient<IUserHelper, UserHelper>();
             services.AddTransient<IProviderHelper, ProviderHelper>();
+            services.AddTransient<ICatalogHelper, CatalogHelper>();
 
             services.AddTransient<IJwtConfigurator, JwtConfigurator>();
 
