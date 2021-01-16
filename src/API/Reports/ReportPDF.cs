@@ -35,7 +35,7 @@ namespace API.Reports
         {
             for (int i = 0; i < nCount; i++)
             {
-                _pdfPCell = new PdfPCell(new Phrase("", _fontStyle));
+                _pdfPCell = new PdfPCell(new Phrase(string.Empty, _fontStyle));
                 _pdfPCell.Colspan = _maxColumn;
                 _pdfPCell.Border = 0;
                 _pdfPCell.ExtraParagraphSpace = 10;
@@ -119,7 +119,7 @@ namespace API.Reports
             pdfPTable.AddCell(_pdfPCell);
             pdfPTable.CompleteRow();
 
-            CellAddPhrase($"Дата и время отчёта {DateTime.Now.ToString()}");
+            CellAddPhrase($"Date and time of report { DateTime.Now.ToString()}");
             pdfPTable.AddCell(_pdfPCell);
             pdfPTable.CompleteRow();
 
