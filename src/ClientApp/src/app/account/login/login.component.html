@@ -1,0 +1,32 @@
+<div class="row mb-5">
+  <div class="col-6 m-auto">
+      <div class="card m-auto">
+          <div class="card-header">
+              <h3>Login</h3>
+          </div>
+          <div class="card-body">
+
+    <form method="post">
+        <div class="text-danger">
+            <div *ngIf="invalidLogin" class="alert alert-danger">The username or password you entered is incorrect.</div>
+            <br />
+        </div>
+
+        <div class="form-group col-12">
+            <label for="username" class="control-label">Email</label><br />
+            <input type="email" id="username" name="email" [(ngModel)]="loginModel.email" class="form-control"
+                placeholder="Email" required autofocus />
+        </div>
+        <div class="form-group col-12">
+            <label for="password" class="control-label">Password</label><br />
+            <input type="password" id="password" name="password" [(ngModel)]="loginModel.password" class="form-control"
+                placeholder="Password" required autocomplete="off" /> <br />
+        </div>
+        <div class="form-group col-12">
+            <input type="submit" (click)="login()" value="Login" class="btn btn-success" />
+        </div>
+    </form>
+</div>
+</div>
+</div>
+</div>

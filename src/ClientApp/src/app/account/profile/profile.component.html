@@ -1,0 +1,101 @@
+<div class="text-center">
+  <h1>Cart</h1>
+  <br />
+    <span>First Name: {{_firstname}}</span><br />
+    <span>Second Name: {{_lastname}}</span><br />
+    <span>Middle Name:{{_patronymic}}</span><br />
+    <span>Email: {{_email}}</span><br /><br />
+    <button id="a1" class="btn btn-sm btn-success" [class.isheightbut]="isEditProfile"
+        (click)="editProfileShow()">Edit</button>
+    <button id="a2" class="btn btn-sm btn-success" [class.isheightbut]="isEditPass" (click)="editPassShow()">Edit
+      password</button>
+    <button id="a2" class="btn btn-sm btn-success" [class.isheightbut]="isViewMyRole" (click)="viewRole()">My
+      role</button><br />
+
+    <!-- for edit prodile -->
+    <div *ngIf="isEditProfile">
+        <br />
+        <h4 class="text-center">Profile edit</h4>
+        <div class="text-success" *ngIf="isStatusEditGood">
+            <p>Data edit successfully</p>
+            <button class="btn-success" (click)="okEdit()">Ok</button>
+        </div>
+        <div class="text-danger" *ngIf="isStatusEditBad">
+            <p>Edit error</p>
+        </div>
+        <form method="post" autocomplete="off" *ngIf="!isStatusEditGood">
+            <div>
+                <label for="firstname" class="control-label">First Name</label>
+                <input name="firstname" [(ngModel)]="editProfileModel.firstname" type="text" id="firstname"
+                    class="form-control" placeholder="First Name" />
+            </div>
+            <div>
+                <label for="lastname" class="control-label">Second Name</label>
+                <input name="lastname" [(ngModel)]="editProfileModel.lastname" type="text" id="lastname"
+                    class="form-control" placeholder="Second Name" />
+            </div>
+            <div>
+                <label for="patronymic" class="control-label">Middle Name</label>
+                <input name="patronymic" [(ngModel)]="editProfileModel.patronymic" type="text" id="patronymic"
+                    class="form-control" placeholder="Middle Name" />
+            </div>
+            <div>
+                <label for="email" class="control-label">Email</label>
+                <input name="email" type="text" [(ngModel)]="editProfileModel.email" id="email" class="form-control"
+                    placeholder="Email" #email="ngModel" required pattern="[a-zA-Z_]+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}" />
+                <div [hidden]="email.valid || email.untouched" class="alert alert-danger">
+                  Incorrect email
+                </div>
+            </div><br />
+            <div>
+                <input type="submit" (click)="editProfile()" value="Edit" class="btn btn-sm btn-success" />
+            </div>
+            <br />
+        </form>
+    </div>
+
+    <!-- for edit pass -->
+    <div *ngIf="isEditPass">
+        <br />
+        <h4 class="text-center">Edit Password</h4>
+        <br />
+        <div class="text-success" *ngIf="isStatusEditPassGood">
+            <p>Edit changed successfully</p>
+            <button (click)="okEditPass()">Ok</button>
+        </div>
+        <div class="text-danger" *ngIf="isStatusEditPassBad">
+            <p>Edit error</p>
+        </div>
+        <form method="post" autocomplete="off" *ngIf="!isStatusEditPassGood">
+            <div class="form-group">
+                <label for="oldPassword" class="control-label">Old password</label>
+                <input  type="password" name="oldPassword" [(ngModel)]="changePasswordModel.oldPassword"  id="oldPassword"
+                    class="form-control" #oldPassword="ngModel" required pattern="[0-9a-zA-Z!@#$%^&*]{6,}" />
+                <div [hidden]="oldPassword.valid || oldPassword.untouched" class="alert alert-danger">
+                  Incorrect password (minimum password length - 6 characters)
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="newPassword" class="control-label">New password</label>
+                <input  type="password" name="newPassword" [(ngModel)]="changePasswordModel.newPassword"  id="newPassword"
+                    class="form-control" #newPassword="ngModel" required pattern="[0-9a-zA-Z!@#$%^&*]{6,}" />
+                <div [hidden]="newPassword.valid || newPassword.untouched" class="alert alert-danger">
+                  Incorrect password (minimum password length - 6 characters)
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" (click)="editPass()" value="Edit" class="btn btn-sm btn-success" />
+            </div>
+        </form>
+        <br />
+    </div>
+
+    <!-- for view roles -->
+    <div *ngIf="isViewMyRole">
+        <br />
+        <h4 class="text-center">My roles</h4>
+        <div *ngFor="let role of getMyRoles(); let i =index;">
+            <h5>{{i+1}}. {{role}}</h5>
+        </div>
+    </div>
+</div>

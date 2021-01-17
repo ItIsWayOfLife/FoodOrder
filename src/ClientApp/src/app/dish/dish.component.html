@@ -1,0 +1,128 @@
+<div>
+  <h1 class="text-center">Dishes {{nameCatalog}}</h1>
+  <br />
+  <div class="text-center" *ngIf="isShowStatusMessage" [class.showInfo]="isMessInfo" [class.showError]="!isMessInfo">
+    <h3>{{statusMessage}}</h3>
+    <button class="btn btn-success" (click)="showStatusMess()">Ok</button>
+    <br /> <br />
+  </div>
+
+  <!-- view catalogs -->
+  <div *ngIf="isView">
+    <div class="form-inline form-group ">
+      <form autocomplete="off" class="text-center">
+        <input *ngIf="isAdminMyRole && isCompilation" type="button" value="Make a menu" class="btn btn-success mr"
+          (click)="addDishToMenu()" />
+        <input type="button" value="Add" class="btn btn-success mr" (click)="addDish()" />
+        <select name="searchSelectionString" [(ngModel)]="searchSelectionString" class="form-control mr">
+          <option>Search by</option>
+          <option *ngIf="isAdminMyRole;">Id</option>
+          <option>Name</option>
+          <option>Information</option>
+          <option>Weight</option>
+          <option>Price</option>
+        </select>
+        <input type="text" name="name" class="inputSearch form-control mr " [(ngModel)]="searchStr"
+          placeholder="Search" />
+        <input type="button" value="Refresh" (click)="refresh()" class="btn btn-success mr" />
+        <input type="button" value="Back" class="btn btn-warning mr" (click)="backClicked()" />
+      </form>
+    </div>
+    <div class="row mt-5 mb-2">
+      <div class="col-lg-4" *ngFor="let dish of getDishes()">
+        <div>
+          <img width="360" height="180" class="img-thumbnail" [src]="dish.path" [alt]="dish.name" />
+          <p *ngIf="isAdminMyRole && isAdminMyRole;">Id: {{dish.id}}</p>
+          <p>Name: {{dish.name}}</p>
+          <p>Weight: {{dish.weight}}</p>
+          <p>Price: {{dish.price}}</p>
+          <p>Information: {{dish.info}}</p>
+          <div *ngIf="isAdminMyRole;">
+            <input type="button" class="btn btn-danger admB" (click)="editDish(dish)" value="Edit" />
+            <input type="button" class="btn btn-danger admB" (click)="deleteDish(dish.id)" value="Delete" />
+            <div *ngIf="isCompilation && isAdminMyRole">
+              <label class="btn" for="addMenu_{{dish.id}}">Add to menu</label>
+              <input name="addMenu" id="addMenu_{{dish.id}}" type="checkbox" [(ngModel)]="dish.addMenu">
+            </div>
+          </div>
+        </div>
+        <br />
+      </div>
+    </div>
+  </div>
+
+  <!-- add provider -->
+  <div *ngIf="isNewRecord" class="text-center">
+    <form autocomplete="off">
+      <div class="text-center">
+        <app-upload (notify)='onNotify($event)'></app-upload>
+      </div>
+      <div>
+        <label for="name" class="control-label">Name</label><br />
+        <input name="name" id="name" class="form-control" [(ngModel)]="editedDish.name" placeholder="Name" />
+        <span></span>
+      </div>
+      <div>
+        <label for="weight" class="control-label">Weight</label><br />
+        <input type="number" name="weight" id="weight" class="form-control" [(ngModel)]="editedDish.weight"
+          placeholder="Weight" />
+      </div>
+      <div>
+        <label for="price" class="control-label">Price</label><br />
+        <input type="number" name="price" id="price" class="form-control" [(ngModel)]="editedDish.price"
+          placeholder="Price" />
+      </div>
+      <div>
+        <label for="info" class="control-label">Information</label><br />
+        <input name="info" id="info" class="form-control" [(ngModel)]="editedDish.info" placeholder="Information" />
+      </div>
+      <br />
+      <div>
+        <input type="button" value="Save" (click)="saveDish()" class="btn btn-success" />
+      </div><br />
+      <div>
+        <input type="button" value="Back" (click)="cancel()" class="btn btn-warning" />
+      </div>
+    </form>
+  </div>
+
+  <!--edit dish -->
+  <div *ngIf="isEdit">
+    <form autocomplete="off">
+      <div class="text-center">
+        <app-upload [fileNameR]="editedDish.path" (notify)='onNotify($event)'></app-upload>
+        <div>
+          <input type="number" name="id" id="id" class="form-control" [(ngModel)]="editedDish.id" placeholder="id"
+            hidden />
+        </div>
+        <div>
+          <label for="name" class="control-label">Name</label><br />
+          <input name="name" id="name" class="form-control" [(ngModel)]="editedDish.name" placeholder="Name" />
+          <span></span>
+        </div>
+        <div>
+          <label for="weight" class="control-label">Weight</label><br />
+          <input type="number" name="weight" id="weight" class="form-control" [(ngModel)]="editedDish.weight"
+            placeholder="Weight" />
+        </div>
+        <div>
+          <label for="price" class="control-label">Price</label><br />
+          <input type="number" name="price" id="price" class="form-control" [(ngModel)]="editedDish.price"
+            placeholder="Price" />
+        </div>
+        <div>
+          <label for="info" class="control-label">Information</label><br />
+          <input name="info" id="info" class="form-control" [(ngModel)]="editedDish.info" placeholder="Information" />
+        </div>
+        <br />
+        <div>
+          <input type="button" value="Edit" (click)="saveDish()" class="btn btn-success" />
+        </div><br />
+        <div>
+          <input type="button" value="Back" (click)="cancel()" class="btn btn-warning" />
+        </div>
+      </div>
+    </form>
+  </div>
+  <br />
+</div>

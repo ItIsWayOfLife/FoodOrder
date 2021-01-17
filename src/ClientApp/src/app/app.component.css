@@ -1,0 +1,12 @@
+.text-center {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.mr{
+    margin-right: 5px;
+}
+
+.inputSearch{
+    width: 300px;
+}

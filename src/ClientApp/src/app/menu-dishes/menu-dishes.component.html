@@ -1,0 +1,48 @@
+<div>
+    <h1 class="text-center">Menu of dishes on {{dateMenu}}</h1>
+    <br />
+    <div class="text-center" *ngIf="isShowStatusMessage" [class.showInfo]="isMessInfo" [class.showError]="!isMessInfo">
+        <h3>{{statusMessage}}</h3>
+        <button class="btn btn-succes" (click)="showStatusMess()">Ok</button>
+        <br /> <br />
+    </div>
+    <div class="form-inline form-group ">
+        <form autocomplete="off" class="text-center">
+            <input *ngIf="isAdminMyRole" type="button" value="Menu compilation" (click)="menuCompilation()"
+                class="btn btn-success mr" />
+            <input *ngIf="isCompilation && isAdminMyRole" type="button" value="Finish compilation"
+                (click)="menuCompilationCancel()" class="btn btn-danger mr" />
+            <select name="searchSelectionString" [(ngModel)]="searchSelectionString" class="form-control mr">
+                <option>Search by</option>
+                <option *ngIf="isAdminMyRole;">Id dish</option>
+                <option *ngIf="isAdminMyRole;">Id catalog</option>
+                <option>Name</option>
+                <option>Information</option>
+                <option>Weight</option>
+                <option>Price</option>
+            </select>
+            <input type="text" name="name" class="inputSearch form-control mr " [(ngModel)]="searchStr"
+                placeholder="Search" />
+            <input type="button" value="Refresh" (click)="refresh()" class="btn btn-success mr" />
+            <input type="button" value="Back" class="btn btn-warning mr" (click)="backClicked()" />
+        </form>
+    </div>
+    <div class="row mt-5 mb-2">
+        <div class="col-lg-4" *ngFor="let menuDish of getMenuDishes()">
+            <div>
+                <img width="360" height="180" class="img-thumbnail" [src]="menuDish.path" [alt]="menuDish.name" />
+                <p *ngIf="isAdminMyRole;">Id dish: {{menuDish.dishId}}</p>
+                <p *ngIf="isAdminMyRole;">Id catalog: {{menuDish.catalogId}}</p>
+                <p>Name: {{menuDish.name}}</p>
+                <p>Weight: {{menuDish.weight}}</p>
+                <p>Price: {{menuDish.price}}</p>
+                <p>Information: {{menuDish.info}}</p>
+                <div *ngIf="isAdminOrEmployeeMyRole;">
+                    <input type="button" class="btn btn-primary" (click)="addToCart(menuDish.dishId)"
+                        value="Add to Cart" />
+                </div>
+            </div>
+            <br />
+        </div>
+    </div>
+</div>

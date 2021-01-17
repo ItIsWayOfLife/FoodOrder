@@ -1,0 +1,196 @@
+<div class="text-center">
+    <h1 class="text-center">Users</h1>
+    <br />
+    <div *ngIf="isAmdim">
+        <div *ngIf="isShowStatusMessage" [class.showInfo]="isMessInfo" [class.showError]="!isMessInfo">
+            <h3>{{statusMessage}}</h3>
+            <button class="btn btn-success" (click)="showStatusMess()">Ok</button>
+            <br /> <br />
+        </div>
+
+        <!-- view users -->
+        <div *ngIf="isView">
+            <div class="form-inline form-group ">
+                <form autocomplete="off" class="text-center">
+                    <input type="button" value="Add" class="btn btn-success mr" (click)="addUser()" />
+                    <select name="searchSelectionString" [(ngModel)]="searchSelectionString" class="form-control mr">
+                        <option>Search by</option>
+                        <option>Id</option>
+                        <option>Email</option>
+                        <option>FLP</option>
+                    </select>
+                    <input type="text" name="name" class="form-control mr inputSearch" [(ngModel)]="searchStr"
+                        placeholder="Search" />
+                    <input type="button" value="Refresh" (click)="refresh()" class="btn btn-success mr" />
+                </form>
+            </div>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <td>Id</td>
+                        <td>Email</td>
+                        <td>FLP</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let user of getViewUsers()">
+                        <td>{{user.id}}</td>
+                        <td>{{user.email}}</td>
+                        <td>{{user.lastname}} {{user.firstname}} {{user.patronymic}}</td>
+                        <td>
+                            <input type="button" value="Edit" class="btn btn-danger" (click)="editUser(user)" />
+                        </td>
+                        <td>
+                            <!-- delete user -->
+                            <input type="button" value="Delete" (click)="deleteUser(user)" class="btn btn-danger" />
+                        </td>
+                        <td>
+                            <input type="button" value="Edit password" (click)="changePassUser(user.id)"
+                                class="btn btn-danger" />
+                        </td>
+                        <td>
+                            <input type="button" value="Edit roles" (click)="changeRolesUser(user.id)"
+                                class="btn btn-danger" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- add user -->
+        <div *ngIf="isNewRecord">
+            <form autocomplete="off">
+                <div>
+                    <label for="firstname" class="control-label">First Name</label><br />
+                    <input name="firstname" id="firstname" class="form-control" placeholder="First Name"
+                        [(ngModel)]="editedUser.firstname" />
+                    <span></span>
+                </div>
+                <div>
+                    <label for="lastname" class="control-label">Second Name</label><br />
+                    <input name="lastname" id="lastname" class="form-control" [(ngModel)]="editedUser.lastname"
+                        placeholder="Second Name" />
+                    <span></span>
+                </div>
+                <div>
+                    <label for="patronymic" class="control-label">Middle Name</label><br />
+                    <input name="patronymic" id="patronymic" class="form-control" [(ngModel)]="editedUser.patronymic"
+                        placeholder="Middle Name" />
+                </div>
+                <div>
+                    <label for="email" class="control-label">Email</label><br />
+                    <input name="email" id="email" class="form-control" [(ngModel)]="editedUser.email"
+                        placeholder="Email" />
+                </div>
+                <div>
+                    <label for="password" class="control-label">Password</label><br />
+                    <input name="password" id="password" class="form-control" [(ngModel)]="editedUser.password"
+                        placeholder="Password" />
+                </div>
+                <br />
+                <div>
+                    <input type="button" value="Save" (click)="saveUser()" class="btn btn-success" />
+                </div><br />
+                <div>
+                    <input type="button" value="Back" (click)="cancel()" class="btn btn-warning" />
+                </div>
+            </form>
+        </div>
+
+        <!--edit user -->
+        <div *ngIf="isEdit">
+            <form autocomplete="off">
+                <div>
+                    <input type="text" name="id" id="id" class="form-control" [(ngModel)]="editedUser.id" hidden />
+                </div>
+                <div>
+                    <label for="firstname" class="control-label">First Name</label><br />
+                    <input name="firstname" id="firstname" class="form-control" placeholder="First Name"
+                        [(ngModel)]="editedUser.firstname" />
+                    <span></span>
+                </div>
+
+                <div>
+                    <label for="lastname" class="control-label">Second Name</label><br />
+                    <input name="lastname" id="lastname" class="form-control" [(ngModel)]="editedUser.lastname"
+                        placeholder="Second Name" />
+                    <span></span>
+                </div>
+                <div>
+                    <label for="patronymic" class="control-label">Middle Name</label><br />
+                    <input name="patronymic" id="patronymic" class="form-control" [(ngModel)]="editedUser.patronymic"
+                        placeholder="Middle Name" />
+                </div>
+                <div>
+                    <label for="email" class="control-label">Email</label><br />
+                    <input name="email" id="email" class="form-control" [(ngModel)]="editedUser.email"
+                        placeholder="Email" />
+                </div>
+                <br />
+                <div>
+                    <input type="button" value="Edit" (click)="saveUser()" class="btn btn-success" />
+                </div><br />
+                <div>
+                    <input type="button" value="Back" (click)="cancel()" class="btn btn-warning" />
+                </div>
+            </form>
+        </div>
+
+        <!-- change password user -->
+        <div *ngIf="isChangePasword">
+            <form autocomplete="off">
+                <div>
+                    <input type="text" name="id" id="id" class="form-control" [(ngModel)]="userChangePassword.id"
+                        hidden />
+                </div>
+                <div class="form-group">
+                    <label for="oldPassword" class="control-label">Old password</label>
+                    <input name="oldPassword" [(ngModel)]="userChangePassword.oldPassword" type="text" id="oldPassword"
+                        class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="newPassword" class="control-label">New password</label>
+                    <input name="newPassword" [(ngModel)]="userChangePassword.newPassword" type="text" id="newPassword"
+                        class="form-control" />
+                </div>
+                <div class="form-group">
+                    <input type="submit" (click)="editPassUser()" value="Edit" class="btn btn-success" />
+                </div>
+                <div>
+                    <input type="button" value="Back" (click)="cancel()" class="btn btn-warning" />
+                </div>
+            </form>
+        </div>
+
+        <!-- give roles by users-->
+        <div *ngIf="isChangeRoles">
+            <form autocomplete="off">
+                <div *ngFor="let role of allRoles; let i = index">
+                    <span *ngIf="checkRole(role); then thenBlock else elseBlock"></span>
+                    <ng-template #thenBlock>
+                        <input id="id{{i}}" type="checkbox" name="role" checked (click)="pressRole(role)" />
+                    </ng-template>
+                    <ng-template #elseBlock>
+                        <input id="id{{i}}" type="checkbox" name="role" (click)="pressRole(role)" />
+                    </ng-template>
+                    <label for="id{{i}}"> {{role}}</label><br />
+                </div>
+                <div class="form-group">
+                    <input type="submit" (click)="editUserRoles()" value="Edit" class="btn btn-success" />
+                </div>
+                <div>
+                    <input type="button" value="Back" (click)="cancel()" class="btn btn-warning" />
+                </div>
+            </form>
+        </div>
+
+    </div>
+    <div *ngIf="!isAmdim">
+      Login as Administrator.
+        </div>
+</div>
+<br />

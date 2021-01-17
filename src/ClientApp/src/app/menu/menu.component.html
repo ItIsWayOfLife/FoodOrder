@@ -1,0 +1,95 @@
+<div class="text-center">
+    <h1>Menu {{nameProvider}}</h1>
+    <br />
+    <div class="text-center" *ngIf="isShowStatusMessage" [class.showInfo]="isMessInfo" [class.showError]="!isMessInfo">
+        <h3>{{statusMessage}}</h3>
+        <button class="btn btn-success" (click)="showStatusMess()">Ok</button>
+        <br /> <br />
+    </div>
+    <!-- view catalogs -->
+    <div *ngIf="isView">
+        <div class="form-inline form-group ">
+            <form autocomplete="off" class="text-center">
+                <input *ngIf="isAdminMyRole" type="button" value="Add" class="btn btn-success mr"
+                    (click)="addMenu()" />
+                <select name="searchSelectionString" [(ngModel)]="searchSelectionString" class="form-control mr">
+                    <option>Search by</option>
+                    <option *ngIf="isAdminMyRole;">Id</option>
+                    <option>Date</option>
+                    <option>Information</option>
+                </select>
+                <input type="text" name="name" class="inputSearch form-control mr " [(ngModel)]="searchStr"
+                    placeholder="Search" />
+                <input type="button" value="Refresh" (click)="refresh()" class="btn btn-success mr" />
+                <input type="button" value="Back" class="btn btn-warning mr" (click)="backClicked()" />
+            </form>
+        </div>
+        <table class="table">
+            <tr>
+                <th *ngIf="isAdminMyRole;">Id</th>
+                <th>Date</th>
+                <th>Information</th>
+                <th></th>
+                <th *ngIf="isAdminMyRole"></th>
+
+            </tr>
+            <tr *ngFor="let menu of getMenus()">
+                <td *ngIf="isAdminMyRole;">{{menu.id}}</td>
+                <td>{{menu.date}}</td>
+                <td>{{menu.info}}</td>
+                <td><a class="btn btn-primary" [routerLink]="['/menudishes/', menu.id]">Dishes</a></td>
+
+                <td *ngIf="isAdminMyRole">
+                    <button class="btn btn-danger admB" (click)="editMenu(menu)">Edit</button>
+                    <button class="btn btn-danger admB" (click)="deleteMenu(menu.id)">Delete</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <!-- add catalog -->
+    <div *ngIf="isNewRecord" class="text-center">
+        <form autocomplete="off">
+            <div>
+                <label for="date" class="control-label">Date</label><br />
+                <input type="date" name="date" id="date" class="form-control" [(ngModel)]="editedMenu.date"
+                    placeholder="Date" />
+            </div>
+            <div>
+                <label for="info" class="control-label">Information</label><br />
+                <input name="info" id="info" class="form-control" [(ngModel)]="editedMenu.info"
+                    placeholder="Information" />
+            </div>
+            <br />
+            <div>
+                <input type="button" value="Save" (click)="saveMenu()" class="btn btn-success" />
+            </div><br />
+            <div>
+                <input type="button" value="Back" (click)="cancel()" class="btn btn-warning" />
+            </div>
+        </form>
+    </div>
+    <!--edit vatalog -->
+    <div *ngIf="isEdit">
+        <form autocomplete="off">
+            <input type="number" name="id" id="id" class="form-control" [(ngModel)]="editedMenu.id" placeholder="id"
+                hidden />
+            <div>
+                <label for="date" class="control-label">Date</label><br />
+                <input type="date" name="date" id="date" class="form-control" [(ngModel)]="editedMenu.date"
+                    placeholder="Date" />
+                <span></span>
+            </div>
+            <div>
+                <label for="info" class="control-label">Information</label><br />
+                <input name="info" id="info" class="form-control" [(ngModel)]="editedMenu.info"
+                    placeholder="Information" />
+            </div><br />
+            <div>
+                <input type="button" value="Edit" (click)="saveMenu()" class="btn btn-success" />
+            </div><br />
+            <div>
+                <input type="button" value="Back" (click)="cancel()" class="btn btn-warning" />
+            </div>
+        </form>
+    </div>
+</div>

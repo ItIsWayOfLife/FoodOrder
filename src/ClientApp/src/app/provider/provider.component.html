@@ -1,0 +1,184 @@
+<div class="main">
+  <h1 class="text-center">Providers</h1>
+  <br />
+  <div class="text-center" *ngIf="isShowStatusMessage" [class.showInfo]="isMessInfo" [class.showError]="!isMessInfo">
+    <h3>{{statusMessage}}</h3>
+    <button class="btn btn-success" (click)="showStatusMess()">Ok</button>
+    <br /> <br />
+  </div>
+
+  <!-- view provider -->
+  <div *ngIf="isView">
+    <div class="form-inline form-group ">
+      <form autocomplete="off" class="text-center">
+        <input *ngIf="isAdminMyRole" type="button" value="Add" class="btn btn-success mr" (click)="addProvider()" />
+        <select name="searchSelectionString" [(ngModel)]="searchSelectionString" class="form-control mr">
+          <option>Search by</option>
+          <option *ngIf="isAdminMyRole;">Id</option>
+          <option>Name</option>
+          <option>Email</option>
+          <option>Working days</option>
+          <option>Working hours since</option>
+          <option>Opening hours until</option>
+          <option>Status</option>
+          <option>Information</option>
+        </select>
+        <input type="text" name="name" class="inputSearch form-control mr " [(ngModel)]="searchStr"
+          placeholder="Search" />
+        <input type="button" value="Refresh" (click)="refresh()" class="btn btn-success mr" />
+      </form>
+    </div>
+
+    <div class="row mt-5 mb-2">
+      <div class="col-lg-4" *ngFor="let provider of getProviders()">
+        <div class="providerView">
+          <a [routerLink]="['/menu/', provider.id]"> <img class="mImg" width="360" height="180" [src]="provider.path"
+              [alt]="provider.name" /></a>
+          <br /><br />
+          <p *ngIf="isAdminMyRole;">Id: {{provider.id}}</p>
+          <div *ngIf="provider.isFavorite;  then thenBlockFav else elseBlockFav"></div>
+          <ng-template #thenBlockFav>
+            <p>Home: Yes</p>
+          </ng-template>
+          <ng-template #elseBlockFav>
+            <p>Home: No</p>
+          </ng-template>
+          <p>Name: {{provider.name}}</p>
+          <p>Email: {{provider.email}}</p>
+          <p>Working days: {{provider.workingDays}}</p>
+          <p>Working time: {{provider.timeWorkWith}}:{{provider.timeWorkTo}}</p>
+          <div *ngIf="provider.isActive;  then thenBlock else elseBlock"></div>
+          <ng-template #thenBlock>
+            <p>Status: Work</p>
+          </ng-template>
+          <ng-template #elseBlock>
+            <p>Status: No work</p>
+          </ng-template>
+          <p>Information: {{provider.info}}</p>
+          <a class="btn btn-primary" [routerLink]="['/menu/', provider.id]">Menu</a>
+          <a class="btn btn-primary" [routerLink]="['/catalog/', provider.id]">Catalog dishes</a>
+          <div *ngIf="isAdminMyRole;">
+            <input type="button" class="btn btn-danger" (click)="editProvider(provider)" value="Edit" />
+            <input type="button" class="btn btn-danger" (click)="deleteProvider(provider.id)" value="Delete" />
+          </div>
+          <br />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- add provider -->
+  <div *ngIf="isNewRecord" class="text-center">
+    <form autocomplete="off">
+      <div class="text-center">
+        <app-upload (notify)='onNotify($event)'></app-upload>
+      </div>
+      <div>
+        <label for="name" class="control-label">Name</label><br />
+        <input name="name" id="name" class="form-control" [(ngModel)]="editedProvider.name" placeholder="Name" />
+        <span></span>
+      </div>
+      <div>
+        <label for="email" class="control-label">Email</label><br />
+        <input name="email" id="email" class="form-control" [(ngModel)]="editedProvider.email" placeholder="Email" />
+      </div>
+      <div>
+        <label for="workingDays" class="control-label">Working days</label><br />
+        <input name="workingDays" id="workingDays" class="form-control" [(ngModel)]="editedProvider.workingDays"
+          placeholder="Working days" />
+      </div>
+      <div>
+        <label for="timeWorkWith" class="control-label">Working hours since</label><br />
+        <input type="time" name="timeWorkWith" id="timeWorkWith" class="form-control"
+          [(ngModel)]="editedProvider.timeWorkWith" placeholder="Working hours since" />
+      </div>
+      <div>
+        <label for="timeWorkTo" class="control-label">Opening hours until</label><br />
+        <input type="time" name="timeWorkTo" id="timeWorkTo" class="form-control"
+          [(ngModel)]="editedProvider.timeWorkTo" placeholder="Opening hours until" />
+      </div>
+      <div>
+        <label for="info" class="control-label">Information</label><br />
+        <input name="info" id="info" class="form-control" [(ngModel)]="editedProvider.info" placeholder="Information" />
+      </div>
+      <div>
+        <label for="isActive" class="control-label">Active (Work)</label><br />
+        <input type="checkbox" name="isActive" id="isActive" class="form-control" [(ngModel)]="editedProvider.isActive"
+          placeholder="Active (Work)" />
+      </div>
+      <div>
+        <label for="isFavorite" class="control-label">To home</label><br />
+        <input type="checkbox" name="isFavorite" id="isFavorite" class="form-control"
+          [(ngModel)]="editedProvider.isFavorite" placeholder="To home" />
+      </div>
+      <br />
+      <div>
+        <input type="button" value="Save" (click)="saveProvider()" class="btn btn-success" />
+      </div><br />
+      <div>
+        <input type="button" value="Back" (click)="cancel()" class="btn btn-warning" />
+      </div>
+    </form>
+  </div>
+
+  <!--edit provider -->
+  <div *ngIf="isEdit">
+    <form autocomplete="off">
+      <div class="text-center">
+        <app-upload [fileNameR]="editedProvider.path" (notify)='onNotify($event)'></app-upload>
+
+        <div>
+          <input type="number" name="id" id="id" class="form-control" [(ngModel)]="editedProvider.id" placeholder="id"
+            hidden />
+        </div>
+        <div>
+          <label for="name" class="control-label">Name</label><br />
+          <input name="name" id="name" class="form-control" [(ngModel)]="editedProvider.name" placeholder="Name" />
+          <span></span>
+        </div>
+        <div>
+          <label for="email" class="control-label">Email</label><br />
+          <input name="email" id="email" class="form-control" [(ngModel)]="editedProvider.email" placeholder="Email" />
+        </div>
+        <div>
+          <label for="workingDays" class="control-label">Working days</label><br />
+          <input name="workingDays" id="workingDays" class="form-control" [(ngModel)]="editedProvider.workingDays"
+            placeholder="Working days" />
+        </div>
+        <div>
+          <label for="timeWorkWith" class="control-label">Working hours since</label><br />
+          <input type="time" name="timeWorkWith" id="timeWorkWith" class="form-control"
+            [(ngModel)]="editedProvider.timeWorkWith" placeholder="Время работы с" />
+        </div>
+        <div>
+          <label for="timeWorkTo" class="control-label">Opening hours until</label><br />
+          <input type="time" name="timeWorkTo" id="timeWorkTo" class="form-control"
+            [(ngModel)]="editedProvider.timeWorkTo" placeholder="Opening hours until" />
+        </div>
+        <div>
+          <label for="info" class="control-label">Information</label><br />
+          <input name="info" id="info" class="form-control" [(ngModel)]="editedProvider.info"
+            placeholder="Information" />
+        </div>
+        <div>
+          <label for="isActive" class="control-label">Active (Work)</label><br />
+          <input type="checkbox" name="isActive" id="isActive" class="form-control"
+            [(ngModel)]="editedProvider.isActive" placeholder="Active (Work)" />
+        </div>
+        <div>
+          <label for="isFavorite" class="control-label">To home</label><br />
+          <input type="checkbox" name="isFavorite" id="isFavorite" class="form-control"
+            [(ngModel)]="editedProvider.isFavorite" placeholder="To home" />
+        </div>
+        <br />
+        <div>
+          <input type="button" value="Edit" (click)="saveProvider()" class="btn btn-success" />
+        </div><br />
+        <div>
+          <input type="button" value="Back" (click)="cancel()" class="btn btn-warning" />
+        </div>
+      </div>
+    </form>
+  </div>
+  <br />
+</div>

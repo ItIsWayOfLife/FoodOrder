@@ -1,0 +1,19 @@
+.upload{
+    font-weight:bold;
+    color:#28a745;
+    margin-right: 30px;
+    line-height: 36px;
+}
+
+.row{
+    text-align: center;
+}
+
+.imgUp{
+    width: 360px;
+    height: 260px;
+}
+
+.showImg{
+    margin-top: 5px;
+}

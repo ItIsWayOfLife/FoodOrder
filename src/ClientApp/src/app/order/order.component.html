@@ -1,0 +1,68 @@
+<h1 class="text-center">Orders</h1>
+<br />
+<div *ngIf="isViewOrdersList">
+    <div class="form-inline form-group ">
+        <form autocomplete="off" class="text-center">
+            <select name="searchSelectionString" [(ngModel)]="searchSelectionString" class="form-control mr">
+                <option>Search by</option>
+                <option>Order number</option>
+                <option>Date and time</option>
+                <option>Number of dishes</option>
+                <option>Full price</option>
+            </select>
+            <input type="text" name="name" class="inputSearch form-control mr " [(ngModel)]="searchStr"
+                placeholder="Search" />
+            <input type="button" value="Refresh" (click)="refresh()" class="btn btn-success mr" />
+            <input type="button" value="Back" class="btn btn-warning mr" (click)="backClicked()" />
+        </form>
+    </div>
+    <table class="table">
+        <tr>
+            <th>Order number</th>
+            <th>Order number</th>
+            <th>Date and time</th>
+            <th>Full price</th>
+            <th></th>
+        </tr>
+        <tr *ngFor="let order of getOrders()">
+            <td>{{order.id}}</td>
+            <td>{{order.dateOrder}}</td>
+            <td>{{order.countDish}}</td>
+            <td>{{order.fullPrice}}</td>
+            <td><button class="btn btn-sm btn-success"
+                    (click)="getInfoDish(order.id, order.fullPrice)">More details</button>
+        </tr>
+    </table>
+</div>
+<div *ngIf="!isViewOrdersList">
+
+    <table class="table">
+        <tr>
+            <th>Dish</th>
+            <th>Name</th>
+            <th>Info</th>
+            <th>Weight</th>
+            <th>Prive</th>
+            <th>Count</th>
+            <th>Full price</th>
+        </tr>
+        <tr *ngFor="let orderD of orderDishes">
+            <td> <img class="esh-basket-image" style="width: 300px; height: 200px;" [src]="orderD.path" [alt]="orderD.name" /></td>
+            <td>{{orderD.name}}</td>
+            <td>{{orderD.info}}</td>
+            <td>{{orderD.weight}}</td>
+            <td>{{orderD.price}} $</td>
+            <td>{{orderD.count}}</td>
+            <td>{{getTotalPrice(orderD)}}</td>
+        </tr>
+    </table>
+    <br />
+    <div>
+        <button class="btn btn-warning" (click)="back()">Back</button>
+        <span class="float-right">
+            <h3> Total price:<span class="text-danger"> {{allPrice}}</span> $</h3>
+        </span>
+    </div>
+    <br />
+</div>
+<br />

@@ -1,0 +1,48 @@
+<div class="text-center">
+    <h1>Cart</h1>
+    <br />
+    <div *ngIf="isShowStatusMessage" [class.showInfo]="isMessInfo" [class.showError]="!isMessInfo">
+        <h3>{{statusMessage}}</h3>
+        <button class="btn btn-success" (click)="showStatusMess()">Ok</button>
+        <br /> <br />
+    </div>
+</div>
+<div>
+    <table class="table">
+        <tr>
+            <th>Dish</th>
+            <th>Name</th>
+            <th>Information</th>
+            <th>Weight</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Price per quantity</th>
+            <th></th>
+            <th></th>
+        </tr>
+        <tr *ngFor="let cartD of cartDishes">
+            <td> <img class="esh-basket-image" style="width: 300px; height: 200px;" [src]="cartD.path" [alt]="cartD.name" /></td>
+            <td>{{cartD.name}}</td>
+            <td>{{cartD.info}}</td>
+            <td>{{cartD.weight}}</td>
+            <td>{{cartD.price}}</td>
+            <td>
+                <input type="hidden" name="dishCartId" value="cartD.id" />
+                <input class="countDish" type="number" min="1" max="100" [(ngModel)]="cartD.count" name="count" />
+            </td>
+            <td>{{getTotalPrice(cartD)}} $</td>
+            <td>
+                <button class="btn btn-danger" (click)="deleteCartDish(cartD.id)">Delete</button>
+            </td>
+            <td></td>
+        </tr>
+    </table>
+    <div>
+        <button class="btn btn-primary" (click)="updateData()">Update</button>
+        <button class="btn btn-success" (click)="createOrder()">To order</button>
+        <button class="btn btn-warning" (click)="backClicked()">Back</button>
+        <button class="btn btn-danger" (click)="deleteAllDishesInCart()">Empty trash</button>
+        <h3 class="float-right">Total price: <span class="text-danger">{{getFullPrice()}}</span>  $</h3>
+    </div>
+</div>
+<br />

@@ -1,0 +1,15 @@
+h2{
+    color:gold;
+    text-align: center;
+}
+
+input.clValid.ng-touched.ng-invalid {border:solid red 2px;}
+input.clValid.ng-touched.ng-valid {border:solid green 2px;}
+
+.invalidComparePass{
+    border:solid red 2px;
+}
+
+.validComparePass{
+    border:solid green 2px;
+}

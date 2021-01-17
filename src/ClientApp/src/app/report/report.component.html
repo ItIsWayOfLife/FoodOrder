@@ -1,0 +1,57 @@
+<h1 class="text-center">Reports</h1>
+<br/>
+<div class="text-center">
+<h5>Report by</h5>
+<button class="btn btn-sm btn-success mr" [class.isheightbut]="isViewProviders" (click)="viewProviders()">Providers</button>
+<button class="btn btn-sm btn-success mr" [class.isheightbut]="isViewUsers" (click)="viewUsers()">Users</button>
+<br/><br/>
+
+<div *ngIf="isViewProviders">
+    <label class="mr" for="providerId">Id provider</label>
+    <input autocomplete="off" class="mr" type="number" name="providerId" id="providerId" [(ngModel)]="providerId" />
+    <label class="mr" for="dateWith">Date from</label>
+    <input class="mr" type="date" name="dateWith"  id="dateWith" [(ngModel)]="dateWith"/>
+    <label class="mr" for="dateTo">Date to</label>
+    <input class="mr" type="date" name="dateTo"  id="dateTo" [(ngModel)]="dateTo"/><br/><br/>
+    For the entire time of the supplier
+    <input class="btn btn-sm btn-success" type="button" value="Make up" (click)="getReportProviderAllTime()" /><br/><br/>
+    Supplier day
+    <input class="btn btn-sm btn-success" type="button" value="Make up" (click)="getReportProviderDate()" /><br/><br/>
+    For the period of the supplier
+    <input class="btn btn-sm btn-success" type="button" value="Make up"  (click)="getReportProviderWithToDate()" /><br/><br/><br/>
+    All suppliers for all time
+    <input class="btn btn-sm btn-success" type="button" value="Make up" (click)="getReportProvidersAllTime()"/><br/><br/>
+    For all suppliers per day
+    <input class="btn btn-sm btn-success" type="button" value="Make up" (click)="getReportProvidersDate()"/><br/><br/>
+    For all suppliers for the period
+    <input class="btn btn-sm btn-success" type="button" value="Make up" (click)="getReportProvidersWithToDate()"/><br/><br/>
+    <br/>
+<h5>If reports are not generated, check the entered data (Id, dates) or contact the main administrator</h5>
+<br/>
+</div>
+
+<div *ngIf="isViewUsers">
+    <label class="mr" for="userId">Id user</label>
+    <input autocomplete="off" class="mr userIdSize" type="text" name="userId" id="userId" [(ngModel)]="userId" />
+    <label class="mr" for="dateWith">Date from</label>
+    <input class="mr" type="date" name="dateWith"  id="dateWith" [(ngModel)]="dateWith"/>
+    <label class="mr" for="dateTo">Date to</label>
+    <input class="mr" type="date" name="dateTo"  id="dateTo" [(ngModel)]="dateTo"/><br/><br/>
+    For all user time
+    <input class="btn btn-sm btn-success" type="button" value="Make up" (click)="getReportUserAllTime()" /><br/><br/>
+    Per user day
+    <input class="btn btn-sm btn-success" type="button" value="Make up" (click)="getReportUserDate()" /><br/><br/>
+    Per user period
+    <input class="btn btn-sm btn-success" type="button" value="Make up"  (click)="getReportUserWithToDate()" /><br/><br/><br/>
+    For all users for all time
+    <input class="btn btn-sm btn-success" type="button" value="Make up" (click)="getReportUsersAllTime()"/><br/><br/>
+    For all users per day
+    <input class="btn btn-sm btn-success" type="button" value="Make up" (click)="getReportUsersDate()"/><br/><br/>
+    For all users for the period
+    <input class="btn btn-sm btn-success" type="button" value="Make up" (click)="getReportUsersWithToDate()"/><br/><br/>
+    <br/>
+<h5>If reports are not generated, check the entered data (Id, dates) or contact the main administrator</h5>
+<br/>
+</div>
+
+</div>

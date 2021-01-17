@@ -1,0 +1,34 @@
+<h1 class="text-center">Popular  providers</h1>
+<br />
+<div class="row mt-5 mb-2">
+  <div class="col-lg-4" *ngFor="let provider of providers">
+    <div class="providerView">
+      <a [routerLink]="['/menu/', provider.id]"> <img class="mImg" width="360" height="180" [src]="provider.path"
+          [alt]="provider.name" /></a>
+      <br /><br />
+      <div *ngIf="provider.isFavorite;  then thenBlockFav else elseBlockFav"></div>
+      <ng-template #thenBlockFav>
+        <p>Home: Yes</p>
+      </ng-template>
+      <ng-template #elseBlockFav>
+        <p>Home: No</p>
+      </ng-template>
+      <p>Name: {{provider.name}}</p>
+      <p>Email: {{provider.email}}</p>
+      <p>Working days: {{provider.workingDays}}</p>
+      <p>Working time: {{provider.timeWorkWith}}:{{provider.timeWorkTo}}</p>
+      <div *ngIf="provider.isActive;  then thenBlock else elseBlock"></div>
+      <ng-template #thenBlock>
+        <p>Status: Work</p>
+      </ng-template>
+      <ng-template #elseBlock>
+        <p>Status: No work</p>
+      </ng-template>
+      <p>Information: {{provider.info}}</p>
+      <a class="btn btn-primary" [routerLink]="['/menu/', provider.id]">Menu</a>
+      <a class="btn btn-primary" [routerLink]="['/catalog/', provider.id]">Food catalog</a>
+      <br />
+    </div>
+    <br />
+  </div>
+</div>

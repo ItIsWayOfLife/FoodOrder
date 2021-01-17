@@ -1,0 +1,87 @@
+<div class="row mtLogReg mb-5">
+  <div class="col-6 m-auto">
+      <div class="card m-auto">
+          <div class="card-header">
+              <h3>Register</h3>
+          </div>
+           <div class="card-body">
+
+<div *ngIf="!statusOk">
+    <form method="post" autocomplete="off">
+        <!-- <div *ngIf="isShowStatusMessage" [class.showInfo]="!statusNotOk" [class.showError]="statusNotOk">
+            <h3>{{statusMessage}}</h3>
+            <button (click)="showStatusMess()">Ok</button>
+            <br /> <br />
+        </div> -->
+
+        <div class="text-danger">
+          <div *ngIf="isShowStatusMessage" class="alert alert-danger">Invalid registration data. Perhaps this email is already in use.</div>
+          <br />
+      </div>
+
+        <div class="form-group col-12">
+            <label for="firstname" class="control-label">First Name</label><br />
+            <input id="firstname" class="form-control clValid" name="firstname" placeholder="First Name"
+                [(ngModel)]="registerModel.firstname" #firstname="ngModel" required />
+            <div [hidden]="firstname.valid || firstname.untouched" class="alert alert-danger">
+                Enter First Name
+            </div>
+        </div>
+        <div class="form-group col-12">
+            <label for="lastname" class="control-label">Second Name</label><br />
+            <input id="lastname" class="form-control clValid" name="lastname" [(ngModel)]="registerModel.lastname"
+                placeholder="Second Name" #lastname="ngModel" required />
+            <div [hidden]="lastname.valid || lastname.untouched" class="alert alert-danger">
+                Enter Second Name
+            </div>
+        </div>
+        <div class="form-group col-12">
+            <label for="patronymic" class="control-label">Middle Name</label><br />
+            <input id="patronymic" class="form-control clValid" name="patronymic" [(ngModel)]="registerModel.patronymic"
+                placeholder="Middle Name" />
+        </div>
+        <div class="form-group col-12">
+            <label for="email" class="control-label">Email</label><br />
+            <input id="email" class="form-control clValid" name="email" [(ngModel)]="registerModel.email"
+                placeholder="Email" #email="ngModel" required pattern="[a-zA-Z_]+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}" />
+            <div [hidden]="email.valid || email.untouched" class="alert alert-danger">
+              Incorrect Email
+            </div>
+        </div>
+        <div class="form-group col-12">
+            <label for="password" class="control-label">Password</label><br />
+            <input id="password" class="form-control clValid" name="password" [(ngModel)]="registerModel.password"
+                placeholder="Password" #password="ngModel" required pattern="[0-9a-zA-Z!@#$%^&*]{6,}" />
+            <div [hidden]="password.valid || password.untouched" class="alert alert-danger">
+              Incorrect password (minimum password length - 6 characters)
+            </div>
+        </div>
+        <div class="form-group col-12">
+            <label for="passwordConfirm" class="control-label">Confirm the password</label><br />
+            <input [class.invalidComparePass]="!comparePass()"
+                [class.validComparePass]="comparePass() && !passwordConfirm.untouched" id="passwordConfirm"
+                class="form-control" name="passwordConfirm" [(ngModel)]="registerModel.passwordConfirm"
+                placeholder="Confirm the password" #passwordConfirm="ngModel" />
+            <div [hidden]="comparePass() || passwordConfirm.untouched" class="alert alert-danger">
+              Passwords do not match
+            </div>
+        </div >
+        <br />
+        <div class="form-group col-12">
+            <input type="submit" (click)="register()" value="Register" class="btn btn-success" />
+        </div>
+    </form>
+</div>
+<div class="text-center" *ngIf="statusOk">
+    <h2>
+      Congratulations {{registerModel.firstname}}! You have successfully registered.
+    </h2>
+    <br />
+    <button class="btn btn-info" (click)="ok()">Ok</button>
+</div>
+<div *ngIf="isShowStatusMessage">
+    <br />
+</div></div>
+</div>
+</div>
+

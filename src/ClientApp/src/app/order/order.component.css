@@ -1,0 +1,16 @@
+table tr th{
+    text-align: center;
+}
+
+table tr td{
+    text-align: center;
+}
+
+.inputSearch{
+    width: 300px;
+}
+
+.btn{
+    margin-right: 5px;
+}
+
