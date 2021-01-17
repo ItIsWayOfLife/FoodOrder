@@ -5,7 +5,7 @@ using System;
 using System.Net;
 using System.Threading.Tasks;
 
-namespace API.Exceptions
+namespace API.Middlewares
 {
     public class ExceptionInterceptor
     {

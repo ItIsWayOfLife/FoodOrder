@@ -12,6 +12,10 @@ using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
+using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Text;
 
 namespace API
@@ -36,8 +40,9 @@ namespace API
 
         // limit for upload files
         public static IServiceCollection AddLimitUploadFilesMax(this IServiceCollection services)
-        { 
-            services.Configure<FormOptions>(o => {
+        {
+            services.Configure<FormOptions>(o =>
+            {
                 o.ValueLengthLimit = int.MaxValue;
                 o.MultipartBodyLengthLimit = int.MaxValue;
                 o.MemoryBufferThreshold = int.MaxValue;
@@ -111,6 +116,39 @@ namespace API
           });
 
             return services;
+        }
+
+        public static IServiceCollection ConfigureSwagger(this IServiceCollection services)
+        {
+            return services.AddSwaggerGen(config =>
+            {
+                var authenticationTypeId = "Authentication";
+                config.AddSecurityDefinition(authenticationTypeId, new OpenApiSecurityScheme
+                {
+                    Description = "JWT Authorization header using the Bearer scheme.",
+                    Name = "Authorization",
+                    In = ParameterLocation.Header,
+                });
+                config.AddSecurityRequirement(new OpenApiSecurityRequirement()
+                {
+                    {
+                        new OpenApiSecurityScheme()
+                        {
+                            Reference = new OpenApiReference
+                            {
+                                Type = ReferenceType.SecurityScheme,
+                                Id = authenticationTypeId
+                            },
+                            In = ParameterLocation.Header,
+                        },
+                        new List<string>()
+                    }
+                });
+
+                var apiDocs = Path.Combine(AppContext.BaseDirectory, $"{typeof(Startup).Assembly.GetName().Name}.xml");
+                config.IncludeXmlComments(apiDocs);
+
+            });
         }
     }
 }
