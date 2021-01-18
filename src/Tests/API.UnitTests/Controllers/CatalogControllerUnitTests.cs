@@ -148,16 +148,6 @@ namespace API.UnitTests.Controllers
             Assert.IsType<OkObjectResult>(result);
         }
 
-        [Fact]
-        public void Delete_InvalidIdPassed_ReturnsBadRequestObjectResult()
-        {
-            _controller.ModelState.AddModelError("Id", "Catalog not found");
-
-            var result = _controller.Delete(1);
-
-            Assert.IsType<OkObjectResult>(result);
-        }
-
         #endregion
 
         #region put
