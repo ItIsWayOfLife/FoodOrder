@@ -6,14 +6,13 @@ using Core.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace API.Controllers.Identity
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AccountController : ControllerBase
+    public class AccountController : ControllerBaseGetUserId
     {
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly UserManager<ApplicationUser> _userManager;
@@ -193,18 +192,6 @@ namespace API.Controllers.Identity
                 _loggerService.LogWarning(CONTROLLER_NAME + "/changepassword", LoggerConstants.TYPE_PUT, $"edit profile user id: {user.Id} successful", user.Id);
 
                 return BadRequest(result.Errors);
-            }
-        }
-
-        private string GetCurrentUserId()
-        {
-            if (User.Identity.IsAuthenticated)
-            {
-                return User.FindFirst(ClaimTypes.NameIdentifier).Value;
-            }
-            else
-            {
-                return null;
             }
         }
     }

@@ -18,7 +18,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace API
+namespace API.Exceptions
 {
     public static class StartupExtensions
     {

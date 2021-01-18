@@ -4,14 +4,13 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.IO;
 using System.Net.Http.Headers;
-using System.Security.Claims;
 
 namespace API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     [Authorize(Roles = "admin")]
-    public class UploadController : ControllerBase
+    public class UploadController : ControllerBaseGetUserId
     {
         private readonly ILoggerService _loggerService;
 
@@ -48,18 +47,6 @@ namespace API.Controllers
                 _loggerService.LogInformation(CONTROLLER_NAME, LoggerConstants.TYPE_POST, $"upload file error", GetCurrentUserId());
 
                 return BadRequest("Invalid file");
-            }
-        }
-
-        private string GetCurrentUserId()
-        {
-            if (User.Identity.IsAuthenticated)
-            {
-                return User.FindFirst(ClaimTypes.NameIdentifier).Value;
-            }
-            else
-            {
-                return null;
             }
         }
     }

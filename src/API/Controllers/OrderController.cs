@@ -9,14 +9,13 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Claims;
 
 namespace API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     [Authorize(Roles = "admin, employee")]
-    public class OrderController : ControllerBase
+    public class OrderController : ControllerBaseGetUserId
     {
         private readonly IOrderService _orderService;
         private readonly ICartService _cartService;
@@ -100,18 +99,6 @@ namespace API.Controllers
                 _loggerService.LogWarning(CONTROLLER_NAME, LoggerConstants.TYPE_POST, $"create order error: {ex.Message}", GetCurrentUserId());
 
                 return BadRequest(ex.Message);
-            }
-        }
-
-        private string GetCurrentUserId()
-        {
-            if (User.Identity.IsAuthenticated)
-            {
-                return User.FindFirst(ClaimTypes.NameIdentifier).Value;
-            }
-            else
-            {
-                return null;
             }
         }
     }

@@ -8,13 +8,12 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Claims;
 
 namespace API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class MenuController : ControllerBase
+    public class MenuController : ControllerBaseGetUserId
     {
         private readonly IMenuService _menuService;
         private readonly IMenuHelper _menuHelper;
@@ -190,18 +189,6 @@ namespace API.Controllers
                 _loggerService.LogWarning(CONTROLLER_NAME + $"{id}", LoggerConstants.TYPE_DELETE, $"delete menu id: {id} error: {ex.Message}", GetCurrentUserId());
 
                 return BadRequest(ex.Message);
-            }
-        }
-
-        private string GetCurrentUserId()
-        {
-            if (User.Identity.IsAuthenticated)
-            {
-                return User.FindFirst(ClaimTypes.NameIdentifier).Value;
-            }
-            else
-            {
-                return null;
             }
         }
     }

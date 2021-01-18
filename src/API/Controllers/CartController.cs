@@ -7,14 +7,13 @@ using Core.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using System.Security.Claims;
 
 namespace API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     [Authorize(Roles = "admin, employee")]
-    public class CartController : ControllerBase
+    public class CartController : ControllerBaseGetUserId
     {
         private readonly ICartService _cartService;
         private readonly ICartHelper _cartHelper;
@@ -151,18 +150,6 @@ namespace API.Controllers
                 _loggerService.LogInformation(CONTROLLER_NAME + $"/all/delete", LoggerConstants.ACTION_DELETE, $"delete all dish in cart error: {ex.Message}", GetCurrentUserId());
 
                 return BadRequest(ex.Message);
-            }
-        }
-
-        private string GetCurrentUserId()
-        {
-            if (User.Identity.IsAuthenticated)
-            {
-                return User.FindFirst(ClaimTypes.NameIdentifier).Value;
-            }
-            else
-            {
-                return null;
             }
         }
     }

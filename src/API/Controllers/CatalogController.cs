@@ -7,13 +7,12 @@ using Core.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using System.Security.Claims;
 
 namespace API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CatalogController : ControllerBase
+    public class CatalogController : ControllerBaseGetUserId
     {
         private readonly ICatalogService _сatalogService;
         private readonly ICatalogHelper _catalogHelper;
@@ -141,18 +140,6 @@ namespace API.Controllers
                 _loggerService.LogWarning(CONTROLLER_NAME + $"/{id}", LoggerConstants.TYPE_DELETE, $"delete catalog id: {id} error: {ex.Message}", GetCurrentUserId());
 
                 return BadRequest(ex.Message);
-            }
-        }
-
-        private string GetCurrentUserId()
-        {
-            if (User.Identity.IsAuthenticated)
-            {
-                return User.FindFirst(ClaimTypes.NameIdentifier).Value;
-            }
-            else
-            {
-                return null;
             }
         }
     }

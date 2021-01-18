@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace API.Controllers.Identity
@@ -15,7 +14,7 @@ namespace API.Controllers.Identity
     [Route("api/[controller]")]
     [ApiController]
     [Authorize(Roles = "admin")]
-    public class RolesController : ControllerBase
+    public class RolesController : ControllerBaseGetUserId
     {
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly UserManager<ApplicationUser> _userManager;
@@ -95,18 +94,6 @@ namespace API.Controllers.Identity
             _loggerService.LogInformation(CONTROLLER_NAME, LoggerConstants.TYPE_PUT, $"edit roles user id: {user.Id} successful", GetCurrentUserId());
 
             return Ok(model);
-        }
-
-        private string GetCurrentUserId()
-        {
-            if (User.Identity.IsAuthenticated)
-            {
-                return User.FindFirst(ClaimTypes.NameIdentifier).Value;
-            }
-            else
-            {
-                return null;
-            }
         }
     }
 }

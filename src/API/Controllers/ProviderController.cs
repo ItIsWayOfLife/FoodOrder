@@ -9,13 +9,12 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Claims;
 
 namespace API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProviderController : ControllerBase
+    public class ProviderController : ControllerBaseGetUserId
     {
         private readonly IProviderService _providerService;
         private readonly IProviderHelper _providerHelper;
@@ -131,27 +130,15 @@ namespace API.Controllers
                 _providerService.DeleteProvider(id);
 
                 _loggerService.LogInformation(CONTROLLER_NAME, LoggerConstants.TYPE_DELETE, $"delete provider id: {id} successful", GetCurrentUserId());
+
+                return Ok(id);
             }
             catch (ValidationException ex)
             {
                 _loggerService.LogWarning(CONTROLLER_NAME, LoggerConstants.TYPE_DELETE, $"delete provider id: {id} error: {ex.Message}", GetCurrentUserId());
 
                 return BadRequest(ex.Message);
-            }
-
-            return Ok(id);           
-        }
-
-        private string GetCurrentUserId()
-        {
-            if (User.Identity.IsAuthenticated)
-            {
-                return User.FindFirst(ClaimTypes.NameIdentifier).Value;
-            }
-            else
-            {
-                return null;
-            }
+            }           
         }
     }
 }

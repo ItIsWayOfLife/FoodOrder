@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
-using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace API.Controllers
@@ -15,7 +14,7 @@ namespace API.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [Authorize(Roles = "admin")]
-    public class ReportController : ControllerBase
+    public class ReportController : ControllerBaseGetUserId
     {
         private readonly IReportService _reportService;
         private readonly IProviderService _providerService;
@@ -208,18 +207,6 @@ namespace API.Controllers
             catch (ValidationException ex)
             {
                 return BadRequest(ex.Message);
-            }
-        }
-
-        private string GetCurrentUserId()
-        {
-            if (User.Identity.IsAuthenticated)
-            {
-                return User.FindFirst(ClaimTypes.NameIdentifier).Value;
-            }
-            else
-            {
-                return null;
             }
         }
     }

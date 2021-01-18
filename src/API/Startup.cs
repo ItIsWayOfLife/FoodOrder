@@ -1,3 +1,4 @@
+using API.Exceptions;
 using API.Logger;
 using API.Middlewares;
 using Infrastructure.Entities;

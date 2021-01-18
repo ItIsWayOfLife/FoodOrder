@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace API.Controllers.Identity
@@ -15,7 +14,7 @@ namespace API.Controllers.Identity
     [Route("api/[controller]")]
     [ApiController]
     [Authorize(Roles = "admin")]
-    public class UsersController : ControllerBase
+    public class UsersController : ControllerBaseGetUserId
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly IUserHelper _userHelper;
@@ -184,18 +183,6 @@ namespace API.Controllers.Identity
                 _loggerService.LogWarning(CONTROLLER_NAME + "/changepassword", LoggerConstants.TYPE_PUT, $"change password user id: {model.Id} error: {result.Errors}", GetCurrentUserId());
 
                 return BadRequest(result.Errors);
-            }
-        }
-
-        private string GetCurrentUserId()
-        {
-            if (User.Identity.IsAuthenticated)
-            {
-                return User.FindFirst(ClaimTypes.NameIdentifier).Value;
-            }
-            else
-            {
-                return null;
             }
         }
     }
