@@ -1,6 +1,6 @@
 ﻿using API.Controllers;
 using API.Interfaces;
-using API.Models.Catalog;
+using API.Models.Menu;
 using Core.DTO;
 using Core.Interfaces;
 using Microsoft.AspNetCore.Mvc;
@@ -10,23 +10,23 @@ using Xunit;
 
 namespace API.UnitTests.Controllers
 {
-    public class CatalogControllerUnitTests
+    public class MenuControllerUnitTests
     {
-        private readonly Mock<ICatalogService> _mockCatalogService;
-        private readonly Mock<ICatalogHelper> _mockCatalogHelper;
+        private readonly Mock<IMenuService> _mockMenuService;
+        private readonly Mock<IMenuHelper> _mockMenuHelper;
         private readonly Mock<ILoggerService> _mockLoggerService;
 
-        private readonly CatalogController _controller;
+        private readonly MenuController _controller;
 
-        public CatalogControllerUnitTests()
+        public MenuControllerUnitTests()
         {
-            _mockCatalogService = new Mock<ICatalogService>();
-            _mockCatalogHelper = new Mock<ICatalogHelper>();
+            _mockMenuService = new Mock<IMenuService>();
+            _mockMenuHelper = new Mock<IMenuHelper>();
             _mockLoggerService = new Mock<ILoggerService>();
 
-            _controller = new CatalogController(
-                _mockCatalogService.Object,
-                _mockCatalogHelper.Object,
+            _controller = new MenuController(
+                _mockMenuService.Object,
+                _mockMenuHelper.Object,
                 _mockLoggerService.Object);
         }
 
@@ -41,23 +41,10 @@ namespace API.UnitTests.Controllers
         }
 
         [Fact]
-        public void Get_WhenCalled_ReturnsAllItems()
-        {
-            _mockCatalogService.Setup(service => service.GetСatalogs())
-                .Returns(new List<CatalogDTO>() { new CatalogDTO(), new CatalogDTO() });
-
-            var result = _controller.Get();
-
-            var objectResult = Assert.IsType<ObjectResult>(result);
-            var catalogs = Assert.IsType<List<CatalogDTO>>(objectResult.Value);
-            Assert.Equal(2, catalogs.Count);
-        }
-
-        [Fact]
         public void GetById_UnknownIdPassed_ReturnsNotFoundObjectResult()
         {
-            _mockCatalogService.Setup(service => service.GetСatalog(1))
-                .Returns((CatalogDTO)null);
+            _mockMenuService.Setup(service => service.GetMenu(1))
+                .Returns((MenuDTO)null);
 
             var result = _controller.Get(1);
 
@@ -67,8 +54,8 @@ namespace API.UnitTests.Controllers
         [Fact]
         public void GetById_ExistingIdPassed_ReturnsObjectResult()
         {
-            _mockCatalogService.Setup(service => service.GetСatalog(1))
-                .Returns(new CatalogDTO());
+            _mockMenuService.Setup(service => service.GetMenu(1))
+                .Returns(new MenuDTO());
 
             var result = _controller.Get(1);
 
@@ -76,24 +63,23 @@ namespace API.UnitTests.Controllers
         }
 
         [Fact]
-        public void GetById_ExistingIdPassed_ReturnsRightItem()
+        public void GetByProviderId_ExistingIdPassed_ReturnsObjectResult()
         {
-            _mockCatalogService.Setup(service => service.GetСatalog(1))
-                .Returns(new CatalogDTO() { Id = 1});
+            _mockMenuService.Setup(service => service.GetMenu(1))
+                .Returns(new MenuDTO());
 
-            var result = _controller.Get(1) as ObjectResult;
+            var result = _controller.GetByProviderId(1);
 
-            Assert.IsType<CatalogDTO>(result.Value);
-            Assert.Equal(1, (result.Value as CatalogDTO).Id);
+            Assert.IsType<ObjectResult>(result);
         }
 
         [Fact]
-        public void GetByProviderId_ExistingIdPassed_ReturnsObjectResult()
+        public void GetDishesInMenu_ExistingIdPassed_ReturnsObjectResult()
         {
-            _mockCatalogService.Setup(service => service.GetСatalog(1))
-                .Returns(new CatalogDTO());
+            _mockMenuService.Setup(service => service.GetMenuIdDishes(1))
+                .Returns(new List<int>());
 
-            var result = _controller.GetByProviderId(1);
+            var result = _controller.GetDishesInMenu(1);
 
             Assert.IsType<ObjectResult>(result);
         }
@@ -105,7 +91,7 @@ namespace API.UnitTests.Controllers
         [Fact]
         public void Post_ActionExecutes_ReturnsOkObjectResult()
         {
-            var result = _controller.Post(new CatalogModel());
+            var result = _controller.Post(new MenuModel());
 
             Assert.IsType<OkObjectResult>(result);
         }
@@ -113,9 +99,9 @@ namespace API.UnitTests.Controllers
         [Fact]
         public void Post_InvalidModelState_ReturnsBadRequestObjectResult()
         {
-            _controller.ModelState.AddModelError("Name", "Name is required");
+            _controller.ModelState.AddModelError("Date", "Name is required");
 
-            var result = _controller.Post(new CatalogModel());
+            var result = _controller.Post(new MenuModel());
 
             Assert.IsType<BadRequestObjectResult>(result);
         }
@@ -123,7 +109,7 @@ namespace API.UnitTests.Controllers
         [Fact]
         public void Post_ValidModelState_ReturnsBadRequestObjectResult()
         {
-            var result = _controller.Post(new CatalogModel());
+            var result = _controller.Post(new MenuModel());
 
             Assert.IsType<OkObjectResult>(result);
         }
@@ -136,6 +122,40 @@ namespace API.UnitTests.Controllers
             Assert.IsType<BadRequestObjectResult>(result);
         }
 
+
+        [Fact]
+        public void MakeMenu_ActionExecutes_ReturnsOkObjectResult()
+        {
+            var result = _controller.MakeMenu(new MakeMenuModel());
+
+            Assert.IsType<OkObjectResult>(result);
+        }
+
+        [Fact]
+        public void MakeMenu_InvalidModelState_ReturnsBadRequestObjectResult()
+        {
+            _controller.ModelState.AddModelError("MenuId", "MenuId is required");
+
+            var result = _controller.MakeMenu(new MakeMenuModel());
+
+            Assert.IsType<BadRequestObjectResult>(result);
+        }
+
+        [Fact]
+        public void MakeMenu_ValidModelState_ReturnsBadRequestObjectResult()
+        {
+            var result = _controller.MakeMenu(new MakeMenuModel());
+
+            Assert.IsType<OkObjectResult>(result);
+        }
+
+        [Fact]
+        public void MakeMenu_NullObjectPassed_ReturnsReturnsBadRequestObjectResult()
+        {
+            var result = _controller.MakeMenu(null);
+
+            Assert.IsType<BadRequestObjectResult>(result);
+        }
         #endregion
 
         #region delete
@@ -151,7 +171,7 @@ namespace API.UnitTests.Controllers
         [Fact]
         public void Delete_InvalidIdPassed_ReturnsBadRequestObjectResult()
         {
-            _controller.ModelState.AddModelError("Id", "Catalog not found");
+            _controller.ModelState.AddModelError("Id", "Provider not found");
 
             var result = _controller.Delete(1);
 
@@ -165,7 +185,7 @@ namespace API.UnitTests.Controllers
         [Fact]
         public void Put_ActionExecutes_ReturnsOkObjectResult()
         {
-            var result = _controller.Put(new CatalogModel());
+            var result = _controller.Put(new MenuModel());
 
             Assert.IsType<OkObjectResult>(result);
         }
@@ -173,9 +193,9 @@ namespace API.UnitTests.Controllers
         [Fact]
         public void Put_InvalidModelState_ReturnsBadRequestObjectResult()
         {
-            _controller.ModelState.AddModelError("Id", "Catalog not found");
+            _controller.ModelState.AddModelError("Date", "Date is required");
 
-            var result = _controller.Put(new CatalogModel());
+            var result = _controller.Put(new MenuModel());
 
             Assert.IsType<BadRequestObjectResult>(result);
         }
@@ -183,7 +203,7 @@ namespace API.UnitTests.Controllers
         [Fact]
         public void Put_ValidModelState_ReturnsBadRequestObjectResult()
         {
-            var result = _controller.Put(new CatalogModel());
+            var result = _controller.Put(new MenuModel());
 
             Assert.IsType<OkObjectResult>(result);
         }
