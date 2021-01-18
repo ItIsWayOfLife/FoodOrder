@@ -14,7 +14,6 @@ namespace API.Controllers.Identity
     [ApiController]
     public class AccountController : ControllerBaseGetUserId
     {
-        private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly IJwtConfigurator _jwtConfigurator;
         private readonly IUserHelper _userHelper;
@@ -22,14 +21,12 @@ namespace API.Controllers.Identity
 
         private const string CONTROLLER_NAME = "api/account";
 
-        public AccountController(SignInManager<ApplicationUser> signInManager,
-            UserManager<ApplicationUser> userManager,
+        public AccountController(UserManager<ApplicationUser> userManager,
             IJwtConfigurator jwtConfigurator,
              IUserHelper userHelper,
              ILoggerService loggerService
             )
         {
-            _signInManager = signInManager;
             _userManager = userManager;
             _jwtConfigurator = jwtConfigurator;
             _userHelper = userHelper;

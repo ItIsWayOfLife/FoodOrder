@@ -1,0 +1,36 @@
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\API
+[1/18/2021 10:31:04 AM]:[api/provider]:[type:get]:[info:get providers]:[user:anonymous]
+[1/18/2021 10:33:15 AM]:[api/account/login]:[type:post]:[info:login user id: 1eb93154-04cb-4838-90ef-ed83225d8776 successful]:[user:anonymous]
+[1/18/2021 10:33:15 AM]:[api/provider]:[type:get]:[info:get providers]:[user:1eb93154-04cb-4838-90ef-ed83225d8776]
+[1/18/2021 10:33:16 AM]:[api/provider]:[type:get]:[info:get providers]:[user:1eb93154-04cb-4838-90ef-ed83225d8776]
+[1/18/2021 10:33:17 AM]:[api/cart/dishes]:[type:get]:[info:get cart dishes successful]:[user:1eb93154-04cb-4838-90ef-ed83225d8776]
+[1/18/2021 10:33:18 AM]:[api/provider]:[type:get]:[info:get providers]:[user:1eb93154-04cb-4838-90ef-ed83225d8776]
+[1/18/2021 10:33:20 AM]:[api/provider/2]:[type:get]:[info:get provider id: 2]:[user:1eb93154-04cb-4838-90ef-ed83225d8776]
+[1/18/2021 10:33:20 AM]:[api/menu/provider/2]:[type:get]:[info:get menu providerid: 2 successful]:[user:1eb93154-04cb-4838-90ef-ed83225d8776]
+[1/18/2021 10:33:21 AM]:[api/menu/2]:[type:get]:[info:get menu id: 2]:[user:1eb93154-04cb-4838-90ef-ed83225d8776]
+[1/18/2021 10:33:21 AM]:[api/menu/2]:[type:get]:[info:get menu id: 2]:[user:1eb93154-04cb-4838-90ef-ed83225d8776]
+[1/18/2021 10:33:21 AM]:[api/dish/menudishes/2]:[type:get]:[info:get  menu dishes menu id: 2 successful]:[user:1eb93154-04cb-4838-90ef-ed83225d8776]
+[1/18/2021 10:33:22 AM]:[api/cart/6]:[type:post]:[info:add dish id: 6 to cart successful]:[user:1eb93154-04cb-4838-90ef-ed83225d8776]
+[1/18/2021 10:33:22 AM]:[api/cart/dishes]:[type:get]:[info:get cart dishes successful]:[user:1eb93154-04cb-4838-90ef-ed83225d8776]
+[1/18/2021 10:33:25 AM]:[api/cart]:[type:put]:[info:update count dish in cart successful]:[user:1eb93154-04cb-4838-90ef-ed83225d8776]
+[1/18/2021 10:33:25 AM]:[api/cart/dishes]:[type:get]:[info:get cart dishes successful]:[user:1eb93154-04cb-4838-90ef-ed83225d8776]
+[1/18/2021 10:33:30 AM]:[api/cart]:[type:put]:[info:update count dish in cart successful]:[user:1eb93154-04cb-4838-90ef-ed83225d8776]
+[1/18/2021 10:33:30 AM]:[api/cart/dishes]:[type:get]:[info:get cart dishes successful]:[user:1eb93154-04cb-4838-90ef-ed83225d8776]
+[1/18/2021 10:33:38 AM]:[api/cart]:[type:put]:[info:update count dish in cart successful]:[user:1eb93154-04cb-4838-90ef-ed83225d8776]
+[1/18/2021 10:33:38 AM]:[api/cart/dishes]:[type:get]:[info:get cart dishes successful]:[user:1eb93154-04cb-4838-90ef-ed83225d8776]
+[1/18/2021 10:33:40 AM]:[api/menu]:[type:post]:[info:create order successful]:[user:1eb93154-04cb-4838-90ef-ed83225d8776]
+[1/18/2021 10:33:40 AM]:[api/menu]:[type:get]:[info:get orders successful]:[user:1eb93154-04cb-4838-90ef-ed83225d8776]
+[1/18/2021 10:33:42 AM]:[api/users]:[type:get]:[info:get users]:[user:1eb93154-04cb-4838-90ef-ed83225d8776]
+[1/18/2021 10:33:43 AM]:[api/provider]:[type:get]:[info:get providers]:[user:anonymous]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\asus\Desktop\Work\FoodOrder\src\API
+[1/18/2021 1:45:14 PM]:[api/provider]:[type:get]:[info:get providers]:[user:anonymous]
+[1/18/2021 1:45:15 PM]:[api/provider/1]:[type:get]:[info:get provider id: 1]:[user:anonymous]
+[1/18/2021 1:45:15 PM]:[api/menu/provider/1]:[type:get]:[info:get menu providerid: 1 successful]:[user:anonymous]
+[1/18/2021 1:45:18 PM]:[api/provider]:[type:get]:[info:get providers]:[user:anonymous]
+[1/18/2021 1:45:21 PM]:[api/provider/1]:[type:get]:[info:get provider id: 1]:[user:anonymous]
+[1/18/2021 1:45:21 PM]:[api/menu/provider/1]:[type:get]:[info:get menu providerid: 1 successful]:[user:anonymous]
+[1/18/2021 1:45:23 PM]:[api/provider]:[type:get]:[info:get providers]:[user:anonymous]
