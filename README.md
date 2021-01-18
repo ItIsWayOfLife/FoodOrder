@@ -2,8 +2,6 @@
 
 ## FoodOrder it's app to order dinners
 
-***
-
 ### Main roles:
 *  Employee
 *  Administrator
