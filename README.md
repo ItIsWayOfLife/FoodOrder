@@ -32,9 +32,15 @@
 
 [![HTML5](https://img.shields.io/badge/-HTML5-090909?style=for-the-badge&logo=HTML5&logoColor=007BB6)](https://github.com/ItIsWayOfLife/FoodOrder/tree/main/src/ClientApp)
 
-[![CSS3](https://img.shields.io/badge/-CSS3-090909?style=for-the-badge&logo=CSS3&logoColor=007BB6)](https://github.com/ItIsWayOfLife/FoodOrder/tree/main/src/ClientApp)
+[![CSS3](https://img.shields.io/badge/-CSS3-090909?style=for-the-badge&logo=CSS3&logoColor=007BB6)](https://github.com/ItIsWayOfLife/FoodOrder/blob/main/src/Web/wwwroot/css/site.css)
 
-[![TypeScript](https://img.shields.io/badge/-TypeScript-090909?style=for-the-badge&logo=TypeScript&logoColor=007BB6)](https://github.com/ItIsWayOfLife/FoodOrder/tree/main/src/ClientApp)
+[![Bootstrap](https://img.shields.io/badge/-Bootstrap-090909?style=for-the-badge&logo=Bootstrap&logoColor=007BB6)](https://github.com/ItIsWayOfLife/FoodOrder/tree/main/src/Web/wwwroot/lib/bootstrap)
+
+[![TypeScript](https://img.shields.io/badge/-TypeScript-090909?style=for-the-badge&logo=TypeScript&logoColor=007BB6)](https://github.com/ItIsWayOfLife/FoodOrder/tree/main/src/ClientApp/src/app/service)
+
+[![jQuery](https://img.shields.io/badge/-jQuery-090909?style=for-the-badge&logo=jQuery&logoColor=007BB6)](https://github.com/ItIsWayOfLife/FoodOrder/tree/main/src/Web/wwwroot/lib/jquery)
+
+[![JavaScript](https://img.shields.io/badge/-JavaScript-090909?style=for-the-badge&logo=JavaScript&logoColor=007BB6)](https://github.com/ItIsWayOfLife/FoodOrder/blob/main/src/ClientApp/karma.conf.js)
 
 [![Angular](https://img.shields.io/badge/-Angular-090909?style=for-the-badge&logo=Angular&logoColor=007BB6)](https://github.com/ItIsWayOfLife/FoodOrder/tree/main/src/ClientApp)
 
@@ -46,7 +52,7 @@
 
 [![Repository](https://img.shields.io/badge/-Repository-090909?style=for-the-badge&logo=Repository&logoColor=007BB6)](https://github.com/ItIsWayOfLife/FoodOrder/tree/main/src/Infrastructure/Repositories)
 
-[![UnitOfWork](https://img.shields.io/badge/-UnitOfWork-090909?style=for-the-badge&logo=UnitOfWork&logoColor=007BB6)](https://github.com/ItIsWayOfLife/FoodOrder/tree/main/src/Infrastructure/Repositories)
+[![UnitOfWork](https://img.shields.io/badge/-UnitOfWork-090909?style=for-the-badge&logo=UnitOfWork&logoColor=007BB6)](https://github.com/ItIsWayOfLife/FoodOrder/blob/main/src/Infrastructure/Repositories/EFUnitOfWork.cs)
 
 [![MVC](https://img.shields.io/badge/-MVC-090909?style=for-the-badge&logo=MVC&logoColor=007BB6)](https://github.com/ItIsWayOfLife/FoodOrder/tree/main/src/Web)
 
