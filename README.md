@@ -2,10 +2,6 @@
 
 ## FoodOrder it's app to order dinners
 
-### Main roles:
-*  Employee
-*  Administrator
-
 ***
 
 ### Technologies:
@@ -52,5 +48,18 @@
 
 ***
 
+### Additionally:
+
+<br>
+
 Use dependency injection, logging of actions.
+
+***
+
+### Roles:
+*  Employee
+*  Administrator
+
+***
+
 
