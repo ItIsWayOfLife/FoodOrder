@@ -18,7 +18,6 @@
 
 [![Mssql](https://img.shields.io/badge/-Mssql-090909?style=for-the-badge&logo=Mssql&logoColor=007BB6)](https://github.com/ItIsWayOfLife/FoodOrder/blob/8e4e8ac9ae7b07d1f1f7aa6f6707c0cb504270da/src/API/Startup.cs#L29)
 
-
 [![Entity Framework](https://img.shields.io/badge/-EntityFramework-090909?style=for-the-badge&logo=EntityFramework&logoColor=007BB6)](https://github.com/ItIsWayOfLife/FoodOrder/blob/main/src/Infrastructure/Entities/ApplicationContext.cs)
 
 [![Identity](https://img.shields.io/badge/-Identity-090909?style=for-the-badge&logo=Identity&logoColor=007BB6)](https://github.com/ItIsWayOfLife/FoodOrder/blob/main/src/Infrastructure/Identity/IdentityContext.cs)
