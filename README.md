@@ -8,6 +8,10 @@
 
 <br>
 
+[![C#](https://img.shields.io/badge/-Sharp-090909?style=for-the-badge&logo=C&logoColor=E5D3FF)](https://github.com/ItIsWayOfLife/FoodOrder/tree/main/src)
+
+[![.Net](https://img.shields.io/badge/-.Net-090909?style=for-the-badge&logo=.net&logoColor=E5D3FF)](https://github.com/ItIsWayOfLife/FoodOrder/tree/main/src)
+
 [![ASP.Core Web Api](https://img.shields.io/badge/-Api-090909?style=for-the-badge&logo=Api&logoColor=27A0D9)](https://github.com/ItIsWayOfLife/FoodOrder/tree/main/src/API)
 
 [![Mssql](https://img.shields.io/badge/-Mssql-090909?style=for-the-badge&logo=Mssql&logoColor=007BB6)](https://github.com/ItIsWayOfLife/FoodOrder/blob/8e4e8ac9ae7b07d1f1f7aa6f6707c0cb504270da/src/API/Startup.cs#L29)
