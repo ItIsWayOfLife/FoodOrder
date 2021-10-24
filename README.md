@@ -1,6 +1,6 @@
 # FoodOrder
 
-## FoodOrder it's app to order dinners
+## It's app to order food
 
 ***
 
